@@ -1,0 +1,41 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/product",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/dealer",
+      "destination": "/distributor",
+      "permanent": true
+    },
+    {
+      "source": "/dealers",
+      "destination": "/distributor",
+      "permanent": true
+    },
+    {
+      "source": "/dealer-desk",
+      "destination": "/distributor",
+      "permanent": true
+    },
+    {
+      "source": "/manufacturing-facilities",
+      "destination": "/manufacturing",
+      "permanent": true
+    },
+    {
+      "source": "/catalogue",
+      "destination": "/products",
+      "permanent": true
+    }
+  ]
+}

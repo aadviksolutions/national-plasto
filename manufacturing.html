@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-IN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Manufacturing Facilities &amp; Group Locations | National Plasto</title>
+    <meta name="description" content="Discover National Plasto's 4 integrated manufacturing plants across India featuring 80T to 1,200T high-tonnage injection moulding machinery and ISO 9001:2015 certification.">
+    <meta name="keywords" content="National Plasto manufacturing, plastic injection moulding factory, Dhulagarh plant, 1200T injection machine, polymer tooling Kolkata">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Manufacturing Facilities &amp; Group Locations | National Plasto">
+    <meta property="og:description" content="4 Modern Manufacturing Hubs across India. 1,200 Ton Heavy Injection Presses.">
+    <meta property="og:image" content="images/brand/company-photo.jpg">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="images/brand/company-national-logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Core Stylesheets: FontAwesome, Slick, Supreme App CSS & Supreme Common CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/supreme_app.min.css">
+    <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261006_menu">
+
+    <style>
+        /* Plant Facilities Grid Layout */
+        .plants_section {
+            padding: 70px 0 90px;
+            background: #FFFFFF;
+        }
+        .plants_grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px;
+            margin-top: 50px;
+        }
+        .plant_card {
+            background: #FFFFFF;
+            border-radius: 14px;
+            border: 1px solid #E2E8F0;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .plant_card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+            border-color: var(--brand-icy-blue);
+        }
+        .plant_img_wrap {
+            height: 220px;
+            position: relative;
+            background: #0F172A;
+            overflow: hidden;
+        }
+        .plant_img_wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: transform 0.4s ease;
+        }
+        .plant_card:hover .plant_img_wrap img {
+            transform: scale(1.05);
+        }
+        .plant_badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--brand-primary);
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+        }
+        .plant_details {
+            padding: 28px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .plant_details h3 {
+            font-size: 22px;
+            margin: 0 0 8px 0;
+            color: #0F172A;
+        }
+        .plant_location {
+            font-size: 13.5px;
+            color: var(--brand-primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .plant_desc {
+            font-size: 14.5px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .plant_metrics_row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            padding: 14px 18px;
+            border: 1px solid #F1F5F9;
+        }
+        .plant_metric_item strong {
+            display: block;
+            font-size: 16px;
+            color: #0F172A;
+            font-family: var(--font-heading);
+        }
+        .plant_metric_item span {
+            font-size: 12px;
+            color: #64748B;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Quality & Toolroom Section */
+        .toolroom_section {
+            padding: 80px 0;
+            background: #F1F5F9;
+        }
+        .toolroom_flex {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+        }
+        .toolroom_text {
+            flex: 1;
+        }
+        .toolroom_text h2 {
+            font-size: 34px;
+            margin-bottom: 16px;
+        }
+        .toolroom_text p {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .toolroom_list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .toolroom_list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1E293B;
+        }
+        .toolroom_list li i {
+            color: var(--brand-primary);
+            font-size: 18px;
+        }
+        .toolroom_img_box {
+            flex: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+        .toolroom_img_box img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 991px) {
+            .plants_grid { grid-template-columns: 1fr; }
+            .toolroom_flex { flex-direction: column; }
+        }
+    </style>
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261006e">
+</head>
+
+<body id="manufacturing_page">
+
+    <!-- Main Navigation Header (Exact Supreme 1:1) -->
+        <!-- Main Navigation Header (Exact Supreme 1:1) -->
+    <header class="header">
+        <div class="container">
+            <nav>
+                <div class="logo_section">
+                    <a href="index.html" class="rem_link_style">
+                        <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive">
+                    </a>
+                </div>
+                <ul class="menu">
+                    <li><a class="homer" href="index.html">Home</a></li>
+                    <li>
+                        <a href="about.html">About Us</a>
+                        <ul class="sub-menu">
+                            <li><a href="about.html">Overview</a></li>
+                            <li><a href="about.html#leadership">Leadership</a></li>
+                            <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                            <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                            <li><a href="index.html#scroll_down">Virtues</a></li>
+                            <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                    <li><a href="index.html#sustainability">Sustainability</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="products.html">Products</a>
+                        <ul class="sub-menu">
+                            <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                            <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                            <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                            <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                            <li><a href="products.html">All Products</a></li>
+                            <li class="np-menu-download"><a href="docs/national-plasto-catalogue-2026.pdf" download="National-Plasto-Catalogue-2026.pdf"><i class="fas fa-download" aria-hidden="true"></i> Download Catalogue</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="distributor.html">Dealer Desk</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+                <ul class="social_links">
+                    <li class="header_social search_icon">
+                        <div class="search_main_box">
+                            <a class="icon_open_close" href="javascript:void(0);" onclick="searchToggle(this, event);" title="Search">
+                                <img src="images/icons/search_icon.svg" alt="Search">
+                                <i class="fas fa-times"></i>
+                            </a>
+                            <div class="search_box">
+                                <input class="header_search_input" type="text" placeholder="Search products, catalogues, specifications..." onkeyup="handleHeaderSearch(event, this)" />
+                                <button type="button" class="search_submit_btn" onclick="executeHeaderSearch(this)" title="Search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header_social">
+                        <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" rel="noopener" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a href="https://www.linkedin.com/company/nationalplasto/" rel="noopener" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a href="https://www.instagram.com/national_plasto_group/" rel="noopener" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a class="np-social-amazon" href="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview" rel="noopener" target="_blank" title="Shop on Amazon" aria-label="Shop National Plasto on Amazon"><i class="fab fa-amazon" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a class="np-social-flipkart" href="https://www.flipkart.com/search?q=npm%20national&amp;otracker=search&amp;otracker1=search&amp;marketplace=FLIPKART&amp;as-show=on&amp;as=off" rel="noopener" target="_blank" title="Shop on Flipkart" aria-label="Shop National Plasto on Flipkart"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z" fill="#FFE11B"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" fill="none" stroke="#FFE11B" stroke-width="1.8"/><path d="M13.9 10.2h-1.5c-1 0-1.6.6-1.8 1.6l-.2.9H9.3l-.3 1.5h1.1l-1 4.6h1.8l1-4.6h1.6l.3-1.5h-1.6l.2-.8c.1-.3.2-.4.5-.4h1.1l.2-1.3z" fill="#2874F0"/></svg></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Header (Exact Supreme 1:1) -->
+    <div class="mobile_navbar">
+        <div id="nav-icon3" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="rem_link_style mobile_logo_center">
+            <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive navbar_logo">
+        </a>
+        <div class="search_main_box">
+            <a class="icon_open_close" href="javascript:void(0);" onclick="searchToggle(this, event);" aria-label="Toggle Search">
+                <img src="images/icons/search_icon.svg" alt="Search">
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="search_box">
+                <input class="header_search_input" type="text" placeholder="Search products..." onkeyup="if(event.key==='Enter'){window.location.href='products.html?search='+encodeURIComponent(this.value);}" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Supreme Mobile Sidebar Wrap (Exact 1:1) -->
+    <div class="sidebar_wrap">
+        <div class="links">
+            <li>
+                <div class="dropdown">
+                    <div class="sidebar-dropdown-row">
+                        <a href="about.html" class="sidebar-cat-link">About us</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Overview</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#scroll_down">Virtues</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <div class="sidebar-dropdown-row">
+                        <a href="products.html" class="sidebar-cat-link">Products</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                        <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                        <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                        <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li class="np-menu-download"><a href="docs/national-plasto-catalogue-2026.pdf" download="National-Plasto-Catalogue-2026.pdf"><i class="fas fa-download" aria-hidden="true"></i> Download Catalogue</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="manufacturing.html">Manufacturing</a></li>
+            <li><a href="distributor.html">Dealer Desk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </div>
+        <div class="social-div">
+            <h3>Get regular updates <br>about us on</h3>
+            <div class="icon-row">
+                <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a class="np-social-amazon" href="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview" target="_blank" rel="noopener" aria-label="Shop National Plasto on Amazon"><i class="fab fa-amazon"></i></a>
+                <a class="np-social-flipkart" href="https://www.flipkart.com/search?q=npm%20national&amp;otracker=search&amp;otracker1=search&amp;marketplace=FLIPKART&amp;as-show=on&amp;as=off" target="_blank" rel="noopener" aria-label="Shop National Plasto on Flipkart"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z" fill="#FFE11B"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" fill="none" stroke="#FFE11B" stroke-width="1.8"/><path d="M13.9 10.2h-1.5c-1 0-1.6.6-1.8 1.6l-.2.9H9.3l-.3 1.5h1.1l-1 4.6h1.8l1-4.6h1.6l.3-1.5h-1.6l.2-.8c.1-.3.2-.4.5-.4h1.1l.2-1.3z" fill="#2874F0"/></svg></a>
+            </div>
+        </div>
+        <div class="download-div" style="margin-top:20px;">
+            <a href="docs/national-plasto-catalogue-2026.pdf" download class="btn_project_default" style="display:inline-flex; align-items:center; justify-content:center; background:#0094DC; color:#fff; padding:12px 28px; border-radius:4px; font-weight:600; font-size:15px; text-decoration:none; width:100%; box-sizing:border-box;">
+                <i class="fas fa-file-pdf" style="margin-right:8px;"></i> Download Catalogue
+            </a>
+        </div>
+    </div>
+
+    <!-- Banner Section (Exact Supreme 1:1 with manufacturing.jpg / manufacter.png) -->
+    <section class="banner-section">
+        <div class="slider home-banner-slider">
+            <div class="banner_item">
+                <div class="banner-slider-img banner-slider-img1" style="background-image: url('images/brand/manufacturing.jpg');">
+                </div>
+                <img loading="lazy" src="images/brand/manufacturing.jpg" class="img-responsive mob-banner-img" alt="National Plasto Manufacturing Facilities">
+            </div>
+        </div>
+
+        <div class="scrool-down">
+            <div class="l-section-top">
+                <div class="c-scrolldown">
+                    <div class="c-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrums">
+            <div class="container">
+                <div class="np-breadcrumb-pill">
+                    <a href="index.html">Home</a>
+                    <span class="np-bc-sep"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    <span class="np-bc-current">Manufacturing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <main class="smooth_scroll_pages">
+
+        <!-- 4 Plants Grid Section -->
+        <section class="plants_section">
+            <div class="container">
+                <div style="text-align:center;max-width:850px;margin:0 auto;">
+                    <span style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--brand-primary);background:var(--brand-icy-blue-light);padding:4px 14px;border-radius:20px;border:1px solid var(--brand-icy-blue);">Industrial Pedigree</span>
+                    <h2 style="font-size:34px;margin:14px 0 10px;">Integrated <span style="color:var(--brand-primary);">Manufacturing Plants</span></h2>
+                    <p style="font-size:16px;color:#64748B;">Harnessing computerized injection moulding cells, centralized raw resin blending, and robotic parts removal.</p>
+                </div>
+
+                <div class="plants_grid">
+
+                    <!-- Plant 1: Dhulagarh Hub -->
+                    <div class="plant_card" id="howrah">
+                        <div class="plant_img_wrap">
+                            <span class="plant_badge">Main Headquarters &bull; Plant 1</span>
+                            <img src="images/manufacturing/plant-howrah-kl850.jpg" alt="Dhulagarh Plant Howrah Windsor KL 850 Injection Moulding Press">
+                        </div>
+                        <div class="plant_details">
+                            <div>
+                                <h3>Dhulagarh Central Facility &amp; Toolroom</h3>
+                                <div class="plant_location"><i class="fas fa-map-marker-alt"></i> Jalan Industrial Complex, Howrah, West Bengal</div>
+                                <p class="plant_desc">Our flagship manufacturing complex and central tooling workshop. Houses our heaviest 1,200T high-tonnage presses for large monoblock dining tables, executive armchairs, and custom industrial crates.</p>
+                            </div>
+                            <div class="plant_metrics_row">
+                                <div class="plant_metric_item">
+                                    <strong>1,200 Ton</strong>
+                                    <span>Max Press Tonnage</span>
+                                </div>
+                                <div class="plant_metric_item">
+                                    <strong>24x7 Continuous</strong>
+                                    <span>Automated Shifts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 2: Uluberia -->
+                    <div class="plant_card">
+                        <div class="plant_img_wrap">
+                            <span class="plant_badge">High-Speed Facility &bull; Plant 2</span>
+                            <img src="images/brand/company-photo.jpg" alt="Uluberia Plant">
+                        </div>
+                        <div class="plant_details">
+                            <div>
+                                <h3>Uluberia Monoblock Injection Plant</h3>
+                                <div class="plant_location"><i class="fas fa-map-marker-alt"></i> Uluberia Industrial Growth Centre, Howrah, WB</div>
+                                <p class="plant_desc">High-speed automated injection moulding cells with multi-cavity moulds, specialized in commercial monoblock seating, stools, and multi-tier modular storage systems.</p>
+                            </div>
+                            <div class="plant_metrics_row">
+                                <div class="plant_metric_item">
+                                    <strong>18 Presses</strong>
+                                    <span>Operational Fleet</span>
+                                </div>
+                                <div class="plant_metric_item">
+                                    <strong>ISO 9001:2015</strong>
+                                    <span>Quality Certified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 3: Guwahati / Assam -->
+                    <div class="plant_card" id="assam">
+                        <div class="plant_img_wrap">
+                            <span class="plant_badge">North-East Hub &bull; Plant 3</span>
+                            <img src="images/brand/company-photo.jpg" alt="Guwahati Plant">
+                        </div>
+                        <div class="plant_details">
+                            <div>
+                                <h3>Guwahati Regional Manufacturing Plant</h3>
+                                <div class="plant_location"><i class="fas fa-map-marker-alt"></i> Amingaon Industrial Estate, Kamrup, Assam</div>
+                                <p class="plant_desc">Strategically positioned manufacturing and regional logistics hub engineered to serve all 7 North-Eastern states with reduced transit times and dedicated regional inventory.</p>
+                            </div>
+                            <div class="plant_metrics_row">
+                                <div class="plant_metric_item">
+                                    <strong>24-48 Hours</strong>
+                                    <span>Regional Turnaround</span>
+                                </div>
+                                <div class="plant_metric_item">
+                                    <strong>7 States</strong>
+                                    <span>Direct Distribution</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plant 4: Patna / Bihar -->
+                    <div class="plant_card">
+                        <div class="plant_img_wrap">
+                            <span class="plant_badge">Eastern Hub &bull; Plant 4</span>
+                            <img src="images/brand/company-photo.jpg" alt="Patna Plant">
+                        </div>
+                        <div class="plant_details">
+                            <div>
+                                <h3>Patna Utility &amp; Storage Complex</h3>
+                                <div class="plant_location"><i class="fas fa-map-marker-alt"></i> Fatuha Industrial Area, Patna, Bihar</div>
+                                <p class="plant_desc">Modern injection pressing plant engineered for heavy agricultural crates, cold-storage parts, and everyday utility products catering to the dense Central &amp; Northern trade corridors.</p>
+                            </div>
+                            <div class="plant_metrics_row">
+                                <div class="plant_metric_item">
+                                    <strong>15,000 MT</strong>
+                                    <span>Annual Throughput</span>
+                                </div>
+                                <div class="plant_metric_item">
+                                    <strong>Direct Rail/Road</strong>
+                                    <span>Logistics Siding</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contract Manufacturing & OEM / ODM Section -->
+        <section class="np-contract-mfg" id="oem-solutions" style="background:#0F172A;color:#FFFFFF;padding:80px 0;">
+            <div class="container">
+                <div style="text-align:center;max-width:780px;margin:0 auto 48px;">
+                    <span style="background:rgba(0, 148, 220,0.2);color:#FF4D52;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:inline-block;margin-bottom:12px;">B2B &amp; Institutional Capabilities</span>
+                    <h2 style="font-size:32px;font-weight:700;color:#FFFFFF;margin-bottom:14px;">Contract Manufacturing &amp; <span style="color:var(--brand-primary);">OEM / ODM Solutions</span></h2>
+                    <p style="color:#94A3B8;font-size:15px;line-height:1.6;">Leveraging high-tonnage microprocessor injection moulding machinery (80T to 1,200T) and multi-location plants, National Plasto offers turnkey contract manufacturing and custom polymer moulding for retail chains, institutional brands, automotive crates, and export partners.</p>
+                </div>
+
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:24px;margin-bottom:40px;">
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-cogs"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">Custom Tooling &amp; Moulding</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">Precision CAD/CAM mould design, in-house EDM spark erosion tooling, and high-speed multi-cavity injection moulding tailored to your exact product specifications.</p>
+                    </div>
+
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-tags"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">Private Label &amp; Co-Branding</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">White-label furniture manufacturing, customized laser engraving, embossing, masterbatch Pantone color matching, and bespoke retail packaging.</p>
+                    </div>
+
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-cubes"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">High-Tonnage Large Mouldings</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">Up to 1,200 Ton clamping capacity for heavy-duty industrial storage crates, jumbo dining tables, monoblock seats, and large structural polymer components.</p>
+                    </div>
+
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-truck-moving"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">Pan-India Supply Chain</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">Decentralized manufacturing in 4 regional hubs (Howrah, Guwahati, Roorkee, Hajipur) reduces freight costs and enables 24–48 hour transit times across India.</p>
+                    </div>
+                </div>
+
+                <div style="background:rgba(0, 148, 220,0.12);border:1px solid rgba(0, 148, 220,0.3);border-radius:12px;padding:24px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+                    <div>
+                        <h5 style="font-size:17px;font-weight:700;color:#FFFFFF;margin:0 0 4px;">Interested in OEM or Custom Polymer Manufacturing?</h5>
+                        <p style="font-size:13px;color:#CBD5E1;margin:0;">Speak with our industrial solutions team for technical feasibility and sample tooling quotes.</p>
+                    </div>
+                    <a href="contact.html?type=oem#enquiry-section" class="btn_project_default" style="background:#0094DC;color:#FFFFFF;border:none;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;">Discuss OEM Project &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Certifications (all four plants) -->
+        <section class="np-certs" id="certifications">
+            <div class="container">
+                <div class="np-cert-head">
+                    <span class="np-cert-eyebrow">Certifications</span>
+                    <h2>Certified Quality, <span>Plant by Plant</span></h2>
+                    <p>Every NPPL manufacturing unit is independently audited for quality, environment, workplace safety and energy management. All 23 certificates below are current, issued in January 2026 and valid until January 2029.</p>
+                    <ul class="np-cert-standards">
+                        <li><strong>ISO 9001:2015</strong>Quality Management</li>
+                        <li><strong>ISO 14001:2015</strong>Environmental Management</li>
+                        <li><strong>ISO 45001:2018</strong>Occupational Health &amp; Safety</li>
+                        <li><strong>ISO 50001:2018</strong>Energy Management</li>
+                        <li><strong>CE</strong>European Conformity</li>
+                        <li><strong>BIFMA</strong>Furniture Industry Standard</li>
+                    </ul>
+                </div>
+                <div class="np-cert-tabs" role="tablist">
+                    <button type="button" class="np-cert-tab active" data-plant="howrah" role="tab" aria-selected="true">Howrah<span>West Bengal &middot; 6 certificates</span></button>
+                    <button type="button" class="np-cert-tab" data-plant="guwahati" role="tab" aria-selected="false">Guwahati<span>Assam &middot; 5 certificates</span></button>
+                    <button type="button" class="np-cert-tab" data-plant="roorkee" role="tab" aria-selected="false">Roorkee<span>Uttarakhand &middot; 6 certificates</span></button>
+                    <button type="button" class="np-cert-tab" data-plant="hajipur" role="tab" aria-selected="false">Hajipur<span>Bihar &middot; 6 certificates</span></button>
+                </div>
+                <div class="np-cert-panel" data-plant="howrah" role="tabpanel">
+                    <p class="np-cert-plant"><strong>National Plasto Products Pvt. Ltd.</strong> &middot; Jalan Industrial Estate, Dakshin Jhapardaha, Howrah 711411 &middot; Certified by Target Quality Certifications (UKASL)</p>
+                    <div class="np-cert-grid">
+                        <a class="np-cert-card" href="docs/certificates/howrah/iso-9001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/howrah/iso-9001.webp" alt="ISO 9001:2015 certificate, Howrah plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 9001:2015</strong>
+                                <em>Quality Management</em>
+                                <small>No. QWB202601456 &middot; Valid till 18 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/howrah/iso-14001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/howrah/iso-14001.webp" alt="ISO 14001:2015 certificate, Howrah plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 14001:2015</strong>
+                                <em>Environmental Management</em>
+                                <small>No. EWB202601457 &middot; Valid till 18 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/howrah/iso-45001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/howrah/iso-45001.webp" alt="ISO 45001:2018 certificate, Howrah plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 45001:2018</strong>
+                                <em>Occupational Health &amp; Safety</em>
+                                <small>No. HWB202601458 &middot; Valid till 18 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/howrah/iso-50001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/howrah/iso-50001.webp" alt="ISO 50001:2018 certificate, Howrah plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 50001:2018</strong>
+                                <em>Energy Management</em>
+                                <small>No. EWB202601459 &middot; Valid till 18 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/howrah/ce.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/howrah/ce.webp" alt="CE certificate, Howrah plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>CE</strong>
+                                <em>European Conformity</em>
+                                <small>No. CWB202601460 &middot; Valid till 18 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/howrah/bifma.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/howrah/bifma.webp" alt="BIFMA certificate, Howrah plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>BIFMA</strong>
+                                <em>Furniture Industry Standard</em>
+                                <small>No. BWB202601467 &middot; Valid till 21 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="np-cert-panel" data-plant="guwahati" role="tabpanel" hidden>
+                    <p class="np-cert-plant"><strong>National Plasto Moulding</strong> &middot; E.P.I.P. Complex, Amingaon, Guwahati 781031 &middot; Certified by Revolutionary Certification Services</p>
+                    <div class="np-cert-grid">
+                        <a class="np-cert-card" href="docs/certificates/guwahati/iso-9001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/guwahati/iso-9001.webp" alt="ISO 9001:2015 certificate, Guwahati plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 9001:2015</strong>
+                                <em>Quality Management</em>
+                                <small>No. QA-98635/0126 &middot; Valid till 15 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/guwahati/iso-14001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/guwahati/iso-14001.webp" alt="ISO 14001:2015 certificate, Guwahati plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 14001:2015</strong>
+                                <em>Environmental Management</em>
+                                <small>No. EA-98633/0126 &middot; Valid till 15 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/guwahati/iso-45001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/guwahati/iso-45001.webp" alt="ISO 45001:2018 certificate, Guwahati plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 45001:2018</strong>
+                                <em>Occupational Health &amp; Safety</em>
+                                <small>No. HA-98636/0126 &middot; Valid till 15 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/guwahati/ce.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/guwahati/ce.webp" alt="CE certificate, Guwahati plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>CE</strong>
+                                <em>European Conformity</em>
+                                <small>No. CA-98634/0126 &middot; Valid till 15 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/guwahati/bifma.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/guwahati/bifma.webp" alt="BIFMA certificate, Guwahati plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>BIFMA</strong>
+                                <em>Furniture Industry Standard</em>
+                                <small>No. BA-98668/0126 &middot; Valid till 21 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="np-cert-panel" data-plant="roorkee" role="tabpanel" hidden>
+                    <p class="np-cert-plant"><strong>National Plasto Moulding</strong> &middot; Raipur Industrial Area, Bhagwanpur, Roorkee 247661 &middot; Certified by Paramount Quality Certifications</p>
+                    <div class="np-cert-grid">
+                        <a class="np-cert-card" href="docs/certificates/roorkee/iso-9001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/roorkee/iso-9001.webp" alt="ISO 9001:2015 certificate, Roorkee plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 9001:2015</strong>
+                                <em>Quality Management</em>
+                                <small>No. QU-59289/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/roorkee/iso-14001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/roorkee/iso-14001.webp" alt="ISO 14001:2015 certificate, Roorkee plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 14001:2015</strong>
+                                <em>Environmental Management</em>
+                                <small>No. EU-59290/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/roorkee/iso-45001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/roorkee/iso-45001.webp" alt="ISO 45001:2018 certificate, Roorkee plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 45001:2018</strong>
+                                <em>Occupational Health &amp; Safety</em>
+                                <small>No. HU-59291/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/roorkee/iso-50001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/roorkee/iso-50001.webp" alt="ISO 50001:2018 certificate, Roorkee plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 50001:2018</strong>
+                                <em>Energy Management</em>
+                                <small>No. EU-59292/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/roorkee/ce.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/roorkee/ce.webp" alt="CE certificate, Roorkee plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>CE</strong>
+                                <em>European Conformity</em>
+                                <small>No. CU-59293/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/roorkee/bifma.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/roorkee/bifma.webp" alt="BIFMA certificate, Roorkee plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>BIFMA</strong>
+                                <em>Furniture Industry Standard</em>
+                                <small>No. BU-59494/0126 &middot; Valid till 21 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="np-cert-panel" data-plant="hajipur" role="tabpanel" hidden>
+                    <p class="np-cert-plant"><strong>National Plasto Products Pvt. Ltd.</strong> &middot; EPIP Industrial Area, Hajipur, Vaishali 844101 &middot; Certified by Paramount Quality Certifications</p>
+                    <div class="np-cert-grid">
+                        <a class="np-cert-card" href="docs/certificates/hajipur/iso-9001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/hajipur/iso-9001.webp" alt="ISO 9001:2015 certificate, Hajipur plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 9001:2015</strong>
+                                <em>Quality Management</em>
+                                <small>No. QB-59294/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/hajipur/iso-14001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/hajipur/iso-14001.webp" alt="ISO 14001:2015 certificate, Hajipur plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 14001:2015</strong>
+                                <em>Environmental Management</em>
+                                <small>No. EB-59295/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/hajipur/iso-45001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/hajipur/iso-45001.webp" alt="ISO 45001:2018 certificate, Hajipur plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 45001:2018</strong>
+                                <em>Occupational Health &amp; Safety</em>
+                                <small>No. HB-59296/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/hajipur/iso-50001.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/hajipur/iso-50001.webp" alt="ISO 50001:2018 certificate, Hajipur plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>ISO 50001:2018</strong>
+                                <em>Energy Management</em>
+                                <small>No. EB-59297/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/hajipur/ce.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/hajipur/ce.webp" alt="CE certificate, Hajipur plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>CE</strong>
+                                <em>European Conformity</em>
+                                <small>No. CB-59298/0126 &middot; Valid till 14 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                        <a class="np-cert-card" href="docs/certificates/hajipur/bifma.pdf" target="_blank" rel="noopener">
+                            <span class="np-cert-thumb"><img src="docs/certificates/hajipur/bifma.webp" alt="BIFMA certificate, Hajipur plant" loading="lazy" width="420" height="594"></span>
+                            <span class="np-cert-info">
+                                <strong>BIFMA</strong>
+                                <em>Furniture Industry Standard</em>
+                                <small>No. BW-59495/0126 &middot; Valid till 21 Jan 2029</small>
+                                <span class="np-cert-view"><i class="fas fa-file-pdf" aria-hidden="true"></i> View certificate</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+        (function () {
+            var tabs = document.querySelectorAll('.np-cert-tab');
+            var panels = document.querySelectorAll('.np-cert-panel');
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    var plant = tab.getAttribute('data-plant');
+                    tabs.forEach(function (t) {
+                        var on = t === tab;
+                        t.classList.toggle('active', on);
+                        t.setAttribute('aria-selected', on ? 'true' : 'false');
+                    });
+                    panels.forEach(function (p) { p.hidden = p.getAttribute('data-plant') !== plant; });
+                });
+            });
+        })();
+        </script>
+
+    </main>
+
+    <!-- Supreme Footer (Exact 1:1 with Made by Lionoar Digital) -->
+        <!-- ==========================================================================
+         CORPORATE FOOTER (Supreme 1:1 Pixel-Perfect Layout)
+         ========================================================================== -->
+    <footer class="np-sfooter">
+        <div class="scroll_section_box" id="scroll_btn">
+            <div class="scroll icon">
+                <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
+                    <img src="images/icons/arrow_up.png" alt="Back to top">
+                </a>
+            </div>
+        </div>
+
+        <div class="container np-sfooter-brand">
+            <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png" alt="National - Excellence in Plastic Moulded Products" width="486" height="236" loading="lazy"></a>
+            <span class="np-sfooter-brand-divider" aria-hidden="true"></span>
+            <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL National" width="436" height="189" loading="lazy"></a>
+        </div>
+
+        <div class="container np-sfooter-top">
+            <div class="np-sfooter-links">
+                <nav class="np-sfooter-col" aria-label="Our brands">
+                    <h4>Our Brands</h4>
+                    <ul>
+                        <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                        <li><a href="products.html?brand=national">NATIONAL</a></li>
+                        <li><a href="products.html?brand=captain">CAPTAIN</a></li>
+                        <li><a href="products.html?brand=sapphire">SAPPHIRE</a></li>
+                        <li><a href="products.html">Full Product Range</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col" aria-label="About us">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Overview</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#sustainability">Sustainability</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col np-sfooter-col--plain" aria-label="Business">
+                    <ul>
+                        <li><a href="index.html#investors">Investor's Room</a></li>
+                        <li><a href="distributor.html">Dealer Desk</a></li>
+                        <li><a href="distributor.html#portal">Become a Dealer</a></li>
+                        <li><a href="contact.html#enquiry-section">Bulk &amp; Institutional Orders</a></li>
+                        <li><a href="docs/national-plasto-catalogue-2026.pdf" download>Download Catalogue</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col" aria-label="Contact">
+                    <h4><a href="contact.html">Contact Us</a></h4>
+                    <ul>
+                        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
+                        <li><a href="tel:+919830012345">+91 98300 12345</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="policies.html#privacy">Privacy Policy</a></li>
+                        <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="np-sfooter-brochure">
+                <img src="images/brand/catalogue-mockup.png" alt="National Plasto Product Catalogue 2026" width="467" height="421" loading="lazy">
+                <p>National Plasto Product Catalogue 2026</p>
+                <a href="docs/national-plasto-catalogue-2026.pdf" target="_blank" rel="noopener" class="btn_project_default"><img src="images/icons/icon_pdf.png" alt="" aria-hidden="true">View Catalogue</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container np-sfooter-bar">
+            <p class="np-sfooter-copy">Copyright &copy; 2026 National Plasto Products Pvt. Ltd. All Rights Reserved.</p>
+            <ul class="np-sfooter-social">
+                <li><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://wa.me/919830012345" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview" target="_blank" rel="noopener" aria-label="Amazon Store" title="Shop on Amazon"><i class="fab fa-amazon"></i></a></li>
+                <li><a href="https://www.flipkart.com/search?q=npm%20national&amp;otracker=search&amp;otracker1=search&amp;marketplace=FLIPKART&amp;as-show=on&amp;as=off" target="_blank" rel="noopener" aria-label="Flipkart Store" title="Shop on Flipkart"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z" fill="currentColor"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a></li>
+            </ul>
+            <p class="np-sfooter-credit">Made with <i class="fas fa-heart" aria-hidden="true"></i> by Lionoar Digital</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp chat -->
+    <a href="https://wa.me/919830012345?text=Hello%20National%20Plasto%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products." class="np-whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Corporate Brochure Modal -->
+    <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.8);z-index:99999;align-items:center;justify-content:center;">
+        <div class="np-modal-box" style="background:#FFF;border-radius:16px;padding:36px;max-width:480px;width:90%;position:relative;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.25);">
+            <button type="button" class="np-modal-close" onclick="closeBrochureModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#64748B;">&times;</button>
+            <i class="fas fa-file-pdf" style="font-size:48px;color:var(--brand-primary);margin-bottom:14px;"></i>
+            <h3 style="font-family:'Outfit', sans-serif;font-size:22px;font-weight:700;color:var(--brand-navy);margin-bottom:8px;">Download 2026 Catalogue</h3>
+            <p style="font-size:14px;color:#64748B;margin:0 0 20px;">Enter your contact information to receive our complete product catalogue with technical specifications.</p>
+            <form onsubmit="handleBrochureSubmit(event)">
+                <input type="text" class="form-control-custom" placeholder="Your Name" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <input type="tel" class="form-control-custom" placeholder="Phone Number" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <input type="email" class="form-control-custom" placeholder="Email Address" required style="width:100%;height:44px;padding:0 14px;margin-bottom:18px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <button type="submit" class="btn_project_default" style="width:100%;height:46px;background:var(--brand-primary);color:#FFF;border:none;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;">DOWNLOAD NOW &rarr;</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Interactive Brochure Download Modal -->
+    <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.7);z-index:99999;align-items:center;justify-content:center;">
+        <div style="background:#FFFFFF;border-radius:12px;max-width:480px;width:90%;padding:32px;position:relative;">
+            <button type="button" onclick="closeBrochureModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+            <h3 style="margin:0 0 8px 0;font-size:22px;color:#0F172A;">Corporate Brochure 2026</h3>
+            <p style="color:#64748B;font-size:14px;margin-bottom:20px;">Download our complete corporate catalog with full specifications and dimensions.</p>
+            <form onsubmit="handleBrochureSubmit(event)">
+                <div style="margin-bottom:14px;">
+                    <input type="text" placeholder="Your Name" required style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:6px;font-size:14px;box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:18px;">
+                    <input type="email" placeholder="Official Email Address" required style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:6px;font-size:14px;box-sizing:border-box;">
+                </div>
+                <button type="submit" style="width:100%;background:var(--brand-primary);color:#FFFFFF;padding:12px;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:14px;">DOWNLOAD CATALOGUE (PDF)</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts: jQuery, Supreme JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/supreme_app.min.js?v=20260929b"></script>
+    <script src="js/supreme_mobile.js?v=20260926"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            // Back to top scroll button
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 300) {
+                    $('#scroll_btn').addClass('add_show');
+                } else {
+                    $('#scroll_btn').removeClass('add_show');
+                }
+            });
+        });
+
+        function openBrochureModal() {
+            $('#brochureModal').css('display', 'flex');
+        }
+        function closeBrochureModal() {
+            $('#brochureModal').hide();
+        }
+        function handleBrochureSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! The National Plasto Corporate Brochure 2026 is downloading.');
+            closeBrochureModal();
+        }
+    </script>
+    <script src="js/np-reveal.js?v=20260929"></script>
+</body>
+</html>

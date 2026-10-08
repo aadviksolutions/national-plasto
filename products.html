@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-IN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Moulded Furniture &amp; Polymer Products Catalogue | National Plasto</title>
+    <meta name="description" content="Explore National Plasto's complete product catalogue: 360+ moulded chairs, dining sets, tables, stools, trolleys and wardrobes across the National, Next, Sapphire and Captain ranges.">
+    <meta name="keywords" content="plastic chairs, moulded furniture, plastic tables, storage drawers, National Plasto catalogue, bulk furniture India">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Moulded Furniture &amp; Polymer Products Catalogue | National Plasto">
+    <meta property="og:description" content="Browse 360+ models of moulded chairs, dining sets, tables, stools and storage.">
+    <meta property="og:image" content="images/brand/company-photo.jpg">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="images/brand/company-national-logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Core Stylesheets: FontAwesome, Slick, Supreme App CSS & Supreme Common CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/supreme_app.min.css">
+    <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
+
+    <style>
+        /* ================= Product Catalogue (2026 photoshoot) ================= */
+        .np-cat-controls {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            padding: 22px 0 14px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .np-cat-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .np-brand-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+        .np-brand-tab {
+            border: 1.5px solid #CBD5E1;
+            background: #FFFFFF;
+            color: #1E293B;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font: 600 14px "Poppins", sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .np-brand-tab span { margin-left: 4px; font-size: 12px; font-weight: 500; opacity: 0.6; }
+        .np-brand-tab:hover { border-color: #0094DC; color: #0094DC; }
+        .np-brand-tab.active { background: #0094DC; border-color: #0094DC; color: #FFFFFF; }
+        .np-brand-tab.np-brand-next.active { background: #1E3A93; border-color: #1E3A93; }
+        .np-brand-tab.np-brand-sapphire.active { background: #0F5E9C; border-color: #0F5E9C; }
+        .np-brand-tab.np-brand-captain.active { background: #1F2937; border-color: #1F2937; }
+        .np-brand-tab.active span { opacity: 0.85; }
+        .np-search { position: relative; flex: 0 1 300px; min-width: 220px; }
+        .np-search input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 38px 10px 16px;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 999px;
+            font: 400 14px "Poppins", sans-serif;
+            outline: none;
+        }
+        .np-search input:focus { border-color: #0094DC; }
+        .np-search i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #94A3B8; }
+        .np-chips {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: thin;
+        }
+        .np-chip {
+            flex: none;
+            border: 1px solid #E2E8F0;
+            background: #F8FAFC;
+            color: #334155;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font: 500 13px "Poppins", sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .np-chip span { color: #94A3B8; margin-left: 2px; }
+        .np-chip:hover { border-color: #0094DC; color: #0094DC; }
+        .np-chip.active { background: #1F1F1F; border-color: #1F1F1F; color: #FFFFFF; }
+        .np-chip.active span { color: #CBD5E1; }
+        .np-result-count { margin: 10px 0 0; font: 400 13px "Poppins", sans-serif; color: #64748B; }
+
+        .np-catalogue-wrap { background: #F4F6F9; padding: 36px 0 80px; min-height: 60vh; }
+        .np-cat-section { margin-bottom: 48px; scroll-margin-top: 180px; }
+        .np-cat-head {
+            position: relative;
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #E2E8F0;
+        }
+        .np-cat-head::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 64px;
+            height: 2px;
+            background: #0094DC;
+        }
+        .np-cat-head h2 { margin: 0; font: 700 24px "Poppins", sans-serif; color: #111827; }
+        .np-cat-head span { font: 500 13px "Poppins", sans-serif; color: #94A3B8; }
+        .np-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+        .np-card {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            border-radius: 14px;
+            border: 1px solid #E8ECF1;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .np-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(15, 23, 42, 0.10); }
+        .np-card-media {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #F1F4F8 70%);
+            cursor: pointer;
+        }
+        .np-card-img {
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            width: 84%;
+            height: 84%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 12px rgba(15, 23, 42, 0.12));
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .np-card-img-alt { opacity: 0; }
+        .np-card:not(.np-card-picked):hover .np-card-img-alt { opacity: 1; }
+        .np-card:not(.np-card-picked):hover .np-card-img:not(.np-card-img-alt) { opacity: 0; }
+        .np-card:hover .np-card-img { transform: scale(1.03); }
+        .np-card-brand {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 1;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font: 700 10.5px "Poppins", sans-serif;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+        .np-badge-national { background: #0094DC; }
+        .np-badge-next { background: #1E3A93; }
+        .np-badge-sapphire { background: #0F5E9C; }
+        .np-badge-captain { background: #1F2937; }
+        .np-card-thumbs { display: flex; gap: 6px; padding: 10px 14px 0; }
+        .np-card-thumbs img {
+            width: 38px;
+            height: 38px;
+            padding: 3px;
+            box-sizing: border-box;
+            object-fit: contain;
+            background: #F4F6F9;
+            border: 1.5px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .np-card-thumbs img.on, .np-card-thumbs img:hover { border-color: #0094DC; }
+        .np-card-body { display: flex; flex-direction: column; flex: 1; padding: 12px 14px 14px; }
+        .np-card-body h3 { margin: 0 0 2px; font: 600 16.5px "Poppins", sans-serif; color: #111827; }
+        .np-card-body p { margin: 0 0 12px; font: 400 12.5px "Poppins", sans-serif; color: #64748B; }
+        .np-card-actions { display: flex; gap: 8px; margin-top: auto; }
+        .np-btn-view, .np-btn-enquire {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 8px;
+            font: 600 13px "Poppins", sans-serif;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .np-btn-view { background: #FFFFFF; color: #1E293B; border: 1px solid #CBD5E1; }
+        .np-btn-view:hover { border-color: #1E293B; }
+        .np-btn-enquire { background: #0094DC; color: #FFFFFF; border: 1px solid #0094DC; }
+        .np-btn-enquire:hover { background: #C8242A; color: #FFFFFF; text-decoration: none; }
+        .np-empty { padding: 80px 20px; text-align: center; }
+        .np-empty h3 { margin-bottom: 16px; font: 600 20px "Poppins", sans-serif; color: #64748B; }
+
+        /* Quick view */
+        .np-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(4px);
+        }
+        .np-modal.open { display: flex; }
+        .np-modal-box {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            width: 100%;
+            max-width: 920px;
+            max-height: calc(100vh - 32px);
+            overflow: auto;
+            background: #FFFFFF;
+            border-radius: 16px;
+        }
+        .np-modal-x {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: #F1F5F9;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .np-modal-stage {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 24px;
+            background: radial-gradient(circle at 50% 25%, #FFFFFF 0%, #F1F5F9 55%, #E2E8F0 100%);
+            position: relative;
+            user-select: none;
+            overflow: hidden;
+            perspective: 1200px;
+            border-radius: 16px 0 0 16px;
+        }
+        .np-360-stage-lighting {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 12%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 65%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .np-360-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(15, 23, 42, 0.9);
+            color: #FFFFFF;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 10;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .np-360-badge i { color: #38BDF8; }
+        .np-modal-img-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            touch-action: pan-y;
+            z-index: 2;
+        }
+        .np-modal-img-container:active,
+        .np-modal-img-container.is-dragging {
+            cursor: grabbing;
+        }
+        .np-360-turntable-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            transition: transform 0.08s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform;
+            z-index: 3;
+        }
+        .np-360-pedestal {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 78%;
+            height: 48px;
+            pointer-events: none;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .np-360-turntable-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(241, 245, 249, 0.92) 35%,
+                rgba(203, 213, 225, 0.8) 65%,
+                rgba(148, 163, 184, 0.55) 88%,
+                rgba(30, 41, 59, 0.3) 100%
+            );
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(0,0,0,0.06), inset 0 2px 8px rgba(255, 255, 255, 0.95), inset 0 -4px 10px rgba(15, 23, 42, 0.15);
+            transform: rotateX(72deg);
+            transition: transform 0.05s linear;
+        }
+        .np-360-turntable-ring::after {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(100, 116, 139, 0.5);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.45) 0%, transparent 70%);
+        }
+        .np-360-contact-shadow {
+            position: absolute;
+            width: 72%;
+            height: 32px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.42) 0%, rgba(15, 23, 42, 0.16) 50%, transparent 75%);
+            filter: blur(5px);
+            transform: rotateX(72deg) translateY(2px);
+        }
+        .np-modal-img-container img {
+            max-width: 88%;
+            max-height: 88%;
+            object-fit: contain;
+            pointer-events: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            position: relative;
+            z-index: 4;
+            transition: filter 0.15s ease;
+        }
+        .np-360-overlay {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 42, 0.8);
+            color: #FFF;
+            font-size: 11.5px;
+            font-weight: 500;
+            padding: 5px 14px;
+            border-radius: 20px;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 10;
+        }
+        .np-360-overlay i { color: #38BDF8; }
+        .np-360-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 4px 0 8px;
+            z-index: 10;
+        }
+        .np-360-btn-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .np-360-btn {
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            color: #0F172A;
+            border-radius: 8px;
+            padding: 7px 14px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+        .np-360-btn:hover {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .np-360-btn.np-360-play.spinning {
+            background: #0094DC;
+            color: #FFFFFF;
+            border-color: #0094DC;
+            box-shadow: 0 4px 12px rgba(0, 148, 220, 0.35);
+        }
+        .np-360-presets {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .np-360-preset-btn {
+            background: rgba(241, 245, 249, 0.9);
+            border: 1px solid #E2E8F0;
+            color: #475569;
+            border-radius: 6px;
+            padding: 3px 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .np-360-preset-btn:hover, .np-360-preset-btn.active {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .np-360-slider-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 10px;
+        }
+        .np-360-slider {
+            flex: 1;
+            height: 6px;
+            border-radius: 999px;
+            background: #E2E8F0;
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+        .np-360-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #0094DC;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 148, 220,0.4);
+        }
+        .np-360-step {
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748B;
+            min-width: 90px;
+            text-align: center;
+        }
+        .np-modal-thumbs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+        .np-modal-thumbs button {
+            width: 54px;
+            height: 54px;
+            padding: 4px;
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+        .np-modal-thumbs button.on { border-color: #0094DC; }
+        .np-modal-thumbs img { width: 100%; height: 100%; object-fit: contain; }
+
+        /* ---------- Dedicated 360 Studio Section ---------- */
+        .np-studio-section {
+            padding: 70px 0;
+            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+        }
+        .np-studio-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .np-studio-card {
+            background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #E2E8F0 90%);
+            border-radius: 20px;
+            padding: 40px 30px 30px;
+            position: relative;
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12);
+            border: 1px solid #CBD5E1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            user-select: none;
+        }
+        .np-studio-viewport {
+            width: 100%;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: grab;
+            perspective: 1100px;
+            transform-style: preserve-3d;
+        }
+        .np-studio-viewport:active { cursor: grabbing; }
+        .np-studio-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            transition: transform 0.05s linear;
+        }
+        .np-studio-img {
+            max-width: 82%;
+            max-height: 82%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 24px rgba(15, 23, 42, 0.22));
+            pointer-events: none;
+            -webkit-user-drag: none;
+            z-index: 2;
+        }
+        .np-studio-pedestal {
+            position: absolute;
+            bottom: 20px;
+            width: 260px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.1) 60%, transparent 80%);
+            z-index: 1;
+        }
+        .np-studio-compass {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #38BDF8;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.15);
+            z-index: 5;
+        }
+        .np-studio-tabs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .np-studio-tab {
+            padding: 8px 16px;
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .np-studio-tab:hover, .np-studio-tab.active {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .np-studio-meta h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0F172A;
+            margin: 0 0 10px;
+        }
+        .np-studio-meta p {
+            color: #475569;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .np-studio-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .np-studio-specs li {
+            background: #F8FAFC;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #E2E8F0;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #1E293B;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .np-studio-specs li i {
+            color: #0094DC;
+            font-size: 16px;
+        }
+        .np-card-360-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #0284C7;
+            background: rgba(2, 132, 199, 0.08);
+            padding: 2px 8px;
+            border-radius: 999px;
+            margin-top: 4px;
+        }
+        .np-card-360-hint i { font-size: 10px; }
+
+        .np-modal-info { display: flex; flex-direction: column; justify-content: center; padding: 36px 32px; }
+        .np-modal-info .np-card-brand { position: static; align-self: flex-start; }
+        .np-modal-info h3 { margin: 14px 0 4px; font: 700 30px "Poppins", sans-serif; color: #111827; }
+        .np-modal-meta { margin: 0 0 18px; font: 500 14px "Poppins", sans-serif; color: #64748B; }
+        .np-modal-points { list-style: none; margin: 0 0 24px; padding: 0; font: 400 14px "Poppins", sans-serif; color: #334155; }
+        .np-modal-points li { padding: 6px 0; border-bottom: 1px dashed #E2E8F0; }
+        .np-modal-points i { width: 20px; color: #0094DC; }
+        .np-modal-info .np-btn-enquire { flex: none; padding: 12px 18px; font-size: 14px; }
+
+        @media (max-width: 1199px) { .np-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 991px) {
+            .np-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .np-search { flex: 1 1 100%; }
+            .np-modal-box { grid-template-columns: 1fr; }
+            .np-modal-info { padding: 22px; }
+            .np-studio-grid { grid-template-columns: 1fr; }
+            .np-studio-viewport { height: 300px; }
+        }
+        @media (max-width: 575px) {
+            .np-cat-controls { position: static; }
+            .np-brand-tabs { flex-wrap: nowrap; overflow-x: auto; }
+            .np-brand-tab { flex: none; padding: 8px 14px; font-size: 13px; }
+            .np-cat-head h2 { font-size: 20px; }
+            .np-card-body { padding: 10px; }
+            .np-card-body h3 { font-size: 14.5px; }
+            .np-card-thumbs { gap: 4px; padding: 8px 10px 0; }
+            .np-card-thumbs img { width: 30px; height: 30px; }
+            .np-card-thumbs img:nth-child(n+4) { display: none; }
+            .np-card-actions { flex-direction: column; gap: 6px; }
+            .np-modal-info h3 { font-size: 24px; }
+        }
+    </style>
+    <link rel="stylesheet" href="css/supreme_furniture.css?v=20260929">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261006_fixlogo">
+    <style>
+        .brand-card-logo {
+            height: 36px !important;
+            max-height: 40px !important;
+            max-width: 130px !important;
+            width: auto !important;
+            object-fit: contain !important;
+            object-position: left center !important;
+            display: block !important;
+        }
+        .heading-arrow-sec {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            min-height: 44px !important;
+            margin: 14px 0 8px !important;
+        }
+    </style>
+</head>
+
+<body id="products_page">
+
+    <!-- Main Navigation Header (Exact Supreme 1:1) -->
+        <!-- Main Navigation Header (Exact Supreme 1:1) -->
+    <header class="header">
+        <div class="container">
+            <nav>
+                <div class="logo_section">
+                    <a href="index.html" class="rem_link_style">
+                        <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive">
+                    </a>
+                </div>
+                <ul class="menu">
+                    <li><a class="homer" href="index.html">Home</a></li>
+                    <li>
+                        <a href="about.html">About Us</a>
+                        <ul class="sub-menu">
+                            <li><a href="about.html">Overview</a></li>
+                            <li><a href="about.html#leadership">Leadership</a></li>
+                            <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                            <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                            <li><a href="index.html#scroll_down">Virtues</a></li>
+                            <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                    <li><a href="index.html#sustainability">Sustainability</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="products.html">Products</a>
+                        <ul class="sub-menu">
+                            <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                            <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                            <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                            <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                            <li><a href="products.html">All Products</a></li>
+                            <li class="np-menu-download"><a href="docs/national-plasto-catalogue-2026.pdf" download="National-Plasto-Catalogue-2026.pdf"><i class="fas fa-download" aria-hidden="true"></i> Download Catalogue</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="distributor.html">Dealer Desk</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+                <ul class="social_links">
+                    <li class="header_social search_icon">
+                        <div class="search_main_box">
+                            <a class="icon_open_close" href="javascript:void(0);" onclick="searchToggle(this, event);" title="Search">
+                                <img src="images/icons/search_icon.svg" alt="Search">
+                                <i class="fas fa-times"></i>
+                            </a>
+                            <div class="search_box">
+                                <input class="header_search_input" type="text" placeholder="Search products, catalogues, specifications..." onkeyup="handleHeaderSearch(event, this)" />
+                                <button type="button" class="search_submit_btn" onclick="executeHeaderSearch(this)" title="Search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="header_social">
+                        <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" rel="noopener" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a href="https://www.linkedin.com/company/nationalplasto/" rel="noopener" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a href="https://www.instagram.com/national_plasto_group/" rel="noopener" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a class="np-social-amazon" href="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview" rel="noopener" target="_blank" title="Shop on Amazon" aria-label="Shop National Plasto on Amazon"><i class="fab fa-amazon" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="header_social">
+                        <a class="np-social-flipkart" href="https://www.flipkart.com/search?q=npm%20national&amp;otracker=search&amp;otracker1=search&amp;marketplace=FLIPKART&amp;as-show=on&amp;as=off" rel="noopener" target="_blank" title="Shop on Flipkart" aria-label="Shop National Plasto on Flipkart"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z" fill="#FFE11B"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" fill="none" stroke="#FFE11B" stroke-width="1.8"/><path d="M13.9 10.2h-1.5c-1 0-1.6.6-1.8 1.6l-.2.9H9.3l-.3 1.5h1.1l-1 4.6h1.8l1-4.6h1.6l.3-1.5h-1.6l.2-.8c.1-.3.2-.4.5-.4h1.1l.2-1.3z" fill="#2874F0"/></svg></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Header (Exact Supreme 1:1) -->
+    <div class="mobile_navbar">
+        <div id="nav-icon3" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="index.html" class="rem_link_style mobile_logo_center">
+            <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive navbar_logo">
+        </a>
+        <div class="search_main_box">
+            <a class="icon_open_close" href="javascript:void(0);" onclick="searchToggle(this, event);" aria-label="Toggle Search">
+                <img src="images/icons/search_icon.svg" alt="Search">
+                <i class="fas fa-times"></i>
+            </a>
+            <div class="search_box">
+                <input class="header_search_input" type="text" placeholder="Search products..." onkeyup="if(event.key==='Enter'){window.location.href='products.html?search='+encodeURIComponent(this.value);}" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Supreme Mobile Sidebar Wrap (Exact 1:1) -->
+    <div class="sidebar_wrap">
+        <div class="links">
+            <li>
+                <div class="dropdown">
+                    <div class="sidebar-dropdown-row">
+                        <a href="about.html" class="sidebar-cat-link">About us</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Overview</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#scroll_down">Virtues</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown">
+                    <div class="sidebar-dropdown-row">
+                        <a href="products.html" class="sidebar-cat-link">Products</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                        <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                        <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                        <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li class="np-menu-download"><a href="docs/national-plasto-catalogue-2026.pdf" download="National-Plasto-Catalogue-2026.pdf"><i class="fas fa-download" aria-hidden="true"></i> Download Catalogue</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="manufacturing.html">Manufacturing</a></li>
+            <li><a href="distributor.html">Dealer Desk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </div>
+        <div class="social-div">
+            <h3>Get regular updates <br>about us on</h3>
+            <div class="icon-row">
+                <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a class="np-social-amazon" href="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview" target="_blank" rel="noopener" aria-label="Shop National Plasto on Amazon"><i class="fab fa-amazon"></i></a>
+                <a class="np-social-flipkart" href="https://www.flipkart.com/search?q=npm%20national&amp;otracker=search&amp;otracker1=search&amp;marketplace=FLIPKART&amp;as-show=on&amp;as=off" target="_blank" rel="noopener" aria-label="Shop National Plasto on Flipkart"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z" fill="#FFE11B"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" fill="none" stroke="#FFE11B" stroke-width="1.8"/><path d="M13.9 10.2h-1.5c-1 0-1.6.6-1.8 1.6l-.2.9H9.3l-.3 1.5h1.1l-1 4.6h1.8l1-4.6h1.6l.3-1.5h-1.6l.2-.8c.1-.3.2-.4.5-.4h1.1l.2-1.3z" fill="#2874F0"/></svg></a>
+            </div>
+        </div>
+        <div class="download-div" style="margin-top:20px;">
+            <a href="docs/national-plasto-catalogue-2026.pdf" download class="btn_project_default" style="display:inline-flex; align-items:center; justify-content:center; background:#0094DC; color:#fff; padding:12px 28px; border-radius:4px; font-weight:600; font-size:15px; text-decoration:none; width:100%; box-sizing:border-box;">
+                <i class="fas fa-file-pdf" style="margin-right:8px;"></i> Download Catalogue
+            </a>
+        </div>
+    </div>
+
+    <!-- Inner Page Banner -->
+    <main id="furniture" class="smooth_scroll_pages">
+        <section class="banner-section">
+            <div class="slider home-banner-slider">
+                <div class="banner_item">
+                    <div class="banner-slider-img banner-slider-img1" style="background-image: url('images/brand/products.png');">
+                    </div>
+                    <img loading="lazy" src="images/brand/products.png" class="img-responsive mob-banner-img" alt="National Plasto Moulded Products">
+                </div>
+            </div>
+
+            <div class="scrool-down">
+                <div class="l-section-top">
+                    <div class="c-scrolldown">
+                        <div class="c-line"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="breadcrums">
+                <div class="container">
+                    <div class="np-breadcrumb-pill">
+                        <a href="index.html">Home</a>
+                        <span class="np-bc-sep"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        <span class="np-bc-current">Products</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="collections-section seller-best-seler np-brands-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="hidden-xs" data-scroll>Shop <span>by brand</span></h2>
+                        <h2 class="visible-xs" data-scroll>Shop <span>by brand</span></h2>
+                        <p data-scroll>Four brands, one promise &mdash; quality moulded furniture at every price point.</p>
+                        <div class="collections-info">
+                            <div class="collections-inside">
+                                <a href="products.html?brand=next">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/next.jpg" loading="lazy" class="img-responsive" alt="NEXT range">
+                                        <h4>01</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec" style="display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:14px 0 8px;"><img src="images/brand/company-next-logo.png" alt="NEXT" class="brand-card-logo" style="height:36px;max-height:40px;max-width:130px;width:auto;object-fit:contain;object-position:left center;display:block;"><img src="images/icons/arrow-right.svg" alt="" class="slider_arrow" style="width:20px;height:20px;flex-shrink:0;"></div>
+                                    <h6>Premium virgin plastic furniture</h6>
+                                    <h6><span>148 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?brand=national">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/national.jpg" loading="lazy" class="img-responsive" alt="NATIONAL range">
+                                        <h4>02</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec" style="display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:14px 0 8px;"><img src="images/brand/company-national-logo.png" alt="NATIONAL" class="brand-card-logo" style="height:36px;max-height:40px;max-width:130px;width:auto;object-fit:contain;object-position:left center;display:block;"><img src="images/icons/arrow-right.svg" alt="" class="slider_arrow" style="width:20px;height:20px;flex-shrink:0;"></div>
+                                    <h6>Value, variety and trust for every space</h6>
+                                    <h6><span>132 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?brand=sapphire">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/sapphire.jpg" loading="lazy" class="img-responsive" alt="SAPPHIRE range">
+                                        <h4>03</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec" style="display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:14px 0 8px;"><img src="images/brand/sapphire-logo.png" alt="SAPPHIRE" class="brand-card-logo" style="height:36px;max-height:40px;max-width:130px;width:auto;object-fit:contain;object-position:left center;display:block;"><img src="images/icons/arrow-right.svg" alt="" class="slider_arrow" style="width:20px;height:20px;flex-shrink:0;"></div>
+                                    <h6>A distinct range of value seating</h6>
+                                    <h6><span>56 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?brand=captain">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/captain.jpg" loading="lazy" class="img-responsive" alt="CAPTAIN range">
+                                        <h4>04</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec" style="display:flex;align-items:center;justify-content:space-between;min-height:44px;margin:14px 0 8px;"><img src="images/brand/captain-logo.png" alt="CAPTAIN" class="brand-card-logo" style="height:36px;max-height:40px;max-width:130px;width:auto;object-fit:contain;object-position:left center;display:block;"><img src="images/icons/arrow-right.svg" alt="" class="slider_arrow" style="width:20px;height:20px;flex-shrink:0;"></div>
+                                    <h6>Economical furniture for everyday use</h6>
+                                    <h6><span>26 Products</span></h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="np-all-products" id="all-products">
+            <div class="container">
+                <h2 class="np-all-title" data-scroll>All <span>products</span></h2>
+            </div>
+        </section>
+        <section class="np-shop">
+            <div class="container">
+                <div class="np-shop-layout">
+                    <aside class="np-filter" id="npFilter" aria-label="Filter products">
+                        <div class="np-filter-head">
+                            <span><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</span>
+                            <button type="button" class="np-filter-x" id="npFilterClose" aria-label="Close filters">&times;</button>
+                        </div>
+                        <div class="np-filter-search">
+                            <input type="search" id="npSearch" placeholder="Search model name" aria-label="Search products">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="np-filter-group">
+                            <h4>Brand</h4>
+                            <div id="npBrandTabs"></div>
+                        </div>
+                        <div class="np-filter-group">
+                            <h4>Collection</h4>
+                            <div id="npCategoryChips"></div>
+                        </div>
+                        <div class="np-filter-foot">
+                            <button type="button" class="np-filter-clear" data-clear>Clear all</button>
+                            <button type="button" class="btn_project_default np-filter-apply" id="npFilterApply">Show products</button>
+                        </div>
+                    </aside>
+                    <div class="np-filter-backdrop" id="npFilterBackdrop"></div>
+
+                    <div class="np-shop-main">
+                        <div class="np-shop-bar">
+                            <button type="button" class="np-filter-open" id="npFilterOpen"><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</button>
+                            <p class="np-result-count" id="npResultCount"></p>
+                        </div>
+                        <!-- Catalogue grouped by category (rendered by js/catalogue-page.js) -->
+                        <div id="npCatalogue"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="collections-section">
+            <div class="container" id="explore-collection">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="hidden-xs" data-scroll>Explore <span>our collections</span></h2>
+                        <h2 class="visible-xs" data-scroll>Explore our <span>collections</span></h2>
+                        <p data-scroll>Browse through a wide range of chairs, tables, <br class="hidden-xs">dining sets, stools, storage and kids furniture.</p>
+                        <div class="collections-info">
+                            <div class="collections-inside">
+                                <a href="products.html?cat=arm-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/arm-chairs.jpg" loading="lazy" class="img-responsive" alt="Arm Chairs">
+                                        <h4>01</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Arm Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Sturdy, comfortable moulded arm chairs for homes, offices and events.</h6>
+                                    <h6><span>135 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=premium-arm-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/premium-arm-chairs.jpg" loading="lazy" class="img-responsive" alt="Premium Arm Chairs">
+                                        <h4>02</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Premium Arm Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Cushioned premium arm chairs with a rich finish.</h6>
+                                    <h6><span>2 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=armless-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/armless-chairs.jpg" loading="lazy" class="img-responsive" alt="Armless Chairs">
+                                        <h4>03</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Armless Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Space-saving, stackable armless chairs for every room.</h6>
+                                    <h6><span>52 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=premium-armless-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/premium-armless-chairs.jpg" loading="lazy" class="img-responsive" alt="Premium Armless Chairs">
+                                        <h4>04</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Premium Armless Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Premium cushioned armless chairs for dining and lounges.</h6>
+                                    <h6><span>4 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=metallic-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/metallic-chairs.jpg" loading="lazy" class="img-responsive" alt="Metallic Chairs">
+                                        <h4>05</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Metallic Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Chairs with a metallic finish for a modern look.</h6>
+                                    <h6><span>11 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=steel-moulded-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/steel-moulded-chairs.jpg" loading="lazy" class="img-responsive" alt="Steel Moulded Chairs">
+                                        <h4>06</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Steel Moulded Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Moulded seats on strong steel legs for cafes and offices.</h6>
+                                    <h6><span>3 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=baby-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/baby-chairs.jpg" loading="lazy" class="img-responsive" alt="Baby Chairs">
+                                        <h4>07</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Baby Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Bright, safe and lightweight chairs for little ones.</h6>
+                                    <h6><span>14 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=stools">
+                                    <div class="collection-img">
+                                        <img src="images/collections/stools.jpg" loading="lazy" class="img-responsive" alt="Stools">
+                                        <h4>08</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Stools</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Strong, portable stools for kitchens, shops and everyday use.</h6>
+                                    <h6><span>39 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=tables">
+                                    <div class="collection-img">
+                                        <img src="images/collections/tables.jpg" loading="lazy" class="img-responsive" alt="Tables">
+                                        <h4>09</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Tables</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Durable, easy-to-clean tables for homes and businesses.</h6>
+                                    <h6><span>51 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=dining-sets">
+                                    <div class="collection-img">
+                                        <img src="images/collections/dining-sets.jpg" loading="lazy" class="img-responsive" alt="Dining Sets">
+                                        <h4>10</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Dining Sets</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Table and chair sets for family dining, indoors and out.</h6>
+                                    <h6><span>45 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=trolleys-and-racks">
+                                    <div class="collection-img">
+                                        <img src="images/collections/trolleys-and-racks.jpg" loading="lazy" class="img-responsive" alt="Trolleys &amp; Racks">
+                                        <h4>11</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Trolleys &amp; Racks</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Multi-tier utility racks and trolleys for smart storage.</h6>
+                                    <h6><span>4 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=wardrobes">
+                                    <div class="collection-img">
+                                        <img src="images/collections/wardrobes.jpg" loading="lazy" class="img-responsive" alt="Wardrobes">
+                                        <h4>12</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Wardrobes</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Lockable plastic wardrobes for clutter-free rooms.</h6>
+                                    <h6><span>2 Products</span></h6>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="btn_section">
+                            <a href="#all-products" class="btn_project_default">View all products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tv-sec">
+            <div class="container">
+                <h2 class="heading-text" data-scroll>Furniture<span> Reels</span></h2>
+                <div class="tv-commercial-slider">
+                    <div class="item" data-fancybox="reels" href="images/banner/next.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/next.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">NEXT &mdash; Premium Virgin Plastic Furniture</div>
+                    </div>
+                    <div class="item" data-fancybox="reels" href="images/banner/national.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/national.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">NATIONAL &mdash; Value, Variety &amp; Trust</div>
+                    </div>
+                    <div class="item" data-fancybox="reels" href="images/banner/captain.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/captain.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">CAPTAIN &mdash; Economical Everyday Furniture</div>
+                    </div>
+                    <div class="item" data-fancybox="reels" href="images/banner/sapphire.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/sapphire.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">SAPPHIRE &mdash; Distinct Value Seating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <img src="images/brand/company-photo.jpg" loading="lazy" class="img-responsive hidden-xs" alt="National Plasto manufacturing facility">
+            <img src="images/brand/company-photo.jpg" loading="lazy" class="img-responsive visible-xs" alt="National Plasto manufacturing facility">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="story-info">
+                            <div class="story-inside">
+                                <h2 data-scroll>What makes<br> <span>us unique?</span></h2>
+                                <div class="btn_section">
+                                    <a href="about.html" class="btn_project_default">Know our story</a>
+                                </div>
+                            </div>
+                            <div class="story-inside" data-scroll>
+                                <p>Since 1997, National Plasto has been making moulded plastic furniture for every space and every need. Four ISO-certified plants, four brands across price points and a Pan-India dealer network let us deliver durable, affordable furniture to homes, businesses and institutions across India.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="furniture-occasion-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 data-scroll>Furniture for <span> every occasion</span></h2>
+                        <p data-scroll>From homes and kitchens to classrooms, cafes and resorts &mdash; find moulded furniture made for the way you use your space.</p>
+                        <div class="furniture-occasion-info">
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=arm-chairs">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/living-room.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="NEXT Magnetik and Vanity Super Deluxe cushioned arm chairs with a NEXT Fantasy coffee table">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Living Room Furniture</h3>
+                                    <h6>Comfortable, modern seating for everyday living.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=dining-sets">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/dining-sets.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="NEXT Cherish dining table with four Caliber chairs">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Dining Sets</h3>
+                                    <h6>Tables and chairs made for family meals.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=baby-chairs">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/kids.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="NEXT Rocker baby chair, Kidjee Jr study table and Bonny kids chair">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Kids' Furniture</h3>
+                                    <h6>Bright, safe furniture for playrooms and schools.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=trolleys-and-racks">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/storage.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="NEXT wardrobe, Cellar wardrobe and Utility Rack 5">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Storage</h3>
+                                    <h6>Wardrobes, racks and trolleys that keep rooms tidy.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=stools">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/kitchen-utility.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="NEXT Swift, Rozy and Marvel stools">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Kitchen &amp; Utility</h3>
+                                    <h6>Strong, portable stools for everyday tasks.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=armless-chairs">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/schools.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="Armless chairs for schools: National Activa, NEXT Toss and Sapphire Ideal">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Schools &amp; Institutions</h3>
+                                    <h6>Durable seating for classrooms, halls and canteens.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=dining-sets">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/hotels-resorts.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="Two NEXT Ultimate lounge chairs with a NEXT Maze table">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Hotels &amp; Resorts</h3>
+                                    <h6>Weather-friendly furniture for outdoor dining.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=tables">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/occasions/cafes-restaurants.jpg" loading="lazy" class="img-responsive" width="1200" height="948" alt="NEXT Kraft and Matt steel-leg cafe chairs with a Captain Flora table">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Cafes &amp; Restaurants</h3>
+                                    <h6>Easy-to-clean chairs and tables for busy spaces.</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section_common">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="heading-text" data-scroll>Commonly Asked Queries</h2>
+                        <div class="faq-inside">
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>What is the difference between NEXT, NATIONAL, CAPTAIN and SAPPHIRE?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">NEXT is our premium range made from virgin plastic. NATIONAL uses semi-virgin and reprocessed plastic across a wide range of price points. CAPTAIN and SAPPHIRE are our economical reprocessed-plastic ranges, built for affordable everyday use.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Where can I buy National Plasto furniture?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Our furniture is sold through a network of distributors and dealers across India. Use the Dealer Desk page to find a dealer near you, or send us an enquiry and our team will connect you.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Do you supply bulk and institutional orders?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Yes. We supply schools, offices, hotels, restaurants, event organisers and other institutions. Share your requirement through the enquiry form and our sales team will get back to you.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Is plastic furniture suitable for outdoor use?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Moulded plastic furniture does not rust or absorb water, which makes it well suited to verandas, gardens and outdoor dining. Storing it in the shade when not in use helps it keep its colour for longer.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>How do I clean and maintain plastic furniture?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Wipe it with a soft cloth and mild soap and water. Avoid abrasive scrubbers and harsh chemicals so the surface finish stays smooth.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Are National Plasto plants certified?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Yes. All four of our plants are independently certified, with 23 current certificates covering ISO 9001, ISO 14001, ISO 45001, ISO 50001, CE and BIFMA.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Which colours are available?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Most models come in several colours. Open any product in the list above to see all of its colour options.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>How can I get the full product catalogue?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Download the National Plasto Product Catalogue 2026 from the button below, or from the footer of any page.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="store-section">
+            <div class="container" id="store-dealer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="store-dealer-section">
+                            <div class="store-dealer-info">
+                                <span class="np-store-ico"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+                                <h4>Find a dealer</h4>
+                                <p>Locate a National Plasto dealer in your city and see our furniture range in person.</p>
+                                <div class="btn_section">
+                                    <a href="distributor.html" class="btn_project_default">Dealer Desk</a>
+                                </div>
+                            </div>
+                            <div class="store-dealer-info">
+                                <span class="np-store-ico"><i class="fas fa-handshake" aria-hidden="true"></i></span>
+                                <h4>Become a dealer</h4>
+                                <p>Become a National Plasto channel partner and join our network of 500+ distributors and dealers.</p>
+                                <div class="btn_section">
+                                    <a href="distributor.html#portal" class="btn_project_default">Join us</a>
+                                </div>
+                            </div>
+                            <div class="store-dealer-info" data-scroll>
+                                <span class="np-store-ico"><i class="fas fa-building" aria-hidden="true"></i></span>
+                                <h4>Bulk &amp; Institutional Orders</h4>
+                                <div class="btn_section">
+                                    <a href="contact.html#enquiry-section" class="btn_project_default">Enquire</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalogue-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="catalogue-info">
+                            <div class="catalogue-inside">
+                                <img src="images/brand/catalogue-mockup.png" loading="lazy" class="img-responsive" alt="National Plasto Product Catalogue 2026">
+                            </div>
+                            <div class="catalogue-inside">
+                                <h2 data-scroll>Catalogue</h2>
+                                <p data-scroll>Browse all 362 models across NEXT, NATIONAL, CAPTAIN and SAPPHIRE in our 2026 product catalogue.</p>
+                                <div class="btn_section np-cat-btns">
+                                    <a href="docs/national-plasto-catalogue-2026.pdf" target="_blank" rel="noopener" class="btn_project_default"><i class="fas fa-eye" aria-hidden="true"></i> View catalogue</a>
+                                    <a href="docs/national-plasto-catalogue-2026.pdf" download="National-Plasto-Catalogue-2026.pdf" class="btn_project_default np-btn-outline"><i class="fas fa-download" aria-hidden="true"></i> Download PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quick View Modal with 360° Interactive Product Viewer -->
+    <div class="np-modal" id="npModal" role="dialog" aria-modal="true" aria-labelledby="npModalTitle">
+        <div class="np-modal-box">
+            <button type="button" class="np-modal-x" aria-label="Close">&times;</button>
+            <div class="np-modal-stage">
+                <div class="np-360-badge" id="np360Badge" title="Interactive 360° product rotation"><i class="fas fa-sync-alt fa-spin"></i> <span>360&deg; Interactive 3D Spin</span></div>
+                <div class="np-modal-img-container" id="npModalImgContainer" title="Drag horizontally to spin 360°">
+                    <div class="np-360-stage-lighting"></div>
+                    <div class="np-360-turntable-wrapper" id="npModalTurntable">
+                        <img id="npModalImg" alt="" draggable="false">
+                    </div>
+                    <div class="np-360-pedestal">
+                        <div class="np-360-turntable-ring" id="np360TurntableRing"></div>
+                        <div class="np-360-contact-shadow" id="np360ContactShadow"></div>
+                    </div>
+                    <div class="np-360-overlay" id="np360Overlay" aria-hidden="true">
+                        <span class="np-360-hint"><i class="fas fa-arrows-alt-h"></i> Drag / Swipe horizontally to rotate</span>
+                    </div>
+                </div>
+                <div class="np-360-controls" id="np360Controls">
+                    <div class="np-360-slider-wrap">
+                        <span style="font-size:11px;font-weight:700;color:#64748B;">0&deg;</span>
+                        <input type="range" min="0" max="360" value="0" class="np-360-slider" id="np360Slider" aria-label="Modal 360 angle slider">
+                        <span style="font-size:11px;font-weight:700;color:#64748B;">360&deg;</span>
+                    </div>
+                    <div class="np-360-btn-row">
+                        <button type="button" class="np-360-btn" id="np360PrevBtn" title="Previous Angle" aria-label="Previous Angle"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" class="np-360-btn np-360-play" id="np360AutoSpinBtn" title="Auto-Rotate 360°"><i class="fas fa-play"></i> <span>Auto-Spin</span></button>
+                        <button type="button" class="np-360-btn" id="np360NextBtn" title="Next Angle" aria-label="Next Angle"><i class="fas fa-chevron-right"></i></button>
+                        <span class="np-360-step" id="np360Step">0&deg;</span>
+                    </div>
+                    <div class="np-360-presets" id="np360Presets">
+                        <button type="button" class="np-360-preset-btn active" data-deg="0">Front (0&deg;)</button>
+                        <button type="button" class="np-360-preset-btn" data-deg="90">Side (90&deg;)</button>
+                        <button type="button" class="np-360-preset-btn" data-deg="180">Back (180&deg;)</button>
+                        <button type="button" class="np-360-preset-btn" data-deg="270">Side (270&deg;)</button>
+                    </div>
+                </div>
+                <div class="np-modal-thumbs" id="npModalThumbs"></div>
+            </div>
+            <div class="np-modal-info">
+                <span id="npModalBrand" class="np-card-brand"></span>
+                <h3 id="npModalTitle"></h3>
+                <p class="np-modal-meta" id="npModalMeta"></p>
+                <ul class="np-modal-points">
+                    <li><i class="fas fa-sync-alt"></i> <span id="npModalViews"></span></li>
+                    <li><i class="fas fa-check-circle"></i> ISO 9001:2015 certified 100% prime polymer</li>
+                    <li><i class="fas fa-weight-hanging"></i> Heavy-duty 200kg static &amp; dynamic load tested</li>
+                    <li><i class="fas fa-truck"></i> Fast dispatch through 500+ nationwide dealers</li>
+                </ul>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;">
+                    <a href="contact.html#enquiry-section" id="npModalEnquire" class="np-btn-enquire" style="flex:1;min-width:160px;margin-top:0;">Enquire for Bulk Order</a>
+                    <a href="docs/national-plasto-catalogue-2026.pdf" download="National-Plasto-Datasheet-2026.pdf" id="npModalDatasheet" class="np-btn-enquire" style="background:#0F172A;border-color:#0F172A;color:#fff;flex:1;min-width:160px;margin-top:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;"><i class="fas fa-file-pdf"></i> Technical Datasheet</a>
+                    <a href="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview" target="_blank" rel="noopener" class="np-btn-enquire" style="background:#FF9900;border-color:#FF9900;color:#111;flex:1;min-width:130px;margin-top:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;"><i class="fab fa-amazon"></i> Amazon</a>
+                    <a href="https://www.flipkart.com/search?q=npm%20national&amp;otracker=search&amp;otracker1=search&amp;marketplace=FLIPKART&amp;as-show=on&amp;as=off" target="_blank" rel="noopener" class="np-btn-enquire" style="background:#2874F0;border-color:#2874F0;color:#fff;flex:1;min-width:130px;margin-top:0;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;"><i class="fas fa-shopping-bag"></i> Flipkart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Brochure Download Modal -->
+    <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.7);z-index:99999;align-items:center;justify-content:center;">
+        <div style="background:#FFFFFF;border-radius:12px;max-width:480px;width:90%;padding:32px;position:relative;">
+            <button type="button" onclick="closeBrochureModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
+            <h3 style="margin:0 0 8px 0;font-size:22px;color:#0F172A;">Corporate Brochure 2026</h3>
+            <p style="color:#64748B;font-size:14px;margin-bottom:20px;">Download our complete corporate catalog with full specifications and dimensions.</p>
+            <form onsubmit="handleBrochureSubmit(event)">
+                <div style="margin-bottom:14px;">
+                    <input type="text" placeholder="Your Name" required style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:6px;font-size:14px;box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:18px;">
+                    <input type="email" placeholder="Official Email Address" required style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:6px;font-size:14px;box-sizing:border-box;">
+                </div>
+                <button type="submit" style="width:100%;background:var(--brand-primary);color:#FFFFFF;padding:12px;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:14px;">DOWNLOAD CATALOGUE (PDF)</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supreme Footer (Exact 1:1 with Made by Lionoar Digital) -->
+        <!-- ==========================================================================
+         CORPORATE FOOTER (Supreme 1:1 Pixel-Perfect Layout)
+         ========================================================================== -->
+    <footer class="np-sfooter">
+        <div class="scroll_section_box" id="scroll_btn">
+            <div class="scroll icon">
+                <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
+                    <img src="images/icons/arrow_up.png" alt="Back to top">
+                </a>
+            </div>
+        </div>
+
+        <div class="container np-sfooter-brand">
+            <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png" alt="National - Excellence in Plastic Moulded Products" width="486" height="236" loading="lazy"></a>
+            <span class="np-sfooter-brand-divider" aria-hidden="true"></span>
+            <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL National" width="436" height="189" loading="lazy"></a>
+        </div>
+
+        <div class="container np-sfooter-top">
+            <div class="np-sfooter-links">
+                <nav class="np-sfooter-col" aria-label="Our brands">
+                    <h4>Our Brands</h4>
+                    <ul>
+                        <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                        <li><a href="products.html?brand=national">NATIONAL</a></li>
+                        <li><a href="products.html?brand=captain">CAPTAIN</a></li>
+                        <li><a href="products.html?brand=sapphire">SAPPHIRE</a></li>
+                        <li><a href="products.html">Full Product Range</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col" aria-label="About us">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Overview</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#sustainability">Sustainability</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col np-sfooter-col--plain" aria-label="Business">
+                    <ul>
+                        <li><a href="index.html#investors">Investor's Room</a></li>
+                        <li><a href="distributor.html">Dealer Desk</a></li>
+                        <li><a href="distributor.html#portal">Become a Dealer</a></li>
+                        <li><a href="contact.html#enquiry-section">Bulk &amp; Institutional Orders</a></li>
+                        <li><a href="docs/national-plasto-catalogue-2026.pdf" download>Download Catalogue</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col" aria-label="Contact">
+                    <h4><a href="contact.html">Contact Us</a></h4>
+                    <ul>
+                        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
+                        <li><a href="tel:+919830012345">+91 98300 12345</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="policies.html#privacy">Privacy Policy</a></li>
+                        <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="np-sfooter-brochure">
+                <img src="images/brand/catalogue-mockup.png" alt="National Plasto Product Catalogue 2026" width="467" height="421" loading="lazy">
+                <p>National Plasto Product Catalogue 2026</p>
+                <a href="docs/national-plasto-catalogue-2026.pdf" target="_blank" rel="noopener" class="btn_project_default"><img src="images/icons/icon_pdf.png" alt="" aria-hidden="true">View Catalogue</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container np-sfooter-bar">
+            <p class="np-sfooter-copy">Copyright &copy; 2026 National Plasto Products Pvt. Ltd. All Rights Reserved.</p>
+            <ul class="np-sfooter-social">
+                <li><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://wa.me/919830012345" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview" target="_blank" rel="noopener" aria-label="Amazon Store" title="Shop on Amazon"><i class="fab fa-amazon"></i></a></li>
+                <li><a href="https://www.flipkart.com/search?q=npm%20national&amp;otracker=search&amp;otracker1=search&amp;marketplace=FLIPKART&amp;as-show=on&amp;as=off" target="_blank" rel="noopener" aria-label="Flipkart Store" title="Shop on Flipkart"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z" fill="currentColor"/><path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a></li>
+            </ul>
+            <p class="np-sfooter-credit">Made with <i class="fas fa-heart" aria-hidden="true"></i> by Lionoar Digital</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp chat -->
+    <a href="https://wa.me/919830012345?text=Hello%20National%20Plasto%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products." class="np-whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Corporate Brochure Modal -->
+    <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.8);z-index:99999;align-items:center;justify-content:center;">
+        <div class="np-modal-box" style="background:#FFF;border-radius:16px;padding:36px;max-width:480px;width:90%;position:relative;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.25);">
+            <button type="button" class="np-modal-close" onclick="closeBrochureModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#64748B;">&times;</button>
+            <i class="fas fa-file-pdf" style="font-size:48px;color:var(--brand-primary);margin-bottom:14px;"></i>
+            <h3 style="font-family:'Outfit', sans-serif;font-size:22px;font-weight:700;color:var(--brand-navy);margin-bottom:8px;">Download 2026 Catalogue</h3>
+            <p style="font-size:14px;color:#64748B;margin:0 0 20px;">Enter your contact information to receive our complete product catalogue with technical specifications.</p>
+            <form onsubmit="handleBrochureSubmit(event)">
+                <input type="text" class="form-control-custom" placeholder="Your Name" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <input type="tel" class="form-control-custom" placeholder="Phone Number" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <input type="email" class="form-control-custom" placeholder="Email Address" required style="width:100%;height:44px;padding:0 14px;margin-bottom:18px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <button type="submit" class="btn_project_default" style="width:100%;height:46px;background:var(--brand-primary);color:#FFF;border:none;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;">DOWNLOAD NOW &rarr;</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts: jQuery, Slick, Supreme JS, Store Data -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/supreme_app.min.js?v=20260929b"></script>
+    <script src="js/supreme_mobile.js?v=20260926"></script>
+    <script src="js/store.js"></script>
+    <script src="js/catalogue-2026.js?v=20261002b"></script>
+    <script src="js/catalogue-page.js?v=20261007_v3d_final360"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            // Back to top scroll button
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > 300) {
+                    $('#scroll_btn').addClass('add_show');
+                } else {
+                    $('#scroll_btn').removeClass('add_show');
+                }
+            });
+        });
+
+        function openBrochureModal() {
+            $('#brochureModal').css('display', 'flex');
+        }
+        function closeBrochureModal() {
+            $('#brochureModal').hide();
+        }
+        function handleBrochureSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! The National Plasto Corporate Brochure 2026 is downloading.');
+            closeBrochureModal();
+        }
+    </script>
+
+    <script src="js/np-reveal.js?v=20260929"></script>
+</body>
+</html>
