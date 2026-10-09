@@ -5489,14 +5489,16 @@ body.np-modal-open {
     }
 
     .mobile_navbar .mobile_logo_center {
-        position: absolute !important;
-        left: 50% !important;
-        top: 50% !important;
-        transform: translate(-50%, -50%) !important;
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
         max-width: 170px !important;
         display: flex !important;
         align-items: center !important;
-        justify-content: center !important;
+        justify-content: flex-start !important;
+        margin-right: auto !important;
+        padding-left: 12px !important;
     }
 
     .mobile_navbar .navbar_logo {
