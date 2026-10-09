@@ -703,72 +703,9 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261009_cmd_attach">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261009_map_legend">
 </head>
 <body id="index_page">
-
-    <!-- BRAND INTRO: National slides in from left, Next from right, then site intro -->
-    <div class="np-intro" id="np_intro" role="presentation">
-        <button type="button" class="np-intro__skip" id="np_intro_skip">Skip</button>
-        <div class="np-intro__logos">
-            <div class="np-intro__logo np-intro__logo--national">
-                <img src="images/brand/national-plasto-dark.png" alt="National - Excellence in Plastic Moulded Products">
-            </div>
-            <span class="np-intro__divider" aria-hidden="true"></span>
-            <div class="np-intro__logo np-intro__logo--next">
-                <img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL National">
-            </div>
-        </div>
-        <div class="np-intro__text">
-            <h2 class="np-intro__title">National Plasto Products Pvt. Ltd.</h2>
-            <p class="np-intro__tagline">Precision Plastic Moulded Products</p>
-            <p class="np-intro__meta">Since 1997 &middot; ISO Certified Plants &middot; Built for India</p>
-        </div>
-        <span class="np-intro__bar" aria-hidden="true"></span>
-    </div>
-    <script>
-    (function () {
-        var intro = document.getElementById('np_intro');
-        var root = document.documentElement;
-
-        // Play only when the site is opened fresh or reloaded — not when the
-        // visitor comes back to Home from another page of this site.
-        var navType = '';
-        try {
-            var nav = performance.getEntriesByType('navigation')[0];
-            navType = nav ? nav.type : (performance.navigation && performance.navigation.type === 1 ? 'reload' : '');
-        } catch (e) {}
-        var fromThisSite = false;
-        try {
-            fromThisSite = !!document.referrer && new URL(document.referrer).origin === location.origin;
-        } catch (e) {}
-        var seenThisTab = false;
-        try {
-            seenThisTab = sessionStorage.getItem('np_intro_seen') === '1';
-            sessionStorage.setItem('np_intro_seen', '1');
-        } catch (e) {}
-        if (location.search.indexOf('no-intro') !== -1 || (navType !== 'reload' && (seenThisTab || fromThisSite || navType === 'back_forward'))) {
-            if (intro && intro.parentNode) { intro.parentNode.removeChild(intro); }
-            root.classList.remove('np-intro-lock');
-            return;
-        }
-
-        root.classList.add('np-intro-lock');
-        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
-        window.scrollTo(0, 0);
-        function finish() {
-            root.classList.remove('np-intro-lock');
-            if (intro && intro.parentNode) { intro.parentNode.removeChild(intro); }
-        }
-        intro.addEventListener('animationend', function (e) {
-            if (e.target === intro) { finish(); }
-        });
-        document.getElementById('np_intro_skip').addEventListener('click', function () {
-            intro.classList.add('np-intro--skip');
-        });
-        setTimeout(finish, 6000); // safety net
-    })();
-    </script>
 
     <!-- DESKTOP SUPREME 1:1 HEADER -->
     <header class="header">
