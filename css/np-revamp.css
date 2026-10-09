@@ -5489,16 +5489,14 @@ body.np-modal-open {
     }
 
     .mobile_navbar .mobile_logo_center {
-        position: relative !important;
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
         max-width: 170px !important;
         display: flex !important;
         align-items: center !important;
-        justify-content: flex-start !important;
-        margin-right: auto !important;
-        padding-left: 12px !important;
+        justify-content: center !important;
     }
 
     .mobile_navbar .navbar_logo {
@@ -5597,10 +5595,11 @@ body.np-modal-open {
     h2.np-section-title,
     .title_main h2,
     .sec-title h2 {
-        font-size: 24px !important;
+        font-size: 26px !important;
         line-height: 1.25 !important;
         font-weight: 700 !important;
-        margin-bottom: 10px !important;
+        color: #2B2B2B !important;
+        margin-bottom: 12px !important;
         text-align: center !important;
     }
 
@@ -5608,10 +5607,10 @@ body.np-modal-open {
     .np-section-desc,
     .title_main p,
     .sec-title p {
-        font-size: 13.5px !important;
-        line-height: 1.55 !important;
-        color: #64748B !important;
-        margin-bottom: 20px !important;
+        font-size: 14.5px !important;
+        line-height: 1.6 !important;
+        color: #4A5568 !important;
+        margin-bottom: 24px !important;
         text-align: center !important;
         max-width: 100% !important;
     }
@@ -5622,15 +5621,19 @@ body.np-modal-open {
     .np-btn-red,
     .np-btn-outline {
         min-height: 44px !important;
-        font-size: 13px !important;
-        padding: 11px 22px !important;
+        font-size: 13.5px !important;
+        padding: 12px 28px !important;
+        border-radius: 50px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
         box-sizing: border-box !important;
     }
 
     /* 7. Footer Alignment (Supreme 1:1) */
     footer.np-sfooter {
         padding: 0 !important;
-        background: #1E293B !important;
+        background: #2F3237 !important;
     }
 
     .np-sfooter-brand {
@@ -5666,8 +5669,9 @@ body.np-modal-open {
     }
 
     .np-sfooter-col li a {
-        font-size: 13px !important;
-        line-height: 1.6 !important;
+        font-size: 14px !important;
+        line-height: 2.2 !important;
+        color: #CCCCCC !important;
     }
 
     .np-sfooter-brochure {
