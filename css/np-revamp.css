@@ -351,34 +351,58 @@
 }
 
 #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote {
-    display: block;
+    display: flex;
     margin: 0 0 20px;
-    color: var(--np-text);
-    font-size: 19px !important;
+    color: #3D3D3D;
+    font-family: "Work Sans", sans-serif;
+    font-size: 24px;
     font-weight: 500;
-    line-height: 1.55;
-    padding-left: 56px !important;
-    padding-right: 15px !important;
-    padding-top: 6px !important;
+    line-height: 34px;
+    padding: 0;
+    position: relative;
+}
+
+#index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_img {
+    padding-right: 20px;
+    margin-top: -25px;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+#index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_img img {
+    width: 60px;
+    height: auto;
+    display: block;
+}
+
+#index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_two {
+    width: 65px;
+    height: auto;
+    position: absolute;
+    padding-left: 15px;
+    display: inline-block;
 }
 
 #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
-    margin-left: 56px !important;
-    padding-left: 0;
-    padding-top: 18px;
-    border-top: 1px solid var(--np-line);
+    padding-left: 115px;
+    margin-left: 0;
+    padding-top: 10px;
+    border-top: none;
 }
 
 #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name h3 {
-    font-size: 24px !important;
-    margin: 0 0 4px !important;
-    color: #111827;
+    font-size: 34px !important;
+    font-weight: 600 !important;
+    font-family: "Work Sans", sans-serif !important;
+    color: #ed3237 !important;
+    margin: 0 0 5px !important;
 }
 
 #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name p {
-    font-size: 15px !important;
+    font-size: 20px !important;
     line-height: 1.45;
-    color: #64748b;
+    font-family: "Work Sans", sans-serif !important;
+    color: #3D3D3D !important;
     margin: 0 0 16px !important;
 }
 
@@ -2151,97 +2175,7 @@ footer.np-sfooter hr {
     }
 }
 
-/* Chairman quote marks, as on supreme.co.in: large pale marks, opening one
-   hanging left of the text, closing one at the bottom right */
-#index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote {
-    position: relative;
-    padding-left: 56px;
-    padding-right: 15px;
-    padding-top: 6px;
-}
-
-#index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
-    margin-left: 56px;
-}
-
-.np-q {
-    position: absolute;
-    color: #CBD5E1;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 96px;
-    font-weight: 700;
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-    opacity: 0.55;
-}
-
-.np-q-open {
-    left: 0;
-    top: -14px;
-}
-
-.np-q-close {
-    right: -10px;
-    bottom: -90px;
-}
-
-.np-cmd-quote>span:not(.np-q) {
-    position: relative;
-    z-index: 1;
-}
-
-@media (max-width: 991px) {
-    #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote {
-        padding-left: 80px;
-    }
-
-    #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
-        margin-left: 80px;
-    }
-
-    .np-q {
-        font-size: 130px;
-    }
-
-    .np-q-open {
-        top: -26px;
-    }
-
-    .np-q-close {
-        right: -10px;
-        bottom: -84px;
-    }
-}
-
-@media (max-width: 767px) {
-    #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote {
-        padding: 34px 20px 0 0;
-    }
-
-    #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
-        margin-left: 0;
-    }
-
-    .np-q {
-        font-size: 100px;
-    }
-
-    .np-q-open {
-        left: -4px;
-        top: -18px;
-    }
-
-    .np-q-close {
-        right: -6px;
-        bottom: -64px;
-    }
-}
-
-#index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
-    border-top: 0;
-    padding-top: 0;
-}
+/* Chairman quote section styles handled uniformly below in desktop and mobile sections */
 
 /* Mobile hero: full photo visible without cropping (16:10 aspect ratio) */
 @media (max-width: 767px) {
@@ -4562,8 +4496,9 @@ html.np-anim .np-reveal.np-in {
     #about_us_overview .banner-section .breadcrums,
     #products_page .banner-section .breadcrums,
     #distributor_page .banner-section .breadcrums,
-    #manufacturing_page .banner-section .breadcrums {
-        top: 14px !important;
+    #manufacturing_page .banner-section .breadcrums,
+    #contact_page .banner-section .breadcrums {
+        top: 18px !important;
     }
 }
 
@@ -5586,31 +5521,136 @@ body.np-modal-open {
         display: none !important;
     }
 
-    .banner-section .breadcrums {
+    /* 4. Page Banners & Breadcrumbs (Supreme 1:1 Mobile Architecture) */
+    .banner-section {
         position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        padding: 10px 16px !important;
-        background: #F8FAFC !important;
-        border-bottom: 1px solid #E2E8F0 !important;
-        margin: 0 !important;
-        text-align: left !important;
+    }
+
+    .banner-section::before {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 65px !important;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.12) 65%, transparent 100%) !important;
         z-index: 5 !important;
+        pointer-events: none !important;
     }
 
-    .banner-section .breadcrums .container {
-        padding: 0 !important;
-    }
-
-    .banner-section .breadcrums .np-breadcrumb-pill {
+    .banner-section .breadcrums,
+    .breadcrums,
+    .banner-section .np-breadcrumbs,
+    .np-breadcrumbs,
+    #about_us_overview .banner-section .breadcrums,
+    #products_page .banner-section .breadcrums,
+    #distributor_page .banner-section .breadcrums,
+    #manufacturing_page .banner-section .breadcrums,
+    #contact_page .banner-section .breadcrums {
+        position: absolute !important;
+        top: 18px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
         padding: 0 !important;
+        margin: 0 !important;
+        text-align: left !important;
+        z-index: 10 !important;
+    }
+
+    .banner-section .breadcrums .container,
+    .breadcrums .container,
+    .banner-section .np-breadcrumbs .container,
+    .np-breadcrumbs .container,
+    #about_us_overview .banner-section .breadcrums .container,
+    #products_page .banner-section .breadcrums .container,
+    #distributor_page .banner-section .breadcrums .container,
+    #manufacturing_page .banner-section .breadcrums .container,
+    #contact_page .banner-section .breadcrums .container {
+        padding: 0 16px !important;
+        background: transparent !important;
+        text-align: left !important;
+        display: block !important;
+    }
+
+    .banner-section .breadcrums .np-breadcrumb-pill,
+    .breadcrums .np-breadcrumb-pill,
+    #about_us_overview .banner-section .breadcrums .np-breadcrumb-pill,
+    #products_page .banner-section .breadcrums .np-breadcrumb-pill,
+    #distributor_page .banner-section .breadcrums .np-breadcrumb-pill,
+    #manufacturing_page .banner-section .breadcrums .np-breadcrumb-pill,
+    #contact_page .banner-section .breadcrums .np-breadcrumb-pill {
         display: inline-flex !important;
         align-items: center !important;
-        gap: 8px !important;
+        gap: 6px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .breadcrums a,
+    .breadcrums span,
+    .breadcrums .np-bc-current,
+    .np-breadcrumbs a,
+    .np-breadcrumbs span,
+    #about_us_overview .banner-section .breadcrums a,
+    #products_page .banner-section .breadcrums a,
+    #distributor_page .banner-section .breadcrums a,
+    #manufacturing_page .banner-section .breadcrums a,
+    #contact_page .banner-section .breadcrums a,
+    #about_us_overview .banner-section .breadcrums .np-bc-current,
+    #products_page .banner-section .breadcrums .np-bc-current,
+    #distributor_page .banner-section .breadcrums .np-bc-current,
+    #manufacturing_page .banner-section .breadcrums .np-bc-current,
+    #contact_page .banner-section .breadcrums .np-bc-current {
+        font-family: "Work Sans", sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 400 !important;
+        color: #FFFFFF !important;
+        text-decoration: none !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.2px !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+    }
+
+    .breadcrums .np-bc-sep,
+    .breadcrums span.np-bc-sep,
+    .np-breadcrumbs i,
+    #about_us_overview .banner-section .breadcrums .np-bc-sep,
+    #products_page .banner-section .breadcrums .np-bc-sep,
+    #distributor_page .banner-section .breadcrums .np-bc-sep,
+    #manufacturing_page .banner-section .breadcrums .np-bc-sep,
+    #contact_page .banner-section .breadcrums .np-bc-sep {
+        padding: 0 6px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        color: #FFFFFF !important;
+    }
+
+    .breadcrums .np-bc-sep i,
+    .breadcrums i,
+    .np-breadcrumbs i {
+        font-size: 8px !important;
+        color: #FFFFFF !important;
+        vertical-align: middle !important;
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+    }
+
+    .breadcrums span img,
+    .breadcrums img {
+        width: 7px !important;
+        height: 7px !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+        filter: brightness(0) invert(1) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
     }
 
     /* 5. Section Paddings & Typography Scaling */
@@ -5843,14 +5883,16 @@ body.np-modal-open {
     }
 
     /* CMD Message (Supreme.co.in 1:1 Architecture: Text upper side left-aligned, Big owner image below) */
+    /* CMD Message (Supreme.co.in 1:1 Architecture: Text upper side left-aligned, Big owner image below) */
     #index_page .testimonial_main.np-cmd {
-        padding: 0 !important;
-        margin-top: 10px !important;
+        padding: 24px 0 0 !important;
+        margin-top: 0 !important;
         margin-bottom: 0 !important;
         background: #FFFFFF !important;
         overflow: hidden !important;
     }
     #index_page .testimonial_main.np-cmd .container {
+        padding-top: 0 !important;
         padding-bottom: 0 !important;
         margin-bottom: 0 !important;
     }
@@ -5861,6 +5903,7 @@ body.np-modal-open {
         gap: 16px !important;
         text-align: left !important;
         margin-bottom: 0 !important;
+        padding-top: 10px !important;
         padding-bottom: 0 !important;
     }
     #index_page .testimonial_main .testimonial_content {
@@ -5873,46 +5916,40 @@ body.np-modal-open {
     }
     #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote,
     #index_page .testimonial_main .testimonial_content .para-text {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-        font-size: 16px !important;
-        line-height: 1.6 !important;
-        color: #4b5563 !important;
+        font-family: "Work Sans", sans-serif !important;
+        font-size: 19px !important;
+        line-height: 30px !important;
+        color: #3D3D3D !important;
         text-align: left !important;
         padding: 0 !important;
         margin: 0 0 16px 0 !important;
         max-width: 100% !important;
+        display: block !important;
     }
-    #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote {
+    #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_img {
+        padding-right: 10px !important;
+        margin-top: 0 !important;
+        display: inline-block !important;
+        vertical-align: top !important;
+    }
+    #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_img img {
+        width: 50px !important;
+        height: auto !important;
+        display: inline-block !important;
+        vertical-align: top !important;
+    }
+    #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_two {
+        width: 65px !important;
+        height: auto !important;
         position: relative !important;
-        padding-left: 45px !important;
-        padding-right: 0 !important;
-        margin-bottom: 55px !important; /* space for the closing quote at the bottom */
-    }
-    #index_page .testimonial_main.np-cmd .np-q {
-        color: #E2E8F0 !important;
-        font-family: Arial, Helvetica, sans-serif !important;
-        font-weight: 900 !important;
-        pointer-events: none !important;
-        user-select: none !important;
-        opacity: 0.9 !important;
-        position: absolute !important;
-        font-size: 80px !important;
-        line-height: 1 !important;
-    }
-    #index_page .testimonial_main.np-cmd .np-q-open {
-        left: 0 !important;
-        top: -15px !important;
-        display: inline-block !important;
-    }
-    #index_page .testimonial_main.np-cmd .np-q-close {
-        left: 0 !important;
-        right: auto !important;
-        bottom: -50px !important;
-        display: inline-block !important;
+        display: block !important;
+        margin-top: 10px !important;
+        padding-left: 0 !important;
+        margin-bottom: 14px !important;
     }
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
-        margin: 6px 0 0 0 !important;
-        padding: 0 !important;
+        padding-left: 0 !important;
+        margin: 4px 0 0 0 !important;
         border-top: none !important;
         text-align: left !important;
         width: 100% !important;
@@ -5921,27 +5958,24 @@ body.np-modal-open {
         align-items: flex-start !important;
     }
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name h3 {
-        font-size: 24px !important;
-        font-weight: 700 !important;
-        color: #EF4444 !important; /* Supreme red color */
+        font-size: 30px !important;
+        font-weight: 600 !important;
+        color: #ed3237 !important; /* Supreme red color */
         margin: 0 0 4px !important;
         text-align: left !important;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+        font-family: "Work Sans", sans-serif !important;
     }
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name p {
-        font-size: 14.5px !important;
+        font-size: 18px !important;
         line-height: 1.45 !important;
-        color: #64748B !important;
-        margin: 0 0 16px !important;
+        color: #3D3D3D !important;
+        margin: 0 0 14px !important;
         text-align: left !important;
+        font-family: "Work Sans", sans-serif !important;
     }
-    #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name .btn_project_default {
-        margin-top: 0 !important;
-        display: inline-flex !important;
-        align-self: flex-start !important;
-        padding: 9px 22px !important;
-        font-size: 13.5px !important;
-        border-radius: 50px !important;
+    #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name .btn_project_default,
+    #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name .np-cmd-btn {
+        display: none !important;
     }
     #index_page .testimonial_main .testimonial_img {
         width: 100% !important;

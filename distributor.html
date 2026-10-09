@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261006_testi">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261009_supreme_bc">
 
     <style>
         /* ==========================================================================
@@ -1063,26 +1063,32 @@
                 display: none !important;
             }
             #distributor_page .banner-section .breadcrums {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                padding: 10px 16px !important;
-                background: #F8FAFC !important;
-                border-bottom: 1px solid #E2E8F0 !important;
+                position: absolute !important;
+                top: 18px !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
                 margin: 0 !important;
                 text-align: left !important;
+                z-index: 10 !important;
             }
             #distributor_page .banner-section .breadcrums .container {
-                padding: 0 !important;
+                padding: 0 16px !important;
+                background: transparent !important;
             }
             #distributor_page .banner-section .breadcrums .np-breadcrumb-pill {
                 background: transparent !important;
                 border: none !important;
                 box-shadow: none !important;
+                border-radius: 0 !important;
                 padding: 0 !important;
+                margin: 0 !important;
                 display: inline-flex !important;
-                gap: 8px !important;
+                gap: 6px !important;
             }
 
             /* 2. Global Section Padding & Alignment */
@@ -1631,7 +1637,7 @@
             <div class="container">
                 <div class="np-breadcrumb-pill">
                     <a href="index.html">Home</a>
-                    <span class="np-bc-sep"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    <span class="np-bc-sep"><img src="images/icon_arrow_right.png" alt=""></span>
                     <span class="np-bc-current">Dealer Desk</span>
                 </div>
             </div>
