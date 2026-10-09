@@ -5445,4 +5445,282 @@ body.np-modal-open {
     }
 }
 
+/* ==========================================================================
+   SUPREME.CO.IN 1:1 MOBILE VIEW ARRANGEMENT & ALIGNMENT SYSTEM
+   Applies across the whole website (Mobile screens <= 768px & <= 480px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Viewport & Prevent Any Horizontal Scrolling */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* 2. Unified Container Spacing */
+    .container,
+    .container-fluid,
+    .np-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Mobile Header & Sticky Navbar (Height: 60px) */
+    .mobile_navbar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 60px !important;
+        padding: 0 16px !important;
+        background: #FFFFFF !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+        z-index: 1050 !important;
+        box-sizing: border-box !important;
+    }
+
+    .mobile_navbar .mobile_logo_center {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        max-width: 170px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .mobile_navbar .navbar_logo {
+        max-height: 38px !important;
+        width: auto !important;
+        object-fit: contain !important;
+    }
+
+    #nav-icon3 {
+        width: 22px !important;
+        height: 16px !important;
+        position: relative !important;
+        left: 0 !important;
+        top: auto !important;
+        transform: none !important;
+        cursor: pointer !important;
+    }
+
+    #nav-icon3 span {
+        height: 2px !important;
+        background-color: #1E293B !important;
+        border-radius: 4px !important;
+    }
+
+    .mobile_navbar .search_main_box {
+        position: relative !important;
+        right: 0 !important;
+    }
+
+    .mobile_navbar .search_main_box .icon_open_close img {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    /* 4. Page Banners & Breadcrumbs (Supreme 1:1) */
+    .banner-section {
+        padding-top: 0 !important;
+        min-height: auto !important;
+        position: relative !important;
+    }
+
+    .banner-section .home-banner-slider {
+        padding-top: 0 !important;
+    }
+
+    .banner-section .banner-slider-img {
+        display: none !important;
+    }
+
+    .banner-section .mob-banner-img {
+        display: block !important;
+        width: 100% !important;
+        height: 220px !important;
+        max-height: 40vh !important;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+
+    .banner-section .scrool-down {
+        display: none !important;
+    }
+
+    .banner-section .breadcrums {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        padding: 10px 16px !important;
+        background: #F8FAFC !important;
+        border-bottom: 1px solid #E2E8F0 !important;
+        margin: 0 !important;
+        text-align: left !important;
+        z-index: 5 !important;
+    }
+
+    .banner-section .breadcrums .container {
+        padding: 0 !important;
+    }
+
+    .banner-section .breadcrums .np-breadcrumb-pill {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* 5. Section Paddings & Typography Scaling */
+    section {
+        padding: 44px 0 40px !important;
+    }
+
+    .heading-text,
+    h2.np-section-title,
+    .title_main h2,
+    .sec-title h2 {
+        font-size: 24px !important;
+        line-height: 1.25 !important;
+        font-weight: 700 !important;
+        margin-bottom: 10px !important;
+        text-align: center !important;
+    }
+
+    .para-text,
+    .np-section-desc,
+    .title_main p,
+    .sec-title p {
+        font-size: 13.5px !important;
+        line-height: 1.55 !important;
+        color: #64748B !important;
+        margin-bottom: 20px !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+
+    /* 6. Buttons & CTAs on Mobile */
+    .btn_project_default,
+    .btn-primary,
+    .np-btn-red,
+    .np-btn-outline {
+        min-height: 44px !important;
+        font-size: 13px !important;
+        padding: 11px 22px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 7. Footer Alignment (Supreme 1:1) */
+    footer.np-sfooter {
+        padding: 0 !important;
+        background: #1E293B !important;
+    }
+
+    .np-sfooter-brand {
+        padding: 28px 16px 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 14px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .np-sfooter-brand img {
+        max-height: 34px !important;
+        width: auto !important;
+    }
+
+    .np-sfooter-top {
+        padding: 36px 16px 28px !important;
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+    }
+
+    .np-sfooter-links {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px 16px !important;
+    }
+
+    .np-sfooter-col h4 {
+        font-size: 15px !important;
+        margin-bottom: 10px !important;
+        font-weight: 700 !important;
+    }
+
+    .np-sfooter-col li a {
+        font-size: 13px !important;
+        line-height: 1.6 !important;
+    }
+
+    .np-sfooter-brochure {
+        background: rgba(255, 255, 255, 0.05) !important;
+        padding: 16px !important;
+        border-radius: 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .np-sfooter-brochure img {
+        max-width: 140px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .np-sfooter-brochure p {
+        font-size: 14px !important;
+        margin-bottom: 12px !important;
+    }
+
+    .np-sfooter-brochure .btn_project_default {
+        width: 100% !important;
+        max-width: 220px !important;
+        justify-content: center !important;
+    }
+
+    .np-sfooter-bar {
+        padding: 18px 16px !important;
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 12px !important;
+    }
+
+    .np-sfooter-social {
+        justify-content: center !important;
+        gap: 10px !important;
+    }
+
+    /* 8. Floating Action Buttons */
+    .np-whatsapp {
+        right: 14px !important;
+        bottom: 16px !important;
+        padding: 8px 14px !important;
+        font-size: 13px !important;
+        z-index: 999 !important;
+    }
+
+    .scroll_section_box {
+        bottom: 68px !important;
+        right: 14px !important;
+        z-index: 998 !important;
+    }
+}
+
+
 

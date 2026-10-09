@@ -32,49 +32,32 @@
 
     <style>
         /* ==========================================================================
-           DISTRIBUTOR PORTAL REVAMP (1:1 Pixel Match to Reference Mockup)
+           DEALER DESK REVAMP (Supreme.co.in Design System Inspiration)
            ========================================================================== */
         :root {
-            --np-red: #0094DC;
-            --np-red-dark: #007BB8;
-            --np-red-light: #EBF6FC;
-            --np-red-border: #BAE6FD;
+            --np-blue: #0094DC;
+            --np-blue-dark: #007BB8;
+            --np-blue-light: #EBF6FC;
+            --np-blue-border: #BAE6FD;
+            --np-red: #DC2626;
             --np-dark: #0F172A;
             --np-slate: #334155;
             --np-muted: #64748B;
             --np-border: #E2E8F0;
             --np-bg-subtle: #F8FAFC;
+            --np-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+            --np-shadow-md: 0 6px 20px rgba(15, 23, 42, 0.06);
+            --np-shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.09);
         }
 
-        /* Materialize / Framework Override: FORCE native selects to show */
-        .np-dist-scope select,
-        .np-dist-select,
-        .np-dist-form-group select,
-        #distributor_page select {
-            display: block !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            pointer-events: auto !important;
-            width: 100% !important;
-            height: 44px !important;
-            padding: 10px 14px !important;
-            border: 1px solid #CBD5E1 !important;
-            border-radius: 8px !important;
-            font-size: 13.5px !important;
-            background-color: #F8FAFC !important;
-            color: #0F172A !important;
-            outline: none !important;
-            -webkit-appearance: menulist !important;
-            appearance: menulist !important;
-            box-sizing: border-box !important;
-        }
-
+        /* Scope & Base */
         .np-dist-scope {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--np-dark);
             background: #FFFFFF;
             overflow-x: hidden;
         }
+
         .np-dist-scope h1, 
         .np-dist-scope h2, 
         .np-dist-scope h3, 
@@ -93,6 +76,13 @@
             box-sizing: border-box;
         }
 
+        /* Section Headings */
+        .np-dist-section-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 48px;
+        }
+
         .np-dist-eyebrow {
             display: inline-flex;
             align-items: center;
@@ -100,62 +90,60 @@
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.4px;
-            color: var(--np-red);
-            margin-bottom: 12px;
-        }
-        .np-dist-eyebrow::before {
-            content: '';
-            display: inline-block;
-            width: 22px;
-            height: 2px;
-            background: var(--np-red);
-            border-radius: 2px;
+            letter-spacing: 1.5px;
+            color: var(--np-blue);
+            background: var(--np-blue-light);
+            border: 1px solid var(--np-blue-border);
+            padding: 5px 16px;
+            border-radius: 9999px;
+            margin-bottom: 14px;
         }
 
         .np-dist-heading {
-            font-size: 44px;
-            line-height: 1.15;
+            font-size: 40px;
+            line-height: 1.2;
             font-weight: 800;
             color: var(--np-dark);
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
-        .np-dist-heading span.text-red {
-            color: var(--np-red);
+
+        .np-dist-heading span.color_highlight {
+            color: var(--np-blue);
         }
 
         .np-dist-desc {
-            font-size: 15px;
+            font-size: 16px;
             line-height: 1.65;
             color: var(--np-muted);
-            margin-bottom: 24px;
+            margin: 0 auto;
         }
 
-        /* Buttons */
+        /* Buttons & Action Links */
         .np-btn-red {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: var(--np-red);
+            background: var(--np-blue);
             color: #FFFFFF !important;
             font-size: 13.5px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 13px 28px;
+            letter-spacing: 0.6px;
+            padding: 13px 30px;
             border-radius: 9999px;
-            border: 1.5px solid var(--np-red);
+            border: 1.5px solid var(--np-blue);
             text-decoration: none;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 4px 14px rgba(0, 148, 220, 0.25);
         }
         .np-btn-red:hover {
-            background: var(--np-red-dark);
-            border-color: var(--np-red-dark);
+            background: var(--np-blue-dark);
+            border-color: var(--np-blue-dark);
             transform: translateY(-2px);
             box-shadow: 0 8px 22px rgba(0, 148, 220, 0.35);
+            color: #FFFFFF !important;
         }
 
         .np-btn-outline {
@@ -164,645 +152,709 @@
             justify-content: center;
             gap: 8px;
             background: #FFFFFF;
-            color: var(--np-red) !important;
+            color: var(--np-blue) !important;
             font-size: 13.5px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 13px 26px;
+            letter-spacing: 0.6px;
+            padding: 13px 28px;
             border-radius: 9999px;
-            border: 1.5px solid var(--np-red);
+            border: 1.5px solid var(--np-blue);
             text-decoration: none;
             cursor: pointer;
             transition: all 0.25s ease;
         }
         .np-btn-outline:hover {
-            background: var(--np-red-light);
+            background: var(--np-blue-light);
             transform: translateY(-2px);
+            color: var(--np-blue-dark) !important;
         }
 
-        /* 1. HERO SECTION */
-        .np-dist-hero {
-            padding: 50px 0 40px;
-            background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFC 100%);
-            position: relative;
+        /* Select Input Overrides */
+        .np-dist-scope select {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            width: 100% !important;
+            height: 46px !important;
+            padding: 10px 14px !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 8px !important;
+            font-size: 14px !important;
+            background-color: #FFFFFF !important;
+            color: var(--np-dark) !important;
+            outline: none !important;
+            -webkit-appearance: menulist !important;
+            appearance: menulist !important;
+            box-sizing: border-box !important;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
         }
-        .np-dist-hero-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .np-dist-hero-btns {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        .np-dist-hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-        .np-dist-hero-img-wrap {
-            position: relative;
-            width: 100%;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-            border: 1px solid #E2E8F0;
-            background: #F1F5F9;
-        }
-        .np-dist-hero-img-wrap img {
-            width: 100%;
-            height: 440px;
-            object-fit: cover;
-            display: block;
+        .np-dist-scope select:focus {
+            border-color: var(--np-blue) !important;
+            box-shadow: 0 0 0 3px rgba(0, 148, 220, 0.15) !important;
         }
 
-        /* Floating Pill Badges Stack */
-        .np-dist-hero-badges {
-            position: absolute;
-            right: 20px;
-            top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 5;
-        }
-        .np-dist-badge-pill {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(226, 232, 240, 0.9);
-            border-radius: 9999px;
-            padding: 8px 18px 8px 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--np-dark);
-            white-space: nowrap;
-            transition: transform 0.25s ease;
-        }
-        .np-dist-badge-pill:hover {
-            transform: translateX(-4px);
-        }
-        .np-dist-badge-icon {
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: var(--np-red-light);
-            color: var(--np-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
-        /* 2. FLOATING STATS STRIP */
-        .np-dist-stats-section {
-            padding: 10px 0 50px;
+        /* ==========================================================================
+           2. PRODUCT PORTFOLIO SECTION (4 Categories)
+           ========================================================================== */
+        .np-portfolio-section {
+            padding: 85px 0 90px;
             background: #FFFFFF;
         }
-        .np-dist-stats-box {
-            background: #FFFFFF;
-            border-radius: 16px;
-            border: 1px solid var(--np-border);
-            box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);
-            padding: 26px 36px;
+
+        .np-portfolio-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
-        .np-dist-stat-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .np-dist-stat-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            background: var(--np-red-light);
-            border: 1px solid var(--np-red-border);
-            color: var(--np-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-        .np-dist-stat-val {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--np-dark);
-            line-height: 1;
-            font-family: 'Outfit', sans-serif;
-            margin-bottom: 4px;
-        }
-        .np-dist-stat-lbl {
-            font-size: 13px;
-            color: var(--np-muted);
-            font-weight: 500;
-            line-height: 1.3;
-        }
 
-        /* 3. WHY PARTNER WITH US SECTION */
-        .np-dist-why {
-            padding: 60px 0 80px;
-            background: #FFFFFF;
-        }
-        .np-dist-why-grid {
-            display: grid;
-            grid-template-columns: 0.95fr 1.65fr;
-            gap: 50px;
-            align-items: flex-start;
-        }
-        .np-dist-why-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-        .np-dist-feat-card {
+        .np-portfolio-card {
             background: #FFFFFF;
             border: 1px solid var(--np-border);
-            border-radius: 12px;
-            padding: 22px 20px;
-            transition: all 0.25s ease;
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--np-shadow-sm);
+            position: relative;
         }
-        .np-dist-feat-card:hover {
-            border-color: #CBD5E1;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-        }
-        .np-dist-feat-icon {
-            font-size: 24px;
-            color: var(--np-red);
-            margin-bottom: 14px;
-            display: inline-block;
-        }
-        .np-dist-feat-card h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--np-dark);
-            margin: 0 0 8px 0;
-        }
-        .np-dist-feat-card p {
-            font-size: 13px;
-            color: var(--np-muted);
-            line-height: 1.55;
-            margin: 0;
+        .np-portfolio-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--np-blue-border);
+            box-shadow: 0 16px 32px rgba(0, 148, 220, 0.12);
         }
 
-        /* 4. PRODUCT PORTFOLIO SECTION */
-        .np-dist-portfolio {
-            padding: 80px 0;
+        .np-portfolio-thumb {
+            width: 100%;
+            height: 220px;
+            background: #F1F5F9;
+            overflow: hidden;
+            position: relative;
+        }
+        .np-portfolio-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+        .np-portfolio-card:hover .np-portfolio-thumb img {
+            transform: scale(1.08);
+        }
+
+        .np-portfolio-body {
+            padding: 24px 22px 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .np-portfolio-body h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--np-dark);
+            margin: 0 0 10px 0;
+            transition: color 0.2s ease;
+        }
+        .np-portfolio-card:hover .np-portfolio-body h3 {
+            color: var(--np-blue);
+        }
+        .np-portfolio-body p {
+            font-size: 13.5px;
+            color: var(--np-muted);
+            line-height: 1.55;
+            margin: 0 0 20px 0;
+            flex: 1;
+        }
+        .np-portfolio-link {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--np-blue);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+        .np-portfolio-card:hover .np-portfolio-link {
+            gap: 10px;
+            color: var(--np-blue-dark);
+        }
+
+        /* ==========================================================================
+           3. OUR BRANDS SECTION (4 Brands)
+           ========================================================================== */
+        .np-brands-section {
+            padding: 85px 0 90px;
             background: var(--np-bg-subtle);
             border-top: 1px solid var(--np-border);
             border-bottom: 1px solid var(--np-border);
         }
-        .np-dist-portfolio-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 36px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .np-dist-cat-grid {
+
+        .np-brands-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 18px;
-        }
-        .np-dist-cat-card {
-            background: #FFFFFF;
-            border: 1px solid var(--np-border);
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .np-dist-cat-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
-            border-color: #CBD5E1;
-        }
-        .np-dist-cat-thumb {
-            width: 100%;
-            height: 170px;
-            background: #F1F5F9;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .np-dist-cat-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .np-dist-cat-card:hover .np-dist-cat-thumb img {
-            transform: scale(1.06);
-        }
-        .np-dist-cat-body {
-            padding: 16px 14px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .np-dist-cat-body h4 {
-            font-size: 14.5px;
-            font-weight: 700;
-            color: var(--np-dark);
-            margin: 0 0 6px 0;
-        }
-        .np-dist-cat-link {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--np-red);
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
         }
 
-        /* 5. 4 SIMPLE STEPS SECTION */
-        .np-dist-steps {
-            padding: 85px 0;
-            background: #FFFFFF;
-        }
-        .np-dist-steps-grid {
-            display: flex;
-            align-items: stretch;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 36px;
-        }
-        .np-dist-step-card {
-            flex: 1;
-            background: #FFFFFF;
-            border: 1px solid var(--np-border);
-            border-radius: 12px;
-            padding: 24px 20px;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
-            transition: all 0.25s ease;
-        }
-        .np-dist-step-card:hover {
-            transform: translateY(-4px);
-            border-color: #CBD5E1;
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
-        }
-        .np-dist-step-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: var(--np-red);
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            margin-bottom: 16px;
-        }
-        .np-dist-step-card h4 {
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--np-dark);
-            margin: 0 0 8px 0;
-        }
-        .np-dist-step-card p {
-            font-size: 13px;
-            color: var(--np-muted);
-            line-height: 1.5;
-            margin: 0;
-        }
-        .np-dist-step-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #CBD5E1;
-            font-size: 16px;
-            padding: 0 6px;
-            flex-shrink: 0;
-        }
-
-        /* 6. PAN INDIA DISTRIBUTION NETWORK SECTION */
-        .np-dist-network {
-            padding: 85px 0;
-            background: var(--np-bg-subtle);
-            border-top: 1px solid var(--np-border);
-        }
-        .np-dist-network-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.35fr 1fr;
-            gap: 36px;
-            align-items: center;
-        }
-        .np-dist-opp-card {
-            background: #FFFFFF;
-            border: 1px solid var(--np-border);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 32px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-        }
-        .np-dist-opp-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: var(--np-red-light);
-            color: var(--np-red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-        .np-dist-opp-card h4 {
-            font-size: 14.5px;
-            font-weight: 700;
-            color: var(--np-dark);
-            margin: 0 0 4px 0;
-        }
-        .np-dist-opp-card p {
-            font-size: 12.5px;
-            color: var(--np-muted);
-            line-height: 1.45;
-            margin: 0;
-        }
-
-        /* Map Visual with Pins & Popover */
-        .np-dist-map-wrap {
-            position: relative;
-            text-align: center;
-            padding: 10px;
-        }
-        .np-dist-map-img {
-            max-width: 360px;
-            width: 100%;
-            height: auto;
-            opacity: 0.95;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.06));
-        }
-
-        /* Explicit custom map pin dots */
-        .np-dist-pin {
-            position: absolute;
-            width: 14px;
-            height: 14px;
-            background: var(--np-red) !important;
-            border: 2.5px solid #FFFFFF !important;
-            border-radius: 50% !important;
-            box-shadow: 0 2px 8px rgba(0, 148, 220, 0.45) !important;
-            cursor: pointer;
-            z-index: 6;
-            transform: translate(-50%, -50%);
-            transition: transform 0.2s ease;
-        }
-        .np-dist-pin:hover {
-            transform: translate(-50%, -50%) scale(1.6);
-            z-index: 10;
-        }
-
-        /* Map Popover Card (Chhattisgarh 12+ Channel Partners) */
-        .np-dist-map-popover {
-            position: absolute;
-            top: 50%;
-            left: 55%;
-            transform: translate(-25%, -35%);
-            background: #FFFFFF;
-            border: 1px solid var(--np-border);
-            border-radius: 12px;
-            padding: 16px 20px;
-            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
-            text-align: center;
-            min-width: 175px;
-            z-index: 8;
-        }
-        .np-dist-map-popover h4 {
-            font-size: 14.5px;
-            font-weight: 700;
-            color: var(--np-dark);
-            margin: 0 0 4px 0;
-        }
-        .np-dist-map-popover p {
-            font-size: 12px;
-            color: var(--np-muted);
-            margin: 0 0 10px 0;
-        }
-        .np-dist-map-popover .btn-popover {
-            font-size: 11px;
-            font-weight: 700;
-            padding: 6px 14px;
-            background: var(--np-red);
-            color: #FFFFFF !important;
-            border-radius: 9999px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.2s ease;
-        }
-        .np-dist-map-popover .btn-popover:hover {
-            background: var(--np-red-dark);
-        }
-
-        /* State Selector Box */
-        .np-dist-state-list-box {
+        .np-brand-card {
             background: #FFFFFF;
             border: 1px solid var(--np-border);
             border-radius: 14px;
-            padding: 18px 16px;
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
-        }
-        .np-dist-state-list-box h5 {
-            font-size: 13.5px;
-            font-weight: 700;
-            color: var(--np-dark);
-            margin: 0 0 12px 6px;
-        }
-        .np-dist-state-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 9px 12px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--np-slate);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 3px;
-            border: 1px solid transparent;
-        }
-        .np-dist-state-item:hover {
-            background: #F1F5F9;
-        }
-        .np-dist-state-item.active {
-            background: var(--np-red-light);
-            color: var(--np-red);
-            font-weight: 700;
-            border-color: var(--np-red-border);
-        }
-        .np-dist-state-item i {
-            font-size: 11px;
-            opacity: 0.6;
-        }
-        .np-dist-state-item.active i {
-            opacity: 1;
-            color: var(--np-red);
-        }
-
-        /* 7. FIND A DISTRIBUTOR NEAR YOU */
-        .np-dist-finder {
-            padding: 80px 0;
-            background: #FFFFFF;
-            border-top: 1px solid var(--np-border);
-        }
-        .np-dist-finder-grid {
-            display: grid;
-            grid-template-columns: 0.9fr 1.6fr;
-            gap: 40px;
-            align-items: flex-start;
-        }
-        .np-dist-filter-bar {
-            background: #FFFFFF;
-            border: 1px solid var(--np-border);
-            border-radius: 12px;
-            padding: 14px 16px;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr auto;
-            gap: 12px;
-            align-items: center;
-        }
-        .np-dist-btn-search {
-            padding: 12px 24px;
-            white-space: nowrap;
-            font-size: 13px;
-            font-weight: 700;
-            border-radius: 9999px;
-            background: var(--np-red);
-            color: #FFFFFF;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s ease;
-            height: 44px;
-            box-sizing: border-box;
-        }
-        .np-dist-btn-search:hover {
-            background: var(--np-red-dark);
-        }
-
-        /* Distributor Result Card */
-        .np-dist-result-card {
-            margin-top: 20px;
-            background: #FFFFFF;
-            border: 1px solid var(--np-border);
-            border-radius: 12px;
-            padding: 18px 24px;
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
-            display: flex;
-            align-items: center;
-            gap: 22px;
-        }
-        .np-dist-result-thumb {
-            width: 130px;
-            height: 90px;
-            border-radius: 8px;
-            object-fit: cover;
-            flex-shrink: 0;
-            background: #F1F5F9;
-        }
-        .np-dist-result-info {
-            flex: 1;
-        }
-        .np-dist-result-info h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--np-dark);
-            margin: 0 0 6px 0;
-        }
-        .np-dist-result-meta {
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            font-size: 13px;
-            color: var(--np-muted);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--np-shadow-sm);
         }
-        .np-dist-result-meta span i {
-            color: var(--np-red);
-            width: 16px;
-            text-align: center;
-            margin-right: 6px;
-        }
-        .np-dist-btn-view-loc {
-            padding: 9px 20px;
-            font-size: 12.5px;
-            white-space: nowrap;
+        .np-brand-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--np-blue-border);
+            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
         }
 
-        /* 8. BECOME A DISTRIBUTOR (APPLICATION FORM) */
-        .np-dist-form-section {
+        .np-brand-thumb {
+            width: 100%;
+            height: 190px;
+            background: #F1F5F9;
+            overflow: hidden;
+            position: relative;
+        }
+        .np-brand-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            display: block;
+        }
+        .np-brand-card:hover .np-brand-thumb img {
+            transform: scale(1.06);
+        }
+
+        .np-brand-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(4px);
+            color: #FFFFFF;
+        }
+
+        .np-brand-body {
+            padding: 22px 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .np-brand-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--np-dark);
+            margin: 0 0 8px 0;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .np-brand-desc {
+            font-size: 13.5px;
+            color: var(--np-muted);
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+            flex: 1;
+        }
+        .np-brand-link {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--np-blue);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .np-brands-action {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* ==========================================================================
+           4. WHY DEALERS CHOOSE US SECTION (3 Powerful Points)
+           ========================================================================== */
+        .np-why-section {
+            padding: 85px 0 95px;
+            background: #FFFFFF;
+        }
+
+        .np-why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .np-why-card {
+            background: #FFFFFF;
+            border: 1px solid var(--np-border);
+            border-radius: 16px;
+            padding: 36px 30px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: var(--np-shadow-sm);
+            position: relative;
+        }
+        .np-why-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--np-blue-border);
+            box-shadow: 0 18px 36px rgba(0, 148, 220, 0.1);
+        }
+
+        .np-why-icon-wrap {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: var(--np-blue-light);
+            border: 1px solid var(--np-blue-border);
+            color: var(--np-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
+        }
+        .np-why-card:hover .np-why-icon-wrap {
+            background: var(--np-blue);
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+
+        .np-why-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--np-dark);
+            margin: 0 0 10px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .np-why-tagline {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--np-blue);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .np-why-card p {
+            font-size: 14px;
+            color: var(--np-muted);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ==========================================================================
+           5. DEALER NETWORK SECTION (Homepage India Map + Interactive Locator)
+           ========================================================================== */
+        .np-network-section {
             padding: 85px 0 95px;
             background: var(--np-bg-subtle);
             border-top: 1px solid var(--np-border);
         }
-        .np-dist-form-grid {
+
+        .np-network-grid {
             display: grid;
-            grid-template-columns: 1fr 1.35fr;
-            gap: 48px;
-            align-items: flex-start;
-        }
-        .np-dist-handshake-img {
-            width: 100%;
-            height: 380px;
-            border-radius: 16px;
-            object-fit: cover;
-            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
-            border: 1px solid var(--np-border);
-            margin-top: 24px;
-            display: block;
+            grid-template-columns: 1.15fr 0.95fr;
+            gap: 44px;
+            align-items: center;
         }
 
-        .np-dist-form-card {
+        /* Map styling consistent with homepage */
+        .np-network-map-col {
+            position: relative;
+            background: #FFFFFF;
+            border: 1px solid var(--np-border);
+            border-radius: 18px;
+            padding: 30px 24px 20px;
+            box-shadow: var(--np-shadow-md);
+        }
+
+        .np-network-map-col .np-map {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .np-network-map-col .np-map-base {
+            display: block;
+            width: 100% !important;
+            height: auto;
+            margin: 0 auto;
+            opacity: 0.96;
+        }
+
+        /* Interactive map pins */
+        .np-network-map-col .np-map-pin {
+            position: absolute;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            background: none;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            opacity: 0.9;
+            pointer-events: auto !important;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .np-network-map-col .np-map-pin:hover,
+        .np-network-map-col .np-map-pin.is-active {
+            opacity: 1 !important;
+            transform: translate(-50%, -50%) scale(1.35);
+            z-index: 10;
+        }
+
+        .np-network-legend {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid #F1F5F9;
+        }
+        .np-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12.5px;
+            color: var(--np-slate);
+            font-weight: 500;
+        }
+        .np-legend-item em {
+            font-style: normal;
+            font-weight: 700;
+            color: var(--np-dark);
+        }
+        .np-legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Locator & Stats Column */
+        .np-network-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .np-locator-card {
             background: #FFFFFF;
             border: 1px solid var(--np-border);
             border-radius: 16px;
-            padding: 34px 32px;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+            padding: 28px 26px;
+            box-shadow: var(--np-shadow-md);
         }
-        .np-dist-form-fields {
+        .np-locator-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: var(--np-dark);
+        }
+        .np-locator-card p.locator-sub {
+            font-size: 13.5px;
+            color: var(--np-muted);
+            margin: 0 0 20px 0;
+        }
+
+        .np-locator-fields {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
+            gap: 12px;
+            margin-bottom: 14px;
         }
-        .np-dist-form-group {
+
+        .np-locator-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--np-slate);
+            margin-bottom: 6px;
+        }
+
+        .np-btn-find {
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            font-size: 13.5px;
+            letter-spacing: 0.6px;
+            font-weight: 700;
+        }
+
+        /* Dealer Result Card */
+        .np-dealer-result-card {
+            margin-top: 20px;
+            background: #F8FAFC;
+            border: 1px solid var(--np-blue-border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            position: relative;
+        }
+        .np-dealer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #059669;
+            background: #ECFDF5;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            margin-bottom: 10px;
+        }
+        .np-dealer-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--np-dark);
+            margin: 0 0 8px 0;
+        }
+        .np-dealer-meta {
+            font-size: 13px;
+            color: var(--np-slate);
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .np-dealer-meta i {
+            width: 16px;
+            color: var(--np-blue);
+            margin-right: 6px;
+        }
+        .np-dealer-actions {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+        }
+        .np-btn-call {
+            padding: 8px 18px;
+            font-size: 12px;
+            font-weight: 700;
+            background: var(--np-blue);
+            color: #FFFFFF !important;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .np-btn-call:hover {
+            background: var(--np-blue-dark);
+        }
+
+        /* Real Statistics Counter Strip */
+        .np-stats-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .np-stat-box {
+            background: #FFFFFF;
+            border: 1px solid var(--np-border);
+            border-radius: 14px;
+            padding: 20px 16px;
+            text-align: center;
+            box-shadow: var(--np-shadow-sm);
+            transition: transform 0.25s ease;
+        }
+        .np-stat-box:hover {
+            transform: translateY(-3px);
+            border-color: var(--np-blue-border);
+        }
+        .np-stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            color: var(--np-blue);
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+        .np-stat-label {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--np-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==========================================================================
+           6. FINAL CTA CONVERSION SECTION
+           ========================================================================== */
+        .np-cta-section {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            padding: 95px 0 100px;
+            position: relative;
+            overflow: hidden;
+            color: #FFFFFF;
+            text-align: center;
+        }
+        .np-cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 148, 220, 0.2) 0%, rgba(0, 148, 220, 0) 70%);
+            pointer-events: none;
+        }
+
+        .np-cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .np-dist-scope .np-cta-heading {
+            font-size: 42px;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .np-cta-desc {
+            font-size: 17px;
+            color: #CBD5E1;
+            line-height: 1.65;
+            margin: 0 auto 36px;
+            max-width: 640px;
+        }
+
+        .np-cta-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .np-btn-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--np-blue);
+            color: #FFFFFF !important;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 16px 38px;
+            border-radius: 9999px;
+            border: 2px solid var(--np-blue);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 24px rgba(0, 148, 220, 0.35);
+        }
+        .np-btn-cta-primary:hover {
+            background: var(--np-blue-dark);
+            border-color: var(--np-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 148, 220, 0.45);
+        }
+
+        .np-cta-secondary-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #E2E8F0 !important;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+        .np-cta-secondary-link:hover {
+            color: #38BDF8 !important;
+        }
+
+        /* ==========================================================================
+           BECOME A DEALER MODAL
+           ========================================================================== */
+        .np-dealer-modal-box {
+            background: #FFFFFF;
+            border-radius: 16px;
+            max-width: 620px;
+            width: 92%;
+            padding: 36px 32px;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .np-dealer-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: #64748B;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .np-dealer-modal-close:hover {
+            color: var(--np-dark);
+        }
+
+        .np-form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .np-form-item {
             display: flex;
             flex-direction: column;
             gap: 6px;
         }
-        .np-dist-form-group.full-width {
+        .np-form-item.full-width {
             grid-column: span 2;
         }
-        .np-dist-form-group label {
+        .np-form-item label {
             font-size: 12.5px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--np-slate);
         }
-        .np-dist-form-group label span.req {
+        .np-form-item label span.req {
             color: var(--np-red);
         }
-        .np-dist-input,
-        .np-dist-form-group textarea {
+        .np-form-input,
+        .np-form-item textarea {
             width: 100%;
             padding: 11px 14px;
             border: 1px solid #CBD5E1;
@@ -810,121 +862,594 @@
             font-size: 13.5px;
             background: #F8FAFC;
             color: var(--np-dark);
-            outline: none;
-            transition: all 0.2s ease;
             box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
             font-family: inherit;
         }
-        .np-dist-input:focus,
-        .np-dist-form-group select:focus,
-        .np-dist-form-group textarea:focus {
-            border-color: var(--np-red) !important;
-            background: #FFFFFF !important;
-            box-shadow: 0 0 0 3px rgba(0, 148, 220, 0.12) !important;
+        .np-form-input:focus,
+        .np-form-item textarea:focus {
+            border-color: var(--np-blue);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(0, 148, 220, 0.15);
         }
-        .np-dist-btn-submit {
+
+        /* ==========================================================================
+           PIPING & INFRASTRUCTURE SECTION (Supreme.co.in style)
+           ========================================================================== */
+        .np-piping-section {
+            padding: 0;
+            background: #FFFFFF;
+        }
+
+        .np-piping-hero {
+            position: relative;
             width: 100%;
-            padding: 15px;
-            background: var(--np-red);
-            color: #FFFFFF;
-            border: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(0, 148, 220, 0.25);
+            height: 480px;
+            background-color: #79C2E3; /* Sky Blue Fallback */
+            background-image: url('images/brand/company-photo.jpg'); /* Company photo background */
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--np-border);
         }
-        .np-dist-btn-submit:hover {
-            background: var(--np-red-dark);
-            box-shadow: 0 8px 22px rgba(0, 148, 220, 0.35);
-        }
-
-        .np-dist-success-alert {
-            display: none;
-            background: #ECFDF5;
-            border: 1px solid #6EE7B7;
-            color: #065F46;
-            padding: 16px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 13.5px;
-            line-height: 1.5;
-        }
-
-        /* 9. BOTTOM CTA BANNER */
-        .np-dist-bottom-cta {
-            background: #0B0F17 url('images/brand/distributor-hero-partner.jpg') center/cover no-repeat;
-            position: relative;
-            padding: 60px 0;
-            color: #FFFFFF;
-            overflow: hidden;
-        }
-        .np-dist-bottom-cta::before {
+        
+        .np-piping-hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, rgba(11, 15, 23, 0.95) 0%, rgba(15, 23, 42, 0.88) 60%, rgba(15, 23, 42, 0.94) 100%);
+            background: rgba(121, 194, 227, 0.85); /* Semi-transparent blue overlay */
             z-index: 1;
         }
-        .np-dist-bottom-cta-inner {
-            position: relative;
+
+        .np-piping-hero-content {
             z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        .np-dist-bottom-cta h2 {
-            font-size: 34px;
-            font-weight: 800;
-            color: #FFFFFF;
-            line-height: 1.2;
-            margin: 0 0 8px 0;
-        }
-        .np-dist-bottom-cta p {
-            font-size: 15px;
-            color: #94A3B8;
-            margin: 0;
+            color: #2D3748;
         }
 
-        /* RESPONSIVE BREAKPOINTS */
+        .np-piping-hero-content h2 {
+            font-size: 64px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            font-family: 'Inter', sans-serif;
+            color: #2D3748;
+            line-height: 1.1;
+        }
+
+        .np-piping-hero-content p {
+            font-size: 22px;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.5;
+            color: #2D3748;
+            font-weight: 400;
+        }
+
+        .np-piping-applications {
+            text-align: center;
+            padding: 85px 24px;
+            background: linear-gradient(to bottom, #FFFFFF 0%, #F1F5F9 100%);
+        }
+
+        .np-piping-app-title {
+            font-size: 52px;
+            font-weight: 800;
+            color: #2D3748;
+            margin-bottom: 24px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        .np-piping-app-desc {
+            font-size: 19px;
+            color: #4A5568;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .np-piping-img-showcase {
+            width: 100%;
+            max-width: 1220px;
+            margin: 0 auto 40px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--np-shadow-md);
+        }
+
+        .np-app-slide {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .np-app-slide-img {
+            height: 420px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .np-app-slide-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 2;
+        }
+
+        .np-app-slide-tag h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .np-app-slide-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 44px;
+            font-weight: 800;
+            color: #FFFFFF;
+            font-family: 'Outfit', sans-serif;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+            letter-spacing: -1px;
+            z-index: 2;
+        }
+
+        .np-app-slide-counter span {
+            font-size: 22px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        /* ==========================================================================
+           RESPONSIVE BREAKPOINTS (Supreme.co.in Mobile View Alignment & Arrangement)
+           ========================================================================== */
         @media (max-width: 1024px) {
-            .np-dist-hero-grid { grid-template-columns: 1fr; }
-            .np-dist-hero-badges { right: 15px; top: 15px; }
-            .np-dist-why-grid { grid-template-columns: 1fr; }
-            .np-dist-why-cards { grid-template-columns: repeat(2, 1fr); }
-            .np-dist-cat-grid { grid-template-columns: repeat(3, 1fr); }
-            .np-dist-network-grid { grid-template-columns: 1fr; }
-            .np-dist-finder-grid { grid-template-columns: 1fr; }
-            .np-dist-form-grid { grid-template-columns: 1fr; }
+            .np-portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .np-brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .np-why-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .np-network-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
 
         @media (max-width: 768px) {
-            .np-dist-heading { font-size: 32px; }
-            .np-dist-stats-box { grid-template-columns: repeat(2, 1fr); padding: 20px; }
-            .np-dist-why-cards { grid-template-columns: 1fr; }
-            .np-dist-cat-grid { grid-template-columns: repeat(2, 1fr); }
-            .np-dist-steps-grid { flex-direction: column; }
-            .np-dist-step-arrow { transform: rotate(90deg); margin: 6px 0; }
-            .np-dist-filter-bar { grid-template-columns: 1fr; }
-            .np-dist-result-card { flex-direction: column; align-items: flex-start; }
-            .np-dist-result-thumb { width: 100%; height: 160px; }
-            .np-dist-form-fields { grid-template-columns: 1fr; }
-            .np-dist-form-group.full-width { grid-column: span 1; }
-            .np-dist-bottom-cta-inner { flex-direction: column; align-items: flex-start; }
+            /* 1. Mobile Banner & Breadcrumbs (Supreme 1:1) */
+            #distributor_page .banner-section {
+                padding-top: 0 !important;
+                position: relative !important;
+                min-height: auto !important;
+            }
+            #distributor_page .banner-section .home-banner-slider {
+                padding-top: 0 !important;
+            }
+            #distributor_page .banner-section .banner-slider-img {
+                display: none !important;
+            }
+            #distributor_page .banner-section .mob-banner-img {
+                display: block !important;
+                width: 100% !important;
+                height: 220px !important;
+                object-fit: cover !important;
+                object-position: center !important;
+            }
+            #distributor_page .banner-section .scrool-down {
+                display: none !important;
+            }
+            #distributor_page .banner-section .breadcrums {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                transform: none !important;
+                padding: 10px 16px !important;
+                background: #F8FAFC !important;
+                border-bottom: 1px solid #E2E8F0 !important;
+                margin: 0 !important;
+                text-align: left !important;
+            }
+            #distributor_page .banner-section .breadcrums .container {
+                padding: 0 !important;
+            }
+            #distributor_page .banner-section .breadcrums .np-breadcrumb-pill {
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                display: inline-flex !important;
+                gap: 8px !important;
+            }
+
+            /* 2. Global Section Padding & Alignment */
+            .np-dist-container {
+                padding: 0 16px !important;
+            }
+            .np-portfolio-section,
+            .np-brands-section,
+            .np-why-section,
+            .np-network-section {
+                padding: 44px 0 40px !important;
+            }
+            .np-dist-section-header {
+                margin: 0 auto 24px !important;
+                text-align: center !important;
+            }
+            .np-dist-eyebrow {
+                font-size: 11px !important;
+                padding: 4px 12px !important;
+                letter-spacing: 1px !important;
+                margin-bottom: 8px !important;
+            }
+            .np-dist-heading {
+                font-size: 24px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 8px !important;
+            }
+            .np-dist-desc {
+                font-size: 13.5px !important;
+                line-height: 1.55 !important;
+            }
+
+            /* 3. Product Portfolio Grid */
+            .np-portfolio-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+            .np-portfolio-card {
+                border-radius: 12px !important;
+            }
+            .np-portfolio-thumb {
+                height: 180px !important;
+            }
+            .np-portfolio-body {
+                padding: 16px 16px 18px !important;
+            }
+            .np-portfolio-body h3 {
+                font-size: 18px !important;
+                margin-bottom: 6px !important;
+            }
+            .np-portfolio-body p {
+                font-size: 13px !important;
+                line-height: 1.5 !important;
+                margin-bottom: 14px !important;
+            }
+            .np-portfolio-link {
+                font-size: 12.5px !important;
+            }
+
+            /* 4. Our Brands 2x2 Clean Grid */
+            .np-brands-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+                margin-bottom: 24px !important;
+            }
+            .np-brand-card {
+                border-radius: 12px !important;
+            }
+            .np-brand-thumb {
+                height: 125px !important;
+            }
+            .np-brand-badge {
+                top: 8px !important;
+                right: 8px !important;
+                font-size: 9px !important;
+                padding: 2px 7px !important;
+            }
+            .np-brand-body {
+                padding: 12px 10px 14px !important;
+            }
+            .np-brand-title {
+                font-size: 16px !important;
+                margin-bottom: 4px !important;
+            }
+            .np-brand-desc {
+                font-size: 11.5px !important;
+                line-height: 1.35 !important;
+                margin-bottom: 10px !important;
+            }
+            .np-brand-link {
+                font-size: 11px !important;
+                gap: 4px !important;
+            }
+            .np-brands-action .np-btn-outline {
+                width: 100% !important;
+                max-width: 260px !important;
+                padding: 11px 20px !important;
+                font-size: 12.5px !important;
+            }
+
+            /* 5. Total Moulded Solutions Hero & Infrastructure Showcase */
+            .np-piping-hero {
+                height: auto !important;
+                min-height: 220px !important;
+                padding: 36px 16px !important;
+            }
+            .np-piping-hero-content img {
+                height: 30px !important;
+            }
+            .np-piping-hero-content h2 {
+                font-size: 24px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 10px !important;
+            }
+            .np-piping-hero-content p {
+                font-size: 13.5px !important;
+                line-height: 1.5 !important;
+            }
+            .np-piping-applications {
+                padding: 36px 16px !important;
+            }
+            .np-piping-img-showcase {
+                margin: 0 auto 20px !important;
+                border-radius: 10px !important;
+            }
+            .np-app-slide-img {
+                height: 220px !important;
+            }
+            .np-app-slide-tag {
+                top: 10px !important;
+                left: 10px !important;
+                padding: 4px 10px !important;
+                border-radius: 4px !important;
+            }
+            .np-app-slide-tag h3 {
+                font-size: 13px !important;
+            }
+            .np-app-slide-counter {
+                bottom: 10px !important;
+                font-size: 22px !important;
+            }
+            .np-app-slide-counter span {
+                font-size: 13px !important;
+            }
+            .np-piping-app-title {
+                font-size: 24px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 8px !important;
+            }
+            .np-piping-app-desc {
+                font-size: 13.5px !important;
+                line-height: 1.55 !important;
+                margin: 0 auto 20px !important;
+            }
+            .np-piping-applications .np-btn-red {
+                width: 100% !important;
+                max-width: 260px !important;
+                padding: 12px 20px !important;
+                font-size: 12.5px !important;
+            }
+
+            /* 6. Why Dealers Choose Us */
+            .np-why-grid {
+                grid-template-columns: 1fr !important;
+                gap: 14px !important;
+            }
+            .np-why-card {
+                padding: 20px 18px !important;
+                border-radius: 12px !important;
+            }
+            .np-why-icon-wrap {
+                width: 44px !important;
+                height: 44px !important;
+                border-radius: 10px !important;
+                font-size: 18px !important;
+                margin-bottom: 12px !important;
+            }
+            .np-why-card h3 {
+                font-size: 16px !important;
+                margin-bottom: 4px !important;
+            }
+            .np-why-tagline {
+                font-size: 13px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.35 !important;
+            }
+            .np-why-card p {
+                font-size: 12.5px !important;
+                line-height: 1.5 !important;
+            }
+
+            /* 7. Dealer Network & Interactive Locator */
+            .np-network-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            .np-network-map-col {
+                padding: 14px 10px 14px !important;
+                border-radius: 14px !important;
+            }
+            .np-network-map-col .np-map-pin {
+                width: 22px !important;
+                height: 22px !important;
+            }
+            .np-network-map-col .np-map-pin-dot {
+                width: 8px !important;
+                height: 8px !important;
+            }
+            .np-network-map-col .np-map-pin-label {
+                display: none !important;
+            }
+            .np-network-map-col .np-map-card {
+                left: 50% !important;
+                bottom: 8px !important;
+                top: auto !important;
+                transform: translateX(-50%) !important;
+                width: calc(100% - 16px) !important;
+                max-width: 320px !important;
+            }
+            .np-network-legend {
+                gap: 8px 12px !important;
+                font-size: 11px !important;
+                margin-top: 12px !important;
+                padding-top: 10px !important;
+            }
+            .np-legend-dot {
+                width: 8px !important;
+                height: 8px !important;
+            }
+            .np-locator-card {
+                padding: 18px 16px !important;
+                border-radius: 14px !important;
+            }
+            .np-locator-card h3 {
+                font-size: 18px !important;
+                margin-bottom: 4px !important;
+            }
+            .np-locator-card p.locator-sub {
+                font-size: 12.5px !important;
+                margin-bottom: 14px !important;
+            }
+            .np-locator-fields {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+                margin-bottom: 12px !important;
+            }
+            .np-dist-scope select {
+                height: 42px !important;
+                font-size: 13.5px !important;
+            }
+            .np-btn-find {
+                padding: 12px !important;
+                font-size: 13px !important;
+            }
+            .np-dealer-result-card {
+                padding: 14px !important;
+                margin-top: 14px !important;
+                border-radius: 10px !important;
+            }
+            .np-dealer-title {
+                font-size: 15px !important;
+            }
+            .np-dealer-meta {
+                font-size: 12px !important;
+                gap: 4px !important;
+            }
+            .np-dealer-actions {
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+            .np-btn-call,
+            .np-dealer-actions .np-btn-outline {
+                width: 100% !important;
+                justify-content: center !important;
+                padding: 9px !important;
+                box-sizing: border-box !important;
+            }
+            .np-stats-strip {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 8px !important;
+            }
+            .np-stat-box {
+                padding: 12px 6px !important;
+                border-radius: 10px !important;
+            }
+            .np-stat-number {
+                font-size: 20px !important;
+            }
+            .np-stat-label {
+                font-size: 10px !important;
+            }
+
+            /* 8. Final CTA Conversion Section */
+            .np-cta-section {
+                padding: 48px 16px !important;
+            }
+            .np-dist-scope .np-cta-heading {
+                font-size: 24px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 10px !important;
+            }
+            .np-cta-desc {
+                font-size: 13.5px !important;
+                line-height: 1.5 !important;
+                margin-bottom: 22px !important;
+            }
+            .np-cta-actions {
+                flex-direction: column !important;
+                gap: 12px !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+            .np-btn-cta-primary {
+                width: 100% !important;
+                max-width: 280px !important;
+                padding: 13px 20px !important;
+                font-size: 13px !important;
+            }
+            .np-cta-secondary-link {
+                width: 100% !important;
+                max-width: 280px !important;
+                padding: 11px 20px !important;
+                font-size: 12.5px !important;
+                justify-content: center !important;
+            }
+
+            /* 9. Become a Dealer Modal */
+            .np-dealer-modal-box {
+                padding: 22px 16px !important;
+                width: 94% !important;
+                max-height: 88vh !important;
+                border-radius: 14px !important;
+            }
+            .np-form-grid-2 {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+                margin-bottom: 10px !important;
+            }
+            .np-form-item.full-width {
+                grid-column: span 1 !important;
+            }
+            .np-form-input,
+            .np-form-item textarea {
+                padding: 10px 12px !important;
+                font-size: 13px !important;
+            }
         }
 
-        @media (max-width: 480px) {
-            .np-dist-stats-box { grid-template-columns: 1fr; }
-            .np-dist-cat-grid { grid-template-columns: 1fr; }
+        @media (max-width: 380px) {
+            .np-brands-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .np-brand-thumb {
+                height: 150px !important;
+            }
+            .np-brand-title {
+                font-size: 17px !important;
+            }
+            .np-brand-desc {
+                font-size: 12.5px !important;
+            }
+            .np-stat-number {
+                font-size: 18px !important;
+            }
+            .np-stat-label {
+                font-size: 9.5px !important;
+            }
         }
     </style>
     
@@ -1115,403 +1640,74 @@
 
     <main class="np-dist-scope">
 
-        <!-- 1. HERO SECTION -->
-        <section class="np-dist-hero" id="hero">
+        <!-- ==========================================================================
+             2. PRODUCT PORTFOLIO — Main attraction
+             ========================================================================== -->
+        <section class="np-portfolio-section" id="product-portfolio">
             <div class="np-dist-container">
-                <div class="np-dist-hero-grid">
-                    <div class="np-dist-hero-text">
-                        <div class="np-dist-eyebrow">Distributor &amp; Channel Partner</div>
-                        <h1 class="np-dist-heading">
-                            Grow With a <span class="text-red">Trusted Brand.</span>
-                        </h1>
-                        <p class="np-dist-desc">
-                            Join our growing distribution network and bring National Plasto's wide range of high-quality plastic products to customers across your market.
-                        </p>
-                        <div class="np-dist-hero-btns">
-                            <a href="#become-distributor" class="np-btn-red">
-                                Become a Distributor <i class="fas fa-arrow-right"></i>
+                <div class="np-dist-section-header">
+                    <div class="np-dist-eyebrow"><i class="fas fa-boxes"></i> Product Portfolio</div>
+                    <h2 class="np-dist-heading">
+                        Products That <span class="color_highlight">Move Markets</span>
+                    </h2>
+                    <p class="np-dist-desc">
+                        Explore a diverse portfolio designed for homes, businesses and everyday needs.
+                    </p>
+                </div>
+
+                <div class="np-portfolio-grid">
+                    <!-- 1. Furniture -->
+                    <div class="np-portfolio-card">
+                        <div class="np-portfolio-thumb">
+                            <img src="images/business/moulded-furniture.jpg" alt="National Plasto Moulded Furniture" loading="lazy">
+                        </div>
+                        <div class="np-portfolio-body">
+                            <h3>Furniture</h3>
+                            <p>Premium arm chairs, modern armless dining chairs, heavy-duty stools and elegant moulded tables.</p>
+                            <a href="products.html?category=furniture" class="np-portfolio-link">
+                                EXPLORE <i class="fas fa-arrow-right"></i>
                             </a>
-                            <a href="#find-distributor" class="np-btn-outline">
-                                <i class="fas fa-map-marker-alt" style="color:var(--np-red);margin-right:4px;"></i> Find a Distributor
+                        </div>
+                    </div>
+
+                    <!-- 2. Household -->
+                    <div class="np-portfolio-card">
+                        <div class="np-portfolio-thumb">
+                            <img src="images/occasions/kitchen-utility.jpg" alt="National Plasto Household Products" loading="lazy">
+                        </div>
+                        <div class="np-portfolio-body">
+                            <h3>Household</h3>
+                            <p>Modern kitchen storage containers, utility racks, pedal waste bins and durable home organizers.</p>
+                            <a href="products.html?category=household" class="np-portfolio-link">
+                                EXPLORE <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
-                    <div class="np-dist-hero-visual">
-                        <div class="np-dist-hero-img-wrap">
-                            <img src="images/brand/distributor-hero-partner.jpg" alt="National Plasto Channel Partner &amp; Warehouse Operations" width="580" height="440">
-                        </div>
-                        <!-- 4 Floating Pill Badges -->
-                        <div class="np-dist-hero-badges">
-                            <div class="np-dist-badge-pill">
-                                <div class="np-dist-badge-icon"><i class="fas fa-check"></i></div>
-                                <span>Quality Products</span>
-                            </div>
-                            <div class="np-dist-badge-pill">
-                                <div class="np-dist-badge-icon"><i class="fas fa-truck"></i></div>
-                                <span>Strong Supply Chain</span>
-                            </div>
-                            <div class="np-dist-badge-pill">
-                                <div class="np-dist-badge-icon"><i class="fas fa-globe-asia"></i></div>
-                                <span>Pan India Network</span>
-                            </div>
-                            <div class="np-dist-badge-pill">
-                                <div class="np-dist-badge-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                                <span>Profitable Partnership</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- 2. FLOATING STATS STRIP -->
-        <section class="np-dist-stats-section">
-            <div class="np-dist-container">
-                <div class="np-dist-stats-box">
-                    <div class="np-dist-stat-item">
-                        <div class="np-dist-stat-icon"><i class="fas fa-trophy"></i></div>
-                        <div>
-                            <div class="np-dist-stat-val">25+</div>
-                            <div class="np-dist-stat-lbl">Years of Experience</div>
+                    <!-- 3. Storage & Handling -->
+                    <div class="np-portfolio-card">
+                        <div class="np-portfolio-thumb">
+                            <img src="images/business/industrial-crates.jpg" alt="National Plasto Storage & Handling Crates" loading="lazy">
+                        </div>
+                        <div class="np-portfolio-body">
+                            <h3>Storage &amp; Handling</h3>
+                            <p>Heavy-duty stackable crates, fruit &amp; dairy crates, nesting tubs and versatile material handling containers.</p>
+                            <a href="products.html?category=crates" class="np-portfolio-link">
+                                EXPLORE <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="np-dist-stat-item">
-                        <div class="np-dist-stat-icon"><i class="fas fa-industry"></i></div>
-                        <div>
-                            <div class="np-dist-stat-val">4</div>
-                            <div class="np-dist-stat-lbl">Manufacturing Plants</div>
-                        </div>
-                    </div>
-                    <div class="np-dist-stat-item">
-                        <div class="np-dist-stat-icon"><i class="fas fa-award"></i></div>
-                        <div>
-                            <div class="np-dist-stat-val">4</div>
-                            <div class="np-dist-stat-lbl">Established Brands</div>
-                        </div>
-                    </div>
-                    <div class="np-dist-stat-item">
-                        <div class="np-dist-stat-icon"><i class="fas fa-boxes"></i></div>
-                        <div>
-                            <div class="np-dist-stat-val">360+</div>
-                            <div class="np-dist-stat-lbl">Product Models</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- 3. WHY PARTNER WITH US SECTION -->
-        <section class="np-dist-why">
-            <div class="np-dist-container">
-                <div class="np-dist-why-grid">
-                    <div class="np-dist-why-left">
-                        <div class="np-dist-eyebrow">Why Partner With Us</div>
-                        <h2 class="np-dist-heading">
-                            A Partnership <br><span class="text-red">Built for Growth</span>
-                        </h2>
-                        <p class="np-dist-desc">
-                            At National Plasto, we believe in growing together. Our distributors are an important part of our success, and we provide the right support to help you build a profitable and long-term business.
-                        </p>
-                        <a href="#become-distributor" class="np-btn-red">
-                            Become a Distributor <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="np-dist-why-cards">
-                        <!-- 6 Feature Cards -->
-                        <div class="np-dist-feat-card">
-                            <i class="fas fa-award np-dist-feat-icon"></i>
-                            <h4>Trusted Brand</h4>
-                            <p>Build your business with a brand focused on quality and customer trust.</p>
+                    <!-- 4. Industrial Solutions -->
+                    <div class="np-portfolio-card">
+                        <div class="np-portfolio-thumb">
+                            <img src="images/business/modular-storage.jpg" alt="National Plasto Industrial Solutions" loading="lazy">
                         </div>
-                        <div class="np-dist-feat-card">
-                            <i class="fas fa-layer-group np-dist-feat-icon"></i>
-                            <h4>Wide Product Portfolio</h4>
-                            <p>Access a diverse range of products across multiple categories and price segments.</p>
-                        </div>
-                        <div class="np-dist-feat-card">
-                            <i class="fas fa-truck-loading np-dist-feat-icon"></i>
-                            <h4>Reliable Supply</h4>
-                            <p>Strong manufacturing capabilities ensure consistent product availability.</p>
-                        </div>
-                        <div class="np-dist-feat-card">
-                            <i class="fas fa-users-cog np-dist-feat-icon"></i>
-                            <h4>Business Support</h4>
-                            <p>Get dedicated support from our sales and distribution team.</p>
-                        </div>
-                        <div class="np-dist-feat-card">
-                            <i class="fas fa-bullhorn np-dist-feat-icon"></i>
-                            <h4>Marketing Support</h4>
-                            <p>Access catalogues, promotional material and brand communication.</p>
-                        </div>
-                        <div class="np-dist-feat-card">
-                            <i class="fas fa-chart-line np-dist-feat-icon"></i>
-                            <h4>Growth Opportunity</h4>
-                            <p>Expand your business with a growing product portfolio and market presence.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. PRODUCT PORTFOLIO SECTION -->
-        <section class="np-dist-portfolio">
-            <div class="np-dist-container">
-                <div class="np-dist-portfolio-top">
-                    <div>
-                        <div class="np-dist-eyebrow">Our Product Portfolio</div>
-                        <h2 class="np-dist-heading" style="margin-bottom:8px;">
-                            A Range for <br><span class="text-red">Every Market</span>
-                        </h2>
-                        <p class="np-dist-desc" style="max-width:580px;margin-bottom:0;">
-                            A diverse range of plastic products designed for households, industries and commercial use. Give your customers quality products from trusted brands.
-                        </p>
-                    </div>
-                    <div>
-                        <a href="products.html" class="np-btn-outline">
-                            Explore All Products <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="np-dist-cat-grid">
-                    <!-- 1. Household Products -->
-                    <a href="products.html?category=household" class="np-dist-cat-card">
-                        <div class="np-dist-cat-thumb">
-                            <img src="images/products/category-household.jpg" alt="Household Products" loading="lazy">
-                        </div>
-                        <div class="np-dist-cat-body">
-                            <h4>Household Products</h4>
-                            <span class="np-dist-cat-link">Explore Products &rarr;</span>
-                        </div>
-                    </a>
-                    <!-- 2. Storage & Crates -->
-                    <a href="products.html?category=crates" class="np-dist-cat-card">
-                        <div class="np-dist-cat-thumb">
-                            <img src="images/business/industrial-crates.jpg" alt="Storage &amp; Crates" loading="lazy">
-                        </div>
-                        <div class="np-dist-cat-body">
-                            <h4>Storage &amp; Crates</h4>
-                            <span class="np-dist-cat-link">Explore Products &rarr;</span>
-                        </div>
-                    </a>
-                    <!-- 3. Furniture -->
-                    <a href="products.html?category=furniture" class="np-dist-cat-card">
-                        <div class="np-dist-cat-thumb">
-                            <img src="images/products/np-ntl-058-89dcdcfa74.jpg" alt="Furniture" loading="lazy">
-                        </div>
-                        <div class="np-dist-cat-body">
-                            <h4>Furniture</h4>
-                            <span class="np-dist-cat-link">Explore Products &rarr;</span>
-                        </div>
-                    </a>
-                    <!-- 4. Industrial Products -->
-                    <a href="products.html?category=industrial" class="np-dist-cat-card">
-                        <div class="np-dist-cat-thumb">
-                            <img src="images/business/modular-storage.jpg" alt="Industrial Products" loading="lazy">
-                        </div>
-                        <div class="np-dist-cat-body">
-                            <h4>Industrial Products</h4>
-                            <span class="np-dist-cat-link">Explore Products &rarr;</span>
-                        </div>
-                    </a>
-                    <!-- 5. Custom Moulded Products -->
-                    <a href="contact.html?enquiry=custom-moulding" class="np-dist-cat-card">
-                        <div class="np-dist-cat-thumb">
-                            <img src="images/products/category-custom-moulded.jpg" alt="Custom Moulded Products" loading="lazy">
-                        </div>
-                        <div class="np-dist-cat-body">
-                            <h4>Custom Moulded Products</h4>
-                            <span class="np-dist-cat-link">Explore Products &rarr;</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. 4 SIMPLE STEPS SECTION -->
-        <section class="np-dist-steps">
-            <div class="np-dist-container">
-                <div class="np-dist-eyebrow">Partner With Us in 4 Simple Steps</div>
-                <h2 class="np-dist-heading">
-                    Your Journey <br><span class="text-red">Starts Here</span>
-                </h2>
-                <div class="np-dist-steps-grid">
-                    <div class="np-dist-step-card">
-                        <div class="np-dist-step-icon"><i class="fas fa-file-invoice"></i></div>
-                        <h4>Submit Your Interest</h4>
-                        <p>Fill in your business and location details.</p>
-                    </div>
-                    <div class="np-dist-step-arrow"><i class="fas fa-arrow-right"></i></div>
-                    <div class="np-dist-step-card">
-                        <div class="np-dist-step-icon"><i class="fas fa-search"></i></div>
-                        <h4>Business Evaluation</h4>
-                        <p>Our team reviews your market, business profile and requirements.</p>
-                    </div>
-                    <div class="np-dist-step-arrow"><i class="fas fa-arrow-right"></i></div>
-                    <div class="np-dist-step-card">
-                        <div class="np-dist-step-icon"><i class="fas fa-comments"></i></div>
-                        <h4>Partnership Discussion</h4>
-                        <p>Our team connects with you to discuss products, territory and commercial terms.</p>
-                    </div>
-                    <div class="np-dist-step-arrow"><i class="fas fa-arrow-right"></i></div>
-                    <div class="np-dist-step-card">
-                        <div class="np-dist-step-icon"><i class="fas fa-rocket"></i></div>
-                        <h4>Start Growing With Us</h4>
-                        <p>Complete onboarding and start building your National Plasto business.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. PAN INDIA DISTRIBUTION NETWORK SECTION -->
-        <section class="np-dist-network">
-            <div class="np-dist-container">
-                <div class="np-dist-network-grid">
-                    <div class="np-dist-network-left">
-                        <div class="np-dist-eyebrow">Pan India Distribution Network</div>
-                        <h2 class="np-dist-heading">
-                            Growing <br><span class="text-red">Across India</span>
-                        </h2>
-                        <p class="np-dist-desc">
-                            Our products reach customers through a strong network of distributors and channel partners across multiple states and cities in India.
-                        </p>
-                        <div class="np-dist-opp-card">
-                            <div class="np-dist-opp-icon"><i class="fas fa-industry"></i></div>
-                            <div>
-                                <h4>Expanding Opportunities</h4>
-                                <p>We continue to build our distribution network in new markets.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="np-dist-map-wrap">
-                        <img src="images/icons/india-map.svg" alt="Pan India Distribution Network Map" class="np-dist-map-img">
-                        <!-- Red Map Pins positioned on key industrial hubs -->
-                        <span class="np-dist-pin" style="top: 28%; left: 38%;" title="Punjab / Delhi" onclick="selectNetworkState('Others', '20+')"></span>
-                        <span class="np-dist-pin" style="top: 36%; left: 30%;" title="Rajasthan" onclick="selectNetworkState('Rajasthan', '11+')"></span>
-                        <span class="np-dist-pin" style="top: 36%; left: 50%;" title="Uttar Pradesh" onclick="selectNetworkState('Uttar Pradesh', '16+')"></span>
-                        <span class="np-dist-pin" style="top: 40%; left: 66%;" title="Bihar" onclick="selectNetworkState('Bihar', '9+')"></span>
-                        <span class="np-dist-pin" style="top: 45%; left: 62%;" title="Jharkhand" onclick="selectNetworkState('Jharkhand', '8+')"></span>
-                        <span class="np-dist-pin" style="top: 46%; left: 22%;" title="Gujarat" onclick="selectNetworkState('Gujarat', '14+')"></span>
-                        <span class="np-dist-pin" style="top: 48%; left: 42%;" title="Madhya Pradesh" onclick="selectNetworkState('Madhya Pradesh', '18+')"></span>
-                        <span class="np-dist-pin" style="top: 52%; left: 55%;" title="Chhattisgarh" onclick="selectNetworkState('Chhattisgarh', '12+')"></span>
-                        <span class="np-dist-pin" style="top: 56%; left: 66%;" title="Odisha" onclick="selectNetworkState('Odisha', '10+')"></span>
-                        <span class="np-dist-pin" style="top: 60%; left: 36%;" title="Maharashtra" onclick="selectNetworkState('Maharashtra', '24+')"></span>
-                        <span class="np-dist-pin" style="top: 72%; left: 44%;" title="South Hubs" onclick="selectNetworkState('Others', '20+')"></span>
-
-                        <!-- Pinned State Popover Box -->
-                        <div class="np-dist-map-popover" id="mapStatePopover">
-                            <h4 id="popoverStateTitle">Chhattisgarh</h4>
-                            <p id="popoverPartnersCount">12+ Channel Partners</p>
-                            <a href="#find-distributor" class="btn-popover">View Distributors &rarr;</a>
-                        </div>
-                    </div>
-                    <div class="np-dist-state-list-box">
-                        <h5>Select a State to view distributors</h5>
-                        <div class="np-dist-state-item active" data-state="Chhattisgarh" data-count="12+" onclick="selectNetworkState('Chhattisgarh', '12+', this)">
-                            <span>Chhattisgarh (12+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Madhya Pradesh" data-count="18+" onclick="selectNetworkState('Madhya Pradesh', '18+', this)">
-                            <span>Madhya Pradesh (18+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Maharashtra" data-count="24+" onclick="selectNetworkState('Maharashtra', '24+', this)">
-                            <span>Maharashtra (24+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Uttar Pradesh" data-count="16+" onclick="selectNetworkState('Uttar Pradesh', '16+', this)">
-                            <span>Uttar Pradesh (16+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Gujarat" data-count="14+" onclick="selectNetworkState('Gujarat', '14+', this)">
-                            <span>Gujarat (14+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Rajasthan" data-count="11+" onclick="selectNetworkState('Rajasthan', '11+', this)">
-                            <span>Rajasthan (11+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Bihar" data-count="9+" onclick="selectNetworkState('Bihar', '9+', this)">
-                            <span>Bihar (9+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Jharkhand" data-count="8+" onclick="selectNetworkState('Jharkhand', '8+', this)">
-                            <span>Jharkhand (8+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Odisha" data-count="10+" onclick="selectNetworkState('Odisha', '10+', this)">
-                            <span>Odisha (10+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="np-dist-state-item" data-state="Others" data-count="20+" onclick="selectNetworkState('Others', '20+', this)">
-                            <span>Others (20+)</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. FIND A DISTRIBUTOR NEAR YOU -->
-        <section class="np-dist-finder" id="find-distributor">
-            <div class="np-dist-container">
-                <div class="np-dist-finder-grid">
-                    <div class="np-dist-finder-left">
-                        <div class="np-dist-eyebrow">Find a Distributor</div>
-                        <h2 class="np-dist-heading">
-                            Find a Distributor <br><span class="text-red">Near You</span>
-                        </h2>
-                        <p class="np-dist-desc">
-                            Locate our authorised distributors in your area.
-                        </p>
-                    </div>
-                    <div class="np-dist-finder-right">
-                        <div class="np-dist-filter-bar">
-                            <select class="np-dist-select" id="finderStateSelect" onchange="handleStateFilterChange(this.value)">
-                                <option value="">Select State</option>
-                                <option value="Chhattisgarh" selected>Chhattisgarh</option>
-                                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                <option value="Maharashtra">Maharashtra</option>
-                                <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                <option value="Gujarat">Gujarat</option>
-                                <option value="Rajasthan">Rajasthan</option>
-                                <option value="Bihar">Bihar</option>
-                                <option value="Jharkhand">Jharkhand</option>
-                                <option value="Odisha">Odisha</option>
-                                <option value="West Bengal">West Bengal</option>
-                            </select>
-                            <select class="np-dist-select" id="finderCitySelect">
-                                <option value="">Select City</option>
-                                <option value="Raipur" selected>Raipur</option>
-                                <option value="Bilaspur">Bilaspur</option>
-                                <option value="Bhilai">Bhilai / Durg</option>
-                                <option value="Korba">Korba</option>
-                                <option value="Rajnandgaon">Rajnandgaon</option>
-                            </select>
-                            <select class="np-dist-select" id="finderCatSelect">
-                                <option value="">Product Category</option>
-                                <option value="All" selected>All Categories</option>
-                                <option value="Household">Household Products</option>
-                                <option value="Furniture">Furniture</option>
-                                <option value="Storage">Storage &amp; Crates</option>
-                                <option value="Industrial">Industrial Products</option>
-                                <option value="Custom">Custom Moulded</option>
-                            </select>
-                            <button type="button" class="np-dist-btn-search" onclick="runDistributorFilter()">FIND DISTRIBUTOR</button>
-                        </div>
-
-                        <!-- Authorised Distributor Result Card -->
-                        <div class="np-dist-result-card" id="distributorResultCard">
-                            <img src="images/brand/distributor-storefront.jpg" alt="National Plastics Distributors Showroom" class="np-dist-result-thumb">
-                            <div class="np-dist-result-info">
-                                <h4 id="distributorName">National Plastics Distributors</h4>
-                                <div class="np-dist-result-meta">
-                                    <span id="distributorAddress"><i class="fas fa-map-marker-alt"></i> Raipur, Chhattisgarh</span>
-                                    <span id="distributorPhone"><i class="fas fa-phone-alt"></i> +91 98765 43210</span>
-                                    <span id="distributorEmail"><i class="fas fa-envelope"></i> info@nationaldist.com</span>
-                                </div>
-                            </div>
-                            <a href="https://maps.google.com/?q=Raipur+Chhattisgarh" target="_blank" rel="noopener" class="np-btn-outline np-dist-btn-view-loc">
-                                View Location <i class="fas fa-arrow-right"></i>
+                        <div class="np-portfolio-body">
+                            <h3>Industrial Solutions</h3>
+                            <p>High-precision technical mouldings, modular storage bins, industrial pallets and custom component manufacturing.</p>
+                            <a href="products.html?category=industrial" class="np-portfolio-link">
+                                EXPLORE <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -1519,49 +1715,284 @@
             </div>
         </section>
 
-        <!-- 8. BECOME A DISTRIBUTOR (FORM SECTION) -->
-        <section class="np-dist-form-section" id="become-distributor">
+        <!-- ==========================================================================
+             3. OUR BRANDS — Make the portfolio memorable
+             ========================================================================== -->
+        <section class="np-brands-section" id="our-brands">
             <div class="np-dist-container">
-                <div class="np-dist-form-grid">
-                    <div class="np-dist-form-left">
-                        <div class="np-dist-eyebrow">Become a Distributor</div>
-                        <h2 class="np-dist-heading">
-                            Ready to Grow <br><span class="text-red">With National Plasto?</span>
-                        </h2>
-                        <p class="np-dist-desc">
-                            Fill in your details and our team will get in touch with you to discuss partnership opportunities.
-                        </p>
-                        <img src="images/brand/distributor-handshake.jpg" alt="Partner with National Plasto" class="np-dist-handshake-img">
-                    </div>
-                    <div class="np-dist-form-card">
-                        <div class="np-dist-success-alert" id="partnershipSuccessAlert">
-                            <i class="fas fa-check-circle" style="color:#059669;margin-right:8px;font-size:18px;"></i>
-                            <strong>Thank you for your interest!</strong><br>
-                            Your partnership request has been received. Our Regional Trade Manager will contact you within 24 business hours.
+                <div class="np-dist-section-header">
+                    <div class="np-dist-eyebrow"><i class="fas fa-layer-group"></i> Our Brands</div>
+                    <h2 class="np-dist-heading">
+                        Four Brands. <span class="color_highlight">One Stronger Portfolio.</span>
+                    </h2>
+                    <p class="np-dist-desc">
+                        Different markets. Different needs. One trusted manufacturing network.
+                    </p>
+                </div>
+
+                <div class="np-brands-grid">
+                    <!-- Brand 1: NEXT -->
+                    <div class="np-brand-card">
+                        <div class="np-brand-thumb">
+                            <img src="images/divisions/next.jpg" alt="NEXT Premium Furniture" loading="lazy">
+                            <span class="np-brand-badge">Premium</span>
                         </div>
-                        <form id="partnershipForm" onsubmit="handlePartnershipSubmit(event)">
-                            <div class="np-dist-form-fields">
-                                <div class="np-dist-form-group">
-                                    <label>Full Name <span class="req">*</span></label>
-                                    <input type="text" class="np-dist-input" placeholder="Enter your full name" required>
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>Company / Firm Name <span class="req">*</span></label>
-                                    <input type="text" class="np-dist-input" placeholder="Enter company name" required>
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>Mobile Number <span class="req">*</span></label>
-                                    <input type="tel" class="np-dist-input" placeholder="Enter mobile number" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" required>
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" class="np-dist-input" placeholder="Enter email address">
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>State <span class="req">*</span></label>
-                                    <select required>
-                                        <option value="">Select state</option>
-                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <div class="np-brand-body">
+                            <h3 class="np-brand-title">NEXT</h3>
+                            <p class="np-brand-desc">Premium furniture &amp; lifestyle solutions</p>
+                            <a href="products.html?brand=next" class="np-brand-link">
+                                View NEXT Collection <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Brand 2: NATIONAL -->
+                    <div class="np-brand-card">
+                        <div class="np-brand-thumb">
+                            <img src="images/divisions/national.jpg" alt="NATIONAL Everyday Products" loading="lazy">
+                            <span class="np-brand-badge">Flagship</span>
+                        </div>
+                        <div class="np-brand-body">
+                            <h3 class="np-brand-title">NATIONAL</h3>
+                            <p class="np-brand-desc">Everyday products for modern homes</p>
+                            <a href="products.html?brand=national" class="np-brand-link">
+                                View NATIONAL Collection <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Brand 3: CAPTAIN -->
+                    <div class="np-brand-card">
+                        <div class="np-brand-thumb">
+                            <img src="images/divisions/captain.jpg" alt="CAPTAIN Economical Furniture" loading="lazy">
+                            <span class="np-brand-badge">Durable</span>
+                        </div>
+                        <div class="np-brand-body">
+                            <h3 class="np-brand-title">CAPTAIN</h3>
+                            <p class="np-brand-desc">Strong, practical products for everyday use</p>
+                            <a href="products.html?brand=captain" class="np-brand-link">
+                                View CAPTAIN Collection <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Brand 4: SAPPHIRE -->
+                    <div class="np-brand-card">
+                        <div class="np-brand-thumb">
+                            <img src="images/divisions/sapphire.jpg" alt="SAPPHIRE Value Seating" loading="lazy">
+                            <span class="np-brand-badge">Value</span>
+                        </div>
+                        <div class="np-brand-body">
+                            <h3 class="np-brand-title">SAPPHIRE</h3>
+                            <p class="np-brand-desc">Reliable solutions for growing markets</p>
+                            <a href="products.html?brand=sapphire" class="np-brand-link">
+                                View SAPPHIRE Collection <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="np-brands-action">
+                    <a href="products.html" class="np-btn-outline">
+                        VIEW ALL BRANDS <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             PREMIUM MOULDED PRODUCTS SECTION (Supreme.co.in layout style)
+             ========================================================================== -->
+        <section class="np-piping-section" id="moulded-solutions">
+            <div class="np-piping-hero">
+                <div class="np-piping-hero-content">
+                    <div style="margin-bottom: 16px;">
+                        <img src="images/brand/company-national-logo.png" alt="National Plasto" style="height: 40px; margin-bottom: 8px;">
+                        <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #2D3748;">TOTAL MOULDED SOLUTIONS</div>
+                    </div>
+                    <h2>Premium Plastic<br>Furniture & Crates</h2>
+                    <p>Eastern India's leading manufacturer of high-quality plastic moulded furniture and material handling solutions.</p>
+                </div>
+            </div>
+            
+            <div class="np-piping-applications">
+                <div class="np-dist-container">
+                    <div class="np-piping-img-showcase np-app-slider">
+                        <!-- Slide 1: Office -->
+                        <div class="np-app-slide">
+                            <img src="images/brand/company-photo.jpg" alt="National Plasto Corporate Office" loading="lazy" class="np-app-slide-img">
+                            <div class="np-app-slide-tag">
+                                <h3>Corporate Office</h3>
+                            </div>
+                            <div class="np-app-slide-counter">
+                                01 <span>/ 03</span>
+                            </div>
+                        </div>
+                        <!-- Slide 2: Products -->
+                        <div class="np-app-slide">
+                            <img src="images/brand/products.jpg" alt="Premium Moulded Products" loading="lazy" class="np-app-slide-img">
+                            <div class="np-app-slide-tag">
+                                <h3>Our Products</h3>
+                            </div>
+                            <div class="np-app-slide-counter">
+                                02 <span>/ 03</span>
+                            </div>
+                        </div>
+                        <!-- Slide 3: Network -->
+                        <div class="np-app-slide">
+                            <img src="images/brand/dealer.jpg" alt="Dealer Network" loading="lazy" class="np-app-slide-img">
+                            <div class="np-app-slide-tag">
+                                <h3>Our Network</h3>
+                            </div>
+                            <div class="np-app-slide-counter">
+                                03 <span>/ 03</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="np-piping-app-title">Infrastructure & Reach</h2>
+                    <p class="np-piping-app-desc">
+                        From our state-of-the-art corporate office and manufacturing plants to our expansive nationwide dealer network, we deliver quality products across India.
+                    </p>
+                    <a href="about.html" class="np-btn-red" style="margin-top: 10px; background: #333; border-color: #333;">
+                        EXPLORE OUR PROFILE <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             4. WHY DEALERS CHOOSE US
+             ========================================================================== -->
+        <section class="np-why-section" id="why-choose-us">
+            <div class="np-dist-container">
+                <div class="np-dist-section-header">
+                    <div class="np-dist-eyebrow"><i class="fas fa-handshake"></i> Dealer Advantage</div>
+                    <h2 class="np-dist-heading">
+                        Built to Help <span class="color_highlight">Your Business Grow.</span>
+                    </h2>
+                    <p class="np-dist-desc">
+                        A partnership structured to deliver superior margins, market demand, and uninterrupted supply.
+                    </p>
+                </div>
+
+                <div class="np-why-grid">
+                    <!-- Point 1 -->
+                    <div class="np-why-card">
+                        <div class="np-why-icon-wrap">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <h3>PRODUCT RANGE</h3>
+                        <div class="np-why-tagline">More categories. More customer opportunities.</div>
+                        <p>Access our vast catalog spanning molded chairs, tables, household containers, crates, and storage solutions to cater to retail, institutional, and commercial buyers under one trusted banner.</p>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="np-why-card">
+                        <div class="np-why-icon-wrap">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>RELIABLE SUPPLY</h3>
+                        <div class="np-why-tagline">Consistent products backed by manufacturing strength.</div>
+                        <p>Powered by 4 computerized plants in Howrah, Guwahati, Roorkee, and Hajipur with high-tonnage injection moulding machines, guaranteeing robust inventory buffers and rapid dispatch.</p>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="np-why-card">
+                        <div class="np-why-icon-wrap">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>DEALER SUPPORT</h3>
+                        <div class="np-why-tagline">Product, sales and marketing support when you need it.</div>
+                        <p>Benefit from dedicated Regional Trade Managers, point-of-sale showroom branding, printed &amp; digital promotional collateral, and protected regional distribution rights.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             5. DEALER NETWORK — Pan India Presence & Interactive Locator
+             ========================================================================== -->
+        <section class="np-network-section pan_india_main" id="dealer-network">
+            <div class="np-dist-container">
+                <div class="np-dist-section-header">
+                    <div class="np-dist-eyebrow"><i class="fas fa-map-marked-alt"></i> Dealer Network</div>
+                    <h2 class="np-dist-heading">
+                        Find <span class="color_highlight">Your Market</span>
+                    </h2>
+                    <p class="np-dist-desc">
+                        A growing network connecting National Plasto with markets across India.
+                    </p>
+                </div>
+
+                <div class="np-network-grid">
+                    <!-- Left: Exactly the India map from Homepage -->
+                    <div class="np-network-map-col">
+                        <div class="pan_india_img np-map" id="np_map">
+                            <img src="images/icons/india-map.svg" class="np-map-base" alt="Pan India Network Map showing National Plasto plants, depots, and authorized dealers" width="600" height="670" loading="lazy">
+                            
+                            <!-- Plants -->
+                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:63.6%;top:51.4%" data-loc="howrah" data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal" data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411" data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411" aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Howrah</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:79.85%;top:36.09%" data-loc="guwahati" data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam" data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031" data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031" aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Guwahati</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:33.44%;top:24.05%" data-loc="roorkee" data-name="Roorkee Plant" data-type="Manufacturing Unit" data-region="Uttarakhand" data-addr="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661" data-map="https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661" aria-label="Roorkee Plant, Uttarakhand"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Roorkee</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:58.26%;top:37.74%" data-loc="hajipur" data-name="Hajipur Plant" data-type="Manufacturing Unit" data-region="Bihar" data-addr="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101" data-map="https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101" aria-label="Hajipur Plant, Bihar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Hajipur</span></button>
+
+                            <!-- Head Office -->
+                            <button type="button" class="np-map-pin np-map-pin--office" style="left:70.8%;top:45.4%" data-loc="kolkata" data-name="Head Office, Kolkata" data-type="Head Office" data-region="Kolkata, West Bengal" data-addr="19 Sukeas Lane, Kolkata, West Bengal 700001" data-map="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" aria-label="Head Office, Kolkata, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Head Office</span></button>
+
+                            <!-- Trade Depots -->
+                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:28%;top:55%" data-loc="nasik" data-name="Nasik Depot" data-type="Trade Depot" data-region="Maharashtra" data-addr="Ambad MIDC, Nashik, Maharashtra 422010"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Nasik</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:61%;top:48%" data-loc="cuttack" data-name="Cuttack Depot" data-type="Trade Depot" data-region="Odhisa" data-addr="Jagatpur Industrial Area, Cuttack, Odisha 754021"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Cuttack</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:48%;top:31%" data-loc="lucknow" data-name="Lucknow Depot" data-type="Trade Depot" data-region="Uttar Pradesh" data-addr="Transport Nagar Phase 2, Lucknow, UP 226012"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Lucknow</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:29%;top:31%" data-loc="jaipur" data-name="Jaipur Depot" data-type="Trade Depot" data-region="Rajasthan" data-addr="VKI Industrial Area, Jaipur, Rajasthan 302013"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jaipur</span></button>
+
+                            <!-- Distributors / Dealers -->
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:66%;top:45%" data-loc="wb" data-name="West Bengal Hub" data-type="Distributor" data-region="West Bengal" data-addr="Kolkata, Siliguri, Asansol &amp; Durgapur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">WB</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:57%;top:42%" data-loc="jharkhand" data-name="Jharkhand Hub" data-type="Distributor" data-region="Jharkhand" data-addr="Ranchi, Jamshedpur &amp; Dhanbad"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jharkhand</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:60%;top:50%" data-loc="odhisa" data-name="Odisha Hub" data-type="Distributor" data-region="Odisha" data-addr="Bhubaneswar, Cuttack &amp; Rourkela"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Odisha</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:81%;top:35%" data-loc="assam" data-name="Assam &amp; NE Hub" data-type="Distributor" data-region="Assam" data-addr="Guwahati, Dibrugarh &amp; Silchar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Assam</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:34%;top:26%" data-loc="delhi" data-name="Delhi NCR Hub" data-type="Distributor" data-region="Delhi NCR" data-addr="New Delhi, Noida &amp; Gurugram"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Delhi</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:31%;top:24%" data-loc="haryana" data-name="Haryana Hub" data-type="Distributor" data-region="Haryana" data-addr="Faridabad, Panipat &amp; Karnal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Haryana</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:51%;top:33%" data-loc="east-up" data-name="East UP Hub" data-type="Distributor" data-region="Uttar Pradesh" data-addr="Varanasi, Gorakhpur &amp; Prayagraj"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">East UP</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:40%;top:28%" data-loc="west-up" data-name="West UP Hub" data-type="Distributor" data-region="Uttar Pradesh" data-addr="Kanpur, Agra &amp; Meerut"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">West UP</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:28%;top:20%" data-loc="punjab" data-name="Punjab Hub" data-type="Distributor" data-region="Punjab" data-addr="Ludhiana, Amritsar &amp; Jalandhar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Punjab</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:58%;top:38%" data-loc="bihar" data-name="Bihar Hub" data-type="Distributor" data-region="Bihar" data-addr="Patna, Muzaffarpur &amp; Gaya"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Bihar</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:50%;top:47%" data-loc="chattisgarh" data-name="Chhattisgarh Hub" data-type="Distributor" data-region="Chhattisgarh" data-addr="Raipur, Bilaspur &amp; Bhilai"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Chhattisgarh</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:55%" data-loc="maharshtra" data-name="Maharashtra Hub" data-type="Distributor" data-region="Maharashtra" data-addr="Mumbai, Pune, Nagpur &amp; Nashik"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Maharashtra</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:17%;top:46%" data-loc="gujarat" data-name="Gujarat Hub" data-type="Distributor" data-region="Gujarat" data-addr="Ahmedabad, Surat &amp; Vadodara"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Gujarat</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:41%;top:45%" data-loc="madhya-pradesh" data-name="Madhya Pradesh Hub" data-type="Distributor" data-region="Madhya Pradesh" data-addr="Indore, Bhopal &amp; Jabalpur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Madhya Pradesh</span></button>
+                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:24%;top:34%" data-loc="rajasthan" data-name="Rajasthan Hub" data-type="Distributor" data-region="Rajasthan" data-addr="Jaipur, Jodhpur &amp; Kota"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Rajasthan</span></button>
+
+                            <!-- Dynamic Popover Card -->
+                            <div class="np-map-card" id="np_map_card" role="dialog" aria-live="polite" hidden>
+                                <button type="button" class="np-map-card-x" aria-label="Close">&times;</button>
+                                <span class="np-map-card-type"></span>
+                                <h4 class="np-map-card-name"></h4>
+                                <p class="np-map-card-addr"></p>
+                                <a class="np-map-card-link" href="#" target="_blank" rel="noopener"><i class="fas fa-directions" aria-hidden="true"></i> Get directions</a>
+                            </div>
+                        </div>
+
+                        <!-- Legend Matching Homepage -->
+                        <div class="np-network-legend">
+                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#DC2626;"></span> Head Office <em>1</em></span>
+                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#1E8E3E;"></span> Plants <em>4</em></span>
+                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#EAB308;"></span> Trade Depots <em>4</em></span>
+                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#1D4ED8;"></span> Authorized Dealers <em>2,500+</em></span>
+                        </div>
+                    </div>
+
+                    <!-- Right: State/City Locator & Real Statistics -->
+                    <div class="np-network-info-col">
+                        <div class="np-locator-card">
+                            <h3>Find an Authorized Dealer</h3>
+                            <p class="locator-sub">Select your location to connect with your regional distributor.</p>
+
+                            <div class="np-locator-fields">
+                                <div class="np-locator-group">
+                                    <label for="dealerStateSelect">SELECT STATE</label>
+                                    <select id="dealerStateSelect" onchange="onStateSelectChange(this.value)">
+                                        <option value="Chhattisgarh" selected>Chhattisgarh</option>
                                         <option value="Madhya Pradesh">Madhya Pradesh</option>
                                         <option value="Maharashtra">Maharashtra</option>
                                         <option value="Uttar Pradesh">Uttar Pradesh</option>
@@ -1571,83 +2002,78 @@
                                         <option value="Jharkhand">Jharkhand</option>
                                         <option value="Odisha">Odisha</option>
                                         <option value="West Bengal">West Bengal</option>
-                                        <option value="Other">Other State</option>
+                                        <option value="Delhi NCR">Delhi NCR</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Assam">Assam &amp; North East</option>
                                     </select>
                                 </div>
-                                <div class="np-dist-form-group">
-                                    <label>City / District <span class="req">*</span></label>
-                                    <select required>
-                                        <option value="">Select city</option>
-                                        <option value="Raipur">Raipur</option>
+                                <div class="np-locator-group">
+                                    <label for="dealerCitySelect">SELECT CITY</label>
+                                    <select id="dealerCitySelect" onchange="onCitySelectChange(this.value)">
+                                        <option value="Raipur" selected>Raipur</option>
                                         <option value="Bilaspur">Bilaspur</option>
                                         <option value="Bhilai">Bhilai / Durg</option>
-                                        <option value="Indore">Indore</option>
-                                        <option value="Bhopal">Bhopal</option>
-                                        <option value="Nagpur">Nagpur</option>
-                                        <option value="Other">Other City</option>
+                                        <option value="Korba">Korba</option>
                                     </select>
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>Pincode <span class="req">*</span></label>
-                                    <input type="text" class="np-dist-input" placeholder="Enter pincode" pattern="[0-9]{6}" title="6-digit PIN code" required>
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>Business Type</label>
-                                    <select>
-                                        <option value="">Select business type</option>
-                                        <option value="Wholesaler / Stockist">Wholesaler / Stockist</option>
-                                        <option value="Retailer / Showroom">Retailer / Showroom</option>
-                                        <option value="Institutional Supplier">Institutional Supplier</option>
-                                        <option value="New Business Entrepreneur">New Business Entrepreneur</option>
-                                    </select>
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>Years in Business <span class="req">*</span></label>
-                                    <select required>
-                                        <option value="">Select years</option>
-                                        <option value="New Venture">New Venture / Startup</option>
-                                        <option value="1-3 Years">1 - 3 Years</option>
-                                        <option value="3-5 Years">3 - 5 Years</option>
-                                        <option value="5+ Years">5+ Years</option>
-                                    </select>
-                                </div>
-                                <div class="np-dist-form-group">
-                                    <label>Product Interest</label>
-                                    <select>
-                                        <option value="All Products">Select products</option>
-                                        <option value="All Products">All Products Portfolio</option>
-                                        <option value="Household Products">Household Products</option>
-                                        <option value="Storage & Crates">Storage &amp; Crates</option>
-                                        <option value="Moulded Furniture">Moulded Furniture</option>
-                                        <option value="Industrial Products">Industrial Products</option>
-                                        <option value="Custom Moulded">Custom Moulded Products</option>
-                                    </select>
-                                </div>
-                                <div class="np-dist-form-group full-width">
-                                    <label>Message</label>
-                                    <textarea rows="3" placeholder="Tell us about your business and requirements..."></textarea>
                                 </div>
                             </div>
-                            <button type="submit" class="np-dist-btn-submit" id="partnershipSubmitBtn">
-                                Submit Partnership Request <i class="fas fa-arrow-right"></i>
+
+                            <button type="button" class="np-btn-red np-btn-find" onclick="findDealerAction()">
+                                FIND A DEALER <i class="fas fa-arrow-right"></i>
                             </button>
-                        </form>
+
+                            <!-- Live Dealer Result Card -->
+                            <div class="np-dealer-result-card" id="dealerResultBox">
+                                <span class="np-dealer-badge"><i class="fas fa-check-circle"></i> Verified Channel Partner</span>
+                                <h4 class="np-dealer-title" id="resDealerName">National Plastics Distributors</h4>
+                                <div class="np-dealer-meta">
+                                    <span id="resDealerAddress"><i class="fas fa-map-marker-alt"></i> Pachpedi Naka, Ring Road No. 1, Raipur, Chhattisgarh 492001</span>
+                                    <span id="resDealerPhone"><i class="fas fa-phone-alt"></i> +91 98765 43210</span>
+                                    <span id="resDealerType"><i class="fas fa-warehouse"></i> Super Stockist &amp; Regional Hub</span>
+                                </div>
+                                <div class="np-dealer-actions">
+                                    <a href="tel:+919876543210" class="np-btn-call" id="resDealerCallBtn"><i class="fas fa-phone-alt"></i> Call Dealer</a>
+                                    <button type="button" class="np-btn-outline" style="padding:7px 16px;font-size:12px;" onclick="openDealerModal()">Apply to Join</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3 Real Statistics Counters -->
+                        <div class="np-stats-strip">
+                            <div class="np-stat-box">
+                                <div class="np-stat-number">2,500+</div>
+                                <div class="np-stat-label">Dealers</div>
+                            </div>
+                            <div class="np-stat-box">
+                                <div class="np-stat-number">120+</div>
+                                <div class="np-stat-label">Cities</div>
+                            </div>
+                            <div class="np-stat-box">
+                                <div class="np-stat-number">20+</div>
+                                <div class="np-stat-label">States</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 9. BOTTOM CTA BANNER -->
-        <section class="np-dist-bottom-cta">
+        <!-- ==========================================================================
+             6. FINAL CTA — Conversion section
+             ========================================================================== -->
+        <section class="np-cta-section" id="become-dealer">
             <div class="np-dist-container">
-                <div class="np-dist-bottom-cta-inner">
-                    <div>
-                        <h2>Let's Build the<br>Next Market Together.</h2>
-                        <p>Your market. Our products. One stronger partnership.</p>
-                    </div>
-                    <div>
-                        <a href="#become-distributor" class="np-btn-red">
-                            Become a Distributor <i class="fas fa-arrow-right"></i>
+                <div class="np-cta-box">
+                    <h2 class="np-cta-heading">Ready to Grow With National Plasto?</h2>
+                    <p class="np-cta-desc">
+                        Bring a trusted product portfolio to your market and build a stronger business with us.
+                    </p>
+                    <div class="np-cta-actions">
+                        <button type="button" class="np-btn-cta-primary" onclick="openDealerModal()">
+                            BECOME A DEALER <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <a href="docs/national-plasto-catalogue-2026.pdf" download class="np-cta-secondary-link" onclick="openBrochureModal(event)">
+                            <i class="fas fa-file-pdf"></i> DOWNLOAD CATALOGUE &rarr;
                         </a>
                     </div>
                 </div>
@@ -1748,132 +2174,396 @@
         <span>Chat with us</span>
     </a>
 
+    <!-- ==========================================================================
+         BECOME A DEALER MODAL
+         ========================================================================== -->
+    <div class="np-modal-backdrop" id="dealerModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.75);z-index:99999;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
+        <div class="np-dealer-modal-box">
+            <button type="button" class="np-dealer-modal-close" onclick="closeDealerModal()">&times;</button>
+            <div style="margin-bottom:20px;">
+                <span class="np-dist-eyebrow" style="margin-bottom:8px;"><i class="fas fa-handshake"></i> Dealer Partnership</span>
+                <h3 style="font-size:24px;font-weight:800;color:var(--np-dark);margin:0 0 6px 0;">Become an Authorized Dealer</h3>
+                <p style="font-size:14px;color:var(--np-muted);margin:0;">Fill in your business details below. Our Regional Trade Manager will connect with you.</p>
+            </div>
+
+            <div class="np-dist-success-alert" id="dealerSuccessAlert" style="display:none;background:#ECFDF5;border:1px solid #6EE7B7;color:#065F46;padding:16px 20px;border-radius:8px;margin-bottom:20px;font-size:13.5px;line-height:1.5;">
+                <i class="fas fa-check-circle" style="color:#059669;margin-right:8px;font-size:18px;"></i>
+                <strong>Application Received!</strong><br>
+                Thank you for your interest in National Plasto. Our Regional Trade Manager will contact you within 24 business hours.
+            </div>
+
+            <form id="dealerApplicationForm" onsubmit="handleDealerSubmit(event)">
+                <div class="np-form-grid-2">
+                    <div class="np-form-item">
+                        <label>Full Name <span class="req">*</span></label>
+                        <input type="text" class="np-form-input" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="np-form-item">
+                        <label>Company / Firm Name <span class="req">*</span></label>
+                        <input type="text" class="np-form-input" placeholder="Enter business name" required>
+                    </div>
+                    <div class="np-form-item">
+                        <label>Mobile Number <span class="req">*</span></label>
+                        <input type="tel" class="np-form-input" placeholder="10-digit mobile number" pattern="[0-9]{10}" title="10-digit number" required>
+                    </div>
+                    <div class="np-form-item">
+                        <label>Email Address</label>
+                        <input type="email" class="np-form-input" placeholder="name@company.com">
+                    </div>
+                    <div class="np-form-item">
+                        <label>State <span class="req">*</span></label>
+                        <select required class="np-form-input" id="modalStateSelect">
+                            <option value="">Select State</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="West Bengal">West Bengal</option>
+                            <option value="Delhi NCR">Delhi NCR</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Other">Other State</option>
+                        </select>
+                    </div>
+                    <div class="np-form-item">
+                        <label>City / District <span class="req">*</span></label>
+                        <input type="text" class="np-form-input" placeholder="Enter city" required>
+                    </div>
+                    <div class="np-form-item full-width">
+                        <label>Primary Business Type <span class="req">*</span></label>
+                        <select required class="np-form-input">
+                            <option value="">Select Business Model</option>
+                            <option value="Wholesale / Stockist">Wholesale / Stockist</option>
+                            <option value="Furniture Retail Showroom">Furniture Retail Showroom</option>
+                            <option value="Industrial Supplier">Industrial / Commercial Supplier</option>
+                            <option value="New Business Venture">New Business Venture</option>
+                        </select>
+                    </div>
+                    <div class="np-form-item full-width">
+                        <label>Message / Proposed Territory</label>
+                        <textarea rows="3" class="np-form-input" placeholder="Tell us about your distribution experience and target territory..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="np-btn-red" style="width:100%;padding:14px;border-radius:8px;font-size:14px;" id="dealerSubmitBtn">
+                    SUBMIT DEALER APPLICATION <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <!-- Corporate Brochure Modal -->
-    <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.8);z-index:99999;align-items:center;justify-content:center;">
+    <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.8);z-index:99999;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
         <div class="np-modal-box" style="background:#FFF;border-radius:16px;padding:36px;max-width:480px;width:90%;position:relative;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.25);">
             <button type="button" class="np-modal-close" onclick="closeBrochureModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#64748B;">&times;</button>
-            <i class="fas fa-file-pdf" style="font-size:48px;color:var(--brand-primary);margin-bottom:14px;"></i>
-            <h3 style="font-family:'Outfit', sans-serif;font-size:22px;font-weight:700;color:var(--brand-navy);margin-bottom:8px;">Download 2026 Catalogue</h3>
+            <i class="fas fa-file-pdf" style="font-size:48px;color:var(--np-blue);margin-bottom:14px;"></i>
+            <h3 style="font-family:'Outfit', sans-serif;font-size:22px;font-weight:700;color:var(--np-dark);margin-bottom:8px;">Download 2026 Catalogue</h3>
             <p style="font-size:14px;color:#64748B;margin:0 0 20px;">Enter your contact information to receive our complete product catalogue with technical specifications.</p>
             <form onsubmit="handleBrochureSubmit(event)">
-                <input type="text" class="form-control-custom" placeholder="Your Name" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
-                <input type="tel" class="form-control-custom" placeholder="Phone Number" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
-                <input type="email" class="form-control-custom" placeholder="Email Address" required style="width:100%;height:44px;padding:0 14px;margin-bottom:18px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
-                <button type="submit" class="btn_project_default" style="width:100%;height:46px;background:var(--brand-primary);color:#FFF;border:none;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;">DOWNLOAD NOW &rarr;</button>
+                <input type="text" placeholder="Your Name" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <input type="tel" placeholder="Phone Number" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <input type="email" placeholder="Email Address" required style="width:100%;height:44px;padding:0 14px;margin-bottom:18px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
+                <button type="submit" class="np-btn-red" style="width:100%;height:46px;border-radius:8px;font-size:14px;cursor:pointer;">DOWNLOAD NOW &rarr;</button>
             </form>
         </div>
     </div>
 
-    <!-- Interactive Brochure Download Modal -->
-    <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.7);z-index:99999;align-items:center;justify-content:center;">
-        <div style="background:#FFFFFF;border-radius:12px;max-width:480px;width:90%;padding:32px;position:relative;">
-            <button type="button" onclick="closeBrochureModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
-            <h3 style="margin:0 0 8px 0;font-size:22px;color:#0F172A;">Corporate Brochure 2026</h3>
-            <p style="color:#64748B;font-size:14px;margin-bottom:20px;">Download our complete corporate catalog with full specifications and dimensions.</p>
-            <form onsubmit="handleBrochureSubmit(event)">
-                <div style="margin-bottom:14px;">
-                    <input type="text" placeholder="Your Name" required style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:6px;font-size:14px;box-sizing:border-box;">
-                </div>
-                <div style="margin-bottom:18px;">
-                    <input type="email" placeholder="Official Email Address" required style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:6px;font-size:14px;box-sizing:border-box;">
-                </div>
-                <button type="submit" style="width:100%;background:var(--brand-primary);color:#FFFFFF;padding:12px;border:none;border-radius:6px;font-weight:700;cursor:pointer;font-size:14px;">DOWNLOAD CATALOGUE (PDF)</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Scripts: jQuery, Supreme JS -->
+    <!-- Scripts: jQuery, Slick, Supreme JS -->
     <script src="js/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
     <script src="js/supreme_app.min.js?v=20260929b"></script>
     <script src="js/supreme_mobile.js?v=20260926"></script>
 
     <script>
-        // State data for dynamic interaction
-        var stateData = {
-            'Chhattisgarh': { count: '12+', city: 'Raipur', name: 'National Plastics Distributors', address: 'Raipur, Chhattisgarh', phone: '+91 98765 43210', email: 'info@nationaldist.com' },
-            'Madhya Pradesh': { count: '18+', city: 'Indore', name: 'Central India Plastic Agencies', address: 'Indore, Madhya Pradesh', phone: '+91 98260 55441', email: 'indore@nationaldist.com' },
-            'Maharashtra': { count: '24+', city: 'Nagpur', name: 'Vidarbha Polymers & Furniture Hub', address: 'Nagpur, Maharashtra', phone: '+91 98222 34110', email: 'nagpur@nationaldist.com' },
-            'Uttar Pradesh': { count: '16+', city: 'Varanasi', name: 'Eastern UP Trade Corporation', address: 'Varanasi, Uttar Pradesh', phone: '+91 94150 99882', email: 'varanasi@nationaldist.com' },
-            'Gujarat': { count: '14+', city: 'Surat', name: 'Gujarat Moulded Plastics Depot', address: 'Surat, Gujarat', phone: '+91 98251 12344', email: 'surat@nationaldist.com' },
-            'Rajasthan': { count: '11+', city: 'Jaipur', name: 'Marwar Trade & Plastic Agency', address: 'Jaipur, Rajasthan', phone: '+91 94140 77665', email: 'jaipur@nationaldist.com' },
-            'Bihar': { count: '9+', city: 'Patna', name: 'Magadh Polymers & Supply Co.', address: 'Patna, Bihar', phone: '+91 94310 11223', email: 'patna@nationaldist.com' },
-            'Jharkhand': { count: '8+', city: 'Ranchi', name: 'Chotanagpur Distributors', address: 'Ranchi, Jharkhand', phone: '+91 93344 77889', email: 'ranchi@nationaldist.com' },
-            'Odisha': { count: '10+', city: 'Bhubaneswar', name: 'Utkal Plastics Logistics Hub', address: 'Bhubaneswar, Odisha', phone: '+91 94370 22334', email: 'odisha@nationaldist.com' },
-            'Others': { count: '20+', city: 'Kolkata', name: 'National Plasto Trade Central', address: 'Kolkata, West Bengal', phone: '+91 98300 12345', email: 'trade@nationaldist.com' }
+        // State, City and Dealer Network Dataset
+        var dealerDirectory = {
+            'Chhattisgarh': {
+                cities: ['Raipur', 'Bilaspur', 'Bhilai / Durg', 'Korba'],
+                pinLoc: 'chattisgarh',
+                name: 'National Plastics Distributors',
+                address: 'Pachpedi Naka, Ring Road No. 1, Raipur, Chhattisgarh 492001',
+                phone: '+91 98765 43210',
+                type: 'Super Stockist & Regional Hub'
+            },
+            'Madhya Pradesh': {
+                cities: ['Indore', 'Bhopal', 'Jabalpur', 'Gwalior'],
+                pinLoc: 'madhya-pradesh',
+                name: 'Central India Plastic Agencies',
+                address: 'Loha Mandi, Dewas Naka, Indore, Madhya Pradesh 452010',
+                phone: '+91 98260 55441',
+                type: 'Authorized Mega Distributor'
+            },
+            'Maharashtra': {
+                cities: ['Nagpur', 'Mumbai', 'Pune', 'Nashik', 'Aurangabad'],
+                pinLoc: 'maharshtra',
+                name: 'Vidarbha Polymers & Furniture Hub',
+                address: 'Central Avenue, Gandhibagh, Nagpur, Maharashtra 440002',
+                phone: '+91 98222 34110',
+                type: 'Regional Distribution Center'
+            },
+            'Uttar Pradesh': {
+                cities: ['Varanasi', 'Lucknow', 'Kanpur', 'Agra', 'Gorakhpur'],
+                pinLoc: 'east-up',
+                name: 'Eastern UP Trade Corporation',
+                address: 'Transport Nagar, G.T. Road, Varanasi, Uttar Pradesh 221002',
+                phone: '+91 94150 99882',
+                type: 'Regional Channel Partner'
+            },
+            'Gujarat': {
+                cities: ['Surat', 'Ahmedabad', 'Vadodara', 'Rajkot'],
+                pinLoc: 'gujarat',
+                name: 'Gujarat Moulded Plastics Depot',
+                address: 'Ring Road Textile & Trade Tower, Surat, Gujarat 395002',
+                phone: '+91 98251 12344',
+                type: 'Authorized Channel Partner'
+            },
+            'Rajasthan': {
+                cities: ['Jaipur', 'Jodhpur', 'Kota', 'Udaipur'],
+                pinLoc: 'rajasthan',
+                name: 'Marwar Trade & Plastic Agency',
+                address: 'VKI Industrial Area, Road No. 5, Jaipur, Rajasthan 302013',
+                phone: '+91 94140 77665',
+                type: 'Authorized Trade Depot'
+            },
+            'Bihar': {
+                cities: ['Patna', 'Muzaffarpur', 'Gaya', 'Bhagalpur'],
+                pinLoc: 'bihar',
+                name: 'Magadh Polymers & Supply Co.',
+                address: 'Anisabad Roundabout, Patna, Bihar 800002',
+                phone: '+91 94310 11223',
+                type: 'Authorized Distributor'
+            },
+            'Jharkhand': {
+                cities: ['Ranchi', 'Jamshedpur', 'Dhanbad', 'Bokaro'],
+                pinLoc: 'jharkhand',
+                name: 'Chotanagpur Distributors',
+                address: 'Ratu Road Commercial Complex, Ranchi, Jharkhand 834001',
+                phone: '+91 93344 77889',
+                type: 'Authorized Channel Partner'
+            },
+            'Odisha': {
+                cities: ['Bhubaneswar', 'Cuttack', 'Rourkela', 'Sambalpur'],
+                pinLoc: 'odhisa',
+                name: 'Utkal Plastics Logistics Hub',
+                address: 'Mancheswar Industrial Estate, Bhubaneswar, Odisha 751010',
+                phone: '+91 94370 22334',
+                type: 'Authorized Regional Distributor'
+            },
+            'West Bengal': {
+                cities: ['Kolkata', 'Howrah', 'Siliguri', 'Asansol', 'Durgapur'],
+                pinLoc: 'wb',
+                name: 'National Plasto Trade Central',
+                address: '19 Sukeas Lane, Kolkata, West Bengal 700001',
+                phone: '+91 98300 12345',
+                type: 'Corporate Headquarters & Central Depot'
+            },
+            'Delhi NCR': {
+                cities: ['New Delhi', 'Noida', 'Gurugram', 'Faridabad'],
+                pinLoc: 'delhi',
+                name: 'Capital Zone Plastics & Trade',
+                address: 'Kirti Nagar Industrial Area, New Delhi 110015',
+                phone: '+91 98110 54321',
+                type: 'Authorized Distribution Hub'
+            },
+            'Punjab': {
+                cities: ['Ludhiana', 'Amritsar', 'Jalandhar', 'Patiala'],
+                pinLoc: 'punjab',
+                name: 'Punjab Plastics & Seating Syndicate',
+                address: 'Focal Point Phase V, Ludhiana, Punjab 141010',
+                phone: '+91 98140 66778',
+                type: 'Authorized Channel Partner'
+            },
+            'Assam': {
+                cities: ['Guwahati', 'Dibrugarh', 'Silchar', 'Jorhat'],
+                pinLoc: 'assam',
+                name: 'North-East Polymers & Trade Logistics',
+                address: 'Paltan Bazaar, G.S. Road, Guwahati, Assam 781008',
+                phone: '+91 94350 44556',
+                type: 'Regional Distribution Center'
+            }
         };
 
-        function selectNetworkState(stateName, count, el) {
-            var pureName = stateName.split(' ')[0].replace('(', '');
-            if (stateName.indexOf('Chhattisgarh') !== -1) pureName = 'Chhattisgarh';
-            if (stateName.indexOf('Madhya') !== -1) pureName = 'Madhya Pradesh';
-            if (stateName.indexOf('Maharashtra') !== -1) pureName = 'Maharashtra';
-            if (stateName.indexOf('Uttar') !== -1) pureName = 'Uttar Pradesh';
-            if (stateName.indexOf('Gujarat') !== -1) pureName = 'Gujarat';
-            if (stateName.indexOf('Rajasthan') !== -1) pureName = 'Rajasthan';
-            if (stateName.indexOf('Bihar') !== -1) pureName = 'Bihar';
-            if (stateName.indexOf('Jharkhand') !== -1) pureName = 'Jharkhand';
-            if (stateName.indexOf('Odisha') !== -1) pureName = 'Odisha';
-            if (stateName.indexOf('Others') !== -1) pureName = 'Others';
+        function onStateSelectChange(stateVal) {
+            var data = dealerDirectory[stateVal];
+            var citySelect = $('#dealerCitySelect');
+            citySelect.empty();
+            if (data && data.cities) {
+                data.cities.forEach(function(c, idx) {
+                    citySelect.append($('<option>', { value: c, text: c, selected: idx === 0 }));
+                });
+                updateDealerDisplay(data, data.cities[0]);
+                highlightMapPin(data.pinLoc);
+            }
+        }
 
-            $('#popoverStateTitle').text(pureName);
-            $('#popoverPartnersCount').text((count || '12+') + ' Channel Partners');
+        function onCitySelectChange(cityVal) {
+            var stateVal = $('#dealerStateSelect').val();
+            var data = dealerDirectory[stateVal];
+            if (data) {
+                updateDealerDisplay(data, cityVal);
+                highlightMapPin(data.pinLoc);
+            }
+        }
 
-            // Update active state in list
-            $('.np-dist-state-item').removeClass('active');
-            if (el) {
-                $(el).addClass('active');
-            } else {
-                $('.np-dist-state-item').each(function() {
-                    if ($(this).data('state') === pureName) {
-                        $(this).addClass('active');
-                    }
+        function findDealerAction() {
+            var stateVal = $('#dealerStateSelect').val() || 'Chhattisgarh';
+            var cityVal = $('#dealerCitySelect').val() || 'Raipur';
+            var data = dealerDirectory[stateVal];
+            if (data) {
+                updateDealerDisplay(data, cityVal);
+                highlightMapPin(data.pinLoc);
+            }
+            $('#dealerResultBox').hide().fadeIn(300);
+        }
+
+        function updateDealerDisplay(data, city) {
+            $('#resDealerName').text(data.name);
+            $('#resDealerAddress').html('<i class="fas fa-map-marker-alt"></i> ' + (city ? city + ' Hub &mdash; ' : '') + data.address);
+            $('#resDealerPhone').html('<i class="fas fa-phone-alt"></i> ' + data.phone);
+            $('#resDealerType').html('<i class="fas fa-warehouse"></i> ' + data.type);
+            $('#resDealerCallBtn').attr('href', 'tel:' + data.phone.replace(/[^0-9+]/g, ''));
+        }
+
+        function highlightMapPin(locCode) {
+            var map = document.getElementById('np_map');
+            if (!map) return;
+            var pin = map.querySelector('.np-map-pin[data-loc="' + locCode + '"]');
+            if (pin) {
+                pin.click();
+            }
+        }
+
+        // Modal Controls
+        function openDealerModal() {
+            var currState = $('#dealerStateSelect').val();
+            if (currState) {
+                $('#modalStateSelect').val(currState);
+            }
+            $('#dealerModal').css('display', 'flex');
+        }
+        function closeDealerModal() {
+            $('#dealerModal').hide();
+        }
+
+        function handleDealerSubmit(e) {
+            e.preventDefault();
+            var btn = $('#dealerSubmitBtn');
+            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Submitting Application...');
+            setTimeout(function() {
+                btn.prop('disabled', false).html('SUBMIT DEALER APPLICATION <i class="fas fa-arrow-right"></i>');
+                $('#dealerSuccessAlert').slideDown(300);
+                document.getElementById('dealerApplicationForm').reset();
+                setTimeout(function() {
+                    closeDealerModal();
+                    $('#dealerSuccessAlert').hide();
+                }, 3500);
+            }, 750);
+        }
+
+        function openBrochureModal(e) {
+            if (e) e.preventDefault();
+            $('#brochureModal').css('display', 'flex');
+        }
+        function closeBrochureModal() {
+            $('#brochureModal').hide();
+        }
+        function handleBrochureSubmit(e) {
+            e.preventDefault();
+            alert('Thank you! The National Plasto Corporate Product Catalogue 2026 is downloading.');
+            closeBrochureModal();
+            window.location.href = 'docs/national-plasto-catalogue-2026.pdf';
+        }
+
+        // Map Interaction (Synced 1:1 with Homepage)
+        (function () {
+            var map = document.getElementById('np_map');
+            if (!map) return;
+            var card = document.getElementById('np_map_card');
+            var pins = map.querySelectorAll('.np-map-pin');
+
+            function closeCard() {
+                card.hidden = true;
+                [].forEach.call(pins, function (p) {
+                    p.classList.remove('is-active');
+                    p.setAttribute('aria-expanded', 'false');
                 });
             }
 
-            // Also update the finder dropdown and result card
-            if (stateData[pureName]) {
-                var d = stateData[pureName];
-                $('#finderStateSelect').val(pureName === 'Others' ? 'West Bengal' : pureName);
-                $('#distributorName').text(d.name);
-                $('#distributorAddress').html('<i class="fas fa-map-marker-alt"></i> ' + d.address);
-                $('#distributorPhone').html('<i class="fas fa-phone-alt"></i> ' + d.phone);
-                $('#distributorEmail').html('<i class="fas fa-envelope"></i> ' + d.email);
+            function openCard(pin) {
+                closeCard();
+                var d = pin.dataset;
+                card.querySelector('.np-map-card-type').textContent = d.type;
+                var kind = (pin.className.match(/np-map-pin--(\w+)/) || [])[1];
+                card.querySelector('.np-map-card-type').className = 'np-map-card-type' + (kind && kind !== 'unit' ? ' is-' + kind : '');
+                card.querySelector('.np-map-card-name').innerHTML = d.name;
+                card.querySelector('.np-map-card-addr').textContent = d.addr || '';
+                card.querySelector('.np-map-card-link').href = d.map || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.name + ' ' + (d.addr || '')));
+                
+                var x = parseFloat(pin.style.left), y = parseFloat(pin.style.top);
+                card.style.left = x + '%';
+                card.style.top = y + '%';
+                card.classList.toggle('np-flip-x', x > 55);
+                card.classList.toggle('np-flip-y', y > 60);
+                card.hidden = false;
+                pin.classList.add('is-active');
+                pin.setAttribute('aria-expanded', 'true');
+
+                // If pin matches a state in the locator, sync the dropdowns and result card
+                for (var stateName in dealerDirectory) {
+                    if (dealerDirectory[stateName].pinLoc === d.loc) {
+                        $('#dealerStateSelect').val(stateName);
+                        var citySelect = $('#dealerCitySelect');
+                        citySelect.empty();
+                        dealerDirectory[stateName].cities.forEach(function(c, idx) {
+                            citySelect.append($('<option>', { value: c, text: c, selected: idx === 0 }));
+                        });
+                        updateDealerDisplay(dealerDirectory[stateName], dealerDirectory[stateName].cities[0]);
+                        break;
+                    }
+                }
             }
-        }
 
-        function handleStateFilterChange(stateVal) {
-            if (stateData[stateVal]) {
-                var d = stateData[stateVal];
-                $('#distributorName').text(d.name);
-                $('#distributorAddress').html('<i class="fas fa-map-marker-alt"></i> ' + d.address);
-                $('#distributorPhone').html('<i class="fas fa-phone-alt"></i> ' + d.phone);
-                $('#distributorEmail').html('<i class="fas fa-envelope"></i> ' + d.email);
-            }
-        }
+            [].forEach.call(pins, function (pin) {
+                pin.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    if (pin.classList.contains('is-active')) {
+                        closeCard();
+                    } else {
+                        openCard(pin);
+                    }
+                });
+            });
 
-        function runDistributorFilter() {
-            var st = $('#finderStateSelect').val() || 'Chhattisgarh';
-            handleStateFilterChange(st);
-            $('#distributorResultCard').hide().fadeIn(300);
-        }
-
-        function handlePartnershipSubmit(e) {
-            e.preventDefault();
-            var btn = $('#partnershipSubmitBtn');
-            btn.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Submitting Request...');
-
-            setTimeout(function() {
-                btn.prop('disabled', false).html('Submit Partnership Request <i class="fas fa-arrow-right"></i>');
-                $('#partnershipSuccessAlert').slideDown(300);
-                $('html, body').animate({
-                    scrollTop: $('#partnershipSuccessAlert').offset().top - 100
-                }, 400);
-                document.getElementById('partnershipForm').reset();
-            }, 800);
-        }
+            card.addEventListener('click', function (e) { e.stopPropagation(); });
+            card.querySelector('.np-map-card-x').addEventListener('click', closeCard);
+            document.addEventListener('click', function (e) {
+                if (!card.hidden && !map.contains(e.target)) {
+                    closeCard();
+                }
+            });
+        })();
 
         $(document).ready(function() {
-            // Smooth scroll for anchor tags
+            // Initialize Applications Showcase Slider
+            if ($('.np-app-slider').length) {
+                $('.np-app-slider').slick({
+                    dots: false,
+                    arrows: false,
+                    infinite: true,
+                    speed: 800,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    fade: true,
+                    cssEase: 'linear'
+                });
+            }
+
+            // Smooth scroll for anchor links
             $('a[href^="#"]').on('click', function(e) {
                 var target = $(this.getAttribute('href'));
                 if (target.length) {
@@ -1893,18 +2583,6 @@
                 }
             });
         });
-
-        function openBrochureModal() {
-            $('#brochureModal').css('display', 'flex');
-        }
-        function closeBrochureModal() {
-            $('#brochureModal').hide();
-        }
-        function handleBrochureSubmit(e) {
-            e.preventDefault();
-            alert('Thank you! The National Plasto Corporate Brochure 2026 is downloading.');
-            closeBrochureModal();
-        }
     </script>
     <script src="js/np-reveal.js?v=20260929"></script>
     <script src="js/np-testimonials-modal.js?v=20261007_v3"></script>
