@@ -292,27 +292,45 @@
             .hubs_grid { grid-template-columns: 1fr; }
         }
 
-        #contact_page .banner-section,
-        #contact_page .banner-section .home-banner-slider,
-        #contact_page .banner-section .banner_item,
-        #contact_page .banner-section .banner-slider-img,
-        #contact_page .banner-section .banner-slider-img1 {
-            height: 520px !important;
-            min-height: 480px !important;
-            max-height: 560px !important;
-            width: 100% !important;
-            display: block !important;
-            position: relative !important;
-            overflow: hidden !important;
+        @media (min-width: 769px) {
+            #contact_page .banner-section,
+            #contact_page .banner-section .home-banner-slider,
+            #contact_page .banner-section .banner_item,
+            #contact_page .banner-section .banner-slider-img,
+            #contact_page .banner-section .banner-slider-img1 {
+                height: 520px !important;
+                min-height: 480px !important;
+                max-height: 560px !important;
+                width: 100% !important;
+                display: block !important;
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            #contact_page .banner-section .np-inner-hero-img {
+                width: 100% !important;
+                height: 100% !important;
+                min-height: 480px !important;
+                max-height: 560px !important;
+                object-fit: cover !important;
+                object-position: center 36% !important;
+                display: block !important;
+            }
         }
-        #contact_page .banner-section .np-inner-hero-img {
-            width: 100% !important;
-            height: 100% !important;
-            min-height: 480px !important;
-            max-height: 560px !important;
-            object-fit: cover !important;
-            object-position: center 36% !important;
-            display: block !important;
+        @media (max-width: 768px) {
+            #contact_page .banner-section,
+            #contact_page .banner-section .home-banner-slider,
+            #contact_page .banner-section .banner_item,
+            #contact_page .banner-section .banner-slider-img,
+            #contact_page .banner-section .banner-slider-img1,
+            #contact_page .banner-section .np-inner-hero-img {
+                height: 220px !important;
+                min-height: 200px !important;
+                max-height: 240px !important;
+                width: 100% !important;
+                display: block !important;
+                object-fit: cover !important;
+                object-position: center !important;
+            }
         }
     </style>
     <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v5">
