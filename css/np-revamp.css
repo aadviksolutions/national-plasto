@@ -5873,26 +5873,27 @@ body.np-modal-open {
         max-width: 100% !important;
     }
     #index_page .testimonial_main.np-cmd .np-q {
-        color: #CBD5E1 !important;
-        font-family: Georgia, serif !important;
+        color: #E2E8F0 !important;
+        font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
+        font-weight: 900 !important;
         pointer-events: none !important;
         user-select: none !important;
-        opacity: 0.85 !important;
+        opacity: 1 !important;
     }
     #index_page .testimonial_main.np-cmd .np-q-open {
         display: block !important;
         position: static !important;
-        font-size: 52px !important;
-        line-height: 0.6 !important;
-        margin-bottom: 12px !important;
+        font-size: 80px !important;
+        line-height: 0.5 !important;
+        margin-bottom: 8px !important;
         text-align: left !important;
     }
     #index_page .testimonial_main.np-cmd .np-q-close {
         display: block !important;
         position: static !important;
-        font-size: 52px !important;
-        line-height: 0.6 !important;
-        margin-top: 14px !important;
+        font-size: 80px !important;
+        line-height: 0.4 !important;
+        margin-top: 32px !important;
         text-align: left !important;
     }
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
