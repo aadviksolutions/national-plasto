@@ -5591,7 +5591,7 @@ body.np-modal-open {
         padding: 44px 0 40px !important;
     }
 
-    .heading-text,
+    .heading-text:not(.np-rotating-title),
     h2.np-section-title,
     .title_main h2,
     .sec-title h2 {
@@ -5741,19 +5741,47 @@ body.np-modal-open {
         max-width: calc(100% - 36px) !important;
         padding-left: 14px !important;
         border-left: 3.5px solid #0094DC !important;
+        text-align: left !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
     }
+    #index_page .banner-section .banner_content.np-hero-content-fixed * {
+        text-align: left !important;
+    }
+    #index_page .banner-section .np-hero-eyebrow,
     #index_page .np-hero-eyebrow {
         font-size: 11px !important;
         letter-spacing: 2px !important;
         margin-bottom: 8px !important;
+        color: #FFFFFF !important;
+        text-align: left !important;
+        display: inline-block !important;
     }
+    #index_page .banner-section .np-hero-title-rotator,
+    #index_page .np-hero-title-rotator {
+        text-align: left !important;
+        width: 100% !important;
+        margin-bottom: 16px !important;
+    }
+    #index_page .banner-section .np-rotating-title,
+    #index_page .banner-section h2,
+    #index_page .banner-section .heading-text,
     #index_page .np-rotating-title {
         font-size: 28px !important;
         line-height: 1.22 !important;
+        color: #FFFFFF !important;
+        text-align: left !important;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+        margin: 0 !important;
     }
+    #index_page .banner-section .np-hero-cta,
     #index_page .np-hero-cta {
         padding: 9px 20px !important;
         font-size: 13px !important;
+        align-self: flex-start !important;
+        text-align: left !important;
+        margin-top: 4px !important;
     }
 
     /* Virtues Section (The 3 Pillars) */
