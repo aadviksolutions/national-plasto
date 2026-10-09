@@ -846,8 +846,10 @@ h1, h2, h3, h4, h5, h6 {
 
     
 
-    /* Largest Plastic / About Section */
-    #index_page .largest_plastic,
+    #index_page .largest_plastic {
+        padding: 0 0 40px !important;
+    }
+
     .largest_plastic {
         padding: 40px 0 !important;
     }
@@ -960,7 +962,9 @@ h1, h2, h3, h4, h5, h6 {
     .testimonial_main .testimonial_flex {
         flex-direction: column-reverse !important;
         text-align: left !important;
-        gap: 24px !important;
+        gap: 16px !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     .testimonial_main .testimonial_img,
@@ -973,14 +977,22 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 !important;
     }
 
+    .testimonial_main .testimonial_img {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        line-height: 0 !important;
+    }
+
     .testimonial_main .testimonial_img img {
         width: 100% !important;
-        max-width: 360px !important;
+        max-width: 440px !important;
         height: auto !important;
         border-radius: 0 !important;
         margin: 0 auto !important;
         display: block !important;
         object-fit: contain !important;
+        vertical-align: bottom !important;
+        margin-bottom: 0 !important;
     }
 
     /* Supreme Footer Responsive (Column Reverse & 2-Col Navigation) */

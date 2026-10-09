@@ -405,7 +405,9 @@
         flex-direction: column-reverse !important;
         align-items: center !important;
         text-align: left !important;
-        gap: 20px !important;
+        gap: 16px !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 
     #index_page .testimonial_main.np-cmd .testimonial_flex .testimonial_img,
@@ -418,12 +420,20 @@
         text-align: left !important;
     }
 
+    #index_page .testimonial_main.np-cmd .testimonial_img {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        line-height: 0 !important;
+    }
+
     #index_page .testimonial_main.np-cmd .testimonial_img img.np-cmd-cutout {
         width: 100% !important;
-        max-width: 360px !important;
+        max-width: 440px !important;
         height: auto !important;
         margin: 0 auto !important;
         border-radius: 0 !important;
+        vertical-align: bottom !important;
+        margin-bottom: 0 !important;
     }
 
     .np-quote-mark,
@@ -5806,15 +5816,22 @@ body.np-modal-open {
     /* CMD Message (Supreme.co.in 1:1 Architecture: Text upper side left-aligned, Big owner image below) */
     #index_page .testimonial_main.np-cmd {
         padding: 44px 0 0 !important;
+        margin-bottom: 0 !important;
         background: #FFFFFF !important;
         overflow: hidden !important;
+    }
+    #index_page .testimonial_main.np-cmd .container {
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
     }
     #index_page .testimonial_main .testimonial_flex {
         display: flex !important;
         flex-direction: column-reverse !important; /* Text on upper side, Owner photo below */
         align-items: center !important;
-        gap: 24px !important;
+        gap: 16px !important;
         text-align: left !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
     #index_page .testimonial_main .testimonial_content {
         width: 100% !important;
@@ -5893,7 +5910,9 @@ body.np-modal-open {
     #index_page .testimonial_main .testimonial_img {
         width: 100% !important;
         max-width: 100% !important;
-        margin: 10px auto 0 !important;
+        margin: 12px auto 0 !important;
+        padding-bottom: 0 !important;
+        line-height: 0 !important;
         border-radius: 0 !important;
         overflow: visible !important;
         display: flex !important;
@@ -5906,20 +5925,29 @@ body.np-modal-open {
     #index_page .testimonial_main .testimonial_img img {
         display: block !important;
         width: 100% !important;
-        max-width: 360px !important;
+        max-width: 440px !important;
         height: auto !important;
         max-height: none !important;
         object-fit: contain !important;
         object-position: bottom center !important;
         border-radius: 0 !important;
         margin: 0 auto !important;
+        vertical-align: bottom !important;
+        margin-bottom: 0 !important;
         border: none !important;
         box-shadow: none !important;
     }
 
     /* Scale & Stats Strip */
     #index_page .largest_plastic {
-        padding: 40px 0 !important;
+        padding: 0 0 40px !important;
+        margin-top: 0 !important;
+    }
+    #index_page .largest_plastic .container {
+        padding-top: 0 !important;
+    }
+    #index_page .largest_plastic .largest_plastic_box {
+        margin-top: 0 !important;
     }
     #index_page .largest_plastic_white_box .value_item_flex {
         display: grid !important;
