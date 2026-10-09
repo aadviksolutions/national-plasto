@@ -5886,6 +5886,56 @@ body.np-modal-open {
         padding: 16px !important;
         border-radius: 12px !important;
     }
+    #index_page .milestones_main .milestones_content .heading-text .fonthigh {
+        font-size: 64px !important;
+        line-height: 1.1 !important;
+        margin-bottom: 6px !important;
+        display: inline-block !important;
+    }
+
+    /* Touching Lives (Furniture For Every Community) */
+    #index_page .np-touching {
+        padding: 40px 0 !important;
+    }
+    #index_page .np-touching .touching_flex {
+        display: flex !important;
+        flex-direction: column !important;
+        border-radius: 14px !important;
+        overflow: hidden !important;
+    }
+    #index_page .np-touching .touching_flex .touching_img {
+        width: 100% !important;
+    }
+    #index_page .np-touching .touching_flex .touching_img img {
+        width: 100% !important;
+        height: 200px !important;
+        object-fit: cover !important;
+        border-radius: 14px 14px 0 0 !important;
+    }
+    #index_page .np-touching .touching_flex .touching_content {
+        width: 100% !important;
+        padding: 24px 20px !important;
+        background: #0094DC !important;
+        text-align: center !important;
+    }
+    #index_page .np-touching .touching_content .heading-text {
+        font-size: 24px !important;
+        color: #FFFFFF !important;
+        margin-bottom: 10px !important;
+        line-height: 1.25 !important;
+    }
+    #index_page .np-touching .touching_content .para-text,
+    #index_page .np-touching .touching_content .color_para {
+        color: #FFFFFF !important;
+        font-size: 13.5px !important;
+        line-height: 1.6 !important;
+        opacity: 0.95 !important;
+        margin-bottom: 18px !important;
+    }
+    #index_page .np-touching .touching_content .btn_section {
+        display: flex !important;
+        justify-content: center !important;
+    }
 
     /* Contact on Index */
     #index_page .contact_us {
