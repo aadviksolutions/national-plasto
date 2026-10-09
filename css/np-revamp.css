@@ -5886,7 +5886,7 @@ body.np-modal-open {
         position: relative !important;
         padding-left: 45px !important;
         padding-right: 0 !important;
-        margin-bottom: 45px !important; /* space for the closing quote at the bottom */
+        margin-bottom: 55px !important; /* space for the closing quote at the bottom */
     }
     #index_page .testimonial_main.np-cmd .np-q {
         color: #E2E8F0 !important;
@@ -5896,19 +5896,19 @@ body.np-modal-open {
         user-select: none !important;
         opacity: 0.9 !important;
         position: absolute !important;
-        font-size: 90px !important;
-        line-height: 0 !important;
+        font-size: 80px !important;
+        line-height: 1 !important;
     }
     #index_page .testimonial_main.np-cmd .np-q-open {
         left: 0 !important;
-        top: 24px !important;
-        display: block !important;
+        top: -15px !important;
+        display: inline-block !important;
     }
     #index_page .testimonial_main.np-cmd .np-q-close {
         left: 0 !important;
         right: auto !important;
-        bottom: -36px !important;
-        display: block !important;
+        bottom: -50px !important;
+        display: inline-block !important;
     }
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
         margin: 6px 0 0 0 !important;
