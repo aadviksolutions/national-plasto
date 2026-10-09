@@ -954,13 +954,13 @@ h1, h2, h3, h4, h5, h6 {
     /* Executive Testimonial / Quote */
     #index_page .testimonial_main,
     .testimonial_main {
-        padding: 40px 0 !important;
+        padding: 44px 0 0 !important;
     }
 
     .testimonial_main .testimonial_flex {
-        flex-direction: column !important;
-        text-align: center !important;
-        gap: 20px !important;
+        flex-direction: column-reverse !important;
+        text-align: left !important;
+        gap: 24px !important;
     }
 
     .testimonial_main .testimonial_img,
@@ -968,12 +968,19 @@ h1, h2, h3, h4, h5, h6 {
         width: 100% !important;
     }
 
+    .testimonial_main .testimonial_content {
+        text-align: left !important;
+        padding: 0 !important;
+    }
+
     .testimonial_main .testimonial_img img {
-        width: 100px !important;
-        height: 100px !important;
-        border-radius: 50% !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        height: auto !important;
+        border-radius: 0 !important;
         margin: 0 auto !important;
         display: block !important;
+        object-fit: contain !important;
     }
 
     /* Supreme Footer Responsive (Column Reverse & 2-Col Navigation) */
