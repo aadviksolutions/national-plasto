@@ -291,7 +291,9 @@
             cursor: grab;
             perspective: 1000px;
             transform-style: preserve-3d;
-            touch-action: pan-y;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
             z-index: 2;
         }
         .np-modal-img-container:active,
@@ -306,10 +308,73 @@
             align-items: center;
             justify-content: center;
             transform-style: preserve-3d;
-            transition: transform 0.08s cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: transform;
             z-index: 3;
+            pointer-events: none;
         }
+        .np-360-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(15, 23, 42, 0.85);
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 25;
+            pointer-events: none;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        .np-360-loader i { color: #38BDF8; }
+        .np-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #CBD5E1;
+            color: #0F172A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 15;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            font-size: 13px;
+        }
+        .np-modal-nav:hover {
+            background: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .np-modal-prev { left: 12px; }
+        .np-modal-next { right: 12px; }
+        .np-single-notice {
+            background: #F1F5F9;
+            border: 1px dashed #CBD5E1;
+            color: #64748B;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 4px 0 8px;
+        }
+        .np-single-notice i { color: #0284C7; }
         .np-360-pedestal {
             position: absolute;
             bottom: 5%;
@@ -338,7 +403,6 @@
             border: 2px solid rgba(255, 255, 255, 0.95);
             box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(0,0,0,0.06), inset 0 2px 8px rgba(255, 255, 255, 0.95), inset 0 -4px 10px rgba(15, 23, 42, 0.15);
             transform: rotateX(72deg);
-            transition: transform 0.05s linear;
         }
         .np-360-turntable-ring::after {
             content: '';
@@ -366,7 +430,7 @@
             -webkit-user-drag: none;
             position: relative;
             z-index: 4;
-            transition: filter 0.15s ease;
+            filter: drop-shadow(0 14px 18px rgba(15, 23, 42, 0.16));
         }
         .np-360-overlay {
             position: absolute;
@@ -1476,8 +1540,11 @@
         <div class="np-modal-box">
             <button type="button" class="np-modal-x" aria-label="Close">&times;</button>
             <div class="np-modal-stage">
+                <button type="button" class="np-modal-nav np-modal-prev" id="npModalPrevProduct" title="Previous Product" aria-label="Previous Product"><i class="fas fa-chevron-left"></i></button>
+                <button type="button" class="np-modal-nav np-modal-next" id="npModalNextProduct" title="Next Product" aria-label="Next Product"><i class="fas fa-chevron-right"></i></button>
                 <div class="np-360-badge" id="np360Badge" title="Interactive 360° product rotation"><i class="fas fa-sync-alt fa-spin"></i> <span>360&deg; Interactive 3D Spin</span></div>
                 <div class="np-modal-img-container" id="npModalImgContainer" title="Drag horizontally to spin 360°">
+                    <div class="np-360-loader" id="np360Loader" style="display:none;"><i class="fas fa-circle-notch fa-spin"></i> <span>Loading 360&deg; frames...</span></div>
                     <div class="np-360-stage-lighting"></div>
                     <div class="np-360-turntable-wrapper" id="npModalTurntable">
                         <img id="npModalImg" alt="" draggable="false">
@@ -1509,6 +1576,7 @@
                         <button type="button" class="np-360-preset-btn" data-deg="270">Side (270&deg;)</button>
                     </div>
                 </div>
+                <div class="np-single-notice" id="npSingleNotice" style="display:none;"><i class="fas fa-camera"></i> Single studio photograph &middot; 360&deg; rotation sequence in production</div>
                 <div class="np-modal-thumbs" id="npModalThumbs"></div>
             </div>
             <div class="np-modal-info">
@@ -1664,7 +1732,7 @@
     <script src="js/supreme_mobile.js?v=20260926"></script>
     <script src="js/store.js"></script>
     <script src="js/catalogue-2026.js?v=20261002b"></script>
-    <script src="js/catalogue-page.js?v=20261007_v3d_final360"></script>
+    <script src="js/catalogue-page.js?v=20261010_360_shadow_aligned"></script>
 
     <script>
         $(document).ready(function() {
