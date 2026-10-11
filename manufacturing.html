@@ -34,83 +34,30 @@
         /* ==========================================================================
            Manufacturing Hub Hero Section (Directly After Breadcrumbs)
            ========================================================================== */
+        .banner-section {
+            margin-bottom: 0 !important;
+        }
+        .breadcrums {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        .smooth_scroll_pages {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
         .np-mfg-hub-hero {
             background: #FFFFFF;
-            padding: 36px 0 50px;
+            padding: 0 0 45px 0 !important;
+            margin: 0 !important;
             border: none;
             position: relative;
             overflow: hidden;
         }
-        .np-mfg-topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-        .np-mfg-logo-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: #FFFFFF;
-            border: 1.5px solid #E2E8F0;
-            border-radius: 999px;
-            padding: 8px 18px 8px 14px;
-            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
-        }
-        .np-mfg-logo-img {
-            height: 32px;
-            width: auto;
-            object-fit: contain;
-        }
-        .np-mfg-estd-badge {
-            font-family: 'Outfit', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #DC2626;
-            background: #FEF2F2;
-            padding: 4px 10px;
-            border-radius: 999px;
-            border: 1px solid #FEE2E2;
-        }
-        .np-mfg-nav-pills {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .np-mfg-nav-btn {
-            background: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            color: #475569;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 7px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            font-family: 'Outfit', sans-serif;
-        }
-        .np-mfg-nav-btn:hover {
-            color: #DC2626;
-            border-color: #DC2626;
-            background: #FFF5F5;
-        }
-        .np-mfg-nav-btn.is-active {
-            background: #DC2626;
-            color: #FFFFFF;
-            border-color: #DC2626;
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
-        }
-
         .np-mfg-hub-hero .container {
             max-width: 1340px;
         }
         .np-mfg-stage {
-            margin: 10px 0 40px;
+            margin: 0 0 35px 0;
             position: relative;
         }
         .np-mfg-stage-flex {
@@ -252,51 +199,30 @@
             text-align: left;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
         }
-        .np-mfg-card-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-        .np-mfg-card-tag {
-            background: #DC2626;
-            color: #FFFFFF;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            padding: 4px 10px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .np-mfg-card-unit {
-            font-size: 13px;
-            font-weight: 700;
-            color: #DC2626;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
         .np-mfg-card-title {
-            font-family: 'Outfit', 'Inter', sans-serif;
-            font-size: 38px;
-            font-weight: 800;
-            color: #0F172A;
-            margin: 0 0 12px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--brand-primary);
+            margin: 0 0 14px 0;
             line-height: 1.15;
             letter-spacing: -0.5px;
         }
         .np-mfg-card-location {
+            font-family: 'Poppins', sans-serif;
             font-size: 16px;
-            color: #DC2626;
-            font-weight: 600;
+            color: #64748B;
+            font-weight: 500;
             margin: 0 0 16px 0;
             display: flex;
             align-items: center;
             gap: 8px;
         }
+        .np-mfg-card-location i {
+            color: var(--brand-primary);
+        }
         .np-mfg-card-desc {
+            font-family: 'Poppins', sans-serif;
             font-size: 16px;
             color: #475569;
             line-height: 1.7;
@@ -319,10 +245,10 @@
         }
         .np-mfg-metric-pill .val {
             display: block;
-            font-size: 30px;
-            font-weight: 800;
-            color: #0F172A;
-            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--brand-primary);
+            font-family: 'Poppins', sans-serif;
             line-height: 1.1;
         }
         .np-mfg-metric-pill .lbl {
@@ -331,6 +257,7 @@
             color: #64748B;
             text-transform: uppercase;
             font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             letter-spacing: 0.5px;
             margin-top: 4px;
         }
@@ -343,22 +270,23 @@
             justify-content: center;
             gap: 10px;
             padding: 14px 28px;
-            background: #0F172A;
+            background: var(--brand-primary);
             color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            border-radius: 8px;
+            border-radius: 6px;
             text-decoration: none;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+            box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
         }
         .np-mfg-action-btn:hover {
-            background: #DC2626;
+            background: #0F172A;
             color: #FFFFFF;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.25);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
         }
 
         /* Bottom Title Section (as per sketch: "Manufacturing HUB") */
@@ -830,21 +758,7 @@
         <!-- Manufacturing Hub Hero Section (Directly After Breadcrumbs as per sketch) -->
         <section class="np-mfg-hub-hero" id="manufacturing-hub">
             <div class="container">
-                <!-- Top Bar: Logo Pill & Quick Filter Pills -->
-                <div class="np-mfg-topbar">
-                    <div class="np-mfg-logo-pill">
-                        <img src="images/brand/company-national-logo.png" alt="National Plasto" class="np-mfg-logo-img">
-                        <span class="np-mfg-estd-badge">1990 &bull; Mfg Hub</span>
-                    </div>
-                    <div class="np-mfg-nav-pills">
-                        <button type="button" class="np-mfg-nav-btn is-active" data-mfg="howrah" onclick="selectMfgPlant('howrah')">Dhulagarh (HQ)</button>
-                        <button type="button" class="np-mfg-nav-btn" data-mfg="uluberia" onclick="selectMfgPlant('uluberia')">Uluberia</button>
-                        <button type="button" class="np-mfg-nav-btn" data-mfg="assam" onclick="selectMfgPlant('assam')">Guwahati</button>
-                        <button type="button" class="np-mfg-nav-btn" data-mfg="patna" onclick="selectMfgPlant('patna')">Patna</button>
-                    </div>
-                </div>
-
-                <!-- Center Stage: India Map with Pinpoints + Interactive 'Mfg' Card -->
+                <!-- Center Stage: India Map with Pinpoints + Interactive Facility Details -->
                 <div class="np-mfg-stage">
                     <div class="np-mfg-stage-flex">
                         <!-- Left: Borderless & Slightly Tilted Map -->
@@ -884,13 +798,9 @@
                             </div>
                         </div>
 
-                        <!-- Right: Interactive Mfg Facility Card -->
+                        <!-- Right: Interactive Mfg Facility Details (No borders, big text, primary color) -->
                         <div class="np-mfg-card-col">
                             <div class="np-mfg-card" id="npMfgCard">
-                                <div class="np-mfg-card-badge">
-                                    <span class="np-mfg-card-tag"><i class="fas fa-industry"></i> Mfg Hub</span>
-                                    <span class="np-mfg-card-unit" id="mfgCardUnit">Plant 01 &bull; Flagship</span>
-                                </div>
                                 <h2 class="np-mfg-card-title" id="mfgCardTitle">Dhulagarh Central Facility &amp; Toolroom</h2>
                                 <p class="np-mfg-card-location" id="mfgCardLoc"><i class="fas fa-map-marker-alt"></i> Jalan Industrial Complex, Howrah, West Bengal</p>
                                 <p class="np-mfg-card-desc" id="mfgCardDesc">Our flagship manufacturing complex and central tooling workshop. Houses our heaviest 1,200T high-tonnage presses for large monoblock dining tables, executive armchairs, and custom industrial crates.</p>
@@ -1533,13 +1443,9 @@
             $('.np-mfg-pin').removeClass('is-active');
             $('#pin-' + key).addClass('is-active');
 
-            $('.np-mfg-nav-pills .np-mfg-nav-btn').removeClass('is-active');
-            $('.np-mfg-nav-pills .np-mfg-nav-btn[data-mfg="' + key + '"]').addClass('is-active');
-
             const $card = $('#npMfgCard');
             $card.css('opacity', '0.3');
             setTimeout(function() {
-                $('#mfgCardUnit').text(data.unit);
                 $('#mfgCardTitle').text(data.title);
                 $('#mfgCardLoc').html('<i class="fas fa-map-marker-alt"></i> ' + data.loc);
                 $('#mfgCardDesc').text(data.desc);
