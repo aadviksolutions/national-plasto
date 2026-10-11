@@ -196,6 +196,624 @@
         }
 
         /* ==========================================================================
+           1. DEALER BENEFITS HERO (Supreme IPD 1:1 Design Language & Giant Center Man)
+           ========================================================================== */
+        .np-dealer-benefits-hero {
+            padding: 85px 0 95px;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #ECEFF1;
+        }
+
+        /* Subtle Supreme-style technical backdrop glow */
+        .np-dealer-benefits-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(0, 123, 184, 0.04) 0%, rgba(248, 250, 252, 0.6) 60%, transparent 75%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Section Header typography matching Pan India Presence design system */
+        .np-benefits-header {
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .np-benefits-main-title {
+            font-family: "Poppins", sans-serif;
+            font-size: 50px;
+            line-height: 65px;
+            font-weight: 600;
+            color: #3d3d3d;
+            margin: 0 0 16px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .np-benefits-main-title .color_red_home {
+            color: #0094DC !important;
+            font-weight: 600;
+        }
+
+        .np-benefits-subtitle {
+            font-family: "Poppins", sans-serif;
+            font-size: 16px;
+            line-height: 28px;
+            color: #666666;
+            max-width: 820px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        @media screen and (max-width: 991px) {
+            .np-benefits-main-title {
+                font-size: 40px;
+                line-height: 52px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .np-benefits-main-title {
+                font-size: 30px;
+                line-height: 40px;
+            }
+            .np-benefits-subtitle {
+                font-size: 14.5px;
+                line-height: 24px;
+            }
+        }
+
+        /* Stage Layout */
+        .np-man-benefits-stage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            z-index: 3;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        /* Benefit Columns - Clean Open Typography (No Boxes) */
+        .np-benefit-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 55px;
+            position: relative;
+            z-index: 6;
+        }
+
+        .np-benefit-col--left {
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .np-benefit-col--right {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        /* Slide Benefit Items — Pure Bold Typography, No Box Containers */
+        .np-benefit-slide-bar {
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* Minimal clean accent indicator line extending towards man */
+        .np-slide-bar--left .np-slide-bar-rail {
+            position: absolute;
+            top: 24px;
+            right: -36px;
+            width: 36px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #007BB8 100%);
+            z-index: 1;
+            transition: all 0.35s ease;
+        }
+        .np-slide-bar--left .np-slide-bar-rail::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: -4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #007BB8;
+            box-shadow: 0 0 10px rgba(0, 123, 184, 0.6);
+        }
+
+        .np-slide-bar--right .np-slide-bar-rail {
+            position: absolute;
+            top: 24px;
+            left: -36px;
+            width: 36px;
+            height: 2px;
+            background: linear-gradient(90deg, #007BB8 0%, transparent 100%);
+            z-index: 1;
+            transition: all 0.35s ease;
+        }
+        .np-slide-bar--right .np-slide-bar-rail::after {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: -4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #007BB8;
+            box-shadow: 0 0 10px rgba(0, 123, 184, 0.6);
+        }
+
+        /* Pure Open Typography Container — NO BOX, NO BACKGROUND, NO BORDER */
+        .np-slide-bar-card {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .np-slide-bar--left .np-slide-bar-card {
+            flex-direction: row-reverse;
+        }
+
+        /* Hover slide animation without boxes */
+        .np-slide-bar--left:hover .np-slide-bar-card {
+            transform: translateX(-14px);
+        }
+        .np-slide-bar--left:hover .np-slide-bar-rail {
+            width: 48px;
+            right: -48px;
+        }
+        .np-slide-bar--left:hover .np-slide-punchline {
+            color: #007BB8;
+        }
+
+        .np-slide-bar--right:hover .np-slide-bar-card {
+            transform: translateX(14px);
+        }
+        .np-slide-bar--right:hover .np-slide-bar-rail {
+            width: 48px;
+            left: -48px;
+        }
+        .np-slide-bar--right:hover .np-slide-punchline {
+            color: #007BB8;
+        }
+
+        /* Dynamic Circular Icon Badge */
+        .np-slide-bar-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 50%;
+            background: #E8F8FE;
+            color: #007BB8;
+            border: 1.5px solid #B3E6FB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            transition: all 0.35s ease;
+            margin-top: 2px;
+        }
+        .np-benefit-slide-bar:hover .np-slide-bar-icon {
+            background: #007BB8;
+            color: #FFFFFF;
+            border-color: #007BB8;
+            transform: scale(1.12);
+            box-shadow: 0 6px 18px rgba(0, 123, 184, 0.35);
+        }
+
+        .np-slide-bar-content {
+            flex: 1;
+        }
+
+        /* Eyebrow Sequence & Metric Tag */
+        .np-slide-bar-top-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+        .np-slide-bar--left .np-slide-bar-top-row {
+            justify-content: flex-end;
+        }
+        .np-slide-bar--right .np-slide-bar-top-row {
+            justify-content: flex-start;
+        }
+
+        .np-slide-num {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 800;
+            color: #007BB8;
+            letter-spacing: 0.5px;
+        }
+
+        .np-slide-metric-pill {
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #007BB8;
+            background: #E8F8FE;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            border: 1px solid #B3E6FB;
+        }
+
+        /* BIG BOLD PUNCHLINE (Supreme-style headline) */
+        .np-slide-punchline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.25;
+            color: #1E293B;
+            letter-spacing: -0.4px;
+            margin: 0 0 8px 0;
+            transition: color 0.25s ease;
+        }
+
+        .np-slide-punchline span.np-highlight-word {
+            color: #007BB8;
+        }
+
+        /* Clean Punchline Subtext */
+        .np-slide-subtext {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 14.5px;
+            line-height: 1.55;
+            color: #64748B;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* ==========================================================================
+           CENTER: MAN WITH LOGO — BIG & PROMINENT (Centerpiece Hero)
+           ========================================================================== */
+        .np-man-center-wrapper {
+            flex: 0 0 520px;
+            max-width: 540px;
+            position: relative;
+            text-align: center;
+            z-index: 5;
+            margin: 0 -20px; /* Gently overlaps stage to give generous hero presence */
+        }
+
+        /* Large radiant background aura behind the man */
+        .np-man-glow-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -46%);
+            width: 520px;
+            height: 520px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 123, 184, 0.14) 0%, rgba(179, 230, 251, 0.22) 45%, transparent 72%);
+            border: 1.5px dashed rgba(0, 123, 184, 0.35);
+            pointer-events: none;
+            animation: npSpinSlow 36s linear infinite;
+        }
+        @keyframes npSpinSlow {
+            from { transform: translate(-50%, -46%) rotate(0deg); }
+            to { transform: translate(-50%, -46%) rotate(360deg); }
+        }
+
+        .np-man-img-box {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* BIG Center Man Cutout Image */
+        .np-man-cutout-img {
+            max-width: 480px;
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 24px 34px rgba(15, 23, 42, 0.16));
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .np-man-center-wrapper:hover .np-man-cutout-img {
+            transform: scale(1.025);
+        }
+
+        /* Supreme.co.in/ipd-inspired Floating Verified Partner Badge */
+        .np-man-floating-badge {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid #B3E6FB;
+            border-radius: 9999px;
+            padding: 10px 22px 10px 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 12px 30px rgba(0, 123, 184, 0.22);
+            white-space: nowrap;
+            z-index: 6;
+        }
+        .np-floating-badge-logo img {
+            height: 26px;
+            width: auto;
+            display: block;
+        }
+        .np-floating-badge-text {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+        .np-floating-badge-text strong {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #1E293B;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+        .np-floating-badge-text span {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 11px;
+            color: #059669;
+            font-weight: 600;
+        }
+        .np-floating-badge-check {
+            color: #059669;
+            font-size: 16px;
+        }
+
+        /* Supreme IPD Button Styling */
+        .np-benefits-cta-row {
+            margin-top: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 4;
+        }
+
+        /* Supreme.co.in btn_project_default standard */
+        .np-btn-supreme-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #007BB8;
+            color: #FFFFFF !important;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 15px 36px;
+            border-radius: 9999px;
+            border: 1.5px solid #007BB8;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(0, 123, 184, 0.32);
+        }
+        .np-btn-supreme-primary:hover {
+            background: #005C8A;
+            border-color: #005C8A;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(0, 123, 184, 0.42);
+            color: #FFFFFF !important;
+        }
+
+        .np-btn-supreme-outline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #FFFFFF;
+            color: #007BB8 !important;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 15px 34px;
+            border-radius: 9999px;
+            border: 1.5px solid #007BB8;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+        }
+        .np-btn-supreme-outline:hover {
+            background: #E8F8FE;
+            color: #005C8A !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 123, 184, 0.18);
+        }
+
+        /* Slide Animation Sequence */
+        @keyframes npSlideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(50px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        @keyframes npSlideInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+
+        .np-slide-bar--1 {
+            animation: npSlideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+        }
+        .np-slide-bar--2 {
+            animation: npSlideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+        }
+        .np-slide-bar--3 {
+            animation: npSlideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+        .np-slide-bar--4 {
+            animation: npSlideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1240px) {
+            .np-man-center-wrapper {
+                flex: 0 0 440px;
+                max-width: 440px;
+                margin: 0 -10px;
+            }
+            .np-man-cutout-img {
+                max-width: 410px;
+            }
+            .np-benefit-slide-bar {
+                max-width: 360px;
+            }
+            .np-slide-bar-card {
+                padding: 18px 18px;
+            }
+            .np-slide-bar-title {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .np-dealer-benefits-hero {
+                padding: 65px 0 75px;
+            }
+            .np-man-benefits-stage {
+                flex-direction: column;
+                gap: 36px;
+            }
+            .np-man-center-wrapper {
+                order: 1;
+                flex: 0 0 auto;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .np-man-glow-ring {
+                width: 380px;
+                height: 380px;
+            }
+            .np-man-cutout-img {
+                max-width: 360px;
+            }
+            .np-benefit-col--left {
+                order: 2;
+                width: 100%;
+                align-items: center;
+                gap: 18px;
+            }
+            .np-benefit-col--right {
+                order: 3;
+                width: 100%;
+                align-items: center;
+                gap: 18px;
+            }
+            .np-slide-bar-rail {
+                display: none !important;
+            }
+            .np-benefit-slide-bar {
+                max-width: 580px;
+                width: 100%;
+            }
+            .np-slide-bar-card {
+                border-radius: 20px !important;
+            }
+            .np-slide-bar--left:hover .np-slide-bar-card,
+            .np-slide-bar--right:hover .np-slide-bar-card {
+                transform: translateY(-4px) !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .np-benefits-main-title {
+                font-size: 26px;
+                line-height: 1.25;
+            }
+            .np-benefits-subtitle {
+                font-size: 14px;
+            }
+            .np-man-cutout-img {
+                max-width: 290px;
+            }
+            .np-man-glow-ring {
+                width: 300px;
+                height: 300px;
+            }
+            .np-slide-bar-card {
+                padding: 14px 16px;
+                gap: 12px;
+            }
+            .np-slide-bar-icon {
+                width: 42px;
+                height: 42px;
+                min-width: 42px;
+                font-size: 17px;
+                border-radius: 12px;
+            }
+            .np-slide-bar-title {
+                font-size: 15.5px;
+            }
+            .np-slide-bar-desc {
+                font-size: 12px;
+            }
+            .np-floating-badge-logo img {
+                height: 22px;
+            }
+            .np-floating-badge-text strong {
+                font-size: 11px;
+            }
+            .np-floating-badge-text span {
+                font-size: 9.5px;
+            }
+            .np-benefits-cta-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .np-btn-supreme-primary, .np-btn-supreme-outline {
+                width: 100%;
+            }
+        }
+
+        /* ==========================================================================
            2. PRODUCT PORTFOLIO SECTION (4 Categories)
            ========================================================================== */
         .np-portfolio-section {
@@ -1453,8 +2071,543 @@
             .np-stat-number {
                 font-size: 18px !important;
             }
-            .np-stat-label {
-                font-size: 9.5px !important;
+        }
+
+        /* ==========================================================================
+           PAN INDIA PRESENCE & DIRECTORY (Exact Homepage Match + Full Directory)
+           ========================================================================== */
+        #distributor_page .np-pan-india-presence-section {
+            padding: 80px 0 90px !important;
+            background: #FFFFFF !important;
+            border-top: 1px solid #E2E8F0 !important;
+            border-bottom: 1px solid #E2E8F0 !important;
+        }
+        #distributor_page .np-pan-india-presence-section .container {
+            max-width: 1220px !important;
+            margin: 0 auto !important;
+            padding: 0 20px !important;
+            box-sizing: border-box !important;
+        }
+        #distributor_page .np-pan-india-presence-section .pan_india_flex {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 60px !important;
+            margin-bottom: 60px !important;
+        }
+        #distributor_page .np-pan-india-presence-section .pan_india_img {
+            flex: 1.15 !important;
+            max-width: 600px !important;
+            width: 100% !important;
+            position: relative !important;
+            display: block !important;
+            margin: 0 !important;
+        }
+        #distributor_page .np-pan-india-presence-section .pan_india_img img.np-map-base {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+        /* Make map pins always visible & clear on distributor page */
+        #distributor_page .np-map-pin {
+            position: absolute !important;
+            z-index: 4 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 28px !important;
+            height: 28px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            background: none !important;
+            transform: translate(-50%, -50%) !important;
+            cursor: pointer !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            animation: none !important;
+        }
+        #distributor_page .pan_india_content {
+            flex: 1 !important;
+            max-width: 520px !important;
+            display: block !important;
+        }
+        #distributor_page .pan_india_content .heading-text {
+            font-size: 46px !important;
+            font-weight: 800 !important;
+            color: #1F2937 !important;
+            line-height: 1.15 !important;
+            margin: 0 0 20px 0 !important;
+            font-family: 'Outfit', 'Inter', -apple-system, sans-serif !important;
+            letter-spacing: -0.02em !important;
+        }
+        #distributor_page .pan_india_content .heading-text .color_blue_home {
+            color: #0094DC !important;
+        }
+        #distributor_page .pan_india_content .para-text {
+            font-size: 16.5px !important;
+            line-height: 1.7 !important;
+            color: #4B5563 !important;
+            margin: 0 0 28px 0 !important;
+        }
+        #distributor_page .btn_explore_locations {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            background: #0094DC !important;
+            color: #FFFFFF !important;
+            font-size: 13.5px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.8px !important;
+            padding: 13px 28px !important;
+            border-radius: 9999px !important;
+            text-decoration: none !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 4px 14px rgba(0, 148, 220, 0.3) !important;
+            margin-bottom: 34px !important;
+        }
+        #distributor_page .btn_explore_locations:hover {
+            background: #007BB8 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 20px rgba(0, 148, 220, 0.4) !important;
+            color: #FFFFFF !important;
+        }
+        #distributor_page .pan_india_list {
+            display: flex !important;
+            align-items: center !important;
+            gap: 22px !important;
+            flex-wrap: wrap !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        #distributor_page .pan_india_list .para-text {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            margin-bottom: 0 !important;
+            font-size: 14.5px !important;
+            font-weight: 600 !important;
+            color: #374151 !important;
+        }
+        #distributor_page .pan_india_list .para-text span {
+            width: 13px !important;
+            height: 13px !important;
+            border-radius: 50% !important;
+            display: inline-block !important;
+            flex-shrink: 0 !important;
+        }
+        #distributor_page .pan_india_list .para-text em {
+            font-style: normal !important;
+            font-weight: 400 !important;
+            color: #6B7280 !important;
+            margin-left: 2px !important;
+        }
+
+        /* ==========================================================================
+           LOCATION SELECTOR & DATA CARD (In same Pan India Presence section)
+           ========================================================================== */
+        .np-map-loc-control {
+            margin-top: 24px;
+            margin-bottom: 14px;
+        }
+        .np-loc-select-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #475569;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .np-loc-select-dropdown {
+            width: 100% !important;
+            height: 48px !important;
+            border: 1.5px solid #CBD5E1 !important;
+            border-radius: 10px !important;
+            padding: 0 16px !important;
+            font-size: 14.5px !important;
+            font-weight: 600 !important;
+            color: #0F172A !important;
+            background: #F8FAFC !important;
+            outline: none !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            box-sizing: border-box !important;
+        }
+        .np-loc-select-dropdown:focus {
+            border-color: #0094DC !important;
+            background: #FFFFFF !important;
+            box-shadow: 0 0 0 3px rgba(0, 148, 220, 0.15) !important;
+        }
+        .np-loc-select-dropdown optgroup {
+            font-weight: 700;
+            color: #0094DC;
+            background: #FFFFFF;
+        }
+        .np-loc-select-dropdown option {
+            font-weight: 500;
+            color: #0F172A;
+            padding: 6px 10px;
+        }
+
+        /* Live Data Display Card */
+        .np-map-loc-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 22px 24px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 14px;
+        }
+        .np-map-loc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #0094DC;
+            transition: background 0.25s ease;
+        }
+        .np-map-loc-card[data-category="office"]::before { background: #DC2626; }
+        .np-map-loc-card[data-category="plant"]::before { background: #1E8E3E; }
+        .np-map-loc-card[data-category="depot"]::before { background: #EAB308; }
+        .np-map-loc-card[data-category="distributor"]::before { background: #1D4ED8; }
+
+        .np-mlc-header {
+            margin-bottom: 12px;
+        }
+        .np-card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+        .np-card-badge.badge-office { background: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; }
+        .np-card-badge.badge-plant { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
+        .np-card-badge.badge-depot { background: #FEF9C3; color: #854D0E; border: 1px solid #FEF08A; }
+        .np-card-badge.badge-distributor { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+
+        .np-mlc-name {
+            font-size: 19px;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0 0 3px;
+            line-height: 1.3;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.01em;
+        }
+        .np-mlc-scope {
+            font-size: 12.5px;
+            color: #0094DC;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .np-mlc-details {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            padding: 12px 0;
+            border-top: 1px solid #F1F5F9;
+            border-bottom: 1px solid #F1F5F9;
+            margin-bottom: 16px;
+        }
+        .np-loc-detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13.5px;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .np-loc-detail-row i {
+            font-size: 13.5px;
+            color: #64748B;
+            margin-top: 3px;
+            flex-shrink: 0;
+            width: 15px;
+            text-align: center;
+        }
+        .np-loc-detail-row a {
+            color: #0F172A;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .np-loc-detail-row a:hover {
+            color: #0094DC;
+            text-decoration: underline;
+        }
+
+        .np-mlc-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .np-btn-dir-map {
+            flex: 1.2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #FFFFFF !important;
+            background: #0094DC;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 148, 220, 0.25);
+        }
+        .np-btn-dir-map:hover {
+            background: #007BB8;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 148, 220, 0.35);
+        }
+        .np-btn-dir-call {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #0F172A;
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .np-btn-dir-call:hover {
+            background: #10B981;
+            color: #FFFFFF !important;
+            border-color: #10B981;
+            transform: translateY(-1px);
+        }
+
+        /* Active Map Pin Pulse on Map */
+        #distributor_page .np-map-pin.is-active {
+            z-index: 10 !important;
+        }
+        #distributor_page .np-map-pin.is-active .np-map-pin-dot {
+            transform: scale(1.6) !important;
+            box-shadow: 0 0 0 6px rgba(0, 148, 220, 0.4), 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+        }
+        #distributor_page .np-map-pin.is-active .np-map-pin-label {
+            opacity: 1 !important;
+            transform: translate(-50%, 0) !important;
+            background: #0094DC !important;
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+        }
+
+        /* Interactive Map Legend */
+        #distributor_page .pan_india_list .para-text {
+            cursor: pointer !important;
+            padding: 4px 10px !important;
+            border-radius: 999px !important;
+            transition: all 0.2s ease !important;
+            user-select: none !important;
+        }
+        #distributor_page .pan_india_list .para-text:hover {
+            background: #F1F5F9 !important;
+            transform: translateY(-1px) !important;
+        }
+        #distributor_page .pan_india_list .para-text.is-active {
+            background: #EBF6FC !important;
+            color: #0094DC !important;
+        }
+
+        @media (max-width: 1024px) {
+            #distributor_page .np-pan-india-presence-section .pan_india_flex {
+                flex-direction: column-reverse !important;
+                gap: 40px !important;
+                margin-bottom: 20px !important;
+            }
+            #distributor_page .np-pan-india-presence-section .pan_india_img {
+                max-width: 100% !important;
+            }
+            #distributor_page .np-pan-india-presence-section .pan_india_content {
+                max-width: 100% !important;
+            }
+        }
+        @media (max-width: 768px) {
+            #distributor_page .np-pan-india-presence-section {
+                padding: 45px 0 !important;
+            }
+            #distributor_page .np-pan-india-presence-section .pan_india_content .heading-text {
+                font-size: 32px !important;
+            }
+            .np-mlc-actions {
+                flex-direction: column !important;
+            }
+            .np-btn-dir-map, .np-btn-dir-call {
+                width: 100% !important;
+            }
+        }
+
+        /* ==========================================================================
+           WHAT MAKES US UNIQUE (Supreme 1:1 Plant Banner + Overlapping Content Card)
+           ========================================================================== */
+        .np-unique-showcase-section {
+            position: relative;
+            background: #FFFFFF;
+            padding-bottom: 75px;
+        }
+
+        .np-unique-banner-wrap {
+            width: 100%;
+            height: 480px;
+            overflow: hidden;
+            position: relative;
+            background: #F1F5F9;
+        }
+
+        .np-unique-banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .np-unique-card {
+            position: relative;
+            margin-top: -160px;
+            background: #E8EEF3;
+            border-radius: 20px;
+            padding: 55px 65px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+            z-index: 10;
+        }
+
+        .np-unique-left {
+            flex: 0 0 38%;
+            max-width: 38%;
+        }
+
+        .np-unique-heading {
+            font-family: 'Outfit', 'Inter', sans-serif !important;
+            font-size: 46px !important;
+            line-height: 1.15 !important;
+            font-weight: 700 !important;
+            color: #1E293B !important;
+            letter-spacing: -0.02em !important;
+            margin: 0 0 28px 0 !important;
+        }
+
+        .np-unique-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            background: #ED1C24 !important;
+            color: #FFFFFF !important;
+            font-size: 13.5px !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.8px !important;
+            padding: 13px 34px !important;
+            border-radius: 9999px !important;
+            text-decoration: none !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 4px 14px rgba(237, 28, 36, 0.3) !important;
+        }
+
+        .np-unique-btn:hover {
+            background: #D9141B !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 22px rgba(237, 28, 36, 0.4) !important;
+            color: #FFFFFF !important;
+        }
+
+        .np-unique-right {
+            flex: 0 0 58%;
+            max-width: 58%;
+        }
+
+        .np-unique-desc {
+            font-family: 'Poppins', 'Inter', sans-serif !important;
+            font-size: 17px !important;
+            line-height: 1.8 !important;
+            color: #475569 !important;
+            margin: 0 !important;
+            font-weight: 400 !important;
+        }
+
+        @media (max-width: 1024px) {
+            .np-unique-banner-wrap {
+                height: 380px;
+            }
+            .np-unique-card {
+                margin-top: -120px;
+                padding: 40px 36px;
+                gap: 30px;
+            }
+            .np-unique-heading {
+                font-size: 36px !important;
+            }
+            .np-unique-desc {
+                font-size: 15.5px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .np-unique-showcase-section {
+                padding-bottom: 40px;
+            }
+            .np-unique-banner-wrap {
+                height: 260px;
+            }
+            .np-unique-card {
+                margin-top: -60px;
+                padding: 30px 24px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 22px;
+                border-radius: 16px;
+            }
+            .np-unique-left {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .np-unique-right {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            .np-unique-heading {
+                font-size: 30px !important;
+                margin-bottom: 18px !important;
+            }
+            .np-unique-btn {
+                padding: 11px 26px !important;
+                font-size: 12.5px !important;
+            }
+            .np-unique-desc {
+                font-size: 15px !important;
+                line-height: 1.65 !important;
             }
         }
     </style>
@@ -1647,160 +2800,110 @@
     <main class="np-dist-scope">
 
         <!-- ==========================================================================
-             2. PRODUCT PORTFOLIO — Main attraction
+             1. DEALER BENEFITS HERO — Man in Middle with Sliding Benefit Bars (Supreme IPD 1:1)
              ========================================================================== -->
-        <section class="np-portfolio-section" id="product-portfolio">
+        <section class="np-dealer-benefits-hero" id="dealer-benefits">
             <div class="np-dist-container">
-                <div class="np-dist-section-header">
-                    <div class="np-dist-eyebrow"><i class="fas fa-boxes"></i> Product Portfolio</div>
-                    <h2 class="np-dist-heading">
-                        Products That <span class="color_highlight">Move Markets</span>
-                    </h2>
-                    <p class="np-dist-desc">
-                        Explore a diverse portfolio designed for homes, businesses and everyday needs.
+                <div class="np-benefits-header toTop" data-scroll>
+                    <h2 class="heading-text np-benefits-main-title"><span class="color_red_home">Dealer Desk </span>Benefits</h2>
+                    <p class="para-text color_para np-benefits-subtitle">
+                        With its expanding manufacturing and distribution network across the nation, National Plasto offers lucrative margins, territorial protection, and direct factory supply.
                     </p>
                 </div>
 
-                <div class="np-portfolio-grid">
-                    <!-- 1. Furniture -->
-                    <div class="np-portfolio-card">
-                        <div class="np-portfolio-thumb">
-                            <img src="images/business/moulded-furniture.jpg" alt="National Plasto Moulded Furniture" loading="lazy">
+                <div class="np-man-benefits-stage">
+                    <!-- Left Benefit Bars (Slides Out to Left) -->
+                    <div class="np-benefit-col np-benefit-col--left">
+                        <!-- Item 1: Upper Left -->
+                        <div class="np-benefit-slide-bar np-slide-bar--left np-slide-bar--1" data-benefit="1" onclick="openDealerModal()">
+                            <div class="np-slide-bar-rail"></div>
+                            <div class="np-slide-bar-card">
+                                <div class="np-slide-bar-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="np-slide-bar-content">
+                                    <h3 class="np-slide-punchline">Earn <span class="np-highlight-word">Maximum Profit</span> on Every Sale</h3>
+                                    <p class="np-slide-subtext">Lucrative distributor price margins with high-turnover annual volume rebates.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="np-portfolio-body">
-                            <h3>Furniture</h3>
-                            <p>Premium arm chairs, modern armless dining chairs, heavy-duty stools and elegant moulded tables.</p>
-                            <a href="products.html?category=furniture" class="np-portfolio-link">
-                                EXPLORE <i class="fas fa-arrow-right"></i>
-                            </a>
+
+                        <!-- Item 2: Lower Left -->
+                        <div class="np-benefit-slide-bar np-slide-bar--left np-slide-bar--2" data-benefit="2" onclick="openDealerModal()">
+                            <div class="np-slide-bar-rail"></div>
+                            <div class="np-slide-bar-card">
+                                <div class="np-slide-bar-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="np-slide-bar-content">
+                                    <h3 class="np-slide-punchline">Zero Competition in <span class="np-highlight-word">Your Territory</span></h3>
+                                    <p class="np-slide-subtext">Demarcated sales zones guaranteeing exclusive regional distribution rights.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 2. Household -->
-                    <div class="np-portfolio-card">
-                        <div class="np-portfolio-thumb">
-                            <img src="images/occasions/kitchen-utility.jpg" alt="National Plasto Household Products" loading="lazy">
-                        </div>
-                        <div class="np-portfolio-body">
-                            <h3>Household</h3>
-                            <p>Modern kitchen storage containers, utility racks, pedal waste bins and durable home organizers.</p>
-                            <a href="products.html?category=household" class="np-portfolio-link">
-                                EXPLORE <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- 3. Storage & Handling -->
-                    <div class="np-portfolio-card">
-                        <div class="np-portfolio-thumb">
-                            <img src="images/business/industrial-crates.jpg" alt="National Plasto Storage & Handling Crates" loading="lazy">
-                        </div>
-                        <div class="np-portfolio-body">
-                            <h3>Storage &amp; Handling</h3>
-                            <p>Heavy-duty stackable crates, fruit &amp; dairy crates, nesting tubs and versatile material handling containers.</p>
-                            <a href="products.html?category=crates" class="np-portfolio-link">
-                                EXPLORE <i class="fas fa-arrow-right"></i>
-                            </a>
+                    <!-- Center: Man with Logo (Enlarged Hero Cutout) -->
+                    <div class="np-man-center-wrapper">
+                        <div class="np-man-glow-ring"></div>
+                        <div class="np-man-img-box">
+                            <img src="images/brand/distributor-man.png" alt="National Plasto Authorized Dealer Partner" class="np-man-cutout-img">
+                            
+                            <!-- Floating Verified Badge with National Plasto Logo -->
+                            <div class="np-man-floating-badge">
+                                <div class="np-floating-badge-logo">
+                                    <img src="images/brand/company-national-logo.png" alt="National Plasto">
+                                </div>
+                                <div class="np-floating-badge-text">
+                                    <strong>Authorised Dealer Desk</strong>
+                                    <span>Verified Partnership</span>
+                                </div>
+                                <div class="np-floating-badge-check">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- 4. Industrial Solutions -->
-                    <div class="np-portfolio-card">
-                        <div class="np-portfolio-thumb">
-                            <img src="images/business/modular-storage.jpg" alt="National Plasto Industrial Solutions" loading="lazy">
+                    <!-- Right Benefit Bars (Slides Out to Right) -->
+                    <div class="np-benefit-col np-benefit-col--right">
+                        <!-- Item 3: Upper Right -->
+                        <div class="np-benefit-slide-bar np-slide-bar--right np-slide-bar--3" data-benefit="3" onclick="openDealerModal()">
+                            <div class="np-slide-bar-rail"></div>
+                            <div class="np-slide-bar-card">
+                                <div class="np-slide-bar-icon">
+                                    <i class="fas fa-couch"></i>
+                                </div>
+                                <div class="np-slide-bar-content">
+                                    <h3 class="np-slide-punchline">Fast-Moving Models <span class="np-highlight-word">Across 4 Brands</span></h3>
+                                    <p class="np-slide-subtext">Complete portfolio covering Next, National, Captain &amp; Sapphire furniture.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="np-portfolio-body">
-                            <h3>Industrial Solutions</h3>
-                            <p>High-precision technical mouldings, modular storage bins, industrial pallets and custom component manufacturing.</p>
-                            <a href="products.html?category=industrial" class="np-portfolio-link">
-                                EXPLORE <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- ==========================================================================
-             3. OUR BRANDS — Make the portfolio memorable
-             ========================================================================== -->
-        <section class="np-brands-section" id="our-brands">
-            <div class="np-dist-container">
-                <div class="np-dist-section-header">
-                    <div class="np-dist-eyebrow"><i class="fas fa-layer-group"></i> Our Brands</div>
-                    <h2 class="np-dist-heading">
-                        Four Brands. <span class="color_highlight">One Stronger Portfolio.</span>
-                    </h2>
-                    <p class="np-dist-desc">
-                        Different markets. Different needs. One trusted manufacturing network.
-                    </p>
-                </div>
-
-                <div class="np-brands-grid">
-                    <!-- Brand 1: NEXT -->
-                    <div class="np-brand-card">
-                        <div class="np-brand-thumb">
-                            <img src="images/divisions/next.jpg" alt="NEXT Premium Furniture" loading="lazy">
-                            <span class="np-brand-badge">Premium</span>
-                        </div>
-                        <div class="np-brand-body">
-                            <h3 class="np-brand-title">NEXT</h3>
-                            <p class="np-brand-desc">Premium furniture &amp; lifestyle solutions</p>
-                            <a href="products.html?brand=next" class="np-brand-link">
-                                View NEXT Collection <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Brand 2: NATIONAL -->
-                    <div class="np-brand-card">
-                        <div class="np-brand-thumb">
-                            <img src="images/divisions/national.jpg" alt="NATIONAL Everyday Products" loading="lazy">
-                            <span class="np-brand-badge">Flagship</span>
-                        </div>
-                        <div class="np-brand-body">
-                            <h3 class="np-brand-title">NATIONAL</h3>
-                            <p class="np-brand-desc">Everyday products for modern homes</p>
-                            <a href="products.html?brand=national" class="np-brand-link">
-                                View NATIONAL Collection <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Brand 3: CAPTAIN -->
-                    <div class="np-brand-card">
-                        <div class="np-brand-thumb">
-                            <img src="images/divisions/captain.jpg" alt="CAPTAIN Economical Furniture" loading="lazy">
-                            <span class="np-brand-badge">Durable</span>
-                        </div>
-                        <div class="np-brand-body">
-                            <h3 class="np-brand-title">CAPTAIN</h3>
-                            <p class="np-brand-desc">Strong, practical products for everyday use</p>
-                            <a href="products.html?brand=captain" class="np-brand-link">
-                                View CAPTAIN Collection <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Brand 4: SAPPHIRE -->
-                    <div class="np-brand-card">
-                        <div class="np-brand-thumb">
-                            <img src="images/divisions/sapphire.jpg" alt="SAPPHIRE Value Seating" loading="lazy">
-                            <span class="np-brand-badge">Value</span>
-                        </div>
-                        <div class="np-brand-body">
-                            <h3 class="np-brand-title">SAPPHIRE</h3>
-                            <p class="np-brand-desc">Reliable solutions for growing markets</p>
-                            <a href="products.html?brand=sapphire" class="np-brand-link">
-                                View SAPPHIRE Collection <i class="fas fa-arrow-right"></i>
-                            </a>
+                        <!-- Item 4: Lower Right -->
+                        <div class="np-benefit-slide-bar np-slide-bar--right np-slide-bar--4" data-benefit="4" onclick="openDealerModal()">
+                            <div class="np-slide-bar-rail"></div>
+                            <div class="np-slide-bar-card">
+                                <div class="np-slide-bar-icon">
+                                    <i class="fas fa-truck-moving"></i>
+                                </div>
+                                <div class="np-slide-bar-content">
+                                    <h3 class="np-slide-punchline">Direct Supply from <span class="np-highlight-word">4 Mega Plants</span></h3>
+                                    <p class="np-slide-subtext">Uninterrupted factory shipments backed by high-tonnage injection machines.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="np-brands-action">
-                    <a href="products.html" class="np-btn-outline">
-                        VIEW ALL BRANDS <i class="fas fa-arrow-right"></i>
+                <!-- Bottom Quick CTAs (Supreme.co.in Styling) -->
+                <div class="np-benefits-cta-row">
+                    <button type="button" class="np-btn-supreme-primary" onclick="openDealerModal()">
+                        <i class="fas fa-user-plus"></i> Apply For Dealership Today
+                    </button>
+                    <a href="docs/national-plasto-catalogue-2026.pdf" download class="np-btn-supreme-outline">
+                        <i class="fas fa-file-pdf"></i> Download Trade Catalogue
                     </a>
                 </div>
             </div>
@@ -1868,201 +2971,181 @@
         </section>
 
         <!-- ==========================================================================
-             4. WHY DEALERS CHOOSE US
+             PAN INDIA PRESENCE & LOCATIONS DIRECTORY
+             Placed directly after Premium Plastic Furniture & Crates
              ========================================================================== -->
-        <section class="np-why-section" id="why-choose-us">
-            <div class="np-dist-container">
-                <div class="np-dist-section-header">
-                    <div class="np-dist-eyebrow"><i class="fas fa-handshake"></i> Dealer Advantage</div>
-                    <h2 class="np-dist-heading">
-                        Built to Help <span class="color_highlight">Your Business Grow.</span>
-                    </h2>
-                    <p class="np-dist-desc">
-                        A partnership structured to deliver superior margins, market demand, and uninterrupted supply.
-                    </p>
-                </div>
+        <section class="pan_india_main np-pan-india-presence-section" id="pan-india-presence">
+            <div class="container">
+                <div class="pan_india_flex">
+                    <!-- Left: Interactive Map -->
+                    <div class="pan_india_img np-map" id="np_map">
+                        <img src="images/icons/india-map.svg" class="np-map-base" alt="Map of India showing National Plasto head office, manufacturing plants, trade depots, and distributors" width="600" height="670" loading="lazy">
+                        
+                        <!-- 4 Manufacturing Plants -->
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:63.6%;top:51.4%" data-loc="howrah" data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal" data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411" data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411" aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Howrah</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:79.85%;top:36.09%" data-loc="guwahati" data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam" data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031" data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031" aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Guwahati</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:33.44%;top:24.05%" data-loc="roorkee" data-name="Roorkee Plant" data-type="Manufacturing Unit" data-region="Uttarakhand" data-addr="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661" data-map="https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661" aria-label="Roorkee Plant, Uttarakhand"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Roorkee</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:58.26%;top:37.74%" data-loc="hajipur" data-name="Hajipur Plant" data-type="Manufacturing Unit" data-region="Bihar" data-addr="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101" data-map="https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101" aria-label="Hajipur Plant, Bihar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Hajipur</span></button>
 
-                <div class="np-why-grid">
-                    <!-- Point 1 -->
-                    <div class="np-why-card">
-                        <div class="np-why-icon-wrap">
-                            <i class="fas fa-boxes"></i>
+                        <!-- Head Office -->
+                        <button type="button" class="np-map-pin np-map-pin--office" style="left:70.8%;top:45.4%" data-loc="kolkata" data-name="Head Office, Kolkata" data-type="Head Office" data-region="Kolkata, West Bengal" data-addr="19 Sukeas Lane, Kolkata, West Bengal 700001" data-map="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" aria-label="Head Office, Kolkata, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Head Office</span></button>
+                        
+                        <!-- 4 Trade Depots -->
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:28%;top:55%" data-loc="nasik" data-name="Nasik Depot" data-type="Trade Depot" data-region="Maharashtra" data-addr="Ambad MIDC, Nashik, Maharashtra 422010"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Nasik</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:61%;top:48%" data-loc="cuttack" data-name="Cuttack Depot" data-type="Trade Depot" data-region="Odisha" data-addr="Jagatpur Industrial Area, Cuttack, Odisha 754021"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Cuttack</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:48%;top:31%" data-loc="lucknow" data-name="Lucknow Depot" data-type="Trade Depot" data-region="Uttar Pradesh" data-addr="Transport Nagar Phase 2, Lucknow, UP 226012"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Lucknow</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:29%;top:31%" data-loc="jaipur" data-name="Jaipur Depot" data-type="Trade Depot" data-region="Rajasthan" data-addr="VKI Industrial Area, Jaipur, Rajasthan 302013"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jaipur</span></button>
+
+                        <!-- 18 Regional Distributors / Desks -->
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:66%;top:45%" data-loc="wb" data-name="West Bengal Hub" data-type="Distributor" data-region="WB" data-addr="Kolkata, Siliguri, Asansol &amp; Durgapur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">WB</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:57%;top:42%" data-loc="jharkhand" data-name="Jharkhand Hub" data-type="Distributor" data-region="Jharkhand" data-addr="Ranchi, Jamshedpur &amp; Dhanbad"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jharkhand</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:60%;top:50%" data-loc="odhisa" data-name="Odisha Hub" data-type="Distributor" data-region="Odisha" data-addr="Bhubaneswar, Cuttack &amp; Rourkela"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Odisha</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:81%;top:35%" data-loc="assam" data-name="Assam &amp; NE Hub" data-type="Distributor" data-region="Assam" data-addr="Guwahati, Dibrugarh &amp; Silchar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Assam</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:34%;top:26%" data-loc="delhi" data-name="Delhi NCR Hub" data-type="Distributor" data-region="Delhi" data-addr="New Delhi, Noida &amp; Gurugram"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Delhi</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:31%;top:24%" data-loc="haryana" data-name="Haryana Hub" data-type="Distributor" data-region="Haryana" data-addr="Faridabad, Panipat &amp; Karnal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Haryana</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:51%;top:33%" data-loc="east-up" data-name="East UP Hub" data-type="Distributor" data-region="East UP" data-addr="Varanasi, Gorakhpur &amp; Prayagraj"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">East UP</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:40%;top:28%" data-loc="west-up" data-name="West UP Hub" data-type="Distributor" data-region="West UP" data-addr="Kanpur, Agra &amp; Meerut"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">West UP</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:28%;top:20%" data-loc="punjab" data-name="Punjab Hub" data-type="Distributor" data-region="Punjab" data-addr="Ludhiana, Amritsar &amp; Jalandhar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Punjab</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:25%;top:12%" data-loc="jammu" data-name="Jammu Hub" data-type="Distributor" data-region="Jammu" data-addr="Jammu Tawi, Udhampur &amp; Srinagar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jammu</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:38%;top:22%" data-loc="uttarakhand" data-name="Uttarakhand Hub" data-type="Distributor" data-region="Uttarakhand" data-addr="Dehradun, Haridwar &amp; Roorkee"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Uttarakhand</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:58%;top:38%" data-loc="bihar" data-name="Bihar Hub" data-type="Distributor" data-region="Bihar" data-addr="Patna, Muzaffarpur &amp; Gaya"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Bihar</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:50%;top:47%" data-loc="chattisgarh" data-name="Chhattisgarh Hub" data-type="Distributor" data-region="Chhattisgarh" data-addr="Raipur, Bilaspur &amp; Bhilai"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Chhattisgarh</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:55%" data-loc="maharshtra" data-name="Maharashtra Hub" data-type="Distributor" data-region="Maharashtra" data-addr="Mumbai, Pune, Nagpur &amp; Nashik"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Maharashtra</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:17%;top:46%" data-loc="gujarat" data-name="Gujarat Hub" data-type="Distributor" data-region="Gujarat" data-addr="Ahmedabad, Surat &amp; Vadodara"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Gujarat</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:17%" data-loc="himachal-pradesh" data-name="Himachal Pradesh Hub" data-type="Distributor" data-region="Himachal Pradesh" data-addr="Shimla, Solan, Baddi &amp; Kangra"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Himachal</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:41%;top:45%" data-loc="madhya-pradesh" data-name="Madhya Pradesh Hub" data-type="Distributor" data-region="Madhya Pradesh" data-addr="Indore, Bhopal &amp; Jabalpur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Madhya Pradesh</span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:24%;top:34%" data-loc="rajasthan" data-name="Rajasthan Hub" data-type="Distributor" data-region="Rajasthan" data-addr="Jaipur, Jodhpur &amp; Kota"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Rajasthan</span></button>
+
+                        <!-- Dynamic Popover Card -->
+                        <div class="np-map-card" id="np_map_card" role="dialog" aria-live="polite" hidden>
+                            <button type="button" class="np-map-card-x" aria-label="Close">&times;</button>
+                            <span class="np-map-card-type"></span>
+                            <h4 class="np-map-card-name"></h4>
+                            <p class="np-map-card-addr"></p>
+                            <a class="np-map-card-link" href="#" target="_blank" rel="noopener"><i class="fas fa-directions" aria-hidden="true"></i> Get directions</a>
                         </div>
-                        <h3>PRODUCT RANGE</h3>
-                        <div class="np-why-tagline">More categories. More customer opportunities.</div>
-                        <p>Access our vast catalog spanning molded chairs, tables, household containers, crates, and storage solutions to cater to retail, institutional, and commercial buyers under one trusted banner.</p>
                     </div>
 
-                    <!-- Point 2 -->
-                    <div class="np-why-card">
-                        <div class="np-why-icon-wrap">
-                            <i class="fas fa-industry"></i>
+                    <!-- Right: Content Column with Interactive Location Selector & Live Data Card -->
+                    <div class="pan_india_content toTop" data-scroll>
+                        <h2 class="heading-text"><span class="color_blue_home">Pan India </span>Presence</h2>
+                        <p class="para-text color_para">With its expanding manufacturing and distribution network across the nation, National Plasto has exceptionally fortified its PAN India presence.</p>
+                        
+                        <div class="pan_india_list np-map-legend">
+                            <p class="para-text color_para is-active" data-kind="office" onclick="filterMapCategory('office')" title="Filter Head Office"><span class="office_color" style="background-color: #DC2626;"></span> Head Office <em>1</em></p>
+                            <p class="para-text color_para" data-kind="unit" onclick="filterMapCategory('plant')" title="Filter Manufacturing Plants"><span style="background-color: #1E8E3E;"></span> Plants <em>4</em></p>
+                            <p class="para-text color_para" data-kind="depot" onclick="filterMapCategory('depot')" title="Filter Trade Depots"><span class="np-depot-color" style="background-color: #EAB308;"></span> Trade Depots <em>4</em></p>
+                            <p class="para-text color_para" data-kind="dealer" onclick="filterMapCategory('distributor')" title="Filter Distributors"><span class="np-dealer-color" style="background-color: #1D4ED8;"></span> Distributors <em>18</em></p>
                         </div>
-                        <h3>RELIABLE SUPPLY</h3>
-                        <div class="np-why-tagline">Consistent products backed by manufacturing strength.</div>
-                        <p>Powered by 4 computerized plants in Howrah, Guwahati, Roorkee, and Hajipur with high-tonnage injection moulding machines, guaranteeing robust inventory buffers and rapid dispatch.</p>
-                    </div>
 
-                    <!-- Point 3 -->
-                    <div class="np-why-card">
-                        <div class="np-why-icon-wrap">
-                            <i class="fas fa-headset"></i>
+                        <!-- Location Select Control -->
+                        <div class="np-map-loc-control">
+                            <label for="panIndiaLocSelect" class="np-loc-select-label">
+                                <i class="fas fa-map-marker-alt" style="color: #0094DC;"></i> Select Location / Facility:
+                            </label>
+                            <div class="np-loc-select-wrap">
+                                <select id="panIndiaLocSelect" class="np-loc-select-dropdown" onchange="onMapLocationSelect(this.value)">
+                                    <optgroup label="Corporate Headquarters (1)">
+                                        <option value="kolkata" selected>Head Office &mdash; Kolkata (West Bengal)</option>
+                                    </optgroup>
+                                    <optgroup label="Manufacturing Plants (4)">
+                                        <option value="howrah">Plant 1 &mdash; Dhulagarh, Howrah (West Bengal)</option>
+                                        <option value="guwahati">Plant 2 &mdash; Amingaon, Guwahati (Assam)</option>
+                                        <option value="roorkee">Plant 3 &mdash; Bhagwanpur, Roorkee (Uttarakhand)</option>
+                                        <option value="hajipur">Plant 4 &mdash; EPIP Area, Hajipur (Bihar)</option>
+                                    </optgroup>
+                                    <optgroup label="Regional Trade Depots (4)">
+                                        <option value="nasik">Trade Depot &mdash; Nasik (Maharashtra)</option>
+                                        <option value="cuttack">Trade Depot &mdash; Cuttack (Odisha)</option>
+                                        <option value="lucknow">Trade Depot &mdash; Lucknow (Uttar Pradesh)</option>
+                                        <option value="jaipur">Trade Depot &mdash; Jaipur (Rajasthan)</option>
+                                    </optgroup>
+                                    <optgroup label="Authorized Distributors & Regional Hubs (18)">
+                                        <option value="wb">Distributor Hub &mdash; West Bengal</option>
+                                        <option value="jharkhand">Distributor Hub &mdash; Jharkhand</option>
+                                        <option value="odhisa">Distributor Hub &mdash; Odisha</option>
+                                        <option value="assam">Distributor Hub &mdash; Assam &amp; North-East</option>
+                                        <option value="delhi">Distributor Hub &mdash; Delhi NCR</option>
+                                        <option value="haryana">Distributor Hub &mdash; Haryana</option>
+                                        <option value="east-up">Distributor Hub &mdash; East Uttar Pradesh</option>
+                                        <option value="west-up">Distributor Hub &mdash; West Uttar Pradesh</option>
+                                        <option value="punjab">Distributor Hub &mdash; Punjab</option>
+                                        <option value="jammu">Distributor Hub &mdash; Jammu &amp; Kashmir</option>
+                                        <option value="uttarakhand">Distributor Hub &mdash; Uttarakhand</option>
+                                        <option value="bihar">Distributor Hub &mdash; Bihar</option>
+                                        <option value="chattisgarh">Distributor Hub &mdash; Chhattisgarh</option>
+                                        <option value="maharshtra">Distributor Hub &mdash; Maharashtra</option>
+                                        <option value="gujarat">Distributor Hub &mdash; Gujarat</option>
+                                        <option value="himachal-pradesh">Distributor Hub &mdash; Himachal Pradesh</option>
+                                        <option value="madhya-pradesh">Distributor Hub &mdash; Madhya Pradesh</option>
+                                        <option value="rajasthan">Distributor Hub &mdash; Rajasthan</option>
+                                    </optgroup>
+                                </select>
+                            </div>
                         </div>
-                        <h3>DEALER SUPPORT</h3>
-                        <div class="np-why-tagline">Product, sales and marketing support when you need it.</div>
-                        <p>Benefit from dedicated Regional Trade Managers, point-of-sale showroom branding, printed &amp; digital promotional collateral, and protected regional distribution rights.</p>
+
+                        <!-- Live Selected Facility Data Card (Same Section) -->
+                        <div class="np-map-loc-card" id="panIndiaDataCard" data-category="office">
+                            <div class="np-mlc-header">
+                                <span class="np-card-badge badge-office" id="mlcBadge"><i class="fas fa-building"></i> Head Office</span>
+                                <h4 class="np-mlc-name" id="mlcName">National Plasto Corporate Headquarters</h4>
+                                <div class="np-mlc-scope" id="mlcScope">Central Executive &amp; Commercial Governance</div>
+                            </div>
+                            <div class="np-mlc-details">
+                                <div class="np-loc-detail-row">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span id="mlcAddress">19 Sukeas Lane, Radhabazar, Kolkata, West Bengal 700001</span>
+                                </div>
+                                <div class="np-loc-detail-row">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <span id="mlcPhone"><a href="tel:+919830012345">+91 98300 12345</a> &bull; <a href="tel:+913322421997">+91 33 2242 1997</a></span>
+                                </div>
+                                <div class="np-loc-detail-row">
+                                    <i class="fas fa-envelope"></i>
+                                    <span id="mlcEmail"><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></span>
+                                </div>
+                                <div class="np-loc-detail-row" id="mlcMetaRow">
+                                    <i class="fas fa-clock" id="mlcMetaIcon"></i>
+                                    <span id="mlcMeta">Mon &ndash; Sat: 10:00 AM &ndash; 7:00 PM</span>
+                                </div>
+                            </div>
+                            <div class="np-mlc-actions">
+                                <a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" target="_blank" rel="noopener" class="np-btn-dir-map" id="mlcMapBtn">
+                                    <i class="fas fa-directions"></i> Get Directions
+                                </a>
+                                <a href="tel:+919830012345" class="np-btn-dir-call" id="mlcCallBtn">
+                                    <i class="fas fa-phone-alt"></i> Call Facility
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================================================
-             5. DEALER NETWORK — Pan India Presence & Interactive Locator
+             WHAT MAKES US UNIQUE? (Supreme 1:1 Manufacturing Showcase)
+             Placed below Pan India Presence
              ========================================================================== -->
-        <section class="np-network-section pan_india_main" id="dealer-network">
-            <div class="np-dist-container">
-                <div class="np-dist-section-header">
-                    <div class="np-dist-eyebrow"><i class="fas fa-map-marked-alt"></i> Dealer Network</div>
-                    <h2 class="np-dist-heading">
-                        Find <span class="color_highlight">Your Market</span>
-                    </h2>
-                    <p class="np-dist-desc">
-                        A growing network connecting National Plasto with markets across India.
-                    </p>
-                </div>
-
-                <div class="np-network-grid">
-                    <!-- Left: Exactly the India map from Homepage -->
-                    <div class="np-network-map-col">
-                        <div class="pan_india_img np-map" id="np_map">
-                            <img src="images/icons/india-map.svg" class="np-map-base" alt="Pan India Network Map showing National Plasto plants, depots, and authorized dealers" width="600" height="670" loading="lazy">
-                            
-                            <!-- Plants -->
-                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:63.6%;top:51.4%" data-loc="howrah" data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal" data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411" data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411" aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Howrah</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:79.85%;top:36.09%" data-loc="guwahati" data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam" data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031" data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031" aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Guwahati</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:33.44%;top:24.05%" data-loc="roorkee" data-name="Roorkee Plant" data-type="Manufacturing Unit" data-region="Uttarakhand" data-addr="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661" data-map="https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661" aria-label="Roorkee Plant, Uttarakhand"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Roorkee</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--unit" style="left:58.26%;top:37.74%" data-loc="hajipur" data-name="Hajipur Plant" data-type="Manufacturing Unit" data-region="Bihar" data-addr="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101" data-map="https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101" aria-label="Hajipur Plant, Bihar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Hajipur</span></button>
-
-                            <!-- Head Office -->
-                            <button type="button" class="np-map-pin np-map-pin--office" style="left:70.8%;top:45.4%" data-loc="kolkata" data-name="Head Office, Kolkata" data-type="Head Office" data-region="Kolkata, West Bengal" data-addr="19 Sukeas Lane, Kolkata, West Bengal 700001" data-map="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" aria-label="Head Office, Kolkata, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Head Office</span></button>
-
-                            <!-- Trade Depots -->
-                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:28%;top:55%" data-loc="nasik" data-name="Nasik Depot" data-type="Trade Depot" data-region="Maharashtra" data-addr="Ambad MIDC, Nashik, Maharashtra 422010"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Nasik</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:61%;top:48%" data-loc="cuttack" data-name="Cuttack Depot" data-type="Trade Depot" data-region="Odhisa" data-addr="Jagatpur Industrial Area, Cuttack, Odisha 754021"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Cuttack</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:48%;top:31%" data-loc="lucknow" data-name="Lucknow Depot" data-type="Trade Depot" data-region="Uttar Pradesh" data-addr="Transport Nagar Phase 2, Lucknow, UP 226012"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Lucknow</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--depot" style="left:29%;top:31%" data-loc="jaipur" data-name="Jaipur Depot" data-type="Trade Depot" data-region="Rajasthan" data-addr="VKI Industrial Area, Jaipur, Rajasthan 302013"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jaipur</span></button>
-
-                            <!-- Distributors / Dealers -->
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:66%;top:45%" data-loc="wb" data-name="West Bengal Hub" data-type="Distributor" data-region="West Bengal" data-addr="Kolkata, Siliguri, Asansol &amp; Durgapur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">WB</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:57%;top:42%" data-loc="jharkhand" data-name="Jharkhand Hub" data-type="Distributor" data-region="Jharkhand" data-addr="Ranchi, Jamshedpur &amp; Dhanbad"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jharkhand</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:60%;top:50%" data-loc="odhisa" data-name="Odisha Hub" data-type="Distributor" data-region="Odisha" data-addr="Bhubaneswar, Cuttack &amp; Rourkela"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Odisha</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:81%;top:35%" data-loc="assam" data-name="Assam &amp; NE Hub" data-type="Distributor" data-region="Assam" data-addr="Guwahati, Dibrugarh &amp; Silchar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Assam</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:34%;top:26%" data-loc="delhi" data-name="Delhi NCR Hub" data-type="Distributor" data-region="Delhi NCR" data-addr="New Delhi, Noida &amp; Gurugram"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Delhi</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:31%;top:24%" data-loc="haryana" data-name="Haryana Hub" data-type="Distributor" data-region="Haryana" data-addr="Faridabad, Panipat &amp; Karnal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Haryana</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:51%;top:33%" data-loc="east-up" data-name="East UP Hub" data-type="Distributor" data-region="Uttar Pradesh" data-addr="Varanasi, Gorakhpur &amp; Prayagraj"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">East UP</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:40%;top:28%" data-loc="west-up" data-name="West UP Hub" data-type="Distributor" data-region="Uttar Pradesh" data-addr="Kanpur, Agra &amp; Meerut"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">West UP</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:28%;top:20%" data-loc="punjab" data-name="Punjab Hub" data-type="Distributor" data-region="Punjab" data-addr="Ludhiana, Amritsar &amp; Jalandhar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Punjab</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:58%;top:38%" data-loc="bihar" data-name="Bihar Hub" data-type="Distributor" data-region="Bihar" data-addr="Patna, Muzaffarpur &amp; Gaya"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Bihar</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:50%;top:47%" data-loc="chattisgarh" data-name="Chhattisgarh Hub" data-type="Distributor" data-region="Chhattisgarh" data-addr="Raipur, Bilaspur &amp; Bhilai"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Chhattisgarh</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:55%" data-loc="maharshtra" data-name="Maharashtra Hub" data-type="Distributor" data-region="Maharashtra" data-addr="Mumbai, Pune, Nagpur &amp; Nashik"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Maharashtra</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:17%;top:46%" data-loc="gujarat" data-name="Gujarat Hub" data-type="Distributor" data-region="Gujarat" data-addr="Ahmedabad, Surat &amp; Vadodara"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Gujarat</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:41%;top:45%" data-loc="madhya-pradesh" data-name="Madhya Pradesh Hub" data-type="Distributor" data-region="Madhya Pradesh" data-addr="Indore, Bhopal &amp; Jabalpur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Madhya Pradesh</span></button>
-                            <button type="button" class="np-map-pin np-map-pin--dealer" style="left:24%;top:34%" data-loc="rajasthan" data-name="Rajasthan Hub" data-type="Distributor" data-region="Rajasthan" data-addr="Jaipur, Jodhpur &amp; Kota"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Rajasthan</span></button>
-
-                            <!-- Dynamic Popover Card -->
-                            <div class="np-map-card" id="np_map_card" role="dialog" aria-live="polite" hidden>
-                                <button type="button" class="np-map-card-x" aria-label="Close">&times;</button>
-                                <span class="np-map-card-type"></span>
-                                <h4 class="np-map-card-name"></h4>
-                                <p class="np-map-card-addr"></p>
-                                <a class="np-map-card-link" href="#" target="_blank" rel="noopener"><i class="fas fa-directions" aria-hidden="true"></i> Get directions</a>
-                            </div>
-                        </div>
-
-                        <!-- Legend Matching Homepage -->
-                        <div class="np-network-legend">
-                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#DC2626;"></span> Head Office <em>1</em></span>
-                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#1E8E3E;"></span> Plants <em>4</em></span>
-                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#EAB308;"></span> Trade Depots <em>4</em></span>
-                            <span class="np-legend-item"><span class="np-legend-dot" style="background:#1D4ED8;"></span> Authorized Dealers <em>2,500+</em></span>
-                        </div>
+        <section class="np-unique-showcase-section" id="plant-facility-showcase">
+            <div class="np-unique-banner-wrap">
+                <img src="images/ghj.png" alt="National Plasto Central Manufacturing Facility & Infrastructure" class="np-unique-banner-img" loading="lazy">
+            </div>
+            <div class="container">
+                <div class="np-unique-card">
+                    <div class="np-unique-left">
+                        <h2 class="np-unique-heading">What makes<br>us unique?</h2>
+                        <a href="about.html" class="btn_project_default np-unique-btn">KNOW OUR STORY</a>
                     </div>
-
-                    <!-- Right: State/City Locator & Real Statistics -->
-                    <div class="np-network-info-col">
-                        <div class="np-locator-card">
-                            <h3>Find an Authorized Dealer</h3>
-                            <p class="locator-sub">Select your location to connect with your regional distributor.</p>
-
-                            <div class="np-locator-fields">
-                                <div class="np-locator-group">
-                                    <label for="dealerStateSelect">SELECT STATE</label>
-                                    <select id="dealerStateSelect" onchange="onStateSelectChange(this.value)">
-                                        <option value="Chhattisgarh" selected>Chhattisgarh</option>
-                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                        <option value="Maharashtra">Maharashtra</option>
-                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                        <option value="Gujarat">Gujarat</option>
-                                        <option value="Rajasthan">Rajasthan</option>
-                                        <option value="Bihar">Bihar</option>
-                                        <option value="Jharkhand">Jharkhand</option>
-                                        <option value="Odisha">Odisha</option>
-                                        <option value="West Bengal">West Bengal</option>
-                                        <option value="Delhi NCR">Delhi NCR</option>
-                                        <option value="Punjab">Punjab</option>
-                                        <option value="Assam">Assam &amp; North East</option>
-                                    </select>
-                                </div>
-                                <div class="np-locator-group">
-                                    <label for="dealerCitySelect">SELECT CITY</label>
-                                    <select id="dealerCitySelect" onchange="onCitySelectChange(this.value)">
-                                        <option value="Raipur" selected>Raipur</option>
-                                        <option value="Bilaspur">Bilaspur</option>
-                                        <option value="Bhilai">Bhilai / Durg</option>
-                                        <option value="Korba">Korba</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <button type="button" class="np-btn-red np-btn-find" onclick="findDealerAction()">
-                                FIND A DEALER <i class="fas fa-arrow-right"></i>
-                            </button>
-
-                            <!-- Live Dealer Result Card -->
-                            <div class="np-dealer-result-card" id="dealerResultBox">
-                                <span class="np-dealer-badge"><i class="fas fa-check-circle"></i> Verified Channel Partner</span>
-                                <h4 class="np-dealer-title" id="resDealerName">National Plastics Distributors</h4>
-                                <div class="np-dealer-meta">
-                                    <span id="resDealerAddress"><i class="fas fa-map-marker-alt"></i> Pachpedi Naka, Ring Road No. 1, Raipur, Chhattisgarh 492001</span>
-                                    <span id="resDealerPhone"><i class="fas fa-phone-alt"></i> +91 98765 43210</span>
-                                    <span id="resDealerType"><i class="fas fa-warehouse"></i> Super Stockist &amp; Regional Hub</span>
-                                </div>
-                                <div class="np-dealer-actions">
-                                    <a href="tel:+919876543210" class="np-btn-call" id="resDealerCallBtn"><i class="fas fa-phone-alt"></i> Call Dealer</a>
-                                    <button type="button" class="np-btn-outline" style="padding:7px 16px;font-size:12px;" onclick="openDealerModal()">Apply to Join</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3 Real Statistics Counters -->
-                        <div class="np-stats-strip">
-                            <div class="np-stat-box">
-                                <div class="np-stat-number">2,500+</div>
-                                <div class="np-stat-label">Dealers</div>
-                            </div>
-                            <div class="np-stat-box">
-                                <div class="np-stat-number">120+</div>
-                                <div class="np-stat-label">Cities</div>
-                            </div>
-                            <div class="np-stat-box">
-                                <div class="np-stat-number">20+</div>
-                                <div class="np-stat-label">States</div>
-                            </div>
-                        </div>
+                    <div class="np-unique-right">
+                        <p class="np-unique-desc">
+                            National Plasto is an approved partner and trusted manufacturer to major commercial enterprises and over 2,500+ authorized dealers across India. With over 29 years of polymer excellence, our high-precision plastic moulded furniture and material handling solutions are manufactured at 4 high-tech, ISO 9001, 14001, 45001, 50001, CE, and BIFMA-certified plants.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- ==========================================================================
              6. FINAL CTA — Conversion section
@@ -2483,76 +3566,400 @@
             window.location.href = 'docs/national-plasto-catalogue-2026.pdf';
         }
 
-        // Map Interaction (Synced 1:1 with Homepage)
-        (function () {
-            var map = document.getElementById('np_map');
-            if (!map) return;
-            var card = document.getElementById('np_map_card');
-            var pins = map.querySelectorAll('.np-map-pin');
+        // ==========================================================================
+        // PAN INDIA INTERACTIVE MAP & LIVE LOCATION SELECTOR
+        // ==========================================================================
+        var allLocationsData = {
+        "kolkata": {
+                "category": "office",
+                "badge": "Head Office",
+                "name": "National Plasto Corporate Headquarters",
+                "scope": "Central Executive &amp; Commercial Governance",
+                "addr": "19 Sukeas Lane, Radhabazar, Kolkata, West Bengal 700001",
+                "phone": "+91 98300 12345 &bull; +91 33 2242 1997",
+                "email": "info@nationalplasto.com",
+                "meta": "Mon &ndash; Sat: 10:00 AM &ndash; 7:00 PM",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001",
+                "call": "+919830012345"
+        },
+        "howrah": {
+                "category": "plant",
+                "badge": "Plant 1 &bull; West Bengal",
+                "name": "Dhulagarh Central Facility &amp; Toolroom",
+                "scope": "1,200T High-Tonnage Presses &amp; Tooling Workshop",
+                "addr": "Jalan Industrial Estate, Dakshin Jhapardaha, Dhulagarh, Howrah, West Bengal 711411",
+                "phone": "+91 33 2242 1997",
+                "email": "trade@nationalplasto.com",
+                "meta": "ISO 9001, 14001, 45001, 50001, CE, BIFMA",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411",
+                "call": "+913322421997"
+        },
+        "guwahati": {
+                "category": "plant",
+                "badge": "Plant 2 &bull; Assam",
+                "name": "Guwahati Regional Manufacturing Hub",
+                "scope": "Serving All 7 North-Eastern States (24-48h Dispatches)",
+                "addr": "E.P.I.P. Complex, Amingaon, Guwahati, Kamrup, Assam 781031",
+                "phone": "+91 98300 12345",
+                "email": "assam@nationalplasto.com",
+                "meta": "Direct North-East logistics rail &amp; highway siding",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031",
+                "call": "+919830012345"
+        },
+        "roorkee": {
+                "category": "plant",
+                "badge": "Plant 3 &bull; Uttarakhand",
+                "name": "Roorkee Injection Moulding Plant",
+                "scope": "Northern Trade Corridor Automated Production",
+                "addr": "Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661",
+                "phone": "+91 98300 12345",
+                "email": "roorkee@nationalplasto.com",
+                "meta": "ISO 9001, 14001, 45001, 50001, CE, BIFMA",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661",
+                "call": "+919830012345"
+        },
+        "hajipur": {
+                "category": "plant",
+                "badge": "Plant 4 &bull; Bihar",
+                "name": "Hajipur Utility &amp; Storage Complex",
+                "scope": "Agricultural Crates, Material Handling &amp; Chairs",
+                "addr": "EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101",
+                "phone": "+91 98300 12345",
+                "email": "bihar@nationalplasto.com",
+                "meta": "15,000 MT Annual Finished Polymer Throughput",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101",
+                "call": "+919830012345"
+        },
+        "nasik": {
+                "category": "depot",
+                "badge": "Trade Depot &bull; Maharashtra",
+                "name": "Nasik Regional Logistics Depot",
+                "scope": "Western Zone Fast Dispatch Hub",
+                "addr": "Ambad MIDC, Nashik, Maharashtra 422010",
+                "phone": "+91 98300 12345",
+                "email": "mumbai@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Ambad+MIDC%2C+Nashik%2C+Maharashtra+422010",
+                "call": "+919830012345"
+        },
+        "cuttack": {
+                "category": "depot",
+                "badge": "Trade Depot &bull; Odisha",
+                "name": "Cuttack Regional Trade Depot",
+                "scope": "Coastal Trade Corridor Distribution Terminal",
+                "addr": "Jagatpur Industrial Area, Cuttack, Odisha 754021",
+                "phone": "+91 98300 12345",
+                "email": "odisha@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Jagatpur+Industrial+Area%2C+Cuttack%2C+Odisha+754021",
+                "call": "+919830012345"
+        },
+        "lucknow": {
+                "category": "depot",
+                "badge": "Trade Depot &bull; Uttar Pradesh",
+                "name": "Lucknow Central Trade Depot",
+                "scope": "Central UP Wholesale Logistics Hub",
+                "addr": "Transport Nagar Phase 2, Lucknow, Uttar Pradesh 226012",
+                "phone": "+91 98300 12345",
+                "email": "up@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Transport+Nagar+Phase+2%2C+Lucknow%2C+UP+226012",
+                "call": "+919830012345"
+        },
+        "jaipur": {
+                "category": "depot",
+                "badge": "Trade Depot &bull; Rajasthan",
+                "name": "Jaipur Regional Trade Depot",
+                "scope": "Northern Desert Trade Corridor Logistics Siding",
+                "addr": "VKI Industrial Area, Road No. 9, Jaipur, Rajasthan 302013",
+                "phone": "+91 98300 12345",
+                "email": "rajasthan@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=VKI+Industrial+Area%2C+Jaipur%2C+Rajasthan+302013",
+                "call": "+919830012345"
+        },
+        "chattisgarh": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Chhattisgarh",
+                "name": "Chhattisgarh Channel Hub",
+                "scope": "Super Stockist &bull; Raipur, Bilaspur, Bhilai &amp; Korba",
+                "addr": "Pachpedi Naka, Ring Road No. 1, Raipur, Chhattisgarh 492001",
+                "phone": "+91 98300 12345",
+                "email": "cg.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Pachpedi+Naka%2C+Raipur%2C+Chhattisgarh+492001",
+                "call": "+919830012345"
+        },
+        "madhya-pradesh": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Madhya Pradesh",
+                "name": "Madhya Pradesh Distribution Network",
+                "scope": "Indore, Bhopal, Jabalpur &amp; Gwalior Circles",
+                "addr": "Dewas Naka, Lasudia Mori, Indore, MP 452010",
+                "phone": "+91 98300 12345",
+                "email": "mp.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Dewas+Naka%2C+Indore%2C+MP+452010",
+                "call": "+919830012345"
+        },
+        "maharshtra": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Maharashtra",
+                "name": "Western Trade Channel Desk",
+                "scope": "Mumbai, Pune, Nagpur &amp; Nashik Network",
+                "addr": "Bhiwandi Logistics Park, Mumbai-Nashik Highway, Thane 421302",
+                "phone": "+91 98300 12345",
+                "email": "mh.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Bhiwandi+Logistics+Park%2C+Thane+421302",
+                "call": "+919830012345"
+        },
+        "gujarat": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Gujarat",
+                "name": "Gujarat Wholesale Polymer Hub",
+                "scope": "Ahmedabad, Surat, Vadodara &amp; Rajkot Hubs",
+                "addr": "Changodar Industrial Estate, S.G. Highway, Ahmedabad 382213",
+                "phone": "+91 98300 12345",
+                "email": "gujarat.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Changodar+Industrial+Estate%2C+Ahmedabad+382213",
+                "call": "+919830012345"
+        },
+        "delhi": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Delhi NCR",
+                "name": "Capital Territory Institutional Desk",
+                "scope": "New Delhi, Noida, Greater Noida &amp; Gurugram",
+                "addr": "Kirti Nagar Industrial Area, New Delhi 110015",
+                "phone": "+91 98300 12345",
+                "email": "delhi.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Kirti+Nagar+Industrial+Area%2C+New+Delhi+110015",
+                "call": "+919830012345"
+        },
+        "punjab": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Punjab",
+                "name": "Punjab Plastics &amp; Seating Syndicate",
+                "scope": "Ludhiana, Amritsar, Jalandhar &amp; Patiala Hubs",
+                "addr": "Focal Point Phase V, Ludhiana, Punjab 141010",
+                "phone": "+91 98300 12345",
+                "email": "punjab.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Focal+Point+Phase+V%2C+Ludhiana%2C+Punjab+141010",
+                "call": "+919830012345"
+        },
+        "haryana": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Haryana",
+                "name": "Haryana Regional Distribution Desk",
+                "scope": "Faridabad, Panipat, Karnal &amp; Rohtak Circles",
+                "addr": "Sector 24 Industrial Area, Faridabad, Haryana 121005",
+                "phone": "+91 98300 12345",
+                "email": "haryana.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Sector+24+Industrial+Area%2C+Faridabad%2C+Haryana+121005",
+                "call": "+919830012345"
+        },
+        "east-up": {
+                "category": "distributor",
+                "badge": "Distributor &bull; East UP",
+                "name": "Eastern UP Trade Channel Network",
+                "scope": "Varanasi, Gorakhpur, Prayagraj &amp; Ayodhya",
+                "addr": "Chandpur Industrial Estate, Varanasi, UP 221106",
+                "phone": "+91 98300 12345",
+                "email": "upeast.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Chandpur+Industrial+Estate%2C+Varanasi%2C+UP+221106",
+                "call": "+919830012345"
+        },
+        "west-up": {
+                "category": "distributor",
+                "badge": "Distributor &bull; West UP",
+                "name": "Western UP Wholesale Seating Desk",
+                "scope": "Kanpur, Agra, Meerut, Bareilly &amp; Aligarh",
+                "addr": "Fazalganj Industrial Area, Kanpur, UP 208012",
+                "phone": "+91 98300 12345",
+                "email": "upwest.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Fazalganj+Industrial+Area%2C+Kanpur%2C+UP+208012",
+                "call": "+919830012345"
+        },
+        "jharkhand": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Jharkhand",
+                "name": "Jharkhand Channel Partner Syndicate",
+                "scope": "Ranchi, Jamshedpur &amp; Dhanbad Wholesale Network",
+                "addr": "Tupudana Industrial Area, Hatia, Ranchi, Jharkhand 834003",
+                "phone": "+91 98300 12345",
+                "email": "jharkhand.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Tupudana+Industrial+Area%2C+Ranchi%2C+Jharkhand+834003",
+                "call": "+919830012345"
+        },
+        "odhisa": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Odisha",
+                "name": "Odisha Polymer Distribution Hub",
+                "scope": "Bhubaneswar, Cuttack &amp; Rourkela Channel Desks",
+                "addr": "Mancheswar Industrial Estate, Bhubaneswar, Odisha 751010",
+                "phone": "+91 98300 12345",
+                "email": "odisha.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Mancheswar+Industrial+Estate%2C+Bhubaneswar%2C+Odisha+751010",
+                "call": "+919830012345"
+        },
+        "wb": {
+                "category": "distributor",
+                "badge": "Distributor &bull; West Bengal",
+                "name": "Bengal Trade &amp; Logistics Hub",
+                "scope": "Kolkata, Siliguri, Asansol &amp; Durgapur Trade Points",
+                "addr": "Posta Wholesale Market &amp; Siliguri Matigara Hub, West Bengal",
+                "phone": "+91 98300 12345",
+                "email": "wb.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Posta%2C+Kolkata%2C+West+Bengal+700007",
+                "call": "+919830012345"
+        },
+        "bihar": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Bihar",
+                "name": "Bihar State Super Stockist",
+                "scope": "Patna, Muzaffarpur, Bhagalpur &amp; Gaya Circles",
+                "addr": "Patliputra Industrial Area, Patna, Bihar 800013",
+                "phone": "+91 98300 12345",
+                "email": "bihar.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Patliputra+Industrial+Area%2C+Patna%2C+Bihar+800013",
+                "call": "+919830012345"
+        },
+        "rajasthan": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Rajasthan",
+                "name": "Rajasthan Channel Partner Syndicate",
+                "scope": "Jaipur, Jodhpur, Kota &amp; Udaipur Desks",
+                "addr": "Mansarovar Industrial Area, Jaipur, Rajasthan 302020",
+                "phone": "+91 98300 12345",
+                "email": "rajasthan.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Mansarovar+Industrial+Area%2C+Jaipur%2C+Rajasthan+302020",
+                "call": "+919830012345"
+        },
+        "assam": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Assam &amp; NE",
+                "name": "North-East Polymers &amp; Trade Logistics",
+                "scope": "Guwahati, Dibrugarh, Silchar &amp; Jorhat Regional Hubs",
+                "addr": "Paltan Bazaar, G.S. Road, Guwahati, Assam 781008",
+                "phone": "+91 98300 12345",
+                "email": "ne.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Paltan+Bazaar%2C+Guwahati%2C+Assam+781008",
+                "call": "+919830012345"
+        },
+        "uttarakhand": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Uttarakhand",
+                "name": "Uttarakhand Regional Trade Counter",
+                "scope": "Dehradun, Haridwar &amp; Roorkee Trade Desks",
+                "addr": "Transport Nagar, Saharanpur Road, Dehradun 248001",
+                "phone": "+91 98300 12345",
+                "email": "uk.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Transport+Nagar%2C+Dehradun+248001",
+                "call": "+919830012345"
+        },
+        "himachal-pradesh": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Himachal Pradesh",
+                "name": "Himachal Seating &amp; Storage Channel",
+                "scope": "Baddi, Solan, Shimla &amp; Kangra Stockists",
+                "addr": "Baddi Industrial Corridor, Solan, Himachal Pradesh 173205",
+                "phone": "+91 98300 12345",
+                "email": "hp.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Baddi+Industrial+Corridor%2C+Himachal+Pradesh+173205",
+                "call": "+919830012345"
+        },
+        "jammu": {
+                "category": "distributor",
+                "badge": "Distributor &bull; Jammu &amp; Kashmir",
+                "name": "Jammu &amp; Kashmir Trade Terminal",
+                "scope": "Jammu Tawi, Udhampur &amp; Srinagar Distribution",
+                "addr": "Bari Brahmana Industrial Complex, Jammu, J&amp;K 181133",
+                "phone": "+91 98300 12345",
+                "email": "jammu.trade@nationalplasto.com",
+                "meta": "",
+                "map": "https://www.google.com/maps/search/?api=1&amp;query=Bari+Brahmana+Industrial+Complex%2C+Jammu+181133",
+                "call": "+919830012345"
+        }
+};
 
-            function closeCard() {
-                card.hidden = true;
-                [].forEach.call(pins, function (p) {
-                    p.classList.remove('is-active');
-                    p.setAttribute('aria-expanded', 'false');
-                });
+        function onMapLocationSelect(locKey) {
+            if (!locKey) return;
+            var data = allLocationsData[locKey];
+            if (!data) return;
+
+            // Sync select dropdown if not already selected
+            if ($('#panIndiaLocSelect').val() !== locKey) {
+                $('#panIndiaLocSelect').val(locKey);
             }
 
-            function openCard(pin) {
-                closeCard();
-                var d = pin.dataset;
-                card.querySelector('.np-map-card-type').textContent = d.type;
-                var kind = (pin.className.match(/np-map-pin--(\w+)/) || [])[1];
-                card.querySelector('.np-map-card-type').className = 'np-map-card-type' + (kind && kind !== 'unit' ? ' is-' + kind : '');
-                card.querySelector('.np-map-card-name').innerHTML = d.name;
-                card.querySelector('.np-map-card-addr').textContent = d.addr || '';
-                card.querySelector('.np-map-card-link').href = d.map || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.name + ' ' + (d.addr || '')));
-                
-                var x = parseFloat(pin.style.left), y = parseFloat(pin.style.top);
-                card.style.left = x + '%';
-                card.style.top = y + '%';
-                card.classList.toggle('np-flip-x', x > 55);
-                card.classList.toggle('np-flip-y', y > 60);
-                card.hidden = false;
-                pin.classList.add('is-active');
-                pin.setAttribute('aria-expanded', 'true');
+            // Sync card data-category
+            var card = $('#panIndiaDataCard');
+            card.attr('data-category', data.category);
 
-                // If pin matches a state in the locator, sync the dropdowns and result card
-                for (var stateName in dealerDirectory) {
-                    if (dealerDirectory[stateName].pinLoc === d.loc) {
-                        $('#dealerStateSelect').val(stateName);
-                        var citySelect = $('#dealerCitySelect');
-                        citySelect.empty();
-                        dealerDirectory[stateName].cities.forEach(function(c, idx) {
-                            citySelect.append($('<option>', { value: c, text: c, selected: idx === 0 }));
-                        });
-                        updateDealerDisplay(dealerDirectory[stateName], dealerDirectory[stateName].cities[0]);
-                        break;
-                    }
-                }
+            // Badge icon & CSS class
+            var badgeClass = 'badge-' + (data.category === 'plant' ? 'plant' : data.category === 'depot' ? 'depot' : data.category === 'distributor' ? 'distributor' : 'office');
+            var badgeIcon = data.category === 'office' ? 'fa-building' : (data.category === 'plant' ? 'fa-industry' : (data.category === 'depot' ? 'fa-warehouse' : 'fa-handshake'));
+
+            $('#mlcBadge').attr('class', 'np-card-badge ' + badgeClass).html('<i class="fas ' + badgeIcon + '"></i> ' + data.badge);
+            $('#mlcName').html(data.name);
+            $('#mlcScope').html(data.scope);
+            $('#mlcAddress').html(data.addr);
+            $('#mlcPhone').html(data.phone);
+            $('#mlcEmail').html('<a href="mailto:' + data.email.replace(/&amp;/g, '&') + '">' + data.email + '</a>');
+            $('#mlcMeta').html(data.meta);
+            $('#mlcMapBtn').attr('href', data.map.replace(/&amp;/g, '&'));
+            $('#mlcCallBtn').attr('href', 'tel:' + data.call);
+
+            // Highlight corresponding map pin
+            $('.np-map-pin').removeClass('is-active').attr('aria-expanded', 'false');
+            var activePin = $('.np-map-pin[data-loc="' + locKey + '"]');
+            if (activePin.length) {
+                activePin.addClass('is-active').attr('aria-expanded', 'true');
             }
 
-            [].forEach.call(pins, function (pin) {
-                pin.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    if (pin.classList.contains('is-active')) {
-                        closeCard();
-                    } else {
-                        openCard(pin);
-                    }
-                });
-            });
+            // Sync legend active tab
+            $('.np-map-legend .para-text').removeClass('is-active');
+            var legendKind = data.category === 'office' ? 'office' : (data.category === 'plant' ? 'unit' : (data.category === 'depot' ? 'depot' : 'dealer'));
+            $('.np-map-legend .para-text[data-kind="' + legendKind + '"]').addClass('is-active');
+        }
 
-            card.addEventListener('click', function (e) { e.stopPropagation(); });
-            card.querySelector('.np-map-card-x').addEventListener('click', closeCard);
-            document.addEventListener('click', function (e) {
-                if (!card.hidden && !map.contains(e.target)) {
-                    closeCard();
+        function filterMapCategory(cat) {
+            // Find first location in that category
+            for (var k in allLocationsData) {
+                if (allLocationsData[k].category === cat) {
+                    onMapLocationSelect(k);
+                    break;
                 }
-            });
-        })();
+            }
+        }
+
+        // Clicking any map pin activates that location in selector & data card
+        $(document).on('click', '.np-map-pin', function(e) {
+            e.stopPropagation();
+            var loc = $(this).data('loc');
+            if (loc && allLocationsData[loc]) {
+                onMapLocationSelect(loc);
+            }
+        });
 
         $(document).ready(function() {
+            // Initialize default location to Head Office
+            onMapLocationSelect('kolkata');
+
             // Initialize Applications Showcase Slider
             if ($('.np-app-slider').length) {
                 $('.np-app-slider').slick({
@@ -2589,7 +3996,7 @@
                 }
             });
         });
-    </script>
+        </script>
     <script src="js/np-reveal.js?v=20260929"></script>
     <script src="js/np-testimonials-modal.js?v=20261007_v3"></script>
 </body>
