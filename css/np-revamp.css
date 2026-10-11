@@ -202,12 +202,14 @@
 }
 
 @media (min-width: 1400px) {
+
     #index_page .banner-section .banner-slider-img,
     .banner-section .banner-slider-img {
         height: 500px !important;
         min-height: 460px !important;
         max-height: 540px !important;
     }
+
     #index_page .banner-section .banner-slider-img .banner_content,
     .banner-section .banner-slider-img .banner_content {
         left: max(60px, calc((100vw - 1320px) / 2)) !important;
@@ -220,12 +222,14 @@
 }
 
 @media (min-width: 1600px) {
+
     #index_page .banner-section .banner-slider-img,
     .banner-section .banner-slider-img {
         height: 520px !important;
         min-height: 480px !important;
         max-height: 560px !important;
     }
+
     #index_page .banner-section .banner-slider-img .banner_content,
     .banner-section .banner-slider-img .banner_content {
         left: max(80px, calc((100vw - 1440px) / 2)) !important;
@@ -238,6 +242,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+
     #index_page .banner-section .banner-slider-img,
     .banner-section .banner-slider-img {
         height: 480px !important;
@@ -558,9 +563,17 @@
 }
 
 @keyframes npCounterPop {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.06); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @media (max-width: 1199px) {
@@ -583,9 +596,11 @@
         text-align: left !important;
         align-items: flex-start !important;
     }
+
     #index_page .largest_plastic .largest_plastic_box .largest_plastic_content .btn_section {
         text-align: left !important;
     }
+
     #index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box.np-stats {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         padding: 4px 8px !important;
@@ -652,19 +667,9 @@
     margin: 0 !important;
 }
 
-.np-map-flights {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 3;
-}
-
 .np-map-pin {
     position: absolute;
-    z-index: 5;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -688,14 +693,35 @@
     pointer-events: auto !important;
 }
 
-.np-map-pin--unit { animation-delay: 0s; }
-.np-map-pin--office { animation-delay: 2s; }
-.np-map-pin--depot { animation-delay: 4s; }
-.np-map-pin--dealer { animation-delay: 6s; }
+.np-map-pin--unit {
+    animation-delay: 0s;
+}
+
+.np-map-pin--office {
+    animation-delay: 2s;
+}
+
+.np-map-pin--depot {
+    animation-delay: 4s;
+}
+
+.np-map-pin--dealer {
+    animation-delay: 6s;
+}
 
 @keyframes npPinShow {
-    0%, 25% { opacity: 1; pointer-events: auto; }
-    25.01%, 100% { opacity: 0; pointer-events: none; }
+
+    0%,
+    25% {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    25.01%,
+    100% {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .np-map-pin-dot {
@@ -2116,6 +2142,7 @@ footer.np-sfooter hr {
 }
 
 @media (min-width: 1200px) {
+
     #index_page .plant_main .plant_slider .plant_item img,
     .plant_main .plant_slider .plant_item img {
         height: 450px !important;
@@ -2124,6 +2151,7 @@ footer.np-sfooter hr {
 }
 
 @media (max-width: 991px) {
+
     #index_page .plant_main .plant_slider .plant_item img,
     .plant_main .plant_slider .plant_item img {
         height: 360px !important;
@@ -2131,6 +2159,7 @@ footer.np-sfooter hr {
 }
 
 @media (max-width: 767px) {
+
     #index_page .plant_main .plant_slider .plant_item img,
     .plant_main .plant_slider .plant_item img {
         height: 260px !important;
@@ -4340,6 +4369,7 @@ html.np-anim .np-reveal.np-in {
 }
 
 @media (max-width: 767px) {
+
     #contact_page .banner-section,
     #contact_page .banner-section .home-banner-slider,
     #contact_page .banner-section .banner_item,
@@ -4349,12 +4379,14 @@ html.np-anim .np-reveal.np-in {
         min-height: 240px !important;
         max-height: 320px !important;
     }
+
     #contact_page .banner-section .np-inner-hero-img {
         height: 280px !important;
         min-height: 240px !important;
         max-height: 320px !important;
         object-position: center 58% !important;
     }
+
     #about_us_overview .banner-section .banner-slider-img1,
     #products_page .banner-section .banner-slider-img1,
     #distributor_page .banner-section .banner-slider-img1,
@@ -4363,6 +4395,7 @@ html.np-anim .np-reveal.np-in {
         height: auto !important;
         min-height: 0 !important;
     }
+
     #about_us_overview .banner-section .mob-banner-img,
     #products_page .banner-section .mob-banner-img,
     #distributor_page .banner-section .mob-banner-img,
@@ -4503,6 +4536,7 @@ html.np-anim .np-reveal.np-in {
 }
 
 @media (max-width: 767px) {
+
     #about_us_overview .banner-section .breadcrums,
     #products_page .banner-section .breadcrums,
     #distributor_page .banner-section .breadcrums,
@@ -4667,16 +4701,20 @@ html.np-anim .np-reveal.np-in {
         gap: 12px !important;
         min-height: auto !important;
     }
+
     .np-brand-card {
         padding: 14px 8px !important;
     }
+
     .np-brand-card__logo {
         height: 55px !important;
         margin-bottom: 8px !important;
     }
+
     .np-brand-card__logo img {
         max-height: 46px !important;
     }
+
     .np-brand-card__label {
         font-size: 11px !important;
     }
@@ -4693,6 +4731,7 @@ html.np-anim .np-reveal.np-in {
         -webkit-overflow-scrolling: touch !important;
         gap: 16px !important;
     }
+
     #about_us_overview .team_main_item {
         flex: 0 0 220px !important;
         min-width: 220px !important;
@@ -4710,11 +4749,13 @@ html.np-anim .np-reveal.np-in {
     position: relative !important;
     overflow: hidden !important;
 }
+
 .np-testimonials-section .np-testi-header {
     text-align: center !important;
     max-width: 760px !important;
     margin: 0 auto 36px !important;
 }
+
 .np-testimonials-section .np-testi-badge {
     display: inline-block !important;
     background: rgba(0, 148, 220, 0.08) !important;
@@ -4727,12 +4768,14 @@ html.np-anim .np-reveal.np-in {
     border-radius: 50px !important;
     margin-bottom: 12px !important;
 }
+
 .np-testimonials-section .heading-text {
     font-size: 34px !important;
     font-weight: 700 !important;
     color: #1E293B !important;
     margin-bottom: 12px !important;
 }
+
 .np-testimonials-section .np-testi-subtitle {
     font-size: 16px !important;
     color: #64748B !important;
@@ -4817,9 +4860,11 @@ html.np-anim .np-reveal.np-in {
     .np-testi-nav-btn.np-testi-prev {
         left: 4px !important;
     }
+
     .np-testi-nav-btn.np-testi-next {
         right: 4px !important;
     }
+
     .np-testi-nav-btn {
         width: 38px !important;
         height: 38px !important;
@@ -4851,10 +4896,12 @@ html.np-anim .np-reveal.np-in {
     flex-direction: column !important;
     cursor: pointer !important;
 }
+
 .np-testi-card:hover {
     transform: translateY(-6px) !important;
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12) !important;
 }
+
 .np-video-wrapper,
 .np-testi-photo-wrapper {
     position: relative !important;
@@ -4863,6 +4910,7 @@ html.np-anim .np-reveal.np-in {
     aspect-ratio: 4 / 5 !important;
     overflow: hidden !important;
 }
+
 .np-testi-thumb {
     width: 100% !important;
     height: 100% !important;
@@ -4871,9 +4919,11 @@ html.np-anim .np-reveal.np-in {
     display: block !important;
     transition: transform 0.4s ease !important;
 }
+
 .np-testi-photo-wrapper .np-testi-thumb {
     object-position: center center !important;
 }
+
 .np-testi-card:hover .np-testi-thumb {
     transform: scale(1.05) !important;
 }
@@ -4892,6 +4942,7 @@ html.np-anim .np-reveal.np-in {
     pointer-events: none !important;
     z-index: 2 !important;
 }
+
 .np-play-pulse {
     position: absolute !important;
     width: 60px !important;
@@ -4900,11 +4951,24 @@ html.np-anim .np-reveal.np-in {
     background: rgba(0, 148, 220, 0.4) !important;
     animation: npPlayPulse 2s infinite !important;
 }
+
 @keyframes npPlayPulse {
-    0% { transform: scale(0.95); opacity: 0.8; }
-    50% { transform: scale(1.35); opacity: 0; }
-    100% { transform: scale(0.95); opacity: 0; }
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
 }
+
 .np-play-icon {
     position: relative !important;
     width: 50px !important;
@@ -4918,10 +4982,12 @@ html.np-anim .np-reveal.np-in {
     box-shadow: 0 6px 20px rgba(0, 148, 220, 0.45) !important;
     transition: transform 0.25s ease, background-color 0.25s ease !important;
 }
+
 .np-play-icon i {
     font-size: 18px !important;
     margin-left: 3px !important;
 }
+
 .np-testi-card:hover .np-play-icon {
     transform: scale(1.12) !important;
     background: #007BB8 !important;
@@ -4947,9 +5013,11 @@ html.np-anim .np-reveal.np-in {
     pointer-events: none !important;
     z-index: 2 !important;
 }
+
 .np-photo-overlay i {
     font-size: 18px !important;
 }
+
 .np-testi-card:hover .np-photo-overlay {
     transform: translate(-50%, -50%) scale(1.12) !important;
 }
@@ -4981,6 +5049,7 @@ html.np-anim .np-reveal.np-in {
     justify-content: space-between !important;
     text-align: left !important;
 }
+
 .np-testi-tag {
     display: inline-flex !important;
     align-items: center !important;
@@ -4992,6 +5061,7 @@ html.np-anim .np-reveal.np-in {
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
 }
+
 .np-testi-title {
     font-size: 16px !important;
     font-weight: 700 !important;
@@ -4999,6 +5069,7 @@ html.np-anim .np-reveal.np-in {
     margin: 0 0 6px 0 !important;
     line-height: 1.35 !important;
 }
+
 .np-testi-desc {
     font-size: 13.5px !important;
     color: #64748B !important;
@@ -5023,10 +5094,12 @@ html.np-anim .np-reveal.np-in {
     visibility: hidden !important;
     transition: opacity 0.3s ease, visibility 0.3s ease !important;
 }
+
 .np-testi-modal.active {
     opacity: 1 !important;
     visibility: visible !important;
 }
+
 .np-testi-modal__backdrop {
     position: absolute !important;
     top: 0 !important;
@@ -5038,6 +5111,7 @@ html.np-anim .np-reveal.np-in {
     -webkit-backdrop-filter: blur(8px) !important;
     cursor: pointer !important;
 }
+
 .np-testi-modal__dialog {
     position: relative !important;
     z-index: 2 !important;
@@ -5049,9 +5123,11 @@ html.np-anim .np-reveal.np-in {
     transform: scale(0.92) !important;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
+
 .np-testi-modal.active .np-testi-modal__dialog {
     transform: scale(1) !important;
 }
+
 .np-testi-modal__close {
     position: absolute !important;
     top: -46px !important;
@@ -5070,10 +5146,12 @@ html.np-anim .np-reveal.np-in {
     justify-content: center !important;
     transition: background 0.2s, transform 0.2s !important;
 }
+
 .np-testi-modal__close:hover {
     background: #0094DC !important;
     transform: rotate(90deg) !important;
 }
+
 .np-testi-modal__content {
     background: #0B1120 !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -5084,6 +5162,7 @@ html.np-anim .np-reveal.np-in {
     flex-direction: column !important;
     max-height: 88vh !important;
 }
+
 .np-testi-modal__media-container {
     display: flex !important;
     align-items: center !important;
@@ -5092,6 +5171,7 @@ html.np-anim .np-reveal.np-in {
     max-height: 72vh !important;
     overflow: hidden !important;
 }
+
 .np-modal-video {
     max-height: 72vh !important;
     max-width: 90vw !important;
@@ -5100,6 +5180,7 @@ html.np-anim .np-reveal.np-in {
     display: block !important;
     outline: none !important;
 }
+
 .np-modal-photo {
     max-height: 72vh !important;
     max-width: 90vw !important;
@@ -5108,12 +5189,14 @@ html.np-anim .np-reveal.np-in {
     object-fit: contain !important;
     display: block !important;
 }
+
 .np-testi-modal__caption {
     padding: 14px 22px !important;
     background: #0F172A !important;
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     text-align: left !important;
 }
+
 .np-testi-modal__badge {
     display: inline-block !important;
     background: rgba(0, 148, 220, 0.18) !important;
@@ -5126,6 +5209,7 @@ html.np-anim .np-reveal.np-in {
     border-radius: 20px !important;
     margin-bottom: 6px !important;
 }
+
 .np-testi-modal__title {
     color: #FFFFFF !important;
     font-size: 16px !important;
@@ -5133,12 +5217,14 @@ html.np-anim .np-reveal.np-in {
     margin: 0 0 4px 0 !important;
     line-height: 1.3 !important;
 }
+
 .np-testi-modal__desc {
     color: #94A3B8 !important;
     font-size: 13px !important;
     margin: 0 !important;
     line-height: 1.4 !important;
 }
+
 body.np-modal-open {
     overflow: hidden !important;
 }
@@ -5149,36 +5235,45 @@ body.np-modal-open {
         gap: 20px !important;
     }
 }
+
 @media (max-width: 640px) {
     .np-testi-grid {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
     }
+
     .np-testimonials-section {
         padding: 44px 0 !important;
     }
+
     .np-testimonials-section .heading-text {
         font-size: 24px !important;
     }
+
     .np-testi-modal__close {
         top: 10px !important;
         right: 10px !important;
         background: rgba(0, 0, 0, 0.7) !important;
         z-index: 10 !important;
     }
+
     .np-testi-modal__media-container {
         max-height: 60vh !important;
     }
+
     .np-modal-video,
     .np-modal-photo {
         max-height: 60vh !important;
     }
+
     .np-testi-modal__caption {
         padding: 12px 16px !important;
     }
+
     .np-testi-modal__title {
         font-size: 15px !important;
     }
+
     .np-testi-modal__desc {
         font-size: 12px !important;
     }
@@ -5191,15 +5286,18 @@ body.np-modal-open {
     justify-content: space-between !important;
     width: 100% !important;
 }
+
 .sidebar_wrap .links li .dropdown .sidebar-dropdown-row .sidebar-cat-link {
     flex: 1 !important;
     color: #3D3D3D !important;
     text-decoration: none !important;
     display: block !important;
 }
+
 .sidebar_wrap .links li .dropdown .sidebar-dropdown-row .sidebar-cat-link:hover {
     color: #0094DC !important;
 }
+
 .sidebar_wrap .links li .dropdown .sidebar-dropdown-row .dropdown-caret-btn {
     padding: 6px 14px !important;
     cursor: pointer !important;
@@ -5207,6 +5305,7 @@ body.np-modal-open {
     align-items: center !important;
     justify-content: center !important;
 }
+
 .sidebar_wrap .links li .dropdown .sidebar-dropdown-row .dropdown-caret-btn .caret {
     border-top: 7px solid #3D3D3D !important;
     border-right: 5px solid transparent !important;
@@ -5215,6 +5314,7 @@ body.np-modal-open {
     transition: transform .3s ease !important;
     display: inline-block !important;
 }
+
 .sidebar_wrap .links li .dropdown.open .sidebar-dropdown-row .dropdown-caret-btn .caret {
     transform: rotate(0deg) !important;
     border-top-color: #0094DC !important;
@@ -5405,11 +5505,13 @@ body.np-modal-open {
         padding-right: 0 !important;
         margin-bottom: 24px !important;
     }
+
     #index_page .contact_us .contact_flex .contact_us_form {
         flex: 1 1 100% !important;
         max-width: 480px !important;
         margin: 0 auto !important;
     }
+
     #index_page .contact_us .contact_flex .contact_us_form form {
         padding: 16px 16px 18px !important;
     }
@@ -5421,8 +5523,10 @@ body.np-modal-open {
    ========================================================================== */
 
 @media (max-width: 768px) {
+
     /* 1. Viewport & Prevent Any Horizontal Scrolling */
-    html, body {
+    html,
+    body {
         overflow-x: hidden !important;
         width: 100% !important;
         position: relative !important;
@@ -5803,6 +5907,7 @@ body.np-modal-open {
         right: 14px !important;
         z-index: 998 !important;
     }
+
     /* ==========================================================================
        PAGE SPECIFIC REFINEMENTS (Supreme.co.in Mobile Architecture)
        ========================================================================== */
@@ -5812,6 +5917,7 @@ body.np-modal-open {
         height: 380px !important;
         min-height: 360px !important;
     }
+
     #index_page .banner-section .banner_content.np-hero-content-fixed {
         left: 18px !important;
         right: 18px !important;
@@ -5823,9 +5929,11 @@ body.np-modal-open {
         flex-direction: column !important;
         align-items: flex-start !important;
     }
+
     #index_page .banner-section .banner_content.np-hero-content-fixed * {
         text-align: left !important;
     }
+
     #index_page .banner-section .np-hero-eyebrow,
     #index_page .np-hero-eyebrow {
         font-size: 11px !important;
@@ -5835,6 +5943,7 @@ body.np-modal-open {
         text-align: left !important;
         display: inline-block !important;
     }
+
     #index_page .banner-section .np-hero-title-rotator,
     #index_page .np-hero-title-rotator {
         text-align: left !important;
@@ -5843,6 +5952,7 @@ body.np-modal-open {
         min-height: 0 !important;
         margin-bottom: 6px !important;
     }
+
     #index_page .banner-section .np-rotating-title,
     #index_page .banner-section h2,
     #index_page .banner-section .heading-text,
@@ -5855,6 +5965,7 @@ body.np-modal-open {
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(0, 0, 0, 0.6) !important;
         margin: 0 !important;
     }
+
     #index_page .banner-section .np-hero-cta,
     #index_page .np-hero-cta {
         padding: 5px 12px !important;
@@ -5870,11 +5981,13 @@ body.np-modal-open {
     #index_page .virtues_main {
         padding: 40px 0 !important;
     }
+
     #index_page .virtues_main .virtues_box {
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
     }
+
     #index_page .virtues_main .virtues_item {
         width: 100% !important;
         padding: 24px !important;
@@ -5888,6 +6001,7 @@ body.np-modal-open {
     #index_page .our_mission {
         padding-bottom: 20px !important;
     }
+
     #index_page .our_mission .slick-slider {
         margin-bottom: 0 !important;
     }
@@ -5901,14 +6015,17 @@ body.np-modal-open {
         background: #FFFFFF !important;
         overflow: hidden !important;
     }
+
     #index_page .testimonial_main.np-cmd .container {
         padding-top: 0 !important;
         padding-bottom: 0 !important;
         margin-bottom: 0 !important;
     }
+
     #index_page .testimonial_main .testimonial_flex {
         display: flex !important;
-        flex-direction: column-reverse !important; /* Text on upper side, Owner photo below */
+        flex-direction: column-reverse !important;
+        /* Text on upper side, Owner photo below */
         align-items: center !important;
         gap: 16px !important;
         text-align: left !important;
@@ -5916,6 +6033,7 @@ body.np-modal-open {
         padding-top: 10px !important;
         padding-bottom: 0 !important;
     }
+
     #index_page .testimonial_main .testimonial_content {
         width: 100% !important;
         padding: 0 !important;
@@ -5924,6 +6042,7 @@ body.np-modal-open {
         flex-direction: column !important;
         align-items: flex-start !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote,
     #index_page .testimonial_main .testimonial_content .para-text {
         font-family: "Work Sans", sans-serif !important;
@@ -5936,18 +6055,21 @@ body.np-modal-open {
         max-width: 100% !important;
         display: block !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_img {
         padding-right: 10px !important;
         margin-top: 0 !important;
         display: inline-block !important;
         vertical-align: top !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_img img {
         width: 50px !important;
         height: auto !important;
         display: inline-block !important;
         vertical-align: top !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote .quate_two {
         width: 65px !important;
         height: auto !important;
@@ -5957,6 +6079,7 @@ body.np-modal-open {
         padding-left: 0 !important;
         margin-bottom: 14px !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
         padding-left: 0 !important;
         margin: 4px 0 0 0 !important;
@@ -5967,14 +6090,17 @@ body.np-modal-open {
         flex-direction: column !important;
         align-items: flex-start !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name h3 {
         font-size: 30px !important;
         font-weight: 600 !important;
-        color: #ed3237 !important; /* Supreme red color */
+        color: #ed3237 !important;
+        /* Supreme red color */
         margin: 0 0 4px !important;
         text-align: left !important;
         font-family: "Work Sans", sans-serif !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name p {
         font-size: 18px !important;
         line-height: 1.45 !important;
@@ -5983,10 +6109,12 @@ body.np-modal-open {
         text-align: left !important;
         font-family: "Work Sans", sans-serif !important;
     }
+
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name .btn_project_default,
     #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name .np-cmd-btn {
         display: none !important;
     }
+
     #index_page .testimonial_main .testimonial_img {
         width: 100% !important;
         max-width: 100% !important;
@@ -6001,6 +6129,7 @@ body.np-modal-open {
         background: transparent !important;
         box-shadow: none !important;
     }
+
     #index_page .testimonial_main .testimonial_img img.np-cmd-cutout,
     #index_page .testimonial_main .testimonial_img img {
         display: block !important;
@@ -6023,26 +6152,32 @@ body.np-modal-open {
         padding: 0 0 40px !important;
         margin-top: 0 !important;
     }
+
     #index_page .largest_plastic .container {
         padding-top: 0 !important;
     }
+
     #index_page .largest_plastic .largest_plastic_box {
         margin-top: 0 !important;
     }
+
     #index_page .largest_plastic_white_box .value_item_flex {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px !important;
     }
+
     #index_page .largest_plastic .value_item {
         padding: 24px !important;
         border-radius: 16px !important;
         text-align: center !important;
     }
+
     #index_page .largest_plastic .value_item h5 {
         font-size: 24px !important;
         margin-bottom: 4px !important;
     }
+
     #index_page .largest_plastic .value_item p {
         font-size: 11.5px !important;
         margin: 0 !important;
@@ -6052,6 +6187,7 @@ body.np-modal-open {
     #index_page .plant_main {
         padding: 40px 0 !important;
     }
+
     #index_page .plant_main .plant_slider .plant_item img {
         height: 220px !important;
         max-height: 220px !important;
@@ -6063,20 +6199,25 @@ body.np-modal-open {
     #index_page .pan_india_main {
         padding: 40px 0 !important;
     }
+
     #index_page .pan_india_main .np-map {
         max-width: 100% !important;
     }
+
     #index_page .pan_india_main .np-map-pin {
         width: 22px !important;
         height: 22px !important;
     }
+
     #index_page .pan_india_main .np-map-pin-dot {
         width: 8px !important;
         height: 8px !important;
     }
+
     #index_page .pan_india_main .np-map-pin-label {
         display: none !important;
     }
+
     #index_page .pan_india_main .np-map-card {
         left: 50% !important;
         bottom: 8px !important;
@@ -6091,22 +6232,26 @@ body.np-modal-open {
     #index_page .np-biz {
         padding: 40px 0 !important;
     }
+
     #index_page .our_business_main .row_flex,
     #index_page .np-biz-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px !important;
     }
+
     #index_page .our_business_main .business_item,
     #index_page .np-biz-card {
         border-radius: 16px !important;
         overflow: hidden !important;
     }
+
     #index_page .our_business_main .business_item img,
     #index_page .np-biz-thumb img {
         height: 120px !important;
         object-fit: cover !important;
     }
+
     #index_page .our_business_main .business_item h3,
     #index_page .np-biz-body h3 {
         font-size: 15px !important;
@@ -6117,10 +6262,12 @@ body.np-modal-open {
     #index_page .milestones_main {
         padding: 40px 0 !important;
     }
+
     #index_page .milestones_main .milestones_slider .milestone_item {
         padding: 24px !important;
         border-radius: 16px !important;
     }
+
     #index_page .milestones_main .milestones_content .heading-text .fonthigh {
         font-size: 64px !important;
         line-height: 1.1 !important;
@@ -6132,33 +6279,39 @@ body.np-modal-open {
     #index_page .np-touching {
         padding: 40px 0 !important;
     }
+
     #index_page .np-touching .touching_flex {
         display: flex !important;
         flex-direction: column !important;
         border-radius: 16px !important;
         overflow: hidden !important;
     }
+
     #index_page .np-touching .touching_flex .touching_img {
         width: 100% !important;
     }
+
     #index_page .np-touching .touching_flex .touching_img img {
         width: 100% !important;
         height: 200px !important;
         object-fit: cover !important;
         border-radius: 16px 16px 0 0 !important;
     }
+
     #index_page .np-touching .touching_flex .touching_content {
         width: 100% !important;
         padding: 24px 20px !important;
         background: #0094DC !important;
         text-align: center !important;
     }
+
     #index_page .np-touching .touching_content .heading-text {
         font-size: 24px !important;
         color: #FFFFFF !important;
         margin-bottom: 10px !important;
         line-height: 1.25 !important;
     }
+
     #index_page .np-touching .touching_content .para-text,
     #index_page .np-touching .touching_content .color_para {
         color: #FFFFFF !important;
@@ -6167,6 +6320,7 @@ body.np-modal-open {
         opacity: 0.95 !important;
         margin-bottom: 18px !important;
     }
+
     #index_page .np-touching .touching_content .btn_section {
         display: flex !important;
         justify-content: center !important;
@@ -6176,11 +6330,13 @@ body.np-modal-open {
     #index_page .contact_us {
         padding: 40px 0 !important;
     }
+
     #index_page .contact_us .contact_flex {
         display: flex !important;
         flex-direction: column !important;
         gap: 24px !important;
     }
+
     #index_page .contact_us .contact_flex .contact_us_form {
         max-width: 100% !important;
         width: 100% !important;
@@ -6223,13 +6379,16 @@ body.np-modal-open {
         gap: 16px !important;
         margin-top: 20px !important;
     }
+
     #about_us_overview .vision_mission_content {
         padding: 28px 24px !important;
         border-radius: 16px !important;
     }
+
     #about_us_overview .vm_header h2 {
         font-size: 20px !important;
     }
+
     #about_us_overview .vision_mission_content p {
         font-size: 13.5px !important;
         line-height: 1.55 !important;
@@ -6239,13 +6398,16 @@ body.np-modal-open {
         flex-direction: column !important;
         gap: 14px !important;
     }
+
     #about_us_overview .we_village_item {
         padding: 24px !important;
         border-radius: 16px !important;
     }
+
     #about_us_overview .value_content h5 {
         font-size: 24px !important;
     }
+
     #about_us_overview .value_content p {
         font-size: 12px !important;
     }
@@ -6257,21 +6419,25 @@ body.np-modal-open {
         padding: 24px !important;
         border-radius: 16px !important;
     }
+
     #about_us_overview .leadership_img_box {
         width: 100% !important;
         max-width: 240px !important;
         margin: 0 auto !important;
         border-radius: 16px !important;
     }
+
     #about_us_overview .leadership_info h3 {
         font-size: 22px !important;
         text-align: center !important;
     }
+
     #about_us_overview .leadership_title {
         text-align: center !important;
         font-size: 13.5px !important;
         margin-bottom: 12px !important;
     }
+
     #about_us_overview .leadership_info p {
         font-size: 13px !important;
         line-height: 1.55 !important;
@@ -6284,9 +6450,11 @@ body.np-modal-open {
         gap: 16px !important;
         margin-bottom: 28px !important;
     }
+
     #about_us_overview .care_for_img {
         width: 100% !important;
     }
+
     #about_us_overview .care_for_img img {
         width: 100% !important;
         height: 180px !important;
@@ -6294,27 +6462,32 @@ body.np-modal-open {
         border-radius: 16px !important;
         display: block !important;
     }
+
     #about_us_overview .care_for_content {
         width: 100% !important;
         padding: 0 !important;
         text-align: center !important;
     }
+
     #about_us_overview .care_for_content h3 {
         font-size: 18px !important;
         margin: 0 0 8px !important;
         color: #0F172A !important;
     }
+
     #about_us_overview .care_for_content p {
         font-size: 13px !important;
         line-height: 1.6 !important;
         color: #475569 !important;
         margin: 0 !important;
     }
+
     #about_us_overview .np-brands-showcase-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 10px !important;
     }
+
     #about_us_overview .np-brand-card {
         padding: 24px !important;
         border-radius: 16px !important;
@@ -6326,11 +6499,13 @@ body.np-modal-open {
         align-items: center !important;
         justify-content: center !important;
     }
+
     #about_us_overview .np-brand-card__logo img {
         max-height: 28px !important;
         width: auto !important;
         margin: 0 auto 6px !important;
     }
+
     #about_us_overview .np-brand-card__label {
         font-size: 10.5px !important;
         font-weight: 600 !important;
@@ -6341,6 +6516,7 @@ body.np-modal-open {
     #about_us_overview .team_main {
         padding: 40px 0 !important;
     }
+
     #about_us_overview .team_main_flex,
     #about_us_overview .mgmt_grid {
         display: grid !important;
@@ -6348,6 +6524,7 @@ body.np-modal-open {
         gap: 12px !important;
         margin-top: 20px !important;
     }
+
     #about_us_overview .team_main_item,
     #about_us_overview .mgmt_card {
         border-radius: 16px !important;
@@ -6360,12 +6537,14 @@ body.np-modal-open {
         margin: 0 !important;
         width: 100% !important;
     }
+
     #about_us_overview .team_main_card {
         width: 100% !important;
         height: 150px !important;
         overflow: hidden !important;
         background: #E2E8F0 !important;
     }
+
     #about_us_overview .team_main_card img,
     #about_us_overview .team_main_item img,
     #about_us_overview .mgmt_photo img {
@@ -6374,6 +6553,7 @@ body.np-modal-open {
         object-fit: cover !important;
         display: block !important;
     }
+
     #about_us_overview .team_desc,
     #about_us_overview .mgmt_body {
         padding: 10px 8px 12px !important;
@@ -6383,6 +6563,7 @@ body.np-modal-open {
         flex-direction: column !important;
         justify-content: center !important;
     }
+
     #about_us_overview .team_desc h4,
     #about_us_overview .mgmt_body h3 {
         font-size: 13.5px !important;
@@ -6391,6 +6572,7 @@ body.np-modal-open {
         color: #0F172A !important;
         line-height: 1.25 !important;
     }
+
     #about_us_overview .team_desc p,
     #about_us_overview .mgmt_body .leadership_title {
         font-size: 11px !important;
@@ -6399,6 +6581,7 @@ body.np-modal-open {
         font-weight: 600 !important;
         line-height: 1.3 !important;
     }
+
     #about_us_overview .mgmt_body p {
         display: none !important;
     }
@@ -6408,6 +6591,7 @@ body.np-modal-open {
         border-radius: 16px !important;
         margin: 24px 0 28px !important;
     }
+
     #about_us_overview .mgmt_quote p {
         font-size: 14px !important;
         line-height: 1.55 !important;
@@ -6417,6 +6601,7 @@ body.np-modal-open {
         grid-template-columns: 1fr !important;
         gap: 14px !important;
     }
+
     #about_us_overview .pillar_card {
         padding: 24px !important;
         border-radius: 16px !important;
@@ -6431,12 +6616,14 @@ body.np-modal-open {
     #products_page .np-brands-sec {
         padding: 36px 0 !important;
     }
+
     #products_page .np-brands-sec .collections-info {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px !important;
         margin: 18px 0 0 !important;
     }
+
     #products_page .np-brands-sec .collections-inside {
         width: 100% !important;
         margin: 0 !important;
@@ -6447,23 +6634,27 @@ body.np-modal-open {
         border: 1px solid #E2E8F0 !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
+
     #products_page .np-brands-sec .collection-img {
         height: 120px !important;
         position: relative !important;
         overflow: hidden !important;
     }
+
     #products_page .np-brands-sec .collection-img img {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
         display: block !important;
     }
+
     #products_page .np-brands-sec .collection-img h4 {
         font-size: 20px !important;
         top: -8px !important;
         left: 8px !important;
         opacity: 0.8 !important;
     }
+
     #products_page .np-brands-sec .heading-arrow-sec {
         min-height: 38px !important;
         margin: 8px 10px 4px !important;
@@ -6471,20 +6662,24 @@ body.np-modal-open {
         align-items: center !important;
         justify-content: space-between !important;
     }
+
     #products_page .np-brands-sec .brand-card-logo {
         height: 26px !important;
         max-height: 28px !important;
         max-width: 90px !important;
     }
+
     #products_page .np-brands-sec .slider_arrow {
         width: 16px !important;
         height: 16px !important;
     }
+
     #products_page .np-brands-sec .collections-inside h6 {
         font-size: 11px !important;
         margin: 0 10px 8px !important;
         line-height: 1.3 !important;
     }
+
     #products_page .np-brands-sec .collections-inside h6:first-of-type {
         display: none !important;
     }
@@ -6494,9 +6689,11 @@ body.np-modal-open {
         padding: 10px 0 8px !important;
         top: 60px !important;
     }
+
     #products_page .np-cat-row {
         gap: 8px !important;
     }
+
     #products_page .np-brand-tabs {
         display: flex !important;
         flex-wrap: nowrap !important;
@@ -6506,32 +6703,38 @@ body.np-modal-open {
         padding-bottom: 4px !important;
         width: 100% !important;
     }
+
     #products_page .np-brand-tab {
         flex: none !important;
         padding: 7px 14px !important;
         font-size: 12.5px !important;
         border-radius: 20px !important;
     }
+
     #products_page .np-search {
         width: 100% !important;
         flex: 1 1 100% !important;
         min-width: 100% !important;
     }
+
     #products_page .np-search input {
         height: 42px !important;
         font-size: 13px !important;
         padding: 8px 36px 8px 14px !important;
         border-radius: 8px !important;
     }
+
     #products_page .np-chips {
         gap: 6px !important;
         margin-top: 8px !important;
         padding-bottom: 4px !important;
     }
+
     #products_page .np-chip {
         padding: 5px 12px !important;
         font-size: 12px !important;
     }
+
     #products_page .np-cat-head h2 {
         font-size: 20px !important;
         margin-bottom: 12px !important;
@@ -6543,6 +6746,7 @@ body.np-modal-open {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px !important;
     }
+
     #products_page .np-card {
         border-radius: 12px !important;
         border: 1px solid #E2E8F0 !important;
@@ -6550,6 +6754,7 @@ body.np-modal-open {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
         overflow: hidden !important;
     }
+
     #products_page .np-card-media {
         aspect-ratio: 1 / 1 !important;
         height: 140px !important;
@@ -6558,11 +6763,13 @@ body.np-modal-open {
         align-items: center !important;
         justify-content: center !important;
     }
+
     #products_page .np-card-media img {
         max-width: 85% !important;
         max-height: 85% !important;
         object-fit: contain !important;
     }
+
     #products_page .np-card-brand {
         top: 6px !important;
         left: 6px !important;
@@ -6570,37 +6777,45 @@ body.np-modal-open {
         padding: 2px 6px !important;
         border-radius: 4px !important;
     }
+
     #products_page .np-card-thumbs {
         gap: 3px !important;
         padding: 6px 8px 0 !important;
     }
+
     #products_page .np-card-thumbs img {
         width: 24px !important;
         height: 24px !important;
         border-radius: 4px !important;
     }
+
     #products_page .np-card-thumbs img:nth-child(n+4) {
         display: none !important;
     }
+
     #products_page .np-card-body {
         padding: 8px 8px 10px !important;
     }
+
     #products_page .np-card-body h3 {
         font-size: 13px !important;
         line-height: 1.25 !important;
         margin-bottom: 2px !important;
         font-weight: 700 !important;
     }
+
     #products_page .np-card-body p {
         font-size: 10.5px !important;
         margin-bottom: 6px !important;
         line-height: 1.3 !important;
         color: #64748B !important;
     }
+
     #products_page .np-card-actions {
         flex-direction: column !important;
         gap: 5px !important;
     }
+
     #products_page .np-btn-view,
     #products_page .np-btn-enquire {
         padding: 5px 8px !important;
@@ -6617,12 +6832,14 @@ body.np-modal-open {
     #furniture .collections-section {
         padding: 40px 0 !important;
     }
+
     #furniture .collections-section .collections-info {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px !important;
         margin: 20px 0 0 !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside {
         width: 100% !important;
         margin: 0 !important;
@@ -6633,6 +6850,7 @@ body.np-modal-open {
         border: 1px solid #E2E8F0 !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside .collection-img {
         height: 125px !important;
         background: #F8FAFC !important;
@@ -6640,15 +6858,18 @@ body.np-modal-open {
         overflow: hidden !important;
         border-radius: 0 !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside .collection-img img {
         width: 100% !important;
         height: 100% !important;
         object-fit: contain !important;
         padding: 8px !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside .collection-img h4 {
         display: none !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside .heading-arrow-sec {
         margin: 8px 10px 2px !important;
         min-height: auto !important;
@@ -6656,6 +6877,7 @@ body.np-modal-open {
         align-items: center !important;
         justify-content: space-between !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside .heading-arrow-sec h3 {
         font-size: 13.5px !important;
         font-weight: 700 !important;
@@ -6664,28 +6886,34 @@ body.np-modal-open {
         color: #0F172A !important;
         line-height: 1.25 !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside .heading-arrow-sec img {
         width: 14px !important;
         height: 14px !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside h6 {
         font-size: 11px !important;
         margin: 0 10px 8px !important;
     }
+
     #furniture .collections-section .collections-info .collections-inside h6:not(:last-child) {
-        display: none !important; /* Hide long description to preserve 2-col balance */
+        display: none !important;
+        /* Hide long description to preserve 2-col balance */
     }
 
     /* Furniture Occasions Grid (Supreme 1:1) */
     .furniture-occasion-section {
         padding: 40px 0 !important;
     }
+
     .furniture-occasion-info {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 12px !important;
         margin-top: 18px !important;
     }
+
     .furniture-occasion-inside {
         width: 100% !important;
         margin: 0 !important;
@@ -6696,16 +6924,19 @@ body.np-modal-open {
         border: 1px solid #E2E8F0 !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
     }
+
     .furniture-occasion-img {
         height: 120px !important;
         overflow: hidden !important;
         position: relative !important;
     }
+
     .furniture-occasion-img img {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
     }
+
     .furniture-occasion-inside h3 {
         font-size: 13.5px !important;
         font-weight: 700 !important;
@@ -6713,6 +6944,7 @@ body.np-modal-open {
         line-height: 1.25 !important;
         color: #0F172A !important;
     }
+
     .furniture-occasion-inside h6 {
         display: none !important;
     }
@@ -6721,21 +6953,25 @@ body.np-modal-open {
     .faq-section_common {
         padding: 40px 0 !important;
     }
+
     .faq-inside .set {
         margin-bottom: 10px !important;
         border-radius: 10px !important;
         border: 1px solid #E2E8F0 !important;
         overflow: hidden !important;
     }
+
     .faq-inside .set a {
         font-size: 13.5px !important;
         padding: 14px 16px !important;
         line-height: 1.4 !important;
         font-weight: 600 !important;
     }
+
     .faq-inside .set .content {
         padding: 10px 16px 14px !important;
     }
+
     .faq-inside .set .content p {
         font-size: 13px !important;
         line-height: 1.55 !important;
@@ -6746,14 +6982,17 @@ body.np-modal-open {
     #products_page .np-studio-section {
         padding: 40px 0 !important;
     }
+
     #products_page .np-studio-grid {
         grid-template-columns: 1fr !important;
         gap: 20px !important;
     }
+
     #products_page .np-studio-card {
         padding: 24px 16px 20px !important;
         border-radius: 14px !important;
     }
+
     #products_page .np-studio-viewport {
         height: 240px !important;
     }
@@ -6764,9 +7003,11 @@ body.np-modal-open {
         max-height: 90vh !important;
         border-radius: 14px !important;
     }
+
     #products_page .np-modal-info {
         padding: 20px 16px !important;
     }
+
     #products_page .np-modal-info h3 {
         font-size: 20px !important;
     }
@@ -6784,31 +7025,39 @@ body.np-modal-open {
         gap: 18px !important;
         margin-top: 24px !important;
     }
+
     #manufacturing_page .plant_card {
         border-radius: 12px !important;
     }
+
     #manufacturing_page .plant_img_wrap {
         height: 190px !important;
     }
+
     #manufacturing_page .plant_details {
         padding: 18px 16px !important;
     }
+
     #manufacturing_page .plant_details h3 {
         font-size: 18px !important;
         margin-bottom: 6px !important;
     }
+
     #manufacturing_page .plant_desc {
         font-size: 13px !important;
         line-height: 1.5 !important;
         margin-bottom: 14px !important;
     }
+
     #manufacturing_page .plant_metrics_row {
         gap: 8px !important;
         padding: 10px 14px !important;
     }
+
     #manufacturing_page .plant_metric_item strong {
         font-size: 15px !important;
     }
+
     #manufacturing_page .plant_metric_item span {
         font-size: 10.5px !important;
     }
@@ -6817,14 +7066,17 @@ body.np-modal-open {
         flex-direction: column !important;
         gap: 20px !important;
     }
+
     #manufacturing_page .toolroom_text h2 {
         font-size: 22px !important;
         text-align: center !important;
     }
+
     #manufacturing_page .toolroom_text p {
         font-size: 13.5px !important;
         text-align: center !important;
     }
+
     #manufacturing_page .toolroom_img_box img {
         height: 220px !important;
     }
@@ -6836,21 +7088,25 @@ body.np-modal-open {
         gap: 8px !important;
         margin: 16px 0 24px !important;
     }
+
     #manufacturing_page .np-cert-standards li {
         padding: 8px 12px !important;
         font-size: 11px !important;
         border-radius: 8px !important;
     }
+
     #manufacturing_page .np-cert-standards strong {
         font-size: 13.5px !important;
         margin-bottom: 2px !important;
     }
+
     #manufacturing_page .np-cert-tabs {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 8px !important;
         margin-bottom: 16px !important;
     }
+
     #manufacturing_page .np-cert-tab {
         min-height: 52px !important;
         padding: 8px 12px !important;
@@ -6858,14 +7114,17 @@ body.np-modal-open {
         text-align: left !important;
         border-radius: 10px !important;
     }
+
     #manufacturing_page .np-cert-tab span {
         font-size: 11px !important;
     }
+
     #manufacturing_page .np-cert-grid {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 10px !important;
     }
+
     #manufacturing_page .np-cert-card {
         display: grid !important;
         grid-template-columns: 85px 1fr !important;
@@ -6874,6 +7133,7 @@ body.np-modal-open {
         border: 1px solid #E2E8F0 !important;
         background: #FFFFFF !important;
     }
+
     #manufacturing_page .np-cert-thumb {
         padding: 8px !important;
         display: flex !important;
@@ -6881,18 +7141,23 @@ body.np-modal-open {
         justify-content: center !important;
         background: #F8FAFC !important;
     }
+
     #manufacturing_page .np-cert-info {
         padding: 10px 12px !important;
     }
+
     #manufacturing_page .np-cert-info strong {
         font-size: 14px !important;
     }
+
     #manufacturing_page .np-cert-info em {
         font-size: 11.5px !important;
     }
+
     #manufacturing_page .np-cert-info small {
         font-size: 10.5px !important;
     }
+
     #manufacturing_page .np-cert-view {
         font-size: 11px !important;
         margin-top: 4px !important;
@@ -6902,16 +7167,19 @@ body.np-modal-open {
     #manufacturing_page .np-contract-mfg {
         padding: 40px 0 !important;
     }
-    #manufacturing_page .np-contract-mfg .container > div:nth-child(2) {
+
+    #manufacturing_page .np-contract-mfg .container>div:nth-child(2) {
         grid-template-columns: 1fr !important;
         gap: 12px !important;
     }
-    #manufacturing_page .np-contract-mfg .container > div:last-child {
+
+    #manufacturing_page .np-contract-mfg .container>div:last-child {
         flex-direction: column !important;
         text-align: center !important;
         padding: 20px 16px !important;
     }
-    #manufacturing_page .np-contract-mfg .container > div:last-child .btn_project_default {
+
+    #manufacturing_page .np-contract-mfg .container>div:last-child .btn_project_default {
         width: 100% !important;
         text-align: center !important;
         justify-content: center !important;
@@ -6927,6 +7195,7 @@ body.np-modal-open {
         min-height: 200px !important;
         max-height: 240px !important;
     }
+
     #contact_page .banner-section .np-inner-hero-img {
         height: 220px !important;
         min-height: 200px !important;
@@ -6949,13 +7218,16 @@ body.np-modal-open {
         padding: 24px !important;
         border-radius: 16px !important;
     }
+
     #contact_page .contact_card_box h3 {
         font-size: 17px !important;
         margin-bottom: 14px !important;
     }
+
     #contact_page .contact_item_text h5 {
         font-size: 12px !important;
     }
+
     #contact_page .contact_item_text p,
     #contact_page .contact_item_text a {
         font-size: 13px !important;
@@ -6971,31 +7243,37 @@ body.np-modal-open {
         padding: 24px !important;
         border-radius: 16px !important;
     }
+
     #contact_page .contact_form_col h2,
     #contact_page .contact_form_col h3 {
         font-size: 20px !important;
         margin-bottom: 6px !important;
         text-align: center !important;
     }
+
     #contact_page .contact_form_col p {
         font-size: 13px !important;
         text-align: center !important;
         margin-bottom: 18px !important;
     }
+
     #contact_page .form_group_row {
         grid-template-columns: 1fr !important;
         gap: 8px !important;
     }
+
     #contact_page .form_field {
         margin-bottom: 12px !important;
         width: 100% !important;
     }
+
     #contact_page .form_field label {
         font-size: 12px !important;
         font-weight: 700 !important;
         margin-bottom: 4px !important;
         display: block !important;
     }
+
     #contact_page .form_field input,
     #contact_page .form_field select {
         height: 44px !important;
@@ -7005,6 +7283,7 @@ body.np-modal-open {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+
     #contact_page .form_field textarea {
         height: 90px !important;
         font-size: 13.5px !important;
@@ -7013,6 +7292,7 @@ body.np-modal-open {
         width: 100% !important;
         box-sizing: border-box !important;
     }
+
     #contact_page .form_btn_submit {
         width: 100% !important;
         padding: 13px !important;
@@ -7026,17 +7306,21 @@ body.np-modal-open {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 10px !important;
     }
+
     #contact_page .hub_card {
         padding: 24px !important;
         border-radius: 16px !important;
     }
+
     #contact_page .hub_card h4 {
         font-size: 14px !important;
     }
+
     #contact_page .hub_card p {
         font-size: 11.5px !important;
         margin-bottom: 6px !important;
     }
+
     #contact_page .hub_card .hub_contact {
         font-size: 11.5px !important;
     }
@@ -7047,20 +7331,24 @@ body.np-modal-open {
         text-align: center !important;
         min-height: 180px !important;
     }
+
     #policies_page .np-page-banner h1 {
         font-size: 22px !important;
         line-height: 1.25 !important;
     }
+
     #policies_page .np-page-banner p {
         font-size: 13px !important;
         line-height: 1.5 !important;
     }
+
     #policies_page .np-policy-layout {
         display: flex !important;
         flex-direction: column !important;
         padding: 20px 16px !important;
         gap: 16px !important;
     }
+
     #policies_page .np-policy-nav {
         position: sticky !important;
         top: 60px !important;
@@ -7074,6 +7362,7 @@ body.np-modal-open {
         white-space: nowrap !important;
         -webkit-overflow-scrolling: touch !important;
     }
+
     #policies_page .np-policy-nav a {
         padding: 6px 14px !important;
         font-size: 12px !important;
@@ -7084,23 +7373,28 @@ body.np-modal-open {
         font-weight: 600 !important;
         flex: none !important;
     }
+
     #policies_page .np-policy-nav p {
         display: none !important;
     }
+
     #policies_page .np-policy-body section {
         padding: 14px 0 !important;
         border-bottom: 1px solid #E2E8F0 !important;
     }
+
     #policies_page .np-policy-body h2 {
         font-size: 20px !important;
         margin-bottom: 10px !important;
         color: #0F172A !important;
     }
+
     #policies_page .np-policy-body h3 {
         font-size: 15px !important;
         margin: 14px 0 6px !important;
         color: #0094DC !important;
     }
+
     #policies_page .np-policy-body p,
     #policies_page .np-policy-body li {
         font-size: 13px !important;
@@ -7113,12 +7407,15 @@ body.np-modal-open {
         #contact_page .hubs_grid {
             grid-template-columns: 1fr !important;
         }
+
         #index_page .largest_plastic_white_box .value_item_flex {
             grid-template-columns: 1fr !important;
         }
+
         #distributor_page .np-stats-strip {
             grid-template-columns: 1fr !important;
         }
+
         #about_us_overview .team_main_flex {
             grid-template-columns: 1fr !important;
         }
@@ -7129,7 +7426,13 @@ body.np-modal-open {
     #index_page .para-text,
     #index_page .title-text,
     #index_page .section-title,
-    #index_page h1, #index_page h2, #index_page h3, #index_page h4, #index_page h5, #index_page h6, #index_page p,
+    #index_page h1,
+    #index_page h2,
+    #index_page h3,
+    #index_page h4,
+    #index_page h5,
+    #index_page h6,
+    #index_page p,
     .largest_plastic_box .largest_plastic_content h2,
     .heading-text {
         text-align: left !important;
@@ -7150,6 +7453,7 @@ body.np-modal-open {
         height: 18px !important;
         border-width: 3px !important;
     }
+
     .pan_india_main .np-map-pin-label {
         font-size: 13px !important;
         padding: 5px 10px !important;
@@ -7164,7 +7468,3 @@ body.np-modal-open {
         color: var(--np-ink) !important;
     }
 }
-
-
-
-
