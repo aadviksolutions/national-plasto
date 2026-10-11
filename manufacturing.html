@@ -114,49 +114,51 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 36px;
         }
         .np-mfg-map-col {
-            flex: 1 1 54%;
+            flex: 1 1 60%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .np-mfg-card-col {
-            flex: 1 1 46%;
-            max-width: 500px;
+            flex: 1 1 40%;
+            max-width: 440px;
         }
 
-        /* 3D Perspective Tilt Stage for Map (No borders) */
+        /* 3D Perspective Tilt Stage for Map (No borders, larger area, tilted down side) */
         .np-mfg-map-tilt-wrap {
-            perspective: 1200px;
-            perspective-origin: center center;
+            perspective: 850px;
+            perspective-origin: 50% 60%;
             width: 100%;
-            max-width: 540px;
+            max-width: 660px;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 10px 0;
         }
         .np-mfg-map-container {
             position: relative;
             width: 100%;
-            max-width: 480px;
+            max-width: 600px;
             background: transparent;
             border: none;
             box-shadow: none;
             padding: 0;
-            transform: perspective(1000px) rotateX(12deg) rotateY(-10deg) rotateZ(-2deg);
+            transform-origin: 50% 70%;
+            transform: perspective(850px) rotateX(28deg) rotateY(-8deg) rotateZ(-1deg);
             transform-style: preserve-3d;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .np-mfg-map-container:hover {
-            transform: perspective(1000px) rotateX(4deg) rotateY(-3deg) rotateZ(-1deg);
+            transform: perspective(850px) rotateX(20deg) rotateY(-4deg) rotateZ(0deg);
         }
         .np-mfg-map-svg {
             display: block;
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 16px 28px rgba(15, 23, 42, 0.12));
+            filter: drop-shadow(0 24px 38px rgba(15, 23, 42, 0.16));
             user-select: none;
             pointer-events: none;
         }
@@ -435,14 +437,14 @@
                 width: 100%;
             }
             .np-mfg-map-container {
-                max-width: 440px;
+                max-width: 540px;
             }
         }
 
         @media (max-width: 768px) {
             .np-mfg-map-container {
-                transform: none !important;
-                max-width: 360px;
+                transform: perspective(750px) rotateX(20deg) rotateY(-4deg);
+                max-width: 420px;
             }
             .np-mfg-topbar {
                 justify-content: center;
