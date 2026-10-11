@@ -106,6 +106,9 @@
             box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
         }
 
+        .np-mfg-hub-hero .container {
+            max-width: 1340px;
+        }
         .np-mfg-stage {
             margin: 10px 0 40px;
             position: relative;
@@ -114,25 +117,25 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 36px;
+            gap: 28px;
         }
         .np-mfg-map-col {
-            flex: 1 1 60%;
+            flex: 1 1 68%;
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .np-mfg-card-col {
-            flex: 1 1 40%;
-            max-width: 440px;
+            flex: 1 1 32%;
+            max-width: 380px;
         }
 
-        /* 3D Perspective Tilt Stage for Map (No borders, larger area, tilted down side) */
+        /* 3D Perspective Tilt Stage for Map (No borders, massive large map area, tilted down) */
         .np-mfg-map-tilt-wrap {
-            perspective: 850px;
-            perspective-origin: 50% 60%;
+            perspective: 950px;
+            perspective-origin: 50% 65%;
             width: 100%;
-            max-width: 660px;
+            max-width: 840px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -141,24 +144,24 @@
         .np-mfg-map-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 780px;
             background: transparent;
             border: none;
             box-shadow: none;
             padding: 0;
             transform-origin: 50% 70%;
-            transform: perspective(850px) rotateX(28deg) rotateY(-8deg) rotateZ(-1deg);
+            transform: perspective(950px) rotateX(28deg) rotateY(-8deg) rotateZ(-1deg);
             transform-style: preserve-3d;
             transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .np-mfg-map-container:hover {
-            transform: perspective(850px) rotateX(20deg) rotateY(-4deg) rotateZ(0deg);
+            transform: perspective(950px) rotateX(20deg) rotateY(-4deg) rotateZ(0deg);
         }
         .np-mfg-map-svg {
             display: block;
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 24px 38px rgba(15, 23, 42, 0.16));
+            filter: drop-shadow(0 28px 46px rgba(15, 23, 42, 0.18));
             user-select: none;
             pointer-events: none;
         }
@@ -840,7 +843,7 @@
                         <div class="np-mfg-map-col">
                             <div class="np-mfg-map-tilt-wrap">
                                 <div class="np-mfg-map-container">
-                                    <img src="images/icons/india-map.svg" alt="India Manufacturing Plant Locations" class="np-mfg-map-svg" width="560" height="625">
+                                    <img src="images/icons/india-map.svg" alt="India Manufacturing Plant Locations" class="np-mfg-map-svg" width="760" height="850">
                                     
                                     <!-- Pin 1: Howrah / Dhulagarh (HQ) -->
                                     <button type="button" class="np-mfg-pin is-active" id="pin-howrah" style="left:63.6%;top:51.4%" onclick="selectMfgPlant('howrah')" aria-label="Dhulagarh Central Plant">
