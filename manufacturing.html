@@ -31,375 +31,6 @@
     <link rel="stylesheet" href="css/np-revamp.css?v=20261009_supreme_bc">
 
     <style>
-        /* ==========================================================================
-           Manufacturing Hub Hero Section (Directly After Breadcrumbs)
-           ========================================================================== */
-        .banner-section {
-            margin-bottom: 0 !important;
-        }
-        .breadcrums {
-            margin-bottom: 0 !important;
-            padding-bottom: 0 !important;
-        }
-        .smooth_scroll_pages {
-            margin-top: 0 !important;
-            padding-top: 0 !important;
-        }
-        .np-mfg-hub-hero {
-            background: #FFFFFF;
-            padding: 0 0 45px 0 !important;
-            margin: 0 !important;
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-        .np-mfg-hub-hero .container {
-            max-width: 1340px;
-        }
-        .np-mfg-stage {
-            margin: 0 0 35px 0;
-            position: relative;
-        }
-        .np-mfg-stage-flex {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 28px;
-        }
-        .np-mfg-map-col {
-            flex: 1 1 68%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .np-mfg-card-col {
-            flex: 1 1 32%;
-            max-width: 380px;
-        }
-
-        /* 3D Perspective Tilt Stage for Map (No borders, massive large map area, tilted down) */
-        .np-mfg-map-tilt-wrap {
-            perspective: 950px;
-            perspective-origin: 50% 65%;
-            width: 100%;
-            max-width: 840px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 0;
-        }
-        .np-mfg-map-container {
-            position: relative;
-            width: 100%;
-            max-width: 780px;
-            background: transparent;
-            border: none;
-            box-shadow: none;
-            padding: 0;
-            transform-origin: 50% 70%;
-            transform: perspective(950px) rotateX(28deg) rotateY(-8deg) rotateZ(-1deg);
-            transform-style: preserve-3d;
-            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .np-mfg-map-container:hover {
-            transform: perspective(950px) rotateX(20deg) rotateY(-4deg) rotateZ(0deg);
-        }
-        .np-mfg-map-svg {
-            display: block;
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 28px 46px rgba(15, 23, 42, 0.18));
-            user-select: none;
-            pointer-events: none;
-        }
-
-        /* Pins - Glowing circular dots matching index.html */
-        .np-mfg-pin {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 0;
-            outline: none;
-            transition: transform 0.25s ease;
-        }
-        .np-mfg-pin:hover,
-        .np-mfg-pin.is-active {
-            z-index: 25;
-            transform: translate(-50%, -50%) scale(1.18);
-        }
-        .np-mfg-pin-dot {
-            position: relative;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #EAB308;
-            border: 3px solid #FFFFFF;
-            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
-            transition: transform 0.25s ease, background 0.25s ease;
-        }
-        .np-mfg-pin.is-active .np-mfg-pin-dot {
-            background: #DC2626;
-            transform: scale(1.2);
-            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.3), 0 4px 12px rgba(220, 38, 38, 0.5);
-        }
-        .np-mfg-pin-pulse {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 36px;
-            height: 36px;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            border: 2px solid rgba(234, 179, 8, 0.65);
-            animation: mfgPinPulse 2s ease-out infinite;
-            pointer-events: none;
-        }
-        .np-mfg-pin.is-active .np-mfg-pin-pulse {
-            border-color: rgba(220, 38, 38, 0.65);
-        }
-        @keyframes mfgPinPulse {
-            0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1.7); opacity: 0; }
-        }
-        .np-mfg-pin-label {
-            margin-top: 5px;
-            background: #0F172A;
-            color: #FFFFFF;
-            font-family: 'Outfit', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-            pointer-events: none;
-            transition: all 0.2s ease;
-        }
-        .np-mfg-pin.is-active .np-mfg-pin-label {
-            background: #DC2626;
-            color: #FFFFFF;
-        }
-
-        /* The Interactive Mfg Facility Details (supreme.co.in style: No borders, Large Big Text) */
-        .np-mfg-card {
-            position: relative;
-            width: 100%;
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
-            border: none;
-            box-shadow: none;
-            text-align: left;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-        }
-        .np-mfg-card-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--brand-primary);
-            margin: 0 0 14px 0;
-            line-height: 1.15;
-            letter-spacing: -0.5px;
-        }
-        .np-mfg-card-location {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            color: #64748B;
-            font-weight: 500;
-            margin: 0 0 16px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .np-mfg-card-location i {
-            color: var(--brand-primary);
-        }
-        .np-mfg-card-desc {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            color: #475569;
-            line-height: 1.7;
-            margin: 0 0 24px 0;
-        }
-        .np-mfg-card-metrics {
-            display: flex;
-            align-items: center;
-            gap: 36px;
-            margin-bottom: 28px;
-            padding: 16px 0;
-            border-top: 1px solid #E2E8F0;
-            border-bottom: 1px solid #E2E8F0;
-        }
-        .np-mfg-metric-pill {
-            background: transparent;
-            border: none;
-            padding: 0;
-            text-align: left;
-        }
-        .np-mfg-metric-pill .val {
-            display: block;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--brand-primary);
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.1;
-        }
-        .np-mfg-metric-pill .lbl {
-            display: block;
-            font-size: 12px;
-            color: #64748B;
-            text-transform: uppercase;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 0.5px;
-            margin-top: 4px;
-        }
-        .np-mfg-card-action {
-            display: block;
-        }
-        .np-mfg-action-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            background: var(--brand-primary);
-            color: #FFFFFF;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
-        }
-        .np-mfg-action-btn:hover {
-            background: #0F172A;
-            color: #FFFFFF;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
-        }
-
-        /* Bottom Title Section (as per sketch: "Manufacturing HUB") */
-        .np-mfg-bottom-hero {
-            text-align: center;
-            max-width: 840px;
-            margin: 0 auto;
-            padding-top: 20px;
-        }
-        .np-mfg-eyebrow {
-            display: inline-block;
-            font-family: 'Outfit', sans-serif;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #DC2626;
-            background: #FEF2F2;
-            padding: 5px 16px;
-            border-radius: 999px;
-            border: 1px solid #FEE2E2;
-            margin-bottom: 12px;
-        }
-        .np-mfg-main-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 40px;
-            font-weight: 800;
-            color: #0F172A;
-            letter-spacing: -0.5px;
-            margin: 0 0 12px 0;
-            text-transform: uppercase;
-        }
-        .np-mfg-main-title span {
-            color: #DC2626;
-        }
-        .np-mfg-lead {
-            font-size: 16px;
-            color: #64748B;
-            line-height: 1.6;
-            margin: 0 auto 28px;
-            max-width: 720px;
-        }
-        .np-mfg-kpis {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            background: #FFFFFF;
-            border: 1px solid #E2E8F0;
-            border-radius: 12px;
-            padding: 14px 28px;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-            gap: 20px;
-        }
-        .np-mfg-kpi-item {
-            text-align: center;
-        }
-        .np-mfg-kpi-item strong {
-            display: block;
-            font-family: 'Outfit', sans-serif;
-            font-size: 20px;
-            font-weight: 800;
-            color: #DC2626;
-            line-height: 1.1;
-        }
-        .np-mfg-kpi-item span {
-            display: block;
-            font-size: 12px;
-            font-weight: 600;
-            color: #475569;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .np-mfg-kpi-divider {
-            width: 1px;
-            height: 28px;
-            background: #E2E8F0;
-        }
-
-        @media (max-width: 991px) {
-            .np-mfg-stage-flex {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .np-mfg-card-col {
-                max-width: 100%;
-                width: 100%;
-            }
-            .np-mfg-map-container {
-                max-width: 540px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .np-mfg-map-container {
-                transform: perspective(750px) rotateX(20deg) rotateY(-4deg);
-                max-width: 420px;
-            }
-            .np-mfg-topbar {
-                justify-content: center;
-            }
-            .np-mfg-main-title {
-                font-size: 30px;
-            }
-            .np-mfg-kpi-divider {
-                display: none;
-            }
-            .np-mfg-kpis {
-                gap: 16px;
-                padding: 12px 16px;
-            }
-        }
-
         /* Plant Facilities Grid Layout */
         .plants_section {
             padding: 70px 0 90px;
@@ -755,107 +386,6 @@
 
     <main class="smooth_scroll_pages">
 
-        <!-- Manufacturing Hub Hero Section (Directly After Breadcrumbs as per sketch) -->
-        <section class="np-mfg-hub-hero" id="manufacturing-hub">
-            <div class="container">
-                <!-- Center Stage: India Map with Pinpoints + Interactive Facility Details -->
-                <div class="np-mfg-stage">
-                    <div class="np-mfg-stage-flex">
-                        <!-- Left: Borderless & Slightly Tilted Map -->
-                        <div class="np-mfg-map-col">
-                            <div class="np-mfg-map-tilt-wrap">
-                                <div class="np-mfg-map-container">
-                                    <img src="images/icons/india-map.svg" alt="India Manufacturing Plant Locations" class="np-mfg-map-svg" width="760" height="850">
-                                    
-                                    <!-- Pin 1: Howrah / Dhulagarh (HQ) -->
-                                    <button type="button" class="np-mfg-pin is-active" id="pin-howrah" style="left:63.6%;top:51.4%" onclick="selectMfgPlant('howrah')" aria-label="Dhulagarh Central Plant">
-                                        <span class="np-mfg-pin-pulse"></span>
-                                        <span class="np-mfg-pin-dot"></span>
-                                        <span class="np-mfg-pin-label">Howrah (HQ)</span>
-                                    </button>
-
-                                    <!-- Pin 2: Uluberia -->
-                                    <button type="button" class="np-mfg-pin" id="pin-uluberia" style="left:61.2%;top:55.8%" onclick="selectMfgPlant('uluberia')" aria-label="Uluberia High Speed Plant">
-                                        <span class="np-mfg-pin-pulse"></span>
-                                        <span class="np-mfg-pin-dot"></span>
-                                        <span class="np-mfg-pin-label">Uluberia</span>
-                                    </button>
-
-                                    <!-- Pin 3: Guwahati / Assam -->
-                                    <button type="button" class="np-mfg-pin" id="pin-assam" style="left:79.85%;top:36.09%" onclick="selectMfgPlant('assam')" aria-label="Guwahati Regional Hub">
-                                        <span class="np-mfg-pin-pulse"></span>
-                                        <span class="np-mfg-pin-dot"></span>
-                                        <span class="np-mfg-pin-label">Guwahati</span>
-                                    </button>
-
-                                    <!-- Pin 4: Patna / Bihar -->
-                                    <button type="button" class="np-mfg-pin" id="pin-patna" style="left:58.26%;top:37.74%" onclick="selectMfgPlant('patna')" aria-label="Patna Storage & Crate Complex">
-                                        <span class="np-mfg-pin-pulse"></span>
-                                        <span class="np-mfg-pin-dot"></span>
-                                        <span class="np-mfg-pin-label">Patna</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Right: Interactive Mfg Facility Details (No borders, big text, primary color) -->
-                        <div class="np-mfg-card-col">
-                            <div class="np-mfg-card" id="npMfgCard">
-                                <h2 class="np-mfg-card-title" id="mfgCardTitle">Dhulagarh Central Facility &amp; Toolroom</h2>
-                                <p class="np-mfg-card-location" id="mfgCardLoc"><i class="fas fa-map-marker-alt"></i> Jalan Industrial Complex, Howrah, West Bengal</p>
-                                <p class="np-mfg-card-desc" id="mfgCardDesc">Our flagship manufacturing complex and central tooling workshop. Houses our heaviest 1,200T high-tonnage presses for large monoblock dining tables, executive armchairs, and custom industrial crates.</p>
-                                <div class="np-mfg-card-metrics" id="mfgCardMetrics">
-                                    <div class="np-mfg-metric-pill">
-                                        <span class="val" id="mfgCardVal1">1,200 Ton</span>
-                                        <span class="lbl" id="mfgCardLbl1">Max Press Tonnage</span>
-                                    </div>
-                                    <div class="np-mfg-metric-pill">
-                                        <span class="val" id="mfgCardVal2">24x7 Continuous</span>
-                                        <span class="lbl" id="mfgCardLbl2">Automated Shifts</span>
-                                    </div>
-                                </div>
-                                <div class="np-mfg-card-action">
-                                    <a href="#howrah" class="np-mfg-action-btn" id="mfgCardBtn">
-                                        <span>Explore Facility Specs</span>
-                                        <i class="fas fa-arrow-down"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom Hero: Manufacturing HUB Heading & Infrastructure Highlights as per sketch -->
-                <div class="np-mfg-bottom-hero">
-                    <span class="np-mfg-eyebrow">National Plasto Industrial Infrastructure</span>
-                    <h2 class="np-mfg-main-title">Manufacturing <span>Hub</span></h2>
-                    <p class="np-mfg-lead">Strategically located industrial infrastructure across India with 1,200-tonne automated injection moulding machines, centralized toolrooms, and high-speed robotic production cells.</p>
-                    
-                    <div class="np-mfg-kpis">
-                        <div class="np-mfg-kpi-item">
-                            <strong>4</strong>
-                            <span>Integrated Plants</span>
-                        </div>
-                        <div class="np-mfg-kpi-divider"></div>
-                        <div class="np-mfg-kpi-item">
-                            <strong>1,200T</strong>
-                            <span>Max Press Capacity</span>
-                        </div>
-                        <div class="np-mfg-kpi-divider"></div>
-                        <div class="np-mfg-kpi-item">
-                            <strong>50+</strong>
-                            <span>Injection Moulding Units</span>
-                        </div>
-                        <div class="np-mfg-kpi-divider"></div>
-                        <div class="np-mfg-kpi-item">
-                            <strong>ISO 9001</strong>
-                            <span>Certified Quality</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- 4 Plants Grid Section -->
         <section class="plants_section">
             <div class="container">
@@ -893,7 +423,7 @@
                     </div>
 
                     <!-- Plant 2: Uluberia -->
-                    <div class="plant_card" id="uluberia">
+                    <div class="plant_card">
                         <div class="plant_img_wrap">
                             <span class="plant_badge">High-Speed Facility &bull; Plant 2</span>
                             <img src="images/brand/company-photo.jpg" alt="Uluberia Plant">
@@ -943,7 +473,7 @@
                     </div>
 
                     <!-- Plant 4: Patna / Bihar -->
-                    <div class="plant_card" id="patna">
+                    <div class="plant_card">
                         <div class="plant_img_wrap">
                             <span class="plant_badge">Eastern Hub &bull; Plant 4</span>
                             <img src="images/brand/company-photo.jpg" alt="Patna Plant">
@@ -971,6 +501,50 @@
             </div>
         </section>
 
+        <!-- Contract Manufacturing & OEM / ODM Section -->
+        <section class="np-contract-mfg" id="oem-solutions" style="background:#0F172A;color:#FFFFFF;padding:80px 0;">
+            <div class="container">
+                <div style="text-align:center;max-width:780px;margin:0 auto 48px;">
+                    <span style="background:rgba(0, 148, 220,0.2);color:#FF4D52;padding:5px 16px;border-radius:20px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:inline-block;margin-bottom:12px;">B2B &amp; Institutional Capabilities</span>
+                    <h2 style="font-size:32px;font-weight:700;color:#FFFFFF;margin-bottom:14px;">Contract Manufacturing &amp; <span style="color:var(--brand-primary);">OEM / ODM Solutions</span></h2>
+                    <p style="color:#94A3B8;font-size:15px;line-height:1.6;">Leveraging high-tonnage microprocessor injection moulding machinery (80T to 1,200T) and multi-location plants, National Plasto offers turnkey contract manufacturing and custom polymer moulding for retail chains, institutional brands, automotive crates, and export partners.</p>
+                </div>
+
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:24px;margin-bottom:40px;">
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-cogs"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">Custom Tooling &amp; Moulding</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">Precision CAD/CAM mould design, in-house EDM spark erosion tooling, and high-speed multi-cavity injection moulding tailored to your exact product specifications.</p>
+                    </div>
+
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-tags"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">Private Label &amp; Co-Branding</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">White-label furniture manufacturing, customized laser engraving, embossing, masterbatch Pantone color matching, and bespoke retail packaging.</p>
+                    </div>
+
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-cubes"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">High-Tonnage Large Mouldings</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">Up to 1,200 Ton clamping capacity for heavy-duty industrial storage crates, jumbo dining tables, monoblock seats, and large structural polymer components.</p>
+                    </div>
+
+                    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:transform 0.2s;">
+                        <div style="width:48px;height:48px;border-radius:10px;background:rgba(0, 148, 220,0.15);color:#0094DC;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px;"><i class="fas fa-truck-moving"></i></div>
+                        <h4 style="font-size:18px;font-weight:700;color:#FFFFFF;margin-bottom:10px;">Pan-India Supply Chain</h4>
+                        <p style="font-size:13px;color:#94A3B8;line-height:1.6;">Decentralized manufacturing in 4 regional hubs (Howrah, Guwahati, Roorkee, Hajipur) reduces freight costs and enables 24–48 hour transit times across India.</p>
+                    </div>
+                </div>
+
+                <div style="background:rgba(0, 148, 220,0.12);border:1px solid rgba(0, 148, 220,0.3);border-radius:12px;padding:24px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+                    <div>
+                        <h5 style="font-size:17px;font-weight:700;color:#FFFFFF;margin:0 0 4px;">Interested in OEM or Custom Polymer Manufacturing?</h5>
+                        <p style="font-size:13px;color:#CBD5E1;margin:0;">Speak with our industrial solutions team for technical feasibility and sample tooling quotes.</p>
+                    </div>
+                    <a href="contact.html?type=oem#enquiry-section" class="btn_project_default" style="background:#0094DC;color:#FFFFFF;border:none;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;">Discuss OEM Project &rarr;</a>
+                </div>
+            </div>
+        </section>
 
 
         <!-- Certifications (all four plants) -->
@@ -1386,86 +960,6 @@
                     $('#scroll_btn').removeClass('add_show');
                 }
             });
-        });
-
-        // Manufacturing Hub Interactive Plant Switcher
-        const mfgPlantsData = {
-            howrah: {
-                unit: 'Plant 01 • Flagship',
-                title: 'Dhulagarh Central Facility & Toolroom',
-                loc: 'Jalan Industrial Complex, Howrah, West Bengal',
-                desc: 'Our flagship manufacturing complex and central tooling workshop. Houses our heaviest 1,200T high-tonnage presses for large monoblock dining tables, executive armchairs, and custom industrial crates.',
-                val1: '1,200 Ton',
-                lbl1: 'Max Press Tonnage',
-                val2: '24x7 Continuous',
-                lbl2: 'Automated Shifts',
-                target: '#howrah'
-            },
-            uluberia: {
-                unit: 'Plant 02 • High-Speed Facility',
-                title: 'Uluberia Monoblock Injection Plant',
-                loc: 'Uluberia Industrial Growth Centre, Howrah, WB',
-                desc: 'High-speed automated injection moulding cells with multi-cavity moulds, specialized in commercial monoblock seating, stools, and multi-tier modular storage systems.',
-                val1: '18 Presses',
-                lbl1: 'Operational Fleet',
-                val2: 'ISO 9001:2015',
-                lbl2: 'Quality Certified',
-                target: '#uluberia'
-            },
-            assam: {
-                unit: 'Plant 03 • North-East Hub',
-                title: 'Guwahati Regional Manufacturing Plant',
-                loc: 'Amingaon Industrial Estate, Kamrup, Assam',
-                desc: 'Strategically positioned manufacturing and regional logistics hub engineered to serve all 7 North-Eastern states with reduced transit times and dedicated regional inventory.',
-                val1: '24-48 Hours',
-                lbl1: 'Regional Turnaround',
-                val2: '7 States',
-                lbl2: 'Direct Distribution',
-                target: '#assam'
-            },
-            patna: {
-                unit: 'Plant 04 • Eastern Utility Hub',
-                title: 'Patna Utility & Storage Complex',
-                loc: 'Fatuha Industrial Area, Patna, Bihar',
-                desc: 'Modern injection pressing plant engineered for heavy agricultural crates, cold-storage parts, and everyday utility products catering to the dense Central & Northern trade corridors.',
-                val1: '15,000 MT',
-                lbl1: 'Annual Throughput',
-                val2: 'Direct Rail/Road',
-                lbl2: 'Logistics Siding',
-                target: '#patna'
-            }
-        };
-
-        function selectMfgPlant(key) {
-            const data = mfgPlantsData[key];
-            if (!data) return;
-
-            $('.np-mfg-pin').removeClass('is-active');
-            $('#pin-' + key).addClass('is-active');
-
-            const $card = $('#npMfgCard');
-            $card.css('opacity', '0.3');
-            setTimeout(function() {
-                $('#mfgCardTitle').text(data.title);
-                $('#mfgCardLoc').html('<i class="fas fa-map-marker-alt"></i> ' + data.loc);
-                $('#mfgCardDesc').text(data.desc);
-                $('#mfgCardVal1').text(data.val1);
-                $('#mfgCardLbl1').text(data.lbl1);
-                $('#mfgCardVal2').text(data.val2);
-                $('#mfgCardLbl2').text(data.lbl2);
-                $('#mfgCardBtn').attr('href', data.target);
-                $card.css('opacity', '1');
-            }, 150);
-        }
-
-        $(document).on('click', '#mfgCardBtn', function(e) {
-            const target = $(this).attr('href');
-            if (target && $(target).length) {
-                e.preventDefault();
-                $('html, body').animate({
-                    scrollTop: $(target).offset().top - 90
-                }, 600);
-            }
         });
 
         function openBrochureModal() {

@@ -2989,6 +2989,77 @@
                     <div class="pan_india_img np-map" id="np_map">
                         <img src="images/icons/india-map.svg" class="np-map-base" alt="Map of India showing National Plasto head office, manufacturing plants, trade depots, and distributors" width="600" height="670" loading="lazy">
                         
+                        <!-- Slow-Motion Airplanes between Map Dots (5 Planes, Paths Hidden) -->
+                        <svg class="np-map-flights" viewBox="0 0 600 670" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                          <defs>
+                            <filter id="plane-shadow-dist" x="-40%" y="-40%" width="180%" height="180%">
+                              <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#002b49" flood-opacity="0.45" />
+                            </filter>
+                          </defs>
+
+                          <!-- Invisible Guide Paths for 5 Airplanes -->
+                          <path id="dist-flight-1" d="M 382,344 Q 372,292 350,253 Q 315,224 288,208 Q 240,178 201,161 Q 198,168 204,174 Q 185,194 174,208 Q 230,220 288,208 Q 322,236 350,253 Q 360,305 382,344 Z" fill="none" stroke="none" />
+                          <path id="dist-flight-2" d="M 382,344 Q 408,322 425,304 Q 460,268 479,242 Q 412,235 350,253 Q 354,290 366,322 Q 378,335 382,344 Z" fill="none" stroke="none" />
+                          <path id="dist-flight-3" d="M 201,161 Q 184,180 174,208 Q 130,254 102,308 Q 132,348 168,368 Q 230,350 300,315 Q 302,260 288,208 Q 240,178 201,161 Z" fill="none" stroke="none" />
+                          <path id="dist-flight-4" d="M 382,344 Q 374,332 366,322 Q 332,318 300,315 Q 272,308 246,301 Q 218,335 192,368 Q 146,340 102,308 Q 174,304 246,301 Q 314,322 382,344 Z" fill="none" stroke="none" />
+                          <path id="dist-flight-5" d="M 288,208 Q 244,190 204,174 Q 195,167 186,161 Q 177,147 168,134 Q 159,107 150,80 Q 175,120 201,161 Q 244,184 288,208 Z" fill="none" stroke="none" />
+
+                          <!-- Airplane 1: Brand Blue Flight (East <-> North) -->
+                          <g class="np-plane np-plane--blue" filter="url(#plane-shadow-dist)">
+                            <g transform="scale(1.3)">
+                              <path d="M 8.5,0 C 7,-1 2.5,-1.5 -1.5,-1.5 L -1.5,-7.5 C -1.5,-8.2 -2.3,-8.2 -2.6,-7.7 L -4.5,-1.5 L -7.5,-1.2 L -8.8,-4.2 C -9,-4.6 -9.6,-4.4 -9.6,-3.8 L -9.2,-0.7 C -10,-0.3 -11,0 -11,0 C -11,0 -10,0.3 -9.2,0.7 L -9.6,3.8 C -9.6,4.4 -9,4.6 -8.8,4.2 L -7.5,1.2 L -4.5,1.5 L -2.6,7.7 C -2.3,8.2 -1.5,8.2 -1.5,7.5 L -1.5,1.5 C 2.5,1.5 7,1 8.5,0 Z" fill="#0094DC" stroke="#FFFFFF" stroke-width="1.1" stroke-linejoin="round" />
+                              <circle cx="4" cy="0" r="0.9" fill="#FFFFFF" />
+                            </g>
+                            <animateMotion dur="26s" repeatCount="indefinite" rotate="auto">
+                              <mpath href="#dist-flight-1" />
+                            </animateMotion>
+                          </g>
+
+                          <!-- Airplane 2: Red Flight (East <-> North-East) -->
+                          <g class="np-plane np-plane--red" filter="url(#plane-shadow-dist)">
+                            <g transform="scale(1.3)">
+                              <path d="M 8.5,0 C 7,-1 2.5,-1.5 -1.5,-1.5 L -1.5,-7.5 C -1.5,-8.2 -2.3,-8.2 -2.6,-7.7 L -4.5,-1.5 L -7.5,-1.2 L -8.8,-4.2 C -9,-4.6 -9.6,-4.4 -9.6,-3.8 L -9.2,-0.7 C -10,-0.3 -11,0 -11,0 C -11,0 -10,0.3 -9.2,0.7 L -9.6,3.8 C -9.6,4.4 -9,4.6 -8.8,4.2 L -7.5,1.2 L -4.5,1.5 L -2.6,7.7 C -2.3,8.2 -1.5,8.2 -1.5,7.5 L -1.5,1.5 C 2.5,1.5 7,1 8.5,0 Z" fill="#E11D48" stroke="#FFFFFF" stroke-width="1.1" stroke-linejoin="round" />
+                              <circle cx="4" cy="0" r="0.9" fill="#FFFFFF" />
+                            </g>
+                            <animateMotion dur="22s" begin="-6s" repeatCount="indefinite" rotate="auto">
+                              <mpath href="#dist-flight-2" />
+                            </animateMotion>
+                          </g>
+
+                          <!-- Airplane 3: Green Flight (North <-> West <-> Central) -->
+                          <g class="np-plane np-plane--green" filter="url(#plane-shadow-dist)">
+                            <g transform="scale(1.3)">
+                              <path d="M 8.5,0 C 7,-1 2.5,-1.5 -1.5,-1.5 L -1.5,-7.5 C -1.5,-8.2 -2.3,-8.2 -2.6,-7.7 L -4.5,-1.5 L -7.5,-1.2 L -8.8,-4.2 C -9,-4.6 -9.6,-4.4 -9.6,-3.8 L -9.2,-0.7 C -10,-0.3 -11,0 -11,0 C -11,0 -10,0.3 -9.2,0.7 L -9.6,3.8 C -9.6,4.4 -9,4.6 -8.8,4.2 L -7.5,1.2 L -4.5,1.5 L -2.6,7.7 C -2.3,8.2 -1.5,8.2 -1.5,7.5 L -1.5,1.5 C 2.5,1.5 7,1 8.5,0 Z" fill="#1E8E3E" stroke="#FFFFFF" stroke-width="1.1" stroke-linejoin="round" />
+                              <circle cx="4" cy="0" r="0.9" fill="#FFFFFF" />
+                            </g>
+                            <animateMotion dur="28s" begin="-14s" repeatCount="indefinite" rotate="auto">
+                              <mpath href="#dist-flight-3" />
+                            </animateMotion>
+                          </g>
+
+                          <!-- Airplane 4: Amber Flight (East <-> Central <-> West) -->
+                          <g class="np-plane np-plane--amber" filter="url(#plane-shadow-dist)">
+                            <g transform="scale(1.3)">
+                              <path d="M 8.5,0 C 7,-1 2.5,-1.5 -1.5,-1.5 L -1.5,-7.5 C -1.5,-8.2 -2.3,-8.2 -2.6,-7.7 L -4.5,-1.5 L -7.5,-1.2 L -8.8,-4.2 C -9,-4.6 -9.6,-4.4 -9.6,-3.8 L -9.2,-0.7 C -10,-0.3 -11,0 -11,0 C -11,0 -10,0.3 -9.2,0.7 L -9.6,3.8 C -9.6,4.4 -9,4.6 -8.8,4.2 L -7.5,1.2 L -4.5,1.5 L -2.6,7.7 C -2.3,8.2 -1.5,8.2 -1.5,7.5 L -1.5,1.5 C 2.5,1.5 7,1 8.5,0 Z" fill="#D97706" stroke="#FFFFFF" stroke-width="1.1" stroke-linejoin="round" />
+                              <circle cx="4" cy="0" r="0.9" fill="#FFFFFF" />
+                            </g>
+                            <animateMotion dur="25s" begin="-10s" repeatCount="indefinite" rotate="auto">
+                              <mpath href="#dist-flight-4" />
+                            </animateMotion>
+                          </g>
+
+                          <!-- Airplane 5: Indigo Flight (North <-> North-West) -->
+                          <g class="np-plane np-plane--indigo" filter="url(#plane-shadow-dist)">
+                            <g transform="scale(1.3)">
+                              <path d="M 8.5,0 C 7,-1 2.5,-1.5 -1.5,-1.5 L -1.5,-7.5 C -1.5,-8.2 -2.3,-8.2 -2.6,-7.7 L -4.5,-1.5 L -7.5,-1.2 L -8.8,-4.2 C -9,-4.6 -9.6,-4.4 -9.6,-3.8 L -9.2,-0.7 C -10,-0.3 -11,0 -11,0 C -11,0 -10,0.3 -9.2,0.7 L -9.6,3.8 C -9.6,4.4 -9,4.6 -8.8,4.2 L -7.5,1.2 L -4.5,1.5 L -2.6,7.7 C -2.3,8.2 -1.5,8.2 -1.5,7.5 L -1.5,1.5 C 2.5,1.5 7,1 8.5,0 Z" fill="#4F46E5" stroke="#FFFFFF" stroke-width="1.1" stroke-linejoin="round" />
+                              <circle cx="4" cy="0" r="0.9" fill="#FFFFFF" />
+                            </g>
+                            <animateMotion dur="23s" begin="-4s" repeatCount="indefinite" rotate="auto">
+                              <mpath href="#dist-flight-5" />
+                            </animateMotion>
+                          </g>
+                        </svg>
+                        
                         <!-- 4 Manufacturing Plants -->
                         <button type="button" class="np-map-pin np-map-pin--unit" style="left:63.6%;top:51.4%" data-loc="howrah" data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal" data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411" data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411" aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Howrah</span></button>
                         <button type="button" class="np-map-pin np-map-pin--unit" style="left:79.85%;top:36.09%" data-loc="guwahati" data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam" data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031" data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031" aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Guwahati</span></button>
