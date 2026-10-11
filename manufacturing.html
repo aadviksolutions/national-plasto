@@ -35,9 +35,9 @@
            Manufacturing Hub Hero Section (Directly After Breadcrumbs)
            ========================================================================== */
         .np-mfg-hub-hero {
-            background: radial-gradient(circle at 50% 20%, #F8FAFC 0%, #FFFFFF 70%, #F1F5F9 100%);
-            padding: 36px 0 60px;
-            border-bottom: 1px solid #E2E8F0;
+            background: #FFFFFF;
+            padding: 36px 0 50px;
+            border: none;
             position: relative;
             overflow: hidden;
         }
@@ -47,17 +47,17 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
         .np-mfg-logo-pill {
             display: inline-flex;
             align-items: center;
             gap: 12px;
             background: #FFFFFF;
-            border: 1.5px solid #CBD5E1;
+            border: 1.5px solid #E2E8F0;
             border-radius: 999px;
             padding: 8px 18px 8px 14px;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
         }
         .np-mfg-logo-img {
             height: 32px;
@@ -107,38 +107,61 @@
         }
 
         .np-mfg-stage {
+            margin: 10px 0 40px;
+            position: relative;
+        }
+        .np-mfg-stage-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .np-mfg-map-col {
+            flex: 1 1 54%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 10px 0 30px;
-            position: relative;
+        }
+        .np-mfg-card-col {
+            flex: 1 1 46%;
+            max-width: 500px;
+        }
+
+        /* 3D Perspective Tilt Stage for Map (No borders) */
+        .np-mfg-map-tilt-wrap {
+            perspective: 1200px;
+            perspective-origin: center center;
+            width: 100%;
+            max-width: 540px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .np-mfg-map-container {
             position: relative;
             width: 100%;
-            max-width: 680px;
-            margin: 0 auto;
-            background: #FFFFFF;
-            border-radius: 20px;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
-            padding: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 520px;
+            max-width: 480px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            transform: perspective(1000px) rotateX(12deg) rotateY(-10deg) rotateZ(-2deg);
+            transform-style: preserve-3d;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .np-mfg-map-container:hover {
+            transform: perspective(1000px) rotateX(4deg) rotateY(-3deg) rotateZ(-1deg);
         }
         .np-mfg-map-svg {
             display: block;
             width: 100%;
-            max-width: 480px;
             height: auto;
-            filter: drop-shadow(0 4px 12px rgba(15, 23, 42, 0.08));
+            filter: drop-shadow(0 16px 28px rgba(15, 23, 42, 0.12));
             user-select: none;
             pointer-events: none;
         }
 
-        /* Pins */
+        /* Pins - Glowing circular dots matching index.html */
         .np-mfg-pin {
             position: absolute;
             transform: translate(-50%, -50%);
@@ -151,54 +174,49 @@
             align-items: center;
             padding: 0;
             outline: none;
-            transition: transform 0.2s ease;
+            transition: transform 0.25s ease;
         }
         .np-mfg-pin:hover,
         .np-mfg-pin.is-active {
-            z-index: 20;
-            transform: translate(-50%, -50%) scale(1.15);
+            z-index: 25;
+            transform: translate(-50%, -50%) scale(1.18);
         }
-        .np-mfg-pin-core {
-            width: 32px;
-            height: 32px;
-            border-radius: 50% 50% 50% 0;
-            transform: rotate(-45deg);
-            background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.45);
-            border: 2px solid #FFFFFF;
+        .np-mfg-pin-dot {
             position: relative;
-            transition: background 0.25s ease;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #EAB308;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
+            transition: transform 0.25s ease, background 0.25s ease;
         }
-        .np-mfg-pin-core i {
-            transform: rotate(45deg);
-            font-size: 12px;
-        }
-        .np-mfg-pin.is-active .np-mfg-pin-core {
-            background: linear-gradient(135deg, #B91C1C 0%, #7F1D1D 100%);
-            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.25), 0 6px 16px rgba(220, 38, 38, 0.55);
+        .np-mfg-pin.is-active .np-mfg-pin-dot {
+            background: #DC2626;
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.3), 0 4px 12px rgba(220, 38, 38, 0.5);
         }
         .np-mfg-pin-pulse {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 44px;
-            height: 44px;
+            width: 36px;
+            height: 36px;
             transform: translate(-50%, -50%);
             border-radius: 50%;
-            border: 2px solid rgba(220, 38, 38, 0.45);
-            animation: mfgPulseRing 2s infinite ease-out;
+            border: 2px solid rgba(234, 179, 8, 0.65);
+            animation: mfgPinPulse 2s ease-out infinite;
             pointer-events: none;
         }
-        @keyframes mfgPulseRing {
-            0% { transform: translate(-50%, -50%) scale(0.6); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1.6); opacity: 0; }
+        .np-mfg-pin.is-active .np-mfg-pin-pulse {
+            border-color: rgba(220, 38, 38, 0.65);
+        }
+        @keyframes mfgPinPulse {
+            0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.7); opacity: 0; }
         }
         .np-mfg-pin-label {
-            margin-top: 4px;
+            margin-top: 5px;
             background: #0F172A;
             color: #FFFFFF;
             font-family: 'Outfit', sans-serif;
@@ -208,7 +226,7 @@
             padding: 3px 8px;
             border-radius: 4px;
             white-space: nowrap;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
             pointer-events: none;
             transition: all 0.2s ease;
         }
@@ -217,20 +235,15 @@
             color: #FFFFFF;
         }
 
-        /* The Floating Mfg Card (As drawn in sketch with 'Mfg' box) */
+        /* The Interactive Mfg Facility Card */
         .np-mfg-card {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            max-width: 320px;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1.5px solid #E2E8F0;
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
-            z-index: 15;
+            position: relative;
+            width: 100%;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
             text-align: left;
             transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
         }
@@ -238,7 +251,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         .np-mfg-card-tag {
             background: #DC2626;
@@ -246,15 +259,15 @@
             font-size: 11px;
             font-weight: 800;
             letter-spacing: 1px;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 4px;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         .np-mfg-card-unit {
-            font-size: 11.5px;
+            font-size: 12px;
             font-weight: 700;
             color: #64748B;
             text-transform: uppercase;
@@ -262,57 +275,54 @@
         }
         .np-mfg-card-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 700;
             color: #0F172A;
-            margin: 0 0 6px 0;
+            margin: 0 0 8px 0;
             line-height: 1.3;
         }
         .np-mfg-card-location {
-            font-size: 12.5px;
+            font-size: 13.5px;
             color: #DC2626;
             font-weight: 600;
-            margin: 0 0 8px 0;
+            margin: 0 0 12px 0;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
         .np-mfg-card-desc {
-            font-size: 12.5px;
+            font-size: 13.5px;
             color: #475569;
-            line-height: 1.45;
-            margin: 0 0 12px 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            line-height: 1.55;
+            margin: 0 0 18px 0;
         }
         .np-mfg-card-metrics {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 18px;
         }
         .np-mfg-metric-pill {
             background: #F8FAFC;
             border: 1px solid #E2E8F0;
-            border-radius: 6px;
-            padding: 6px 8px;
+            border-radius: 8px;
+            padding: 10px 12px;
             text-align: center;
         }
         .np-mfg-metric-pill .val {
             display: block;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 800;
             color: #0F172A;
             font-family: 'Outfit', sans-serif;
         }
         .np-mfg-metric-pill .lbl {
             display: block;
-            font-size: 10px;
+            font-size: 11px;
             color: #64748B;
             text-transform: uppercase;
             font-weight: 600;
+            margin-top: 2px;
         }
         .np-mfg-card-action {
             display: block;
@@ -323,12 +333,12 @@
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 9px 14px;
+            padding: 11px 18px;
             background: #0F172A;
             color: #FFFFFF;
-            font-size: 12.5px;
+            font-size: 13.5px;
             font-weight: 700;
-            border-radius: 6px;
+            border-radius: 8px;
             text-decoration: none;
             transition: background 0.2s ease, transform 0.2s ease;
         }
@@ -343,7 +353,7 @@
             text-align: center;
             max-width: 840px;
             margin: 0 auto;
-            padding-top: 10px;
+            padding-top: 20px;
         }
         .np-mfg-eyebrow {
             display: inline-block;
@@ -361,7 +371,7 @@
         }
         .np-mfg-main-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 42px;
+            font-size: 40px;
             font-weight: 800;
             color: #0F172A;
             letter-spacing: -0.5px;
@@ -415,16 +425,24 @@
             background: #E2E8F0;
         }
 
+        @media (max-width: 991px) {
+            .np-mfg-stage-flex {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .np-mfg-card-col {
+                max-width: 100%;
+                width: 100%;
+            }
+            .np-mfg-map-container {
+                max-width: 440px;
+            }
+        }
+
         @media (max-width: 768px) {
             .np-mfg-map-container {
-                padding: 16px 12px;
-                min-height: auto;
-            }
-            .np-mfg-card {
-                position: static;
-                max-width: 100%;
-                margin-top: 18px;
-                box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+                transform: none !important;
+                max-width: 360px;
             }
             .np-mfg-topbar {
                 justify-content: center;
@@ -815,61 +833,70 @@
 
                 <!-- Center Stage: India Map with Pinpoints + Interactive 'Mfg' Card -->
                 <div class="np-mfg-stage">
-                    <div class="np-mfg-map-container">
-                        <img src="images/icons/india-map.svg" alt="India Manufacturing Plant Locations" class="np-mfg-map-svg" width="560" height="625">
-                        
-                        <!-- Pin 1: Howrah / Dhulagarh (HQ) -->
-                        <button type="button" class="np-mfg-pin is-active" id="pin-howrah" style="left:63.6%;top:51.4%" onclick="selectMfgPlant('howrah')" aria-label="Dhulagarh Central Plant">
-                            <span class="np-mfg-pin-pulse"></span>
-                            <span class="np-mfg-pin-core"><i class="fas fa-industry"></i></span>
-                            <span class="np-mfg-pin-label">Howrah (HQ)</span>
-                        </button>
+                    <div class="np-mfg-stage-flex">
+                        <!-- Left: Borderless & Slightly Tilted Map -->
+                        <div class="np-mfg-map-col">
+                            <div class="np-mfg-map-tilt-wrap">
+                                <div class="np-mfg-map-container">
+                                    <img src="images/icons/india-map.svg" alt="India Manufacturing Plant Locations" class="np-mfg-map-svg" width="560" height="625">
+                                    
+                                    <!-- Pin 1: Howrah / Dhulagarh (HQ) -->
+                                    <button type="button" class="np-mfg-pin is-active" id="pin-howrah" style="left:63.6%;top:51.4%" onclick="selectMfgPlant('howrah')" aria-label="Dhulagarh Central Plant">
+                                        <span class="np-mfg-pin-pulse"></span>
+                                        <span class="np-mfg-pin-dot"></span>
+                                        <span class="np-mfg-pin-label">Howrah (HQ)</span>
+                                    </button>
 
-                        <!-- Pin 2: Uluberia -->
-                        <button type="button" class="np-mfg-pin" id="pin-uluberia" style="left:61.2%;top:55.8%" onclick="selectMfgPlant('uluberia')" aria-label="Uluberia High Speed Plant">
-                            <span class="np-mfg-pin-pulse"></span>
-                            <span class="np-mfg-pin-core"><i class="fas fa-industry"></i></span>
-                            <span class="np-mfg-pin-label">Uluberia</span>
-                        </button>
+                                    <!-- Pin 2: Uluberia -->
+                                    <button type="button" class="np-mfg-pin" id="pin-uluberia" style="left:61.2%;top:55.8%" onclick="selectMfgPlant('uluberia')" aria-label="Uluberia High Speed Plant">
+                                        <span class="np-mfg-pin-pulse"></span>
+                                        <span class="np-mfg-pin-dot"></span>
+                                        <span class="np-mfg-pin-label">Uluberia</span>
+                                    </button>
 
-                        <!-- Pin 3: Guwahati / Assam -->
-                        <button type="button" class="np-mfg-pin" id="pin-assam" style="left:79.85%;top:36.09%" onclick="selectMfgPlant('assam')" aria-label="Guwahati Regional Hub">
-                            <span class="np-mfg-pin-pulse"></span>
-                            <span class="np-mfg-pin-core"><i class="fas fa-industry"></i></span>
-                            <span class="np-mfg-pin-label">Guwahati</span>
-                        </button>
+                                    <!-- Pin 3: Guwahati / Assam -->
+                                    <button type="button" class="np-mfg-pin" id="pin-assam" style="left:79.85%;top:36.09%" onclick="selectMfgPlant('assam')" aria-label="Guwahati Regional Hub">
+                                        <span class="np-mfg-pin-pulse"></span>
+                                        <span class="np-mfg-pin-dot"></span>
+                                        <span class="np-mfg-pin-label">Guwahati</span>
+                                    </button>
 
-                        <!-- Pin 4: Patna / Bihar -->
-                        <button type="button" class="np-mfg-pin" id="pin-patna" style="left:58.26%;top:37.74%" onclick="selectMfgPlant('patna')" aria-label="Patna Storage & Crate Complex">
-                            <span class="np-mfg-pin-pulse"></span>
-                            <span class="np-mfg-pin-core"><i class="fas fa-industry"></i></span>
-                            <span class="np-mfg-pin-label">Patna</span>
-                        </button>
-
-                        <!-- Floating Mfg Facility Card (Nested in center between pins as sketched) -->
-                        <div class="np-mfg-card" id="npMfgCard">
-                            <div class="np-mfg-card-badge">
-                                <span class="np-mfg-card-tag"><i class="fas fa-cog fa-spin"></i> Mfg</span>
-                                <span class="np-mfg-card-unit" id="mfgCardUnit">Plant 01 &bull; Flagship</span>
-                            </div>
-                            <h3 class="np-mfg-card-title" id="mfgCardTitle">Dhulagarh Central Facility &amp; Toolroom</h3>
-                            <p class="np-mfg-card-location" id="mfgCardLoc"><i class="fas fa-map-marker-alt"></i> Jalan Industrial Complex, Howrah, West Bengal</p>
-                            <p class="np-mfg-card-desc" id="mfgCardDesc">Our flagship manufacturing complex and central tooling workshop. Houses our heaviest 1,200T high-tonnage presses for large monoblock dining tables, executive armchairs, and custom industrial crates.</p>
-                            <div class="np-mfg-card-metrics" id="mfgCardMetrics">
-                                <div class="np-mfg-metric-pill">
-                                    <span class="val" id="mfgCardVal1">1,200 Ton</span>
-                                    <span class="lbl" id="mfgCardLbl1">Max Press Tonnage</span>
-                                </div>
-                                <div class="np-mfg-metric-pill">
-                                    <span class="val" id="mfgCardVal2">24x7 Continuous</span>
-                                    <span class="lbl" id="mfgCardLbl2">Automated Shifts</span>
+                                    <!-- Pin 4: Patna / Bihar -->
+                                    <button type="button" class="np-mfg-pin" id="pin-patna" style="left:58.26%;top:37.74%" onclick="selectMfgPlant('patna')" aria-label="Patna Storage & Crate Complex">
+                                        <span class="np-mfg-pin-pulse"></span>
+                                        <span class="np-mfg-pin-dot"></span>
+                                        <span class="np-mfg-pin-label">Patna</span>
+                                    </button>
                                 </div>
                             </div>
-                            <div class="np-mfg-card-action">
-                                <a href="#howrah" class="np-mfg-action-btn" id="mfgCardBtn">
-                                    <span>Explore Facility Specs</span>
-                                    <i class="fas fa-arrow-down"></i>
-                                </a>
+                        </div>
+
+                        <!-- Right: Interactive Mfg Facility Card -->
+                        <div class="np-mfg-card-col">
+                            <div class="np-mfg-card" id="npMfgCard">
+                                <div class="np-mfg-card-badge">
+                                    <span class="np-mfg-card-tag"><i class="fas fa-industry"></i> Mfg Hub</span>
+                                    <span class="np-mfg-card-unit" id="mfgCardUnit">Plant 01 &bull; Flagship</span>
+                                </div>
+                                <h3 class="np-mfg-card-title" id="mfgCardTitle">Dhulagarh Central Facility &amp; Toolroom</h3>
+                                <p class="np-mfg-card-location" id="mfgCardLoc"><i class="fas fa-map-marker-alt"></i> Jalan Industrial Complex, Howrah, West Bengal</p>
+                                <p class="np-mfg-card-desc" id="mfgCardDesc">Our flagship manufacturing complex and central tooling workshop. Houses our heaviest 1,200T high-tonnage presses for large monoblock dining tables, executive armchairs, and custom industrial crates.</p>
+                                <div class="np-mfg-card-metrics" id="mfgCardMetrics">
+                                    <div class="np-mfg-metric-pill">
+                                        <span class="val" id="mfgCardVal1">1,200 Ton</span>
+                                        <span class="lbl" id="mfgCardLbl1">Max Press Tonnage</span>
+                                    </div>
+                                    <div class="np-mfg-metric-pill">
+                                        <span class="val" id="mfgCardVal2">24x7 Continuous</span>
+                                        <span class="lbl" id="mfgCardLbl2">Automated Shifts</span>
+                                    </div>
+                                </div>
+                                <div class="np-mfg-card-action">
+                                    <a href="#howrah" class="np-mfg-action-btn" id="mfgCardBtn">
+                                        <span>Explore Facility Specs</span>
+                                        <i class="fas fa-arrow-down"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
