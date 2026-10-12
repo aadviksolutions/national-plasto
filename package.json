@@ -1,0 +1,9 @@
+{
+  "name": "national-plasto",
+  "version": "1.0.0",
+  "description": "National Plasto official website",
+  "scripts": {
+    "build": "echo Build complete: Static website assets ready.",
+    "start": "npx serve ."
+  }
+}
