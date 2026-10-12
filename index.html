@@ -720,8 +720,272 @@
                 max-width: 480px !important;
                 margin: 0 auto !important;
             }
-            #index_page .contact_us .contact_flex .contact_us_form form {
-                padding: 16px 16px 18px !important;
+        /* ==========================================================================
+           OUR DIVISIONS SECTION (#our-divisions)
+           ========================================================================== */
+        #index_page .our_business_main,
+        .our_business_main {
+            padding: 80px 0 100px !important;
+            background: #FFFFFF !important;
+            position: relative;
+        }
+
+        #index_page .our_business_flex,
+        .our_business_flex {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 48px !important;
+        }
+
+        #index_page .our_business_title,
+        .our_business_title {
+            width: 46% !important;
+            flex: 0 0 46% !important;
+        }
+
+        #index_page .our_business_img,
+        .our_business_img {
+            width: 50% !important;
+            flex: 0 0 50% !important;
+        }
+
+        .our_business_title .heading-text {
+            font-size: 38px !important;
+            font-weight: 700 !important;
+            margin-bottom: 28px !important;
+            color: #0F172A !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        .our_business_title_slider {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 14px !important;
+        }
+
+        .slider_title_item {
+            margin: 0 !important;
+            padding: 0 !important;
+            cursor: pointer !important;
+            display: block !important;
+            border-radius: 12px !important;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            border: 1px solid transparent !important;
+        }
+
+        .slider_title_item a {
+            text-decoration: none !important;
+            display: block !important;
+            padding: 14px 18px !important;
+            border-radius: 12px !important;
+            transition: all 0.25s ease !important;
+        }
+
+        .slider_title_item h4.subheading-text {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-size: 21px !important;
+            font-weight: 600 !important;
+            color: #1E293B !important;
+            margin: 0 !important;
+            opacity: 0.42 !important; /* Clearly readable, never invisible or blank */
+            transition: all 0.3s ease !important;
+        }
+
+        .slider_title_item .slider_arrow {
+            width: 22px !important;
+            height: 22px !important;
+            opacity: 0 !important;
+            transform: translateX(-10px) !important;
+            transition: all 0.3s ease !important;
+            filter: invert(42%) sepia(93%) saturate(1750%) hue-rotate(178deg) brightness(97%) contrast(101%) !important;
+        }
+
+        .slider_title_item:hover {
+            border-color: rgba(0, 148, 220, 0.15) !important;
+        }
+
+        .slider_title_item:hover a {
+            background: #F8FAFC !important;
+        }
+
+        .slider_title_item:hover h4.subheading-text {
+            opacity: 0.8 !important;
+            color: #0F172A !important;
+        }
+
+        .slider_title_item:hover .slider_arrow {
+            opacity: 0.5 !important;
+            transform: translateX(-4px) !important;
+        }
+
+        /* Active division */
+        .slider_title_item.is-active,
+        .slider_title_item.slick-current {
+            background: #F0F9FF !important;
+            border-color: rgba(0, 148, 220, 0.25) !important;
+            box-shadow: 0 4px 18px rgba(0, 148, 220, 0.08) !important;
+            transform: translateX(6px) !important;
+        }
+
+        .slider_title_item.is-active a,
+        .slider_title_item.slick-current a {
+            background: transparent !important;
+        }
+
+        .slider_title_item.is-active h4.subheading-text,
+        .slider_title_item.slick-current h4.subheading-text {
+            opacity: 1 !important;
+            color: #0094DC !important;
+            font-weight: 700 !important;
+        }
+
+        .slider_title_item.is-active .slider_arrow,
+        .slider_title_item.slick-current .slider_arrow {
+            opacity: 1 !important;
+            transform: translateX(0) !important;
+        }
+
+        /* Image slider container - Vertical Auto-Scroll */
+        .our_business_img_slider {
+            border-radius: 18px !important;
+            overflow: hidden !important;
+            box-shadow: 0 12px 36px rgba(15, 23, 42, 0.12) !important;
+            background: #F8FAFC !important;
+            position: relative !important;
+        }
+
+        .our_business_img_slider .slick-list {
+            border-radius: 18px !important;
+            overflow: hidden !important;
+        }
+
+        .our_business_img_slider.slick-vertical .slick-slide {
+            border: 0 !important;
+            outline: none !important;
+            display: block !important;
+            margin: 0 !important;
+        }
+
+        .our_business_img_item img {
+            width: 100% !important;
+            height: auto !important;
+            aspect-ratio: 1280 / 1000 !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            display: block !important;
+            border-radius: 18px !important;
+        }
+
+        /* Arrows on right image slider (Vertical Navigation) */
+        .our_business_img_slider .slick-prev,
+        .our_business_img_slider .slick-next {
+            z-index: 5 !important;
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            background: rgba(255, 255, 255, 0.92) !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
+            transition: all 0.25s ease !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: absolute !important;
+        }
+
+        .our_business_img_slider .slick-prev:hover,
+        .our_business_img_slider .slick-next:hover {
+            background: #0094DC !important;
+        }
+
+        .our_business_img_slider .slick-prev {
+            top: 20px !important;
+            right: 20px !important;
+            left: auto !important;
+            transform: none !important;
+        }
+
+        .our_business_img_slider .slick-next {
+            bottom: 20px !important;
+            right: 20px !important;
+            left: auto !important;
+            top: auto !important;
+            transform: none !important;
+        }
+
+        .our_business_img_slider .slick-prev:before {
+            content: "\f106" !important; /* FontAwesome chevron-up */
+            font-family: "FontAwesome" !important;
+            color: #0F172A !important;
+            font-size: 18px !important;
+            opacity: 1 !important;
+            line-height: 1 !important;
+        }
+
+        .our_business_img_slider .slick-next:before {
+            content: "\f107" !important; /* FontAwesome chevron-down */
+            font-family: "FontAwesome" !important;
+            color: #0F172A !important;
+            font-size: 18px !important;
+            opacity: 1 !important;
+            line-height: 1 !important;
+        }
+
+        .our_business_img_slider .slick-prev:hover:before,
+        .our_business_img_slider .slick-next:hover:before {
+            color: #FFFFFF !important;
+        }
+
+        /* Mobile / Tablet Responsive */
+        @media (max-width: 991px) {
+            #index_page .our_business_main,
+            .our_business_main {
+                padding: 50px 0 70px !important;
+            }
+
+            #index_page .our_business_flex,
+            .our_business_flex {
+                flex-direction: column-reverse !important;
+                gap: 28px !important;
+            }
+
+            #index_page .our_business_title,
+            .our_business_title,
+            #index_page .our_business_img,
+            .our_business_img {
+                width: 100% !important;
+                flex: 0 0 100% !important;
+            }
+
+            .our_business_title .heading-text {
+                font-size: 30px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .slider_title_item.is-active,
+            .slider_title_item.slick-current {
+                transform: translateX(0) !important;
+            }
+
+            .slider_title_item h4.subheading-text {
+                font-size: 18px !important;
+            }
+
+            .slider_title_item a {
+                padding: 12px 16px !important;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .slider_title_item h4.subheading-text {
+                font-size: 15px !important;
+            }
+
+            .slider_title_item a {
+                padding: 10px 14px !important;
             }
         }
     </style>
@@ -1223,22 +1487,22 @@
           <div class="our_business_title">
             <h2 class="heading-text di_none">Our <span class="color_red_home">Divisions</span></h2>
             <div class="our_business_title_slider" id="business_title">
-              <div class="slider_title_item">
+              <div class="slider_title_item is-active slick-current" data-slide="0">
                 <a href="products.html?brand=next">
                   <h4 class="subheading-text">NEXT &mdash; Premium Furniture <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
               </div>
-              <div class="slider_title_item">
+              <div class="slider_title_item" data-slide="1">
                 <a href="products.html?brand=national">
                   <h4 class="subheading-text">NATIONAL &mdash; Moulded Furniture <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
               </div>
-              <div class="slider_title_item">
+              <div class="slider_title_item" data-slide="2">
                 <a href="products.html?brand=captain">
                   <h4 class="subheading-text">CAPTAIN &mdash; Economical Furniture <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
               </div>
-              <div class="slider_title_item">
+              <div class="slider_title_item" data-slide="3">
                 <a href="products.html?brand=sapphire">
                   <h4 class="subheading-text">SAPPHIRE &mdash; Value Seating <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
@@ -1249,16 +1513,16 @@
           <div class="our_business_img">
             <h2 class="heading-text di_show">Our <span class="color_red_home">Divisions</span></h2>
             <div class="our_business_img_slider" id="business_img">
-              <div class="our_business_img_item">
+              <div class="our_business_img_item" data-slide="0">
                 <img src="images/divisions/next.jpg" class="img-responsive" alt="NEXT - Premium Furniture" loading="lazy">
               </div>
-              <div class="our_business_img_item">
+              <div class="our_business_img_item" data-slide="1">
                 <img src="images/divisions/national.jpg" class="img-responsive" alt="NATIONAL - Moulded Furniture" loading="lazy">
               </div>
-              <div class="our_business_img_item">
+              <div class="our_business_img_item" data-slide="2">
                 <img src="images/divisions/captain.jpg" class="img-responsive" alt="CAPTAIN - Economical Furniture" loading="lazy">
               </div>
-              <div class="our_business_img_item">
+              <div class="our_business_img_item" data-slide="3">
                 <img src="images/divisions/sapphire.jpg" class="img-responsive" alt="SAPPHIRE - Value Seating" loading="lazy">
               </div>
             </div>
@@ -2138,7 +2402,7 @@
     <!-- Core JS dependencies -->
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script src="js/supreme_app.min.js?v=20260929b"></script>
+    <script src="js/supreme_app.min.js?v=20261012_div_fix"></script>
     <script src="js/supreme_mobile.js?v=20260926"></script>
 
     <!-- Supreme 1:1 Homepage Slick Initializations -->
@@ -2176,9 +2440,57 @@
 
 
 
-        // Virtues, Our Divisions (#business_title / #business_img), Milestones and
-        // Certifications (#awards_slider) are initialised by supreme_app.min.js,
-        // exactly as on supreme.co.in.
+        // Our Divisions (#business_title / #business_img) synchronization & interaction
+        (function initOurDivisions() {
+            var $bizImg = $('#business_img');
+            var $bizTitles = $('#business_title .slider_title_item');
+            if ($bizImg.length) {
+                if ($bizImg.hasClass('slick-initialized')) {
+                    $bizImg.slick('unslick');
+                }
+                $bizImg.slick({
+                    autoplay: true,
+                    autoplaySpeed: 3200,
+                    speed: 800,
+                    vertical: true,
+                    verticalSwiping: true,
+                    fade: false,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    dots: false,
+                    pauseOnHover: true,
+                    pauseOnFocus: true,
+                    adaptiveHeight: false,
+                    responsive: [
+                        { breakpoint: 991, settings: { vertical: false, verticalSwiping: false, arrows: false, dots: true } }
+                    ]
+                });
+                function syncActiveDivision(idx) {
+                    $bizTitles.removeClass('slick-current is-active');
+                    $bizTitles.eq(idx).addClass('slick-current is-active');
+                }
+                syncActiveDivision(0);
+                $bizImg.off('beforeChange.npDiv').on('beforeChange.npDiv', function(e, slick, current, next) {
+                    syncActiveDivision(next);
+                });
+                $bizTitles.each(function(idx) {
+                    var $it = $(this);
+                    $it.find('a').off('click.npDiv').on('click.npDiv', function(e) {
+                        if (!$it.hasClass('is-active')) {
+                            e.preventDefault();
+                            $bizImg.slick('slickGoTo', idx);
+                        }
+                    });
+                    $it.off('click.npDiv').on('click.npDiv', function(e) {
+                        if (e.target.tagName.toLowerCase() !== 'a' && !$(e.target).closest('a').length) {
+                            $bizImg.slick('slickGoTo', idx);
+                        }
+                    });
+                });
+            }
+        })();
 
 
         // Headline Slider

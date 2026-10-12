@@ -1500,51 +1500,61 @@
             background: #FFFFFF;
         }
 
+        /* Total Moulded Solutions Hero with Dealer Partner Banner Background */
         .np-piping-hero {
             position: relative;
             width: 100%;
-            height: 480px;
-            background-color: #79C2E3; /* Sky Blue Fallback */
-            background-image: url('images/brand/company-photo.jpg'); /* Company photo background */
+            height: 500px;
+            background-color: #E2E8F0;
+            background-image: url('images/brand/dealer-partner-hero.png');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 24px;
             border-bottom: 1px solid var(--np-border);
+            overflow: hidden;
         }
         
         .np-piping-hero::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(121, 194, 227, 0.85); /* Semi-transparent blue overlay */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(235, 246, 253, 0.74);
+            /* Clean semi-transparent overlay: image is visible, text is crisp */
             z-index: 1;
         }
 
         .np-piping-hero-content {
+            position: relative;
             z-index: 2;
-            color: #2D3748;
+            color: #0F172A;
+            max-width: 840px;
+            margin: 0 auto;
         }
 
         .np-piping-hero-content h2 {
-            font-size: 64px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            font-family: 'Work Sans', sans-serif;
-            color: #2D3748;
-            line-height: 1.1;
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            color: #0F172A;
+            line-height: 1.15;
         }
 
         .np-piping-hero-content p {
-            font-size: 22px;
-            max-width: 750px;
+            font-size: 20px;
+            max-width: 760px;
             margin: 0 auto;
-            line-height: 1.5;
-            color: #2D3748;
-            font-weight: 400;
+            line-height: 1.55;
+            color: #1E293B;
+            font-weight: 500;
+            font-family: 'Work Sans', sans-serif;
         }
 
         .np-piping-applications {
@@ -1810,19 +1820,19 @@
             /* 5. Total Moulded Solutions Hero & Infrastructure Showcase */
             .np-piping-hero {
                 height: auto !important;
-                min-height: 220px !important;
-                padding: 36px 16px !important;
+                min-height: 320px !important;
+                padding: 48px 16px !important;
             }
             .np-piping-hero-content img {
-                height: 30px !important;
+                height: 34px !important;
             }
             .np-piping-hero-content h2 {
-                font-size: 24px !important;
+                font-size: 28px !important;
                 line-height: 1.25 !important;
-                margin-bottom: 10px !important;
+                margin-bottom: 12px !important;
             }
             .np-piping-hero-content p {
-                font-size: 13.5px !important;
+                font-size: 14.5px !important;
                 line-height: 1.5 !important;
             }
             .np-piping-applications {
@@ -2929,10 +2939,11 @@
             <div class="np-piping-hero">
                 <div class="np-piping-hero-content">
                     <div style="margin-bottom: 16px;">
-                        <img src="images/brand/company-national-logo.png" alt="National Plasto" style="height: 40px; margin-bottom: 8px;">
-                        <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #2D3748;">TOTAL MOULDED SOLUTIONS</div>
+                        <img src="images/brand/company-national-logo.png" alt="National Plasto"
+                            style="height: 40px; margin-bottom: 8px;">
+                        <div style="font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #1E293B; text-transform: uppercase;">TOTAL MOULDED SOLUTIONS</div>
                     </div>
-                    <h2>Premium Plastic<br>Furniture & Crates</h2>
+                    <h2>Premium Plastic<br>Furniture &amp; Crates</h2>
                     <p>Eastern India's leading manufacturer of high-quality plastic moulded furniture and material handling solutions.</p>
                 </div>
             </div>
