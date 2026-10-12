@@ -17,8 +17,8 @@
     --brand-muted: #64748B;
     --brand-border: #E2E8F0;
     --brand-bg-light: #F8FAFC;
-    --font-heading: 'Outfit', 'Poppins', sans-serif;
-    --font-body: 'Work Sans', 'Inter', sans-serif;
+    --font-heading: 'Poppins', 'Work Sans', sans-serif;
+    --font-body: 'Work Sans', sans-serif;
 }
 
 /* Base resets & typography */

@@ -52,7 +52,7 @@
 
         /* Scope & Base */
         .np-dist-scope {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Work Sans', sans-serif;
             color: var(--np-dark);
             background: #FFFFFF;
             overflow-x: hidden;
@@ -63,7 +63,7 @@
         .np-dist-scope h3, 
         .np-dist-scope h4, 
         .np-dist-scope h5 {
-            font-family: 'Outfit', 'Inter', sans-serif;
+            font-family: 'Poppins', 'Work Sans', sans-serif;
             letter-spacing: -0.025em;
             color: var(--np-dark);
             margin-top: 0;
@@ -980,7 +980,7 @@
             font-weight: 800;
             color: var(--np-dark);
             margin: 0 0 8px 0;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Poppins', 'Work Sans', sans-serif;
             letter-spacing: 0.5px;
         }
         .np-brand-desc {
@@ -1308,7 +1308,7 @@
         .np-stat-number {
             font-size: 28px;
             font-weight: 800;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Poppins', 'Work Sans', sans-serif;
             color: var(--np-blue);
             line-height: 1.1;
             margin-bottom: 4px;
@@ -1357,7 +1357,7 @@
             color: #FFFFFF;
             line-height: 1.2;
             margin-bottom: 16px;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Poppins', 'Work Sans', sans-serif;
         }
 
         .np-cta-desc {
@@ -1533,7 +1533,7 @@
             font-size: 64px;
             font-weight: 500;
             margin-bottom: 24px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Work Sans', sans-serif;
             color: #2D3748;
             line-height: 1.1;
         }
@@ -1558,7 +1558,7 @@
             font-weight: 800;
             color: #2D3748;
             margin-bottom: 24px;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Work Sans', sans-serif;
             letter-spacing: -1px;
         }
 
@@ -1612,7 +1612,7 @@
             font-size: 18px;
             font-weight: 700;
             color: #FFFFFF;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Poppins', 'Work Sans', sans-serif;
         }
 
         .np-app-slide-counter {
@@ -1623,7 +1623,7 @@
             font-size: 44px;
             font-weight: 800;
             color: #FFFFFF;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Poppins', 'Work Sans', sans-serif;
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
             letter-spacing: -1px;
             z-index: 2;
@@ -2127,7 +2127,6 @@
             cursor: pointer !important;
             opacity: 1 !important;
             pointer-events: auto !important;
-            animation: none !important;
         }
         #distributor_page .pan_india_content {
             flex: 1 !important;
@@ -2140,7 +2139,7 @@
             color: #1F2937 !important;
             line-height: 1.15 !important;
             margin: 0 0 20px 0 !important;
-            font-family: 'Outfit', 'Inter', -apple-system, sans-serif !important;
+            font-family: 'Poppins', 'Work Sans', sans-serif !important;
             letter-spacing: -0.02em !important;
         }
         #distributor_page .pan_india_content .heading-text .color_blue_home {
@@ -2255,175 +2254,178 @@
             padding: 6px 10px;
         }
 
-        /* Live Data Display Card */
-        .np-map-loc-card {
-            background: #FFFFFF;
-            border: 1.5px solid #E2E8F0;
-            border-radius: 14px;
-            padding: 22px 24px;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+        /* ==========================================================================
+           LIVE LOCATION & ADDRESS DISPLAY (Supreme.co.in 1:1 Layout - Open & Unboxed)
+           No box wrapper, no borders, no cards - clean editorial typography
+           ========================================================================== */
+        .np-map-loc-card,
+        .np-map-loc-unboxed {
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 20px 0 0 0 !important;
+            box-shadow: none !important;
             transition: all 0.25s ease;
             position: relative;
-            overflow: hidden;
-            margin-top: 14px;
+            overflow: visible !important;
+            margin-top: 8px !important;
         }
-        .np-map-loc-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: #0094DC;
-            transition: background 0.25s ease;
+        .np-map-loc-card::before,
+        .np-map-loc-unboxed::before {
+            display: none !important;
         }
-        .np-map-loc-card[data-category="office"]::before { background: #DC2626; }
-        .np-map-loc-card[data-category="plant"]::before { background: #1E8E3E; }
-        .np-map-loc-card[data-category="depot"]::before { background: #EAB308; }
-        .np-map-loc-card[data-category="distributor"]::before { background: #1D4ED8; }
 
         .np-mlc-header {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
-        .np-card-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            margin-bottom: 8px;
+        .np-card-badge,
+        .np-loc-eyebrow {
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 7px !important;
+            font-family: 'Poppins', 'Work Sans', sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1.5px !important;
+            padding: 0 !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 0 !important;
+            margin-bottom: 8px !important;
             width: fit-content;
         }
-        .np-card-badge.badge-office { background: #FEE2E2; color: #DC2626; border: 1px solid #FECACA; }
-        .np-card-badge.badge-plant { background: #DCFCE7; color: #166534; border: 1px solid #BBF7D0; }
-        .np-card-badge.badge-depot { background: #FEF9C3; color: #854D0E; border: 1px solid #FEF08A; }
-        .np-card-badge.badge-distributor { background: #DBEAFE; color: #1E40AF; border: 1px solid #BFDBFE; }
+        .np-card-badge.badge-office, .np-loc-eyebrow.badge-office { color: #DC2626 !important; }
+        .np-card-badge.badge-plant, .np-loc-eyebrow.badge-plant { color: #1E8E3E !important; }
+        .np-card-badge.badge-depot, .np-loc-eyebrow.badge-depot { color: #D97706 !important; }
+        .np-card-badge.badge-distributor, .np-loc-eyebrow.badge-distributor { color: #0094DC !important; }
 
         .np-mlc-name {
-            font-size: 19px;
-            font-weight: 800;
-            color: #0F172A;
-            margin: 0 0 3px;
-            line-height: 1.3;
-            font-family: 'Outfit', sans-serif;
-            letter-spacing: -0.01em;
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            color: #111827 !important;
+            margin: 0 0 4px !important;
+            line-height: 1.25 !important;
+            font-family: 'Poppins', 'Work Sans', sans-serif !important;
+            letter-spacing: -0.02em !important;
         }
         .np-mlc-scope {
-            font-size: 12.5px;
-            color: #0094DC;
-            font-weight: 600;
-            margin-bottom: 0;
+            font-size: 14px !important;
+            color: #0094DC !important;
+            font-weight: 600 !important;
+            margin-bottom: 0 !important;
+            font-family: 'Work Sans', sans-serif !important;
         }
 
         .np-mlc-details {
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-            padding: 12px 0;
-            border-top: 1px solid #F1F5F9;
-            border-bottom: 1px solid #F1F5F9;
-            margin-bottom: 16px;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            padding: 16px 0 !important;
+            border: none !important;
+            margin-bottom: 22px !important;
         }
         .np-loc-detail-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 13.5px;
-            color: #475569;
-            line-height: 1.5;
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+            font-size: 15px !important;
+            color: #4B5563 !important;
+            line-height: 1.6 !important;
         }
         .np-loc-detail-row i {
-            font-size: 13.5px;
-            color: #64748B;
-            margin-top: 3px;
-            flex-shrink: 0;
-            width: 15px;
-            text-align: center;
+            font-size: 15px !important;
+            color: #0094DC !important;
+            margin-top: 4px !important;
+            flex-shrink: 0 !important;
+            width: 16px !important;
+            text-align: center !important;
         }
         .np-loc-detail-row a {
-            color: #0F172A;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.2s ease;
+            color: #1F2937 !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            transition: color 0.2s ease !important;
         }
         .np-loc-detail-row a:hover {
-            color: #0094DC;
-            text-decoration: underline;
+            color: #0094DC !important;
+            text-decoration: underline !important;
         }
 
         .np-mlc-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            display: flex !important;
+            align-items: center !important;
+            gap: 14px !important;
+            padding: 0 !important;
         }
         .np-btn-dir-map {
-            flex: 1.2;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            font-size: 13px;
-            font-weight: 700;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            font-size: 13.5px !important;
+            font-weight: 700 !important;
             color: #FFFFFF !important;
-            background: #0094DC;
-            padding: 10px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0, 148, 220, 0.25);
+            background: #0094DC !important;
+            padding: 12px 26px !important;
+            border-radius: 9999px !important;
+            border: 1.5px solid #0094DC !important;
+            text-decoration: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.6px !important;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: 0 4px 14px rgba(0, 148, 220, 0.25) !important;
         }
         .np-btn-dir-map:hover {
-            background: #007BB8;
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px rgba(0, 148, 220, 0.35);
+            background: #007BB8 !important;
+            border-color: #007BB8 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 22px rgba(0, 148, 220, 0.35) !important;
+            color: #FFFFFF !important;
         }
         .np-btn-dir-call {
-            flex: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            font-size: 13px;
-            font-weight: 700;
-            color: #0F172A;
-            background: #F1F5F9;
-            border: 1px solid #CBD5E1;
-            padding: 10px 16px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.2s ease;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            font-size: 13.5px !important;
+            font-weight: 700 !important;
+            color: #0094DC !important;
+            background: transparent !important;
+            border: 1.5px solid #0094DC !important;
+            padding: 12px 24px !important;
+            border-radius: 9999px !important;
+            text-decoration: none !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.6px !important;
+            transition: all 0.25s ease !important;
         }
         .np-btn-dir-call:hover {
-            background: #10B981;
-            color: #FFFFFF !important;
-            border-color: #10B981;
-            transform: translateY(-1px);
+            background: #EBF6FC !important;
+            color: #007BB8 !important;
+            transform: translateY(-2px) !important;
         }
 
-        /* Active Map Pin Pulse on Map */
+        /* Active Map Pin Pulse on Map (Enhances blinking with highlighted label & prominent indicator) */
         #distributor_page .np-map-pin.is-active {
-            z-index: 10 !important;
+            z-index: 12 !important;
         }
         #distributor_page .np-map-pin.is-active .np-map-pin-dot {
-            transform: scale(1.6) !important;
-            box-shadow: 0 0 0 6px rgba(0, 148, 220, 0.4), 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+            box-shadow: 0 0 0 4px #FFFFFF, 0 0 16px 4px rgba(0, 148, 220, 0.6) !important;
         }
         #distributor_page .np-map-pin.is-active .np-map-pin-label {
             opacity: 1 !important;
             transform: translate(-50%, 0) !important;
-            background: #0094DC !important;
+            background: #0F172A !important;
             color: #FFFFFF !important;
             font-weight: 700 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
         }
 
-        /* Interactive Map Legend */
+        /* Interactive Map Legend with Synchronized Alternate Category Pulsing */
         #distributor_page .pan_india_list .para-text {
             cursor: pointer !important;
-            padding: 4px 10px !important;
+            padding: 6px 12px !important;
             border-radius: 999px !important;
             transition: all 0.2s ease !important;
             user-select: none !important;
@@ -2435,7 +2437,10 @@
         #distributor_page .pan_india_list .para-text.is-active {
             background: #EBF6FC !important;
             color: #0094DC !important;
+            font-weight: 600 !important;
         }
+
+
 
         @media (max-width: 1024px) {
             #distributor_page .np-pan-india-presence-section .pan_india_flex {
@@ -2518,7 +2523,7 @@
         }
 
         .np-unique-heading {
-            font-family: 'Outfit', 'Inter', sans-serif !important;
+            font-family: 'Poppins', 'Work Sans', sans-serif !important;
             font-size: 46px !important;
             line-height: 1.15 !important;
             font-weight: 700 !important;
@@ -2557,7 +2562,7 @@
         }
 
         .np-unique-desc {
-            font-family: 'Poppins', 'Inter', sans-serif !important;
+            font-family: 'Poppins', 'Work Sans', sans-serif !important;
             font-size: 17px !important;
             line-height: 1.8 !important;
             color: #475569 !important;
@@ -3092,11 +3097,11 @@
                             </div>
                         </div>
 
-                        <!-- Live Selected Facility Data Card (Same Section) -->
-                        <div class="np-map-loc-card" id="panIndiaDataCard" data-category="office">
+                        <!-- Live Selected Facility Data (Supreme.co.in Style: Unboxed & Clean Editorial Layout) -->
+                        <div class="np-map-loc-card np-map-loc-unboxed" id="panIndiaDataCard" data-category="office">
                             <div class="np-mlc-header">
-                                <span class="np-card-badge badge-office" id="mlcBadge"><i class="fas fa-building"></i> Head Office</span>
-                                <h4 class="np-mlc-name" id="mlcName">National Plasto Corporate Headquarters</h4>
+                                <span class="np-card-badge np-loc-eyebrow badge-office" id="mlcBadge"><i class="fas fa-building"></i> Head Office</span>
+                                <h3 class="np-mlc-name" id="mlcName">National Plasto Corporate Headquarters</h3>
                                 <div class="np-mlc-scope" id="mlcScope">Central Executive &amp; Commercial Governance</div>
                             </div>
                             <div class="np-mlc-details">
@@ -3357,7 +3362,7 @@
         <div class="np-modal-box" style="background:#FFF;border-radius:16px;padding:36px;max-width:480px;width:90%;position:relative;text-align:center;box-shadow:0 25px 50px rgba(0,0,0,0.25);">
             <button type="button" class="np-modal-close" onclick="closeBrochureModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;color:#64748B;">&times;</button>
             <i class="fas fa-file-pdf" style="font-size:48px;color:var(--np-blue);margin-bottom:14px;"></i>
-            <h3 style="font-family:'Outfit', sans-serif;font-size:22px;font-weight:700;color:var(--np-dark);margin-bottom:8px;">Download 2026 Catalogue</h3>
+            <h3 style="font-family:'Poppins', 'Work Sans', sans-serif;font-size:22px;font-weight:700;color:var(--np-dark);margin-bottom:8px;">Download 2026 Catalogue</h3>
             <p style="font-size:14px;color:#64748B;margin:0 0 20px;">Enter your contact information to receive our complete product catalogue with technical specifications.</p>
             <form onsubmit="handleBrochureSubmit(event)">
                 <input type="text" placeholder="Your Name" required style="width:100%;height:44px;padding:0 14px;margin-bottom:12px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;box-sizing:border-box;">
@@ -3922,7 +3927,7 @@
             var badgeClass = 'badge-' + (data.category === 'plant' ? 'plant' : data.category === 'depot' ? 'depot' : data.category === 'distributor' ? 'distributor' : 'office');
             var badgeIcon = data.category === 'office' ? 'fa-building' : (data.category === 'plant' ? 'fa-industry' : (data.category === 'depot' ? 'fa-warehouse' : 'fa-handshake'));
 
-            $('#mlcBadge').attr('class', 'np-card-badge ' + badgeClass).html('<i class="fas ' + badgeIcon + '"></i> ' + data.badge);
+            $('#mlcBadge').attr('class', 'np-card-badge np-loc-eyebrow ' + badgeClass).html('<i class="fas ' + badgeIcon + '"></i> ' + data.badge);
             $('#mlcName').html(data.name);
             $('#mlcScope').html(data.scope);
             $('#mlcAddress').html(data.addr);
