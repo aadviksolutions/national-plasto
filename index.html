@@ -102,37 +102,18 @@
             z-index: 2 !important;
         }
 
-        /* Hero Container: Strict 1:1 Grid Alignment with Site Container */
-        .banner-section .np-hero-container {
-            position: relative !important;
-            height: 100% !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: flex-start !important;
-            z-index: 5 !important;
-            pointer-events: none !important;
-        }
-
-        #index_page .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
-        .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
-        #index_page .banner-section .banner_content.np-hero-content-fixed,
-        .banner-section .banner_content.np-hero-content-fixed,
         #index_page .banner-section .banner_content,
-        .banner-section .banner_content {
-            position: relative !important;
-            top: auto !important;
+        .banner-section .banner_content,
+        #index_page .banner-section .banner_content.np-hero-content-fixed,
+        .banner-section .banner_content.np-hero-content-fixed {
+            position: absolute !important;
+            top: 50% !important;
             bottom: auto !important;
-            left: 0 !important;
-            right: auto !important;
-            transform: none !important;
-            -webkit-transform: none !important;
+            transform: translateY(-50%) !important;
+            -webkit-transform: translateY(-50%) !important;
             z-index: 5 !important;
             text-align: left !important;
-            pointer-events: auto !important;
             border-left: 3.5px solid #0094DC !important;
-            padding-left: 20px !important;
-            margin: 0 !important;
         }
 
         /* Eyebrow: Steady, never shifts */
@@ -217,15 +198,12 @@
                 max-height: 520px !important;
             }
 
-            #index_page .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
-            .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
             #index_page .banner-section .banner_content.np-hero-content-fixed,
             .banner-section .banner_content.np-hero-content-fixed {
-                left: 0 !important;
+                left: max(50px, calc((100vw - 1320px) / 2)) !important;
                 right: auto !important;
                 max-width: 580px !important;
                 padding-left: 20px !important;
-                margin: 0 !important;
             }
 
             .np-hero-content-fixed .np-hero-eyebrow {
@@ -255,17 +233,14 @@
                 min-height: 400px !important;
             }
 
-            #index_page .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
-            .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
             #index_page .banner-section .banner_content.np-hero-content-fixed,
             .banner-section .banner_content.np-hero-content-fixed {
-                left: 0 !important;
+                left: 36px !important;
                 right: auto !important;
                 max-width: 480px !important;
                 padding-left: 18px !important;
-                margin: 0 !important;
             }
- 
+
             .np-hero-content-fixed .np-hero-eyebrow {
                 font-size: 12px !important;
             }
@@ -293,22 +268,13 @@
                 min-height: 480px !important;
             }
 
-            #index_page .banner-section .np-hero-container {
-                padding-left: 15px !important;
-                padding-right: 15px !important;
-            }
-
-            #index_page .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
-            .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
             #index_page .banner-section .banner_content.np-hero-content-fixed,
             .banner-section .banner_content.np-hero-content-fixed {
-                left: 0 !important;
-                right: auto !important;
-                width: 100% !important;
-                max-width: 100% !important;
+                left: 20px !important;
+                right: 20px !important;
+                max-width: calc(100% - 40px) !important;
                 padding-left: 16px !important;
                 border-left: 4px solid #0094DC !important;
-                margin: 0 !important;
             }
 
             .np-hero-content-fixed .np-hero-eyebrow {
@@ -393,31 +359,25 @@
                 display: block !important;
             }
             /* Mobile Hero Content: Display title, eyebrow, and CTA button clearly */
-            #index_page .banner-section .np-hero-container .banner_content,
-            .banner-section .np-hero-container .banner_content,
             #index_page .banner-section .banner_content,
             .banner-section .banner_content,
-            #index_page .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
-            .banner-section .np-hero-container .banner_content.np-hero-content-fixed,
             #index_page .banner-section .banner_content.np-hero-content-fixed,
             .banner-section .banner_content.np-hero-content-fixed {
                 display: block !important;
                 visibility: visible !important;
                 opacity: 1 !important;
-                position: relative !important;
-                top: auto !important;
+                position: absolute !important;
+                top: 50% !important;
                 bottom: auto !important;
-                left: 0 !important;
-                right: auto !important;
-                transform: none !important;
-                -webkit-transform: none !important;
-                width: 100% !important;
-                max-width: 100% !important;
+                left: 20px !important;
+                right: 20px !important;
+                transform: translateY(-50%) !important;
+                -webkit-transform: translateY(-50%) !important;
+                max-width: calc(100% - 40px) !important;
                 padding-left: 16px !important;
                 border-left: 4px solid #0094DC !important;
                 z-index: 5 !important;
                 text-align: left !important;
-                margin: 0 !important;
             }
             #index_page .banner-section .home-banner-slider .slick-dots,
             .banner-section .home-banner-slider .slick-dots {
@@ -1478,19 +1438,17 @@
         </video>
       </div>
 
-      <!-- Hero Content inside standard page Container to guarantee exact line & grid alignment on desktop -->
-      <div class="container np-hero-container">
-        <div class="banner_content white_color np-hero-content-fixed">
-          <span class="np-hero-eyebrow">Since 1997</span>
+      <!-- Hero Content: Eyebrow and CTA are steady, ONLY the title changes continuously -->
+      <div class="banner_content white_color np-hero-content-fixed">
+        <span class="np-hero-eyebrow">Since 1997</span>
 
-          <div class="np-hero-title-rotator" id="npHeroTitleRotator">
-            <h2 class="heading-text np-rotating-title is-active" data-index="0">Shaping Spaces, <br>Engineering Trust</h2>
-            <h2 class="heading-text np-rotating-title" data-index="1">Designed for Life, <br>Built for Generations</h2>
-            <h2 class="heading-text np-rotating-title" data-index="2">Empowering India with <br>Premium Living</h2>
-          </div>
-
-          <a href="about.html" class="np-hero-cta">About the Company <span aria-hidden="true">&rarr;</span></a>
+        <div class="np-hero-title-rotator" id="npHeroTitleRotator">
+          <h2 class="heading-text np-rotating-title is-active" data-index="0">Shaping Spaces, <br>Engineering Trust</h2>
+          <h2 class="heading-text np-rotating-title" data-index="1">Designed for Life, <br>Built for Generations</h2>
+          <h2 class="heading-text np-rotating-title" data-index="2">Empowering India with <br>Premium Living</h2>
         </div>
+
+        <a href="about.html" class="np-hero-cta">About the Company <span aria-hidden="true">&rarr;</span></a>
       </div>
 
     </section>
@@ -1903,7 +1861,7 @@
           <div class="milestones_flex">
             <div class="dassed_border"></div>
             <div class="milestones_img">
-              <img src="images/home/milestone-2026.jpg?v=20261014_rootfd" loading="lazy" class="img-responsive" alt="National Plasto 2026 - Modern Manufacturing Complex &amp; Nationwide Legacy">
+              <img src="images/home/milestone-2026.jpg" loading="lazy" class="img-responsive" alt="National Plasto 2026 - Modern Manufacturing Complex &amp; Nationwide Legacy">
             </div>
             <div class="milestones_content">
               <h2 class="heading-text"><span class="color_red_home fonthigh">2026</span></h2>
@@ -2711,7 +2669,7 @@
     <!-- Core JS dependencies -->
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script src="js/supreme_app.min.js?v=20261014_ms_auto"></script>
+    <script src="js/supreme_app.min.js?v=20261013_div_v2"></script>
     <script src="js/supreme_mobile.js?v=20260926"></script>
 
     <!-- Supreme 1:1 Homepage Slick Initializations -->
@@ -2798,38 +2756,6 @@
                         }
                     });
                 });
-            }
-        })();
-
-
-        // Milestones Slider Autoplay (Run Automatically)
-        (function initMilestonesSlider() {
-            var $ms = $('#milestones_slider');
-            if ($ms.length) {
-                if ($ms.hasClass('slick-initialized')) {
-                    $ms.slick('slickSetOption', 'autoplay', true, false);
-                    $ms.slick('slickSetOption', 'autoplaySpeed', 3500, false);
-                    $ms.slick('slickSetOption', 'pauseOnHover', true, false);
-                    $ms.slick('slickSetOption', 'pauseOnFocus', true, false);
-                    $ms.slick('slickPlay');
-                } else {
-                    $ms.slick({
-                        dots: false,
-                        arrows: true,
-                        infinite: true,
-                        speed: 1000,
-                        autoplay: true,
-                        autoplaySpeed: 3500,
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        pauseOnHover: true,
-                        pauseOnFocus: true,
-                        responsive: [
-                            { breakpoint: 1200, settings: { adaptiveHeight: true } },
-                            { breakpoint: 991, settings: { arrows: false, dots: true, adaptiveHeight: true } }
-                        ]
-                    });
-                }
             }
         })();
 

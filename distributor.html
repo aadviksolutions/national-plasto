@@ -521,16 +521,17 @@
 
         .np-man-img-box {
             position: relative;
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
         }
 
         /* BIG Center Man Cutout Image */
         .np-man-cutout-img {
-            max-width: 480px;
+            max-width: 460px;
             width: 100%;
             height: auto;
-            max-height: 600px;
             object-fit: contain;
             display: block;
             margin: 0 auto;
@@ -543,10 +544,8 @@
 
         /* Supreme.co.in/ipd-inspired Floating Verified Partner Badge */
         .np-man-floating-badge {
-            position: absolute;
-            bottom: 22px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            margin-top: 14px;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -3367,7 +3366,7 @@
                     <div class="np-man-center-wrapper">
                         <div class="np-man-glow-ring"></div>
                         <div class="np-man-img-box">
-                            <img src="images/brand/distributor-man.png" alt="National Plasto Authorized Dealer Partner" class="np-man-cutout-img">
+                            <img src="images/brand/distributor-man.png" alt="National Plasto Authorized Dealer Desk Partners" class="np-man-cutout-img">
                             
                             <!-- Floating Verified Badge with National Plasto Logo -->
                             <div class="np-man-floating-badge">
@@ -3450,7 +3449,7 @@
                     <div class="np-piping-img-showcase np-app-slider">
                         <!-- Slide 1: Office -->
                         <div class="np-app-slide">
-                            <img src="images/brand/company-photo.jpg" alt="National Plasto Corporate Office" loading="lazy" class="np-app-slide-img">
+                            <img src="images/brand/corporate-office.jpg" alt="National Plasto Corporate Office" loading="lazy" class="np-app-slide-img">
                             <div class="np-app-slide-tag">
                                 <h3>Corporate Office</h3>
                             </div>
