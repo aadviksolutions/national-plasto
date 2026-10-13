@@ -391,7 +391,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 60px !important;
+    height: 72px !important;
     background-color: #FFFFFF !important;
     box-shadow: 0 0 14px -10px #333333 !important;
     border-bottom: 1px solid #ECECEC !important;
@@ -408,7 +408,7 @@ h1, h2, h3, h4, h5, h6 {
         display: block !important;
     }
     body {
-        padding-top: 60px !important;
+        padding-top: 72px !important;
     }
 }
 
@@ -482,13 +482,13 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center !important;
     justify-content: center !important;
     text-decoration: none !important;
-    max-height: 44px !important;
+    max-height: 58px !important;
     z-index: 1035 !important;
 }
 
 .mobile_navbar .navbar_logo {
-    max-height: 40px !important;
-    max-width: 180px !important;
+    max-height: 52px !important;
+    max-width: 215px !important;
     height: auto !important;
     width: auto !important;
     object-fit: contain !important;
@@ -604,10 +604,10 @@ h1, h2, h3, h4, h5, h6 {
    ========================================================================== */
 .sidebar_wrap {
     position: fixed !important;
-    top: 60px !important;
+    top: 72px !important;
     left: 0 !important;
     width: 100% !important;
-    height: calc(100vh - 60px) !important;
+    height: calc(100vh - 72px) !important;
     background-color: #FFFFFF !important;
     z-index: 1025 !important;
     transform: translateX(-100%) !important;
