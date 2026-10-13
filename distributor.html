@@ -2633,6 +2633,503 @@
                 line-height: 1.65 !important;
             }
         }
+        /* ==========================================================================
+           AUTHORIZED DEALERS & DISTRIBUTORS DIRECTORY (Verified Trade Network)
+           ========================================================================== */
+        .np-state-dealers-preview {
+            margin: 18px 0;
+            background: #F8FAFC;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.25s ease;
+        }
+        .np-card-dealers-box .np-cd-header {
+            margin-bottom: 12px;
+        }
+        .np-cd-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #0F172A;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .np-cd-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+            max-height: 220px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .np-preview-dealer-item {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+        .np-pdi-name {
+            color: #0F172A;
+            font-weight: 600;
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .np-pdi-name i {
+            color: #0094DC;
+            font-size: 11px;
+        }
+        .np-pdi-city {
+            color: #64748B;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .np-pdi-city i {
+            color: #94A3B8;
+            font-size: 10px;
+        }
+        .np-btn-view-state-dealers {
+            width: 100%;
+            background: #0094DC;
+            color: #FFFFFF !important;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        .np-btn-view-state-dealers:hover {
+            background: #007BB8;
+            transform: translateY(-1px);
+        }
+
+        /* Main Directory Container */
+        .np-dealer-directory-wrap {
+            margin-top: 55px;
+            padding-top: 45px;
+            border-top: 2px dashed #E2E8F0;
+        }
+        .np-dir-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .np-dir-title-box {
+            max-width: 680px;
+        }
+        .np-dir-title {
+            font-size: 32px !important;
+            font-weight: 800 !important;
+            color: #0F172A !important;
+            margin: 8px 0 10px !important;
+            line-height: 1.25 !important;
+        }
+        .np-dir-subtitle {
+            font-size: 15.5px;
+            color: #64748B;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .np-dir-stats {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .np-stat-pill {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .np-stat-num {
+            color: #0094DC;
+            font-weight: 800;
+        }
+
+        /* Controls Bar */
+        .np-dir-controls {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+        .np-dir-search-wrap {
+            flex: 1 1 340px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .np-search-icon {
+            position: absolute;
+            left: 16px;
+            color: #94A3B8;
+            font-size: 15px;
+            pointer-events: none;
+        }
+        .np-dir-search-input {
+            width: 100%;
+            height: 50px;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 0 42px 0 46px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #0F172A;
+            background: #FFFFFF;
+            outline: none;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+        .np-dir-search-input:focus {
+            border-color: #0094DC;
+            box-shadow: 0 0 0 3px rgba(0, 148, 220, 0.15);
+        }
+        .np-search-clear {
+            position: absolute;
+            right: 14px;
+            background: #E2E8F0;
+            border: none;
+            color: #64748B;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 16px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .np-search-clear:hover {
+            background: #CBD5E1;
+            color: #0F172A;
+        }
+        .np-dir-state-select-wrap {
+            flex: 0 0 280px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .np-dir-state-select-wrap i {
+            position: absolute;
+            left: 16px;
+            color: #0094DC;
+            font-size: 14px;
+            pointer-events: none;
+        }
+        .np-dir-state-select {
+            width: 100%;
+            height: 50px;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 0 16px 0 42px;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #0F172A;
+            background: #F8FAFC;
+            outline: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+        .np-dir-state-select:focus {
+            border-color: #0094DC;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(0, 148, 220, 0.15);
+        }
+
+        /* State Filter Pills Bar */
+        .np-state-pills-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .np-state-pill-btn {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            color: #475569;
+            padding: 7px 15px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .np-state-pill-btn:hover {
+            background: #E2E8F0;
+            color: #0F172A;
+        }
+        .np-state-pill-btn.is-active {
+            background: #0094DC;
+            border-color: #0094DC;
+            color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0, 148, 220, 0.25);
+        }
+
+        /* Status & Count Bar */
+        .np-dir-status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #64748B;
+            border-bottom: 1px solid #F1F5F9;
+            padding-bottom: 12px;
+        }
+        .np-dir-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #1E8E3E;
+            background: #ECFDF5;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            border: 1px solid #A7F3D0;
+        }
+
+        /* Dealers Grid */
+        .np-dealers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px;
+            margin-bottom: 34px;
+        }
+        .np-dealer-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .np-dealer-card:hover {
+            transform: translateY(-3px);
+            border-color: #BAE6FD;
+            box-shadow: 0 10px 24px rgba(0, 148, 220, 0.08);
+        }
+        .np-dealer-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .np-dealer-num {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #94A3B8;
+            font-family: monospace;
+        }
+        .np-dealer-state-badge {
+            background: #EFF6FF;
+            color: #1D4ED8;
+            border: 1px solid #BFDBFE;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .np-dealer-name {
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            color: #0F172A !important;
+            margin: 0 0 10px !important;
+            line-height: 1.35 !important;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .np-dealer-name i {
+            color: #0094DC;
+            margin-top: 4px;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .np-dealer-loc {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13.5px;
+            color: #475569;
+            margin-bottom: 16px;
+            line-height: 1.45;
+        }
+        .np-dealer-loc i {
+            color: #DC2626;
+            margin-top: 3px;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+        .np-dealer-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 12px;
+            border-top: 1px solid #F1F5F9;
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .np-dealer-pin {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            color: #475569;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .np-dealer-pin i {
+            color: #64748B;
+            font-size: 10px;
+        }
+        .np-dealer-verified {
+            color: #16A34A;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-left: auto;
+        }
+
+        /* Empty state */
+        .np-no-dealers-found {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: #F8FAFC;
+            border: 2px dashed #CBD5E1;
+            border-radius: 16px;
+        }
+        .np-no-dealers-found i {
+            font-size: 48px;
+            color: #94A3B8;
+            margin-bottom: 16px;
+        }
+        .np-no-dealers-found h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+        .np-no-dealers-found p {
+            color: #64748B;
+            font-size: 14.5px;
+            max-width: 480px;
+            margin: 0 auto 20px;
+        }
+
+        /* Pagination & CTA Strip */
+        .np-dir-pagination {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .np-load-more-btn {
+            background: #FFFFFF !important;
+            color: #0094DC !important;
+            border: 2px solid #0094DC !important;
+            padding: 12px 32px !important;
+            border-radius: 12px !important;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+        .np-load-more-btn:hover {
+            background: #0094DC !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 14px rgba(0, 148, 220, 0.25);
+        }
+        .np-dir-cta-strip {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            border-radius: 18px;
+            padding: 30px 36px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            color: #FFFFFF;
+            flex-wrap: wrap;
+        }
+        .np-dir-cta-content h4 {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: #FFFFFF !important;
+            margin: 0 0 6px !important;
+        }
+        .np-dir-cta-content p {
+            font-size: 14.5px;
+            color: #94A3B8;
+            margin: 0;
+        }
+
+        @media (max-width: 991px) {
+            .np-dir-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .np-dir-controls {
+                flex-direction: column;
+            }
+            .np-dir-state-select-wrap {
+                flex: 1 1 100%;
+                width: 100%;
+            }
+            .np-dir-cta-strip {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 24px;
+            }
+        }
+        @media (max-width: 600px) {
+            .np-dealers-grid {
+                grid-template-columns: 1fr;
+            }
+            .np-dir-title {
+                font-size: 26px !important;
+            }
+        }
     </style>
     
 </head>
@@ -3133,6 +3630,8 @@
                                     <span id="mlcMeta">Mon &ndash; Sat: 10:00 AM &ndash; 7:00 PM</span>
                                 </div>
                             </div>
+                            <!-- State Dealers Preview Container -->
+                            <div id="mlcStateDealersPreview" class="np-state-dealers-preview" style="display:none;"></div>
                             <div class="np-mlc-actions">
                                 <a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" target="_blank" rel="noopener" class="np-btn-dir-map" id="mlcMapBtn">
                                     <i class="fas fa-directions"></i> Get Directions
@@ -3142,6 +3641,90 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================================================
+                     AUTHORIZED DEALERS & DISTRIBUTORS DIRECTORY (Verified 470+ Trade Network)
+                     ========================================================================== -->
+                <div class="np-dealer-directory-wrap" id="dealer-directory">
+                    <div class="np-dir-header">
+                        <div class="np-dir-title-box">
+                            <span class="np-dist-eyebrow"><i class="fas fa-shield-alt"></i> Verified Trade Network</span>
+                            <h3 class="np-dir-title"><span class="color_blue_home">Authorized Dealers &amp; Stockists</span> Across India</h3>
+                            <p class="np-dir-subtitle">Search and connect with over <strong>470+ verified trade partners</strong>, stocking dealers, and distributor hubs across 17 states in India.</p>
+                        </div>
+                        <div class="np-dir-stats">
+                            <div class="np-stat-pill"><span class="np-stat-num">470+</span> Verified Partners</div>
+                            <div class="np-stat-pill"><span class="np-stat-num">17</span> States Covered</div>
+                            <div class="np-stat-pill"><span class="np-stat-num">100%</span> Genuine National Plasto</div>
+                        </div>
+                    </div>
+
+                    <!-- Controls Bar: State Filters + Instant Search -->
+                    <div class="np-dir-controls">
+                        <div class="np-dir-search-wrap">
+                            <i class="fas fa-search np-search-icon" aria-hidden="true"></i>
+                            <input type="text" id="dealerSearchInput" class="np-dir-search-input" placeholder="Search by dealer name, town, city, or pincode..." oninput="window.onDealerSearch(this.value)" aria-label="Search Dealers">
+                            <button type="button" id="dealerSearchClear" class="np-search-clear" onclick="window.clearDealerSearch()" style="display:none;" aria-label="Clear Search">&times;</button>
+                        </div>
+                        <div class="np-dir-state-select-wrap">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            <select id="dealerStateFilter" class="np-dir-state-select" onchange="window.onDealerStateChange(this.value)" aria-label="Filter by State">
+                                <option value="ALL">All States (470+ Dealers)</option>
+                                <option value="West Bengal">West Bengal (128)</option>
+                                <option value="Bihar">Bihar (96)</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh (53)</option>
+                                <option value="Jharkhand">Jharkhand (32)</option>
+                                <option value="Haryana">Haryana (30)</option>
+                                <option value="Punjab">Punjab (28)</option>
+                                <option value="Rajasthan">Rajasthan (18)</option>
+                                <option value="Maharashtra">Maharashtra (15)</option>
+                                <option value="Odisha">Odisha (15)</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh (12)</option>
+                                <option value="Uttarakhand">Uttarakhand (12)</option>
+                                <option value="Delhi">Delhi NCR (8)</option>
+                                <option value="Jammu & Kashmir">Jammu &amp; Kashmir (8)</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh (7)</option>
+                                <option value="Chhattisgarh">Chhattisgarh (6)</option>
+                                <option value="Gujarat">Gujarat (1)</option>
+                                <option value="Goa">Goa (1)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- State Quick Filter Pills -->
+                    <div class="np-state-pills-bar" id="statePillsBar" role="tablist" aria-label="Filter by State">
+                        <!-- Dynamic Pills populated with JS -->
+                    </div>
+
+                    <!-- Results Status & Counter -->
+                    <div class="np-dir-status-bar">
+                        <div class="np-dir-count" id="dealerCountText">Showing <strong>470</strong> verified dealers nationwide</div>
+                        <div class="np-dir-badge"><i class="fas fa-check-circle" style="color:#1E8E3E;" aria-hidden="true"></i> Active Trade Accounts</div>
+                    </div>
+
+                    <!-- Dealers Cards Grid -->
+                    <div class="np-dealers-grid" id="dealersGrid">
+                        <!-- Rendered via JS -->
+                    </div>
+
+                    <!-- Pagination / Load More -->
+                    <div class="np-dir-pagination" id="dealerPagination">
+                        <button type="button" class="btn_project_default np-load-more-btn" id="loadMoreDealersBtn" onclick="window.loadMoreDealers()">
+                            Load More Dealers <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <!-- Dealer Callout Strip -->
+                    <div class="np-dir-cta-strip">
+                        <div class="np-dir-cta-content">
+                            <h4>Don't see an authorized dealer in your town or area?</h4>
+                            <p>Partner directly with National Plasto to become an authorized distributor or wholesale dealer in your territory.</p>
+                        </div>
+                        <button type="button" class="np-btn-cta-primary" onclick="openDealerModal()">
+                            Apply for Dealership <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -3919,6 +4502,7 @@
                 "call": "+919830012345"
         }
 };
+window.allLocationsData = allLocationsData;
 
         function onMapLocationSelect(locKey) {
             if (!locKey) return;
@@ -3960,6 +4544,7 @@
             var legendKind = data.category === 'office' ? 'office' : (data.category === 'plant' ? 'unit' : (data.category === 'depot' ? 'depot' : 'dealer'));
             $('.np-map-legend .para-text[data-kind="' + legendKind + '"]').addClass('is-active');
         }
+        window.onMapLocationSelect = onMapLocationSelect;
 
         function filterMapCategory(cat) {
             // Find first location in that category
@@ -4023,5 +4608,8 @@
         </script>
     <script src="js/np-reveal.js?v=20260929"></script>
     <script src="js/np-testimonials-modal.js?v=20261007_v3"></script>
+    <!-- 470+ Verified Authorized Dealer & Distributor Directory -->
+    <script src="js/np_dealers_data.js?v=20261013_v1"></script>
+    <script src="js/np_dealers_directory.js?v=20261013_v1"></script>
 </body>
 </html>
