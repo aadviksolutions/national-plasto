@@ -2711,7 +2711,7 @@
     <!-- Core JS dependencies -->
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script src="js/supreme_app.min.js?v=20261013_div_v2"></script>
+    <script src="js/supreme_app.min.js?v=20261014_ms_auto"></script>
     <script src="js/supreme_mobile.js?v=20260926"></script>
 
     <!-- Supreme 1:1 Homepage Slick Initializations -->
@@ -2798,6 +2798,38 @@
                         }
                     });
                 });
+            }
+        })();
+
+
+        // Milestones Slider Autoplay (Run Automatically)
+        (function initMilestonesSlider() {
+            var $ms = $('#milestones_slider');
+            if ($ms.length) {
+                if ($ms.hasClass('slick-initialized')) {
+                    $ms.slick('slickSetOption', 'autoplay', true, false);
+                    $ms.slick('slickSetOption', 'autoplaySpeed', 3500, false);
+                    $ms.slick('slickSetOption', 'pauseOnHover', true, false);
+                    $ms.slick('slickSetOption', 'pauseOnFocus', true, false);
+                    $ms.slick('slickPlay');
+                } else {
+                    $ms.slick({
+                        dots: false,
+                        arrows: true,
+                        infinite: true,
+                        speed: 1000,
+                        autoplay: true,
+                        autoplaySpeed: 3500,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        pauseOnHover: true,
+                        pauseOnFocus: true,
+                        responsive: [
+                            { breakpoint: 1200, settings: { adaptiveHeight: true } },
+                            { breakpoint: 991, settings: { arrows: false, dots: true, adaptiveHeight: true } }
+                        ]
+                    });
+                }
             }
         })();
 
