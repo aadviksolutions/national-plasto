@@ -560,6 +560,53 @@
         .np-modal-thumbs button.on { border-color: #0094DC; }
         .np-modal-thumbs img { width: 100%; height: 100%; object-fit: contain; }
 
+        /* ---------- 360° Studio Video & View Mode Tabs ---------- */
+        .np-360-view-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 10px 0 6px;
+            z-index: 10;
+            flex-wrap: wrap;
+        }
+        .np-view-tab-btn {
+            background: #F1F5F9;
+            border: 1px solid #CBD5E1;
+            color: #475569;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+        .np-view-tab-btn:hover {
+            background: #E2E8F0;
+            color: #0F172A;
+        }
+        .np-view-tab-btn.is-active {
+            background: #0094DC;
+            color: #FFFFFF;
+            border-color: #0094DC;
+            box-shadow: 0 2px 8px rgba(0, 148, 220, 0.35);
+        }
+        .np-view-tab-btn i { font-size: 13px; }
+        #npModalVideo360 {
+            max-width: 88%;
+            max-height: 88%;
+            object-fit: contain;
+            position: relative;
+            z-index: 4;
+            filter: drop-shadow(0 14px 18px rgba(15, 23, 42, 0.16));
+            border-radius: 12px;
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
         /* ---------- Dedicated 360 Studio Section ---------- */
         .np-studio-section {
             padding: 70px 0;
@@ -1548,6 +1595,7 @@
                     <div class="np-360-stage-lighting"></div>
                     <div class="np-360-turntable-wrapper" id="npModalTurntable">
                         <img id="npModalImg" alt="" draggable="false">
+                        <video id="npModalVideo360" loop muted playsinline preload="auto" style="display:none;" title="Click to play/pause 360° video"></video>
                     </div>
                     <div class="np-360-pedestal">
                         <div class="np-360-turntable-ring" id="np360TurntableRing"></div>
@@ -1557,6 +1605,14 @@
                         <span class="np-360-hint"><i class="fas fa-arrows-alt-h"></i> Drag / Swipe horizontally to rotate</span>
                     </div>
                 </div>
+
+                <!-- 360 View Mode Switcher: Studio Video vs 360 Interactive Drag vs Color Variations -->
+                <div class="np-360-view-tabs" id="npModalViewTabs" style="display:none;">
+                    <button type="button" class="np-view-tab-btn is-active" id="npTab360Video" data-mode="video" onclick="window.switchModalView('video')"><i class="fas fa-play-circle"></i> <span>360&deg; Studio Video</span></button>
+                    <button type="button" class="np-view-tab-btn" id="npTab360Spin" data-mode="spin" onclick="window.switchModalView('spin')"><i class="fas fa-sync-alt"></i> <span>360&deg; Interactive Drag</span></button>
+                    <button type="button" class="np-view-tab-btn" id="npTabPhotos" data-mode="colors" onclick="window.switchModalView('colors')"><i class="fas fa-palette"></i> <span>Studio Colors</span></button>
+                </div>
+
                 <div class="np-360-controls" id="np360Controls">
                     <div class="np-360-slider-wrap">
                         <span style="font-size:11px;font-weight:700;color:#64748B;">0&deg;</span>

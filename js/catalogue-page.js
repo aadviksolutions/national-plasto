@@ -35,6 +35,9 @@
   });
 
   function isMultiAngleProduct(idx) {
+    if (idx === 0) return true;
+    var p = DATA[idx];
+    if (p && (p.video360 || (p.frames360 && p.frames360.length > 1))) return true;
     return !!MULTI_ANGLE_MAP[idx];
   }
 
@@ -188,26 +191,38 @@
   var presetAnimRaf = null;
   var preloadedFrames = [];
 
+  var modalViewMode = 'spin'; // 'video' | 'spin' | 'colors'
+
   function setModalAngle(deg, updateSlider) {
     modalAngle = ((deg % 360) + 360) % 360;
 
     var isMulti = isMultiAngleProduct(modalProductIndex);
 
     // 1. Frame synchronization for multi-angle sequences
-    if (isMulti && modalProduct && modalProduct.img && modalProduct.img.length > 1) {
-      var numFrames = modalProduct.img.length;
-      var frameSpan = 360 / numFrames;
-      // Center frame 0 at 0 degrees
-      var offsetAngle = (modalAngle + frameSpan / 2) % 360;
-      var frameIdx = Math.floor(offsetAngle / frameSpan) % numFrames;
+    if (modalViewMode === 'video') {
+      var videoEl = $('npModalVideo360');
+      if (videoEl && videoEl.duration && !isModalDragging) {
+        // Only seek if difference is noticeable to avoid choppy playback
+        var targetTime = (modalAngle / 360) * videoEl.duration;
+        if (Math.abs(videoEl.currentTime - targetTime) > 0.15) {
+          videoEl.currentTime = targetTime;
+        }
+      }
+    } else if (isMulti && modalProduct) {
+      var activeFrames = (modalViewMode === 'spin' && modalProduct.frames360 && modalProduct.frames360.length) ? modalProduct.frames360 : modalProduct.img;
+      if (activeFrames && activeFrames.length > 1) {
+        var numFrames = activeFrames.length;
+        var frameSpan = 360 / numFrames;
+        var offsetAngle = (modalAngle + frameSpan / 2) % 360;
+        var frameIdx = Math.floor(offsetAngle / frameSpan) % numFrames;
 
-      if (frameIdx !== currentImageIndex) {
-        showModalImage(frameIdx);
+        if (frameIdx !== currentImageIndex) {
+          showModalImage(frameIdx);
+        }
       }
     }
 
-    // 2. Ensure turntable ring and floor contact shadow remain anchored directly
-    // and naturally beneath the product base at all times, preventing detached or orbiting shadows.
+    // 2. Turntable ring and contact shadow anchoring
     var ring = $('np360TurntableRing');
     if (ring) {
       ring.style.transform = 'rotateX(72deg)';
@@ -230,8 +245,11 @@
     }
     var stepEl = $('np360Step');
     if (stepEl) {
-      if (isMulti && modalProduct && modalProduct.img.length > 1) {
-        stepEl.textContent = Math.round(modalAngle) + '° (' + (currentImageIndex + 1) + '/' + modalProduct.img.length + ')';
+      if (modalViewMode === 'video') {
+        stepEl.textContent = Math.round(modalAngle) + '° (Video)';
+      } else if (isMulti && modalProduct) {
+        var framesList = (modalViewMode === 'spin' && modalProduct.frames360) ? modalProduct.frames360 : modalProduct.img;
+        stepEl.textContent = Math.round(modalAngle) + '° (' + (currentImageIndex + 1) + '/' + (framesList ? framesList.length : 1) + ')';
       } else {
         stepEl.textContent = '0° (1/1)';
       }
@@ -259,13 +277,21 @@
     if (diff > 180) diff -= 360;
     if (diff < -180) diff += 360;
 
+    if (modalViewMode === 'video') {
+      var videoEl = $('npModalVideo360');
+      if (videoEl && videoEl.duration) {
+        videoEl.currentTime = (target / 360) * videoEl.duration;
+      }
+      setModalAngle(target);
+      return;
+    }
+
     var startTime = performance.now();
     var duration = 380;
 
     function step(now) {
       var elapsed = now - startTime;
       var progress = Math.min(1, elapsed / duration);
-      // easeOutCubic
       var ease = 1 - Math.pow(1 - progress, 3);
       setModalAngle(startAngle + diff * ease);
       if (progress < 1) {
@@ -293,13 +319,36 @@
     var spinBtn = $('np360AutoSpinBtn');
     if (spinBtn) {
       spinBtn.classList.remove('spinning');
-      spinBtn.innerHTML = '<i class="fas fa-play"></i> <span>Auto-Spin</span>';
+      spinBtn.innerHTML = '<i class="fas fa-play"></i> <span>' + (modalViewMode === 'video' ? 'Play Video' : 'Auto-Spin') + '</span>';
     }
   }
 
   function toggleAutoSpin() {
+    if (modalViewMode === 'video') {
+      var videoEl = $('npModalVideo360');
+      var spinBtn = $('np360AutoSpinBtn');
+      if (videoEl) {
+        if (videoEl.paused) {
+          videoEl.play().catch(function () {});
+          if (spinBtn) {
+            spinBtn.classList.add('spinning');
+            spinBtn.innerHTML = '<i class="fas fa-pause"></i> <span>Pause Video</span>';
+          }
+        } else {
+          videoEl.pause();
+          if (spinBtn) {
+            spinBtn.classList.remove('spinning');
+            spinBtn.innerHTML = '<i class="fas fa-play"></i> <span>Play Video</span>';
+          }
+        }
+      }
+      return;
+    }
+
     if (!isMultiAngleProduct(modalProductIndex)) return;
-    if (!modalProduct || !modalProduct.img || modalProduct.img.length <= 1) return;
+    var activeList = (modalProduct && modalProduct.frames360) ? modalProduct.frames360 : (modalProduct ? modalProduct.img : null);
+    if (!activeList || activeList.length <= 1) return;
+
     if (modalSpinRaf) {
       stopAutoSpin();
     } else {
@@ -320,10 +369,12 @@
   }
 
   function showModalImage(i) {
-    if (!modalProduct || !modalProduct.img || !modalProduct.img.length) return;
-    var count = modalProduct.img.length;
+    if (!modalProduct) return;
+    var activeList = (modalViewMode === 'spin' && modalProduct.frames360 && modalProduct.frames360.length) ? modalProduct.frames360 : modalProduct.img;
+    if (!activeList || !activeList.length) return;
+    var count = activeList.length;
     currentImageIndex = ((i % count) + count) % count;
-    var im = modalProduct.img[currentImageIndex];
+    var im = activeList[currentImageIndex];
     var el = $('npModalImg');
     if (el) {
       if (el.getAttribute('src') !== im.f) {
@@ -339,6 +390,119 @@
     }
   }
 
+  function renderThumbsForMode(mode) {
+    var thumbs = $('npModalThumbs');
+    if (!thumbs || !modalProduct) return;
+
+    if (mode === 'colors' || (!modalProduct.frames360 && !modalProduct.video360)) {
+      thumbs.innerHTML = (modalProduct.img || []).map(function (im, i) {
+        return '<button type="button" data-i="' + i + '"' + (i === currentImageIndex ? ' class="on"' : '') + ' title="' + (im.v || ('Color ' + (i + 1))) + '"><img src="' + im.f + '" alt=""></button>';
+      }).join('');
+    } else if (mode === 'spin' && modalProduct.frames360) {
+      thumbs.innerHTML = modalProduct.frames360.map(function (im, i) {
+        return '<button type="button" data-i="' + i + '"' + (i === currentImageIndex ? ' class="on"' : '') + ' title="Angle ' + (im.deg != null ? im.deg + '°' : (i + 1)) + '"><img src="' + im.f + '" alt=""></button>';
+      }).join('');
+    } else if (mode === 'video') {
+      // Key video angle checkpoints
+      var checkpoints = [0, 4, 8, 12];
+      var frames = modalProduct.frames360 || modalProduct.img || [];
+      thumbs.innerHTML = checkpoints.filter(function (idx) { return idx < frames.length; }).map(function (idx) {
+        var im = frames[idx];
+        var deg = (idx / frames.length) * 360;
+        return '<button type="button" data-deg="' + Math.round(deg) + '" title="Seek to ' + Math.round(deg) + '°"><img src="' + im.f + '" alt=""><span style="font-size:10px;font-weight:700;display:block;margin-top:2px;">' + Math.round(deg) + '&deg;</span></button>';
+      }).join('');
+    }
+  }
+
+  function switchModalView(mode) {
+    if (!modalProduct) return;
+    modalViewMode = mode;
+
+    var videoEl = $('npModalVideo360');
+    var imgEl = $('npModalImg');
+    var tabs = $('npModalViewTabs');
+    var badge = $('np360Badge');
+    var overlay = $('np360Overlay');
+    var controls = $('np360Controls');
+
+    if (tabs) {
+      Array.prototype.forEach.call(tabs.querySelectorAll('.np-view-tab-btn'), function (btn) {
+        btn.classList.toggle('is-active', btn.getAttribute('data-mode') === mode);
+      });
+    }
+
+    if (mode === 'video' && modalProduct.video360) {
+      stopAutoSpin();
+      if (imgEl) imgEl.style.display = 'none';
+      if (videoEl) {
+        videoEl.style.display = 'block';
+        if (videoEl.getAttribute('src') !== modalProduct.video360) {
+          videoEl.src = modalProduct.video360;
+        }
+        videoEl.play().catch(function () {});
+      }
+      if (badge) {
+        badge.innerHTML = '<i class="fas fa-video fa-spin"></i> <span>360&deg; Studio Video (Continuous Spin)</span>';
+        badge.title = 'Continuous 360° Studio Video Presentation';
+      }
+      if (overlay) {
+        overlay.style.display = 'inline-flex';
+        overlay.innerHTML = '<span class="np-360-hint"><i class="fas fa-play-circle"></i> 360&deg; Rotating Video &middot; Drag/scrub or switch to 3D Drag</span>';
+      }
+      if (controls) controls.style.display = 'flex';
+      var spinBtn = $('np360AutoSpinBtn');
+      if (spinBtn) {
+        spinBtn.classList.add('spinning');
+        spinBtn.innerHTML = '<i class="fas fa-pause"></i> <span>Pause Video</span>';
+      }
+      renderThumbsForMode('video');
+    } else if (mode === 'spin') {
+      if (videoEl) {
+        videoEl.pause();
+        videoEl.style.display = 'none';
+      }
+      if (imgEl) imgEl.style.display = 'block';
+      var num = (modalProduct.frames360 && modalProduct.frames360.length) || (modalProduct.img ? modalProduct.img.length : 1);
+      if (badge) {
+        badge.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> <span>360&deg; Interactive Drag (' + num + ' Angles)</span>';
+        badge.title = 'Interactive 360° drag rotation (' + num + ' frames)';
+      }
+      if (overlay) {
+        overlay.style.display = 'inline-flex';
+        overlay.innerHTML = '<span class="np-360-hint"><i class="fas fa-arrows-alt-h"></i> Drag / Swipe horizontally to rotate</span>';
+      }
+      if (controls) controls.style.display = 'flex';
+      var spinBtn = $('np360AutoSpinBtn');
+      if (spinBtn) {
+        spinBtn.classList.remove('spinning');
+        spinBtn.innerHTML = '<i class="fas fa-play"></i> <span>Auto-Spin</span>';
+      }
+      renderThumbsForMode('spin');
+      showModalImage(0);
+      setModalAngle(modalAngle);
+    } else if (mode === 'colors') {
+      if (videoEl) {
+        videoEl.pause();
+        videoEl.style.display = 'none';
+      }
+      if (imgEl) imgEl.style.display = 'block';
+      stopAutoSpin();
+      var numColors = modalProduct.img ? modalProduct.img.length : 1;
+      if (badge) {
+        badge.innerHTML = '<i class="fas fa-palette"></i> <span>Studio Photograph &middot; ' + numColors + ' Colors</span>';
+        badge.title = 'Studio photograph with ' + numColors + ' colorways';
+      }
+      if (overlay) {
+        overlay.style.display = 'inline-flex';
+        overlay.innerHTML = '<span class="np-360-hint"><i class="fas fa-palette"></i> Select color variant from thumbnails below</span>';
+      }
+      if (controls) controls.style.display = 'none';
+      renderThumbsForMode('colors');
+      showModalImage(0);
+    }
+  }
+  window.switchModalView = switchModalView;
+
   function openModal(idx) {
     var p = DATA[idx];
     if (!p) return;
@@ -352,8 +516,10 @@
     if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
     if (presetAnimRaf) { cancelAnimationFrame(presetAnimRaf); presetAnimRaf = null; }
 
-    var isMulti = isMultiAngleProduct(idx);
-    var numFrames = p.img ? p.img.length : 0;
+    var hasVideo = !!p.video360;
+    var hasFrames = !!(p.frames360 && p.frames360.length > 1);
+    var isMulti = isMultiAngleProduct(idx) || hasVideo || hasFrames;
+    var numFrames = hasFrames ? p.frames360.length : (p.img ? p.img.length : 0);
 
     // Meta details
     var brandEl = $('npModalBrand');
@@ -368,7 +534,9 @@
 
     var viewsEl = $('npModalViews');
     if (viewsEl) {
-      if (isMulti) {
+      if (hasVideo) {
+        viewsEl.innerHTML = '<span style="color:#0094DC;font-weight:700;"><i class="fas fa-video"></i> 360&deg; Studio Video &bull; 16 Rotation Angles &bull; ' + p.img.length + ' Colors</span>';
+      } else if (isMulti) {
         viewsEl.textContent = numFrames + ' 360° interactive rotation frames';
       } else if (numFrames > 1) {
         viewsEl.textContent = numFrames + ' studio colorways available (single studio angle)';
@@ -382,87 +550,38 @@
       enqEl.href = 'contact.html?product=' + encodeURIComponent(p.b + ' ' + p.n) + '#enquiry-section';
     }
 
-    // Configure Badge
-    var badge = $('np360Badge');
-    if (badge) {
-      if (isMulti) {
-        badge.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> <span>360&deg; Multi-Angle View (' + numFrames + ' Angles)</span>';
-        badge.title = 'Interactive 360° product rotation (' + numFrames + ' frames)';
-      } else if (numFrames > 1) {
-        badge.innerHTML = '<i class="fas fa-palette"></i> <span>Studio Photograph &middot; ' + numFrames + ' Colors</span>';
-        badge.title = 'Studio photograph with ' + numFrames + ' colorways (360° sequence in production)';
-      } else {
-        badge.innerHTML = '<i class="fas fa-camera"></i> <span>Studio Photograph</span>';
-        badge.title = 'Single studio photograph (360° sequence in production)';
-      }
+    // Tabs Visibility
+    var tabs = $('npModalViewTabs');
+    if (tabs) {
+      tabs.style.display = hasVideo ? 'flex' : 'none';
     }
 
-    // Configure Drag Overlay Hint
-    var overlay = $('np360Overlay');
-    if (overlay) {
-      if (isMulti) {
-        overlay.style.display = 'inline-flex';
-        overlay.innerHTML = '<span class="np-360-hint"><i class="fas fa-arrows-alt-h"></i> Drag / Swipe horizontally to rotate</span>';
-      } else if (numFrames > 1) {
-        overlay.style.display = 'inline-flex';
-        overlay.innerHTML = '<span class="np-360-hint"><i class="fas fa-palette"></i> Select color variant from thumbnails below</span>';
-      } else {
-        overlay.style.display = 'inline-flex';
-        overlay.innerHTML = '<span class="np-360-hint"><i class="fas fa-info-circle"></i> Single studio angle &middot; 360&deg; sequence in production</span>';
-      }
-    }
-
-    // Configure Controls visibility
-    var controls = $('np360Controls');
+    // Notice visibility
     var notice = $('npSingleNotice');
-    if (controls) {
-      controls.style.display = isMulti ? 'flex' : 'none';
-    }
     if (notice) {
-      notice.style.display = isMulti ? 'none' : 'flex';
+      notice.style.display = (isMulti || hasVideo) ? 'none' : 'flex';
       notice.innerHTML = '<i class="fas fa-camera"></i> Single studio angle &middot; 360&deg; rotational sequence in production';
     }
 
-    // Preload all frames for instant 60fps rotation
+    // Preload active 360 frames
     preloadedFrames = [];
-    var loader = $('np360Loader');
-    if (isMulti && loader) {
-      loader.style.display = 'inline-flex';
-    } else if (loader) {
-      loader.style.display = 'none';
-    }
-    var loadedCount = 0;
-    if (numFrames > 0) {
-      p.img.forEach(function (im) {
+    var framesToPreload = hasFrames ? p.frames360 : (isMulti ? p.img : []);
+    if (framesToPreload && framesToPreload.length) {
+      framesToPreload.forEach(function (im) {
         var imgObj = new Image();
-        imgObj.onload = function () {
-          loadedCount++;
-          if (loadedCount >= numFrames && loader) {
-            loader.style.display = 'none';
-          }
-        };
-        imgObj.onerror = function () {
-          loadedCount++;
-          if (loadedCount >= numFrames && loader) {
-            loader.style.display = 'none';
-          }
-        };
         imgObj.src = im.f;
         preloadedFrames.push(imgObj);
       });
     }
 
-    // Thumbnails
-    var thumbs = $('npModalThumbs');
-    if (thumbs) {
-      thumbs.innerHTML = p.img.map(function (im, i) {
-        return '<button type="button" data-i="' + i + '"' + (i === 0 ? ' class="on"' : '') + ' title="' + (isMulti ? 'View angle ' + (i + 1) + ' (' + Math.round((i / numFrames) * 360) + '°)' : 'Product view / color ' + (i + 1)) + '"><img src="' + im.f + '" alt=""></button>';
-      }).join('');
+    // Default mode: video if available, spin if multi, else colors
+    if (hasVideo) {
+      switchModalView('video');
+    } else if (isMulti) {
+      switchModalView('spin');
+    } else {
+      switchModalView('colors');
     }
-
-    // Show initial frame
-    showModalImage(0);
-    setModalAngle(0);
 
     var modal = $('npModal');
     if (modal) {
@@ -475,6 +594,11 @@
     stopAutoSpin();
     if (momentumRaf) { cancelAnimationFrame(momentumRaf); momentumRaf = null; }
     if (presetAnimRaf) { cancelAnimationFrame(presetAnimRaf); presetAnimRaf = null; }
+    var videoEl = $('npModalVideo360');
+    if (videoEl) {
+      videoEl.pause();
+      videoEl.style.display = 'none';
+    }
     var modal = $('npModal');
     if (modal) modal.classList.remove('open');
     document.documentElement.style.overflow = '';
@@ -667,18 +791,71 @@
       }
     });
 
+    // View mode switcher tabs
+    var viewTabs = $('npModalViewTabs');
+    if (viewTabs) {
+      viewTabs.addEventListener('click', function (e) {
+        var btn = e.target.closest('.np-view-tab-btn');
+        if (btn) {
+          var mode = btn.getAttribute('data-mode');
+          if (mode) switchModalView(mode);
+        }
+      });
+    }
+
+    // Modal 360 Video element listeners
+    var videoEl = $('npModalVideo360');
+    if (videoEl) {
+      videoEl.addEventListener('timeupdate', function () {
+        if (modalViewMode === 'video' && videoEl.duration && !isModalDragging) {
+          var prog = (videoEl.currentTime / videoEl.duration) * 360;
+          modalAngle = prog;
+          var slider = $('np360Slider');
+          if (slider) slider.value = Math.round(prog);
+          var stepEl = $('np360Step');
+          if (stepEl) stepEl.textContent = Math.round(prog) + '° (Video)';
+          var presets = $('np360Presets');
+          if (presets) {
+            var rounded = (Math.round(prog / 90) * 90) % 360;
+            Array.prototype.forEach.call(presets.querySelectorAll('.np-360-preset-btn'), function (btn) {
+              btn.classList.toggle('active', Math.abs(+btn.getAttribute('data-deg') - rounded) < 25);
+            });
+          }
+        }
+      });
+
+      videoEl.addEventListener('click', function () {
+        toggleAutoSpin();
+      });
+    }
+
     // Modal thumbnail clicks
     var thumbsEl = $('npModalThumbs');
     if (thumbsEl) {
       thumbsEl.addEventListener('click', function (e) {
+        var degBtn = e.target.closest('[data-deg]');
+        if (degBtn) {
+          var targetDeg = +degBtn.getAttribute('data-deg');
+          if (modalViewMode === 'video') {
+            var vEl = $('npModalVideo360');
+            if (vEl && vEl.duration) {
+              vEl.currentTime = (targetDeg / 360) * vEl.duration;
+            }
+          }
+          setModalAngle(targetDeg);
+          return;
+        }
+
         var b = e.target.closest('[data-i]');
-        if (b && modalProduct && modalProduct.img) {
+        if (b && modalProduct) {
           stopAutoSpin();
           var idx = +b.getAttribute('data-i');
-          showModalImage(idx);
-          if (isMultiAngleProduct(modalProductIndex) && modalProduct.img.length > 1) {
-            var targetAngle = (idx / modalProduct.img.length) * 360;
+          if (modalViewMode === 'spin' && modalProduct.frames360) {
+            var num = modalProduct.frames360.length;
+            var targetAngle = (idx / num) * 360;
             setModalAngle(targetAngle);
+          } else {
+            showModalImage(idx);
           }
         }
       });
@@ -689,7 +866,14 @@
     if (prevBtn) {
       prevBtn.addEventListener('click', function () {
         stopAutoSpin();
-        setModalAngle(modalAngle - 45);
+        var targetAngle = modalAngle - 45;
+        if (modalViewMode === 'video') {
+          var vEl = $('npModalVideo360');
+          if (vEl && vEl.duration) {
+            vEl.currentTime = (((targetAngle % 360) + 360) % 360 / 360) * vEl.duration;
+          }
+        }
+        setModalAngle(targetAngle);
       });
     }
 
@@ -697,7 +881,14 @@
     if (nextBtn) {
       nextBtn.addEventListener('click', function () {
         stopAutoSpin();
-        setModalAngle(modalAngle + 45);
+        var targetAngle = modalAngle + 45;
+        if (modalViewMode === 'video') {
+          var vEl = $('npModalVideo360');
+          if (vEl && vEl.duration) {
+            vEl.currentTime = (((targetAngle % 360) + 360) % 360 / 360) * vEl.duration;
+          }
+        }
+        setModalAngle(targetAngle);
       });
     }
 
@@ -712,7 +903,14 @@
     if (slider) {
       slider.addEventListener('input', function () {
         stopAutoSpin();
-        setModalAngle(+this.value, false);
+        var val = +this.value;
+        if (modalViewMode === 'video') {
+          var vEl = $('npModalVideo360');
+          if (vEl && vEl.duration) {
+            vEl.currentTime = (val / 360) * vEl.duration;
+          }
+        }
+        setModalAngle(val, false);
       });
     }
 
