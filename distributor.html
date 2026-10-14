@@ -2087,21 +2087,21 @@
         }
 
         /* ==========================================================================
-           PAN INDIA PRESENCE & DIRECTORY (Exact Homepage Match + Full Directory)
+           PAN INDIA PRESENCE & DIRECTORY (Exact Homepage Match)
            ========================================================================== */
-        #distributor_page .np-pan-india-presence-section {
+        #distributor_page .pan_india_main {
             padding: 80px 0 90px !important;
             background: #FFFFFF !important;
             border-top: 1px solid #E2E8F0 !important;
             border-bottom: 1px solid #E2E8F0 !important;
         }
-        #distributor_page .np-pan-india-presence-section .container {
+        #distributor_page .pan_india_main .container {
             max-width: 1220px !important;
             margin: 0 auto !important;
             padding: 0 20px !important;
             box-sizing: border-box !important;
         }
-        #distributor_page .np-pan-india-presence-section .pan_india_flex {
+        #distributor_page .pan_india_main .pan_india_flex {
             display: flex !important;
             flex-direction: row !important;
             align-items: center !important;
@@ -2109,7 +2109,7 @@
             gap: 60px !important;
             margin-bottom: 60px !important;
         }
-        #distributor_page .np-pan-india-presence-section .pan_india_img {
+        #distributor_page .pan_india_main .pan_india_img.np-map {
             flex: 1.15 !important;
             max-width: 600px !important;
             width: 100% !important;
@@ -2117,369 +2117,199 @@
             display: block !important;
             margin: 0 !important;
         }
-        #distributor_page .np-pan-india-presence-section .pan_india_img img.np-map-base {
+        #distributor_page .pan_india_main .pan_india_img img.np-map-base {
             width: 100% !important;
             max-width: 100% !important;
             height: auto !important;
             display: block !important;
         }
-        /* Make map pins always visible & clear on distributor page */
-        #distributor_page .np-map-pin {
-            position: absolute !important;
-            z-index: 4 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 28px !important;
-            height: 28px !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            border: 0 !important;
-            background: none !important;
-            transform: translate(-50%, -50%) !important;
-            cursor: pointer !important;
-            opacity: 1 !important;
-            pointer-events: auto !important;
-        }
-        #distributor_page .pan_india_content {
+        #distributor_page .pan_india_main .pan_india_content {
             flex: 1 !important;
             max-width: 520px !important;
+            text-align: left !important;
+            padding: 0 !important;
             display: block !important;
         }
-        #distributor_page .pan_india_content .heading-text {
-            font-size: 46px !important;
+        #distributor_page .pan_india_main .pan_india_heading {
+            font-size: 48px !important;
             font-weight: 800 !important;
-            color: #1F2937 !important;
             line-height: 1.15 !important;
-            margin: 0 0 20px 0 !important;
+            color: #222222 !important;
+            margin: 0 0 18px 0 !important;
             font-family: 'Poppins', 'Work Sans', sans-serif !important;
             letter-spacing: -0.02em !important;
         }
-        #distributor_page .pan_india_content .heading-text .color_blue_home {
-            color: #0094DC !important;
+        #distributor_page .pan_india_main .pan_india_heading .pan_india_red {
+            color: #E31E24 !important;
         }
-        #distributor_page .pan_india_content .para-text {
-            font-size: 16.5px !important;
-            line-height: 1.7 !important;
+        #distributor_page .pan_india_main .pan_india_content .para-text {
+            font-size: 16px !important;
+            line-height: 1.68 !important;
             color: #4B5563 !important;
+            margin: 0 0 24px 0 !important;
+            font-weight: 400 !important;
+        }
+        #distributor_page .pan_india_main .btn_section {
             margin: 0 0 28px 0 !important;
         }
-        #distributor_page .btn_explore_locations {
+        #distributor_page .pan_india_main .btn_explore_locations {
             display: inline-flex !important;
             align-items: center !important;
-            gap: 10px !important;
-            background: #0094DC !important;
+            justify-content: center !important;
+            background: #E31E24 !important;
             color: #FFFFFF !important;
+            font-family: 'Poppins', sans-serif !important;
             font-size: 13.5px !important;
             font-weight: 700 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.8px !important;
-            padding: 13px 28px !important;
+            padding: 13px 34px !important;
             border-radius: 9999px !important;
             text-decoration: none !important;
             transition: all 0.25s ease !important;
-            box-shadow: 0 4px 14px rgba(0, 148, 220, 0.3) !important;
-            margin-bottom: 34px !important;
+            box-shadow: 0 4px 16px rgba(227, 30, 36, 0.35) !important;
+            border: none !important;
+            cursor: pointer !important;
         }
-        #distributor_page .btn_explore_locations:hover {
-            background: #007BB8 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 20px rgba(0, 148, 220, 0.4) !important;
+        #distributor_page .pan_india_main .btn_explore_locations:hover {
+            background: #C4161C !important;
             color: #FFFFFF !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 24px rgba(227, 30, 36, 0.45) !important;
         }
-        #distributor_page .pan_india_list {
+        #distributor_page .pan_india_main .pan_india_legend_supreme {
             display: flex !important;
-            align-items: center !important;
-            gap: 22px !important;
             flex-wrap: wrap !important;
-            margin: 0 !important;
+            align-items: center !important;
+            gap: 24px !important;
+            margin: 0 0 20px 0 !important;
             padding: 0 !important;
         }
-        #distributor_page .pan_india_list .para-text {
+        #distributor_page .pan_india_main .pan_india_legend_supreme .para-text {
             display: inline-flex !important;
             align-items: center !important;
-            gap: 8px !important;
-            margin-bottom: 0 !important;
+            gap: 9px !important;
             font-size: 14.5px !important;
-            font-weight: 600 !important;
+            font-weight: 500 !important;
             color: #374151 !important;
+            font-family: 'Poppins', sans-serif !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            margin: 0 !important;
+            padding: 4px 8px !important;
+            border-radius: 6px !important;
+            user-select: none !important;
         }
-        #distributor_page .pan_india_list .para-text span {
-            width: 13px !important;
-            height: 13px !important;
+        #distributor_page .pan_india_main .pan_india_legend_supreme .para-text:hover {
+            background: #F1F5F9 !important;
+            color: #0F172A !important;
+        }
+        #distributor_page .pan_india_main .pan_india_legend_supreme .para-text.is-active {
+            font-weight: 700 !important;
+            color: #0F172A !important;
+        }
+        #distributor_page .pan_india_main .pan_india_legend_supreme .legend_dot {
+            width: 12px !important;
+            height: 12px !important;
             border-radius: 50% !important;
             display: inline-block !important;
             flex-shrink: 0 !important;
         }
-        #distributor_page .pan_india_list .para-text em {
+        #distributor_page .pan_india_main .pan_india_legend_supreme .dot_unit { background-color: #1E8E3E !important; }
+        #distributor_page .pan_india_main .pan_india_legend_supreme .dot_office { background-color: #E31E24 !important; }
+        #distributor_page .pan_india_main .pan_india_legend_supreme .dot_depot { background-color: #D97706 !important; }
+        #distributor_page .pan_india_main .pan_india_legend_supreme .dot_dealer { background-color: #0094DC !important; }
+        #distributor_page .pan_india_main .pan_india_legend_supreme em {
             font-style: normal !important;
-            font-weight: 400 !important;
-            color: #6B7280 !important;
-            margin-left: 2px !important;
-        }
-
-        /* ==========================================================================
-           LOCATION SELECTOR & DATA CARD (In same Pan India Presence section)
-           ========================================================================== */
-        .np-map-loc-control {
-            margin-top: 24px;
-            margin-bottom: 14px;
-        }
-        .np-loc-select-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11.5px;
-            font-weight: 700;
-            color: #475569;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .np-loc-select-dropdown {
-            width: 100% !important;
-            height: 48px !important;
-            border: 1.5px solid #CBD5E1 !important;
-            border-radius: 10px !important;
-            padding: 0 16px !important;
-            font-size: 14.5px !important;
             font-weight: 600 !important;
-            color: #0F172A !important;
-            background: #F8FAFC !important;
-            outline: none !important;
-            cursor: pointer !important;
-            transition: all 0.2s ease !important;
-            box-sizing: border-box !important;
-        }
-        .np-loc-select-dropdown:focus {
-            border-color: #0094DC !important;
-            background: #FFFFFF !important;
-            box-shadow: 0 0 0 3px rgba(0, 148, 220, 0.15) !important;
-        }
-        .np-loc-select-dropdown optgroup {
-            font-weight: 700;
-            color: #0094DC;
-            background: #FFFFFF;
-        }
-        .np-loc-select-dropdown option {
-            font-weight: 500;
-            color: #0F172A;
-            padding: 6px 10px;
-        }
-
-        /* ==========================================================================
-           LIVE LOCATION & ADDRESS DISPLAY (Supreme.co.in 1:1 Layout - Open & Unboxed)
-           No box wrapper, no borders, no cards - clean editorial typography
-           ========================================================================== */
-        .np-map-loc-card,
-        .np-map-loc-unboxed {
-            background: transparent !important;
-            border: none !important;
-            border-radius: 0 !important;
-            padding: 20px 0 0 0 !important;
-            box-shadow: none !important;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: visible !important;
-            margin-top: 8px !important;
-        }
-        .np-map-loc-card::before,
-        .np-map-loc-unboxed::before {
-            display: none !important;
-        }
-
-        .np-mlc-header {
-            margin-bottom: 14px;
-        }
-        .np-card-badge,
-        .np-loc-eyebrow {
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 7px !important;
-            font-family: 'Poppins', 'Work Sans', sans-serif !important;
             font-size: 12px !important;
-            font-weight: 800 !important;
-            text-transform: uppercase !important;
-            letter-spacing: 1.5px !important;
-            padding: 0 !important;
-            background: transparent !important;
-            border: none !important;
-            border-radius: 0 !important;
-            margin-bottom: 8px !important;
-            width: fit-content;
+            color: #64748B !important;
         }
-        .np-card-badge.badge-office, .np-loc-eyebrow.badge-office { color: #DC2626 !important; }
-        .np-card-badge.badge-plant, .np-loc-eyebrow.badge-plant { color: #1E8E3E !important; }
-        .np-card-badge.badge-depot, .np-loc-eyebrow.badge-depot { color: #D97706 !important; }
-        .np-card-badge.badge-distributor, .np-loc-eyebrow.badge-distributor { color: #0094DC !important; }
-
-        .np-mlc-name {
-            font-size: 28px !important;
-            font-weight: 700 !important;
-            color: #111827 !important;
-            margin: 0 0 4px !important;
-            line-height: 1.25 !important;
-            font-family: 'Poppins', 'Work Sans', sans-serif !important;
-            letter-spacing: -0.02em !important;
+        #distributor_page .pan_india_main .np-dist-drawer-toggle-wrap {
+            margin-top: 14px !important;
         }
-        .np-mlc-scope {
-            font-size: 14px !important;
-            color: #0094DC !important;
-            font-weight: 600 !important;
-            margin-bottom: 0 !important;
-            font-family: 'Work Sans', sans-serif !important;
-        }
-
-        .np-mlc-details {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 12px !important;
-            padding: 16px 0 !important;
-            border: none !important;
-            margin-bottom: 22px !important;
-        }
-        .np-loc-detail-row {
-            display: flex !important;
-            align-items: flex-start !important;
-            gap: 12px !important;
-            font-size: 15px !important;
-            color: #4B5563 !important;
-            line-height: 1.6 !important;
-        }
-        .np-loc-detail-row i {
-            font-size: 15px !important;
-            color: #0094DC !important;
-            margin-top: 4px !important;
-            flex-shrink: 0 !important;
-            width: 16px !important;
-            text-align: center !important;
-        }
-        .np-loc-detail-row a {
-            color: #1F2937 !important;
-            text-decoration: none !important;
-            font-weight: 600 !important;
-            transition: color 0.2s ease !important;
-        }
-        .np-loc-detail-row a:hover {
-            color: #0094DC !important;
-            text-decoration: underline !important;
-        }
-
-        .np-mlc-actions {
-            display: flex !important;
-            align-items: center !important;
-            gap: 14px !important;
-            padding: 0 !important;
-        }
-        .np-btn-dir-map {
+        #distributor_page .pan_india_main .np-btn-toggle-distributors {
             display: inline-flex !important;
             align-items: center !important;
-            justify-content: center !important;
             gap: 8px !important;
-            font-size: 13.5px !important;
-            font-weight: 700 !important;
-            color: #FFFFFF !important;
-            background: #0094DC !important;
-            padding: 12px 26px !important;
-            border-radius: 9999px !important;
-            border: 1.5px solid #0094DC !important;
-            text-decoration: none !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.6px !important;
-            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            box-shadow: 0 4px 14px rgba(0, 148, 220, 0.25) !important;
-        }
-        .np-btn-dir-map:hover {
-            background: #007BB8 !important;
-            border-color: #007BB8 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 8px 22px rgba(0, 148, 220, 0.35) !important;
-            color: #FFFFFF !important;
-        }
-        .np-btn-dir-call {
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            gap: 8px !important;
-            font-size: 13.5px !important;
-            font-weight: 700 !important;
-            color: #0094DC !important;
-            background: transparent !important;
-            border: 1.5px solid #0094DC !important;
-            padding: 12px 24px !important;
-            border-radius: 9999px !important;
-            text-decoration: none !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.6px !important;
-            transition: all 0.25s ease !important;
-        }
-        .np-btn-dir-call:hover {
-            background: #EBF6FC !important;
-            color: #007BB8 !important;
-            transform: translateY(-2px) !important;
-        }
-
-        /* Active Map Pin Pulse on Map (Enhances blinking with highlighted label & prominent indicator) */
-        #distributor_page .np-map-pin.is-active {
-            z-index: 12 !important;
-        }
-        #distributor_page .np-map-pin.is-active .np-map-pin-dot {
-            box-shadow: 0 0 0 4px #FFFFFF, 0 0 16px 4px rgba(0, 148, 220, 0.6) !important;
-        }
-        #distributor_page .np-map-pin.is-active .np-map-pin-label {
-            opacity: 1 !important;
-            transform: translate(-50%, 0) !important;
-            background: #0F172A !important;
-            color: #FFFFFF !important;
-            font-weight: 700 !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
-        }
-
-        /* Interactive Map Legend with Synchronized Alternate Category Pulsing */
-        #distributor_page .pan_india_list .para-text {
+            font-size: 12.5px !important;
+            font-weight: 600 !important;
+            color: #475569 !important;
+            background: #F8FAFC !important;
+            border: 1px solid #E2E8F0 !important;
+            padding: 6px 14px !important;
+            border-radius: 6px !important;
             cursor: pointer !important;
-            padding: 6px 12px !important;
-            border-radius: 999px !important;
             transition: all 0.2s ease !important;
-            user-select: none !important;
         }
-        #distributor_page .pan_india_list .para-text:hover {
-            background: #F1F5F9 !important;
-            transform: translateY(-1px) !important;
-        }
-        #distributor_page .pan_india_list .para-text.is-active {
-            background: #EBF6FC !important;
+        #distributor_page .pan_india_main .np-btn-toggle-distributors:hover {
             color: #0094DC !important;
-            font-weight: 600 !important;
+            border-color: #0094DC !important;
+            background: #F0F9FF !important;
         }
-
-
-
-        @media (max-width: 1024px) {
-            #distributor_page .np-pan-india-presence-section .pan_india_flex {
-                flex-direction: column-reverse !important;
-                gap: 40px !important;
+        #distributor_page .pan_india_main .np-chevron-icon {
+            font-size: 11px !important;
+            transition: transform 0.25s ease !important;
+        }
+        #distributor_page .pan_india_main .np-dist-drawer {
+            margin-top: 12px !important;
+            padding: 12px 14px !important;
+            background: #F8FAFC !important;
+            border: 1px solid #E2E8F0 !important;
+            border-radius: 10px !important;
+        }
+        #distributor_page .pan_india_main .np-dist-chips-scroll {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: 6px !important;
+            max-height: 120px !important;
+            overflow-y: auto !important;
+        }
+        #distributor_page .pan_india_main .np-dist-chip {
+            padding: 4px 10px !important;
+            font-size: 11.5px !important;
+            font-weight: 600 !important;
+            color: #334155 !important;
+            background: #FFFFFF !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 5px !important;
+            cursor: pointer !important;
+            transition: all 0.15s ease !important;
+            line-height: 1.4 !important;
+        }
+        #distributor_page .pan_india_main .np-dist-chip:hover {
+            border-color: #0094DC !important;
+            color: #0094DC !important;
+            background: #F0F9FF !important;
+        }
+        #distributor_page .pan_india_main .np-dist-chip.is-active {
+            background: #0094DC !important;
+            border-color: #0094DC !important;
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+        }
+        @media screen and (max-width: 991px) {
+            #distributor_page .pan_india_main {
+                padding: 50px 0 !important;
+            }
+            #distributor_page .pan_india_main .pan_india_flex {
+                flex-direction: column !important;
+                gap: 36px !important;
+                text-align: left !important;
                 margin-bottom: 20px !important;
             }
-            #distributor_page .np-pan-india-presence-section .pan_india_img {
+            #distributor_page .pan_india_main .pan_india_img.np-map,
+            #distributor_page .pan_india_main .pan_india_content {
                 max-width: 100% !important;
-            }
-            #distributor_page .np-pan-india-presence-section .pan_india_content {
-                max-width: 100% !important;
-            }
-        }
-        @media (max-width: 768px) {
-            #distributor_page .np-pan-india-presence-section {
-                padding: 45px 0 !important;
-            }
-            #distributor_page .np-pan-india-presence-section .pan_india_content .heading-text {
-                font-size: 32px !important;
-            }
-            .np-mlc-actions {
-                flex-direction: column !important;
-            }
-            .np-btn-dir-map, .np-btn-dir-call {
                 width: 100% !important;
+            }
+            #distributor_page .pan_india_main .pan_india_heading {
+                font-size: 32px !important;
+                margin-bottom: 14px !important;
+            }
+            #distributor_page .pan_india_main .pan_india_content .para-text {
+                font-size: 15px !important;
+                margin-bottom: 18px !important;
             }
         }
 
@@ -3498,47 +3328,47 @@
              PAN INDIA PRESENCE & LOCATIONS DIRECTORY
              Placed directly after Premium Plastic Furniture & Crates
              ========================================================================== -->
-        <section class="pan_india_main np-pan-india-presence-section" id="pan-india-presence">
+        <section class="pan_india_main" id="pan-india-presence">
             <div class="container">
                 <div class="pan_india_flex">
-                    <!-- Left: Interactive Map -->
+                    <!-- Left: Clean India Silhouette Map with Pins -->
                     <div class="pan_india_img np-map" id="np_map">
-                        <img src="images/icons/india-map.svg" class="np-map-base" alt="Map of India showing National Plasto head office, manufacturing plants, trade depots, and distributors" width="600" height="670" loading="lazy">
-                        
-                        <!-- 4 Manufacturing Plants -->
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:63.6%;top:51.4%" data-loc="howrah" data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal" data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411" data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411" aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Howrah</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:79.85%;top:36.09%" data-loc="guwahati" data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam" data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031" data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031" aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Guwahati</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:33.44%;top:24.05%" data-loc="roorkee" data-name="Roorkee Plant" data-type="Manufacturing Unit" data-region="Uttarakhand" data-addr="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661" data-map="https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661" aria-label="Roorkee Plant, Uttarakhand"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Roorkee</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:58.26%;top:37.74%" data-loc="hajipur" data-name="Hajipur Plant" data-type="Manufacturing Unit" data-region="Bihar" data-addr="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101" data-map="https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101" aria-label="Hajipur Plant, Bihar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Hajipur</span></button>
+                        <img src="images/icons/india-map.svg" class="np-map-base" alt="Pan India Presence Map - National Plasto" width="600" height="670" loading="lazy">
 
-                        <!-- Head Office -->
-                        <button type="button" class="np-map-pin np-map-pin--office" style="left:70.8%;top:45.4%" data-loc="kolkata" data-name="Head Office, Kolkata" data-type="Head Office" data-region="Kolkata, West Bengal" data-addr="19 Sukeas Lane, Kolkata, West Bengal 700001" data-map="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" aria-label="Head Office, Kolkata, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Head Office</span></button>
-                        
-                        <!-- 4 Trade Depots -->
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:28%;top:55%" data-loc="nasik" data-name="Nasik Depot" data-type="Trade Depot" data-region="Maharashtra" data-addr="Ambad MIDC, Nashik, Maharashtra 422010"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Nasik</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:61%;top:48%" data-loc="cuttack" data-name="Cuttack Depot" data-type="Trade Depot" data-region="Odisha" data-addr="Jagatpur Industrial Area, Cuttack, Odisha 754021"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Cuttack</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:48%;top:31%" data-loc="lucknow" data-name="Lucknow Depot" data-type="Trade Depot" data-region="Uttar Pradesh" data-addr="Transport Nagar Phase 2, Lucknow, UP 226012"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Lucknow</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:29%;top:31%" data-loc="jaipur" data-name="Jaipur Depot" data-type="Trade Depot" data-region="Rajasthan" data-addr="VKI Industrial Area, Jaipur, Rajasthan 302013"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jaipur</span></button>
+                        <!-- 4 Manufacturing Plants (Green Dots) -->
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:63.6%;top:51.4%" data-loc="howrah" data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal" data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411" data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411" aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:79.85%;top:36.09%" data-loc="guwahati" data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam" data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031" data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031" aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:33.44%;top:24.05%" data-loc="roorkee" data-name="Roorkee Plant" data-type="Manufacturing Unit" data-region="Uttarakhand" data-addr="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661" data-map="https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661" aria-label="Roorkee Plant, Uttarakhand"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:58.26%;top:37.74%" data-loc="hajipur" data-name="Hajipur Plant" data-type="Manufacturing Unit" data-region="Bihar" data-addr="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101" data-map="https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101" aria-label="Hajipur Plant, Bihar"><span class="np-map-pin-dot"></span></button>
 
-                        <!-- 18 Regional Distributors / Desks -->
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:66%;top:45%" data-loc="wb" data-name="West Bengal Hub" data-type="Distributor" data-region="WB" data-addr="Kolkata, Siliguri, Asansol &amp; Durgapur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">WB</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:57%;top:42%" data-loc="jharkhand" data-name="Jharkhand Hub" data-type="Distributor" data-region="Jharkhand" data-addr="Ranchi, Jamshedpur &amp; Dhanbad"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jharkhand</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:60%;top:50%" data-loc="odhisa" data-name="Odisha Hub" data-type="Distributor" data-region="Odisha" data-addr="Bhubaneswar, Cuttack &amp; Rourkela"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Odisha</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:81%;top:35%" data-loc="assam" data-name="Assam &amp; NE Hub" data-type="Distributor" data-region="Assam" data-addr="Guwahati, Dibrugarh &amp; Silchar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Assam</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:34%;top:26%" data-loc="delhi" data-name="Delhi NCR Hub" data-type="Distributor" data-region="Delhi" data-addr="New Delhi, Noida &amp; Gurugram"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Delhi</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:31%;top:24%" data-loc="haryana" data-name="Haryana Hub" data-type="Distributor" data-region="Haryana" data-addr="Faridabad, Panipat &amp; Karnal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Haryana</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:51%;top:33%" data-loc="east-up" data-name="East UP Hub" data-type="Distributor" data-region="East UP" data-addr="Varanasi, Gorakhpur &amp; Prayagraj"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">East UP</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:40%;top:28%" data-loc="west-up" data-name="West UP Hub" data-type="Distributor" data-region="West UP" data-addr="Kanpur, Agra &amp; Meerut"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">West UP</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:28%;top:20%" data-loc="punjab" data-name="Punjab Hub" data-type="Distributor" data-region="Punjab" data-addr="Ludhiana, Amritsar &amp; Jalandhar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Punjab</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:25%;top:12%" data-loc="jammu" data-name="Jammu Hub" data-type="Distributor" data-region="Jammu" data-addr="Jammu Tawi, Udhampur &amp; Srinagar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jammu</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:38%;top:22%" data-loc="uttarakhand" data-name="Uttarakhand Hub" data-type="Distributor" data-region="Uttarakhand" data-addr="Dehradun, Haridwar &amp; Roorkee"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Uttarakhand</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:58%;top:38%" data-loc="bihar" data-name="Bihar Hub" data-type="Distributor" data-region="Bihar" data-addr="Patna, Muzaffarpur &amp; Gaya"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Bihar</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:50%;top:47%" data-loc="chattisgarh" data-name="Chhattisgarh Hub" data-type="Distributor" data-region="Chhattisgarh" data-addr="Raipur, Bilaspur &amp; Bhilai"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Chhattisgarh</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:55%" data-loc="maharshtra" data-name="Maharashtra Hub" data-type="Distributor" data-region="Maharashtra" data-addr="Mumbai, Pune, Nagpur &amp; Nashik"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Maharashtra</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:17%;top:46%" data-loc="gujarat" data-name="Gujarat Hub" data-type="Distributor" data-region="Gujarat" data-addr="Ahmedabad, Surat &amp; Vadodara"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Gujarat</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:17%" data-loc="himachal-pradesh" data-name="Himachal Pradesh Hub" data-type="Distributor" data-region="Himachal Pradesh" data-addr="Shimla, Solan, Baddi &amp; Kangra"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Himachal</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:41%;top:45%" data-loc="madhya-pradesh" data-name="Madhya Pradesh Hub" data-type="Distributor" data-region="Madhya Pradesh" data-addr="Indore, Bhopal &amp; Jabalpur"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Madhya Pradesh</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:24%;top:34%" data-loc="rajasthan" data-name="Rajasthan Hub" data-type="Distributor" data-region="Rajasthan" data-addr="Jaipur, Jodhpur &amp; Kota"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Rajasthan</span></button>
+                        <!-- Corporate Head Office (Red Dot) -->
+                        <button type="button" class="np-map-pin np-map-pin--office" style="left:70.8%;top:45.4%" data-loc="kolkata" data-name="Head Office, Kolkata" data-type="Head Office" data-region="Kolkata, West Bengal" data-addr="19 Sukeas Lane, Kolkata, West Bengal 700001" data-map="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" aria-label="Head Office, Kolkata"><span class="np-map-pin-dot"></span></button>
+
+                        <!-- 4 Regional Trade Depots (Amber Dots) -->
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:28%;top:55%" data-loc="nasik" data-name="Nasik Trade Depot" data-type="Trade Depot" data-region="Maharashtra" data-addr="Ambad MIDC, Nashik, Maharashtra 422010" aria-label="Nasik Trade Depot"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:61%;top:48%" data-loc="cuttack" data-name="Cuttack Trade Depot" data-type="Trade Depot" data-region="Odisha" data-addr="Jagatpur Industrial Area, Cuttack, Odisha 754021" aria-label="Cuttack Trade Depot"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:48%;top:31%" data-loc="lucknow" data-name="Lucknow Trade Depot" data-type="Trade Depot" data-region="Uttar Pradesh" data-addr="Transport Nagar Phase 2, Lucknow, UP 226012" aria-label="Lucknow Trade Depot"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:29%;top:31%" data-loc="jaipur" data-name="Jaipur Trade Depot" data-type="Trade Depot" data-region="Rajasthan" data-addr="VKI Industrial Area, Jaipur, Rajasthan 302013" aria-label="Jaipur Trade Depot"><span class="np-map-pin-dot"></span></button>
+
+                        <!-- 18 Regional Distributors (Exact User Order 1-18 - Blue Dots) -->
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:66%;top:45%" data-loc="wb" data-name="1. WB Distributor Hub" data-type="Distributor" data-region="WB" data-addr="Kolkata, Siliguri, Asansol &amp; Durgapur" aria-label="1. WB Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:57%;top:42%" data-loc="jharkhand" data-name="2. Jharkhand Distributor Hub" data-type="Distributor" data-region="Jharkhand" data-addr="Ranchi, Jamshedpur &amp; Dhanbad" aria-label="2. Jharkhand Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:60%;top:50%" data-loc="odhisa" data-name="3. Odhisa Distributor Hub" data-type="Distributor" data-region="Odhisa" data-addr="Bhubaneswar, Cuttack &amp; Rourkela" aria-label="3. Odhisa Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:81%;top:35%" data-loc="assam" data-name="4. Assam Distributor Hub" data-type="Distributor" data-region="Assam" data-addr="Guwahati, Dibrugarh &amp; Silchar" aria-label="4. Assam Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:34%;top:26%" data-loc="delhi" data-name="5. Delhi Distributor Hub" data-type="Distributor" data-region="Delhi" data-addr="New Delhi, Noida &amp; Gurugram" aria-label="5. Delhi Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:31%;top:24%" data-loc="haryana" data-name="6. Haryana Distributor Hub" data-type="Distributor" data-region="Haryana" data-addr="Faridabad, Panipat &amp; Karnal" aria-label="6. Haryana Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:51%;top:33%" data-loc="east-up" data-name="7. East UP Distributor Hub" data-type="Distributor" data-region="East UP" data-addr="Varanasi, Gorakhpur &amp; Prayagraj" aria-label="7. East UP Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:40%;top:28%" data-loc="west-up" data-name="8. West UP Distributor Hub" data-type="Distributor" data-region="West UP" data-addr="Kanpur, Agra &amp; Meerut" aria-label="8. West UP Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:28%;top:20%" data-loc="punjab" data-name="9. Punjab Distributor Hub" data-type="Distributor" data-region="Punjab" data-addr="Ludhiana, Amritsar &amp; Jalandhar" aria-label="9. Punjab Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:25%;top:12%" data-loc="jammu" data-name="10. Jammu Distributor Hub" data-type="Distributor" data-region="Jammu" data-addr="Jammu Tawi, Udhampur &amp; Srinagar" aria-label="10. Jammu Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:38%;top:22%" data-loc="uttarakhand" data-name="11. Uttarkhand Distributor Hub" data-type="Distributor" data-region="Uttarakhand" data-addr="Dehradun, Haridwar &amp; Roorkee" aria-label="11. Uttarkhand Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:58%;top:38%" data-loc="bihar" data-name="12. Bihar Distributor Hub" data-type="Distributor" data-region="Bihar" data-addr="Patna, Muzaffarpur &amp; Gaya" aria-label="12. Bihar Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:50%;top:47%" data-loc="chattisgarh" data-name="13. Chattisgarh Distributor Hub" data-type="Distributor" data-region="Chattisgarh" data-addr="Raipur, Bilaspur &amp; Bhilai" aria-label="13. Chattisgarh Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:55%" data-loc="maharshtra" data-name="14. Maharshtra Distributor Hub" data-type="Distributor" data-region="Maharashtra" data-addr="Mumbai, Pune, Nagpur &amp; Nashik" aria-label="14. Maharshtra Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:17%;top:46%" data-loc="gujarat" data-name="15. Gujarat Distributor Hub" data-type="Distributor" data-region="Gujarat" data-addr="Ahmedabad, Surat &amp; Vadodara" aria-label="15. Gujarat Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:32%;top:17%" data-loc="himachal-pradesh" data-name="16. Himachal Pradesh Distributor Hub" data-type="Distributor" data-region="Himachal Pradesh" data-addr="Shimla, Solan, Baddi &amp; Kangra" aria-label="16. Himachal Pradesh Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:41%;top:45%" data-loc="madhya-pradesh" data-name="17. Madhya Pradesh Distributor Hub" data-type="Distributor" data-region="Madhya Pradesh" data-addr="Indore, Bhopal &amp; Jabalpur" aria-label="17. Madhya Pradesh Distributor Hub"><span class="np-map-pin-dot"></span></button>
+                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:24%;top:34%" data-loc="rajasthan" data-name="18. Rajasthan Distributor Hub" data-type="Distributor" data-region="Rajasthan" data-addr="Jaipur, Jodhpur &amp; Kota" aria-label="18. Rajasthan Distributor Hub"><span class="np-map-pin-dot"></span></button>
 
                         <!-- Dynamic Popover Card -->
                         <div class="np-map-card" id="np_map_card" role="dialog" aria-live="polite" hidden>
@@ -3550,98 +3380,60 @@
                         </div>
                     </div>
 
-                    <!-- Right: Content Column with Interactive Location Selector & Live Data Card -->
+                    <!-- Right: Supreme 1:1 Clean Editorial Content & Legend -->
                     <div class="pan_india_content toTop" data-scroll>
-                        <h2 class="heading-text"><span class="color_blue_home">Pan India </span>Presence</h2>
+                        <h2 class="heading-text pan_india_heading"><span class="pan_india_red">Pan India </span>Presence</h2>
                         <p class="para-text color_para">With its expanding manufacturing and distribution network across the nation, National Plasto has exceptionally fortified its PAN India presence.</p>
-                        
-                        <div class="pan_india_list np-map-legend">
-                            <p class="para-text color_para is-active" data-kind="office" onclick="filterMapCategory('office')" title="Filter Head Office"><span class="office_color" style="background-color: #DC2626;"></span> Head Office <em>1</em></p>
-                            <p class="para-text color_para" data-kind="unit" onclick="filterMapCategory('plant')" title="Filter Manufacturing Plants"><span style="background-color: #1E8E3E;"></span> Plants <em>4</em></p>
-                            <p class="para-text color_para" data-kind="depot" onclick="filterMapCategory('depot')" title="Filter Trade Depots"><span class="np-depot-color" style="background-color: #EAB308;"></span> Trade Depots <em>4</em></p>
-                            <p class="para-text color_para" data-kind="dealer" onclick="filterMapCategory('distributor')" title="Filter Distributors"><span class="np-dealer-color" style="background-color: #1D4ED8;"></span> Distributors <em>18</em></p>
+
+                        <div class="btn_section">
+                            <a href="#dealer-directory" class="btn_explore_locations">EXPLORE OUR LOCATIONS</a>
                         </div>
 
-                        <!-- Location Select Control -->
-                        <div class="np-map-loc-control">
-                            <label for="panIndiaLocSelect" class="np-loc-select-label">
-                                <i class="fas fa-map-marker-alt" style="color: #0094DC;"></i> Select Location / Facility:
-                            </label>
-                            <div class="np-loc-select-wrap">
-                                <select id="panIndiaLocSelect" class="np-loc-select-dropdown" onchange="onMapLocationSelect(this.value)">
-                                    <optgroup label="Corporate Headquarters (1)">
-                                        <option value="kolkata" selected>Head Office &mdash; Kolkata (West Bengal)</option>
-                                    </optgroup>
-                                    <optgroup label="Manufacturing Plants (4)">
-                                        <option value="howrah">Plant 1 &mdash; Dhulagarh, Howrah (West Bengal)</option>
-                                        <option value="guwahati">Plant 2 &mdash; Amingaon, Guwahati (Assam)</option>
-                                        <option value="roorkee">Plant 3 &mdash; Bhagwanpur, Roorkee (Uttarakhand)</option>
-                                        <option value="hajipur">Plant 4 &mdash; EPIP Area, Hajipur (Bihar)</option>
-                                    </optgroup>
-                                    <optgroup label="Regional Trade Depots (4)">
-                                        <option value="nasik">Trade Depot &mdash; Nasik (Maharashtra)</option>
-                                        <option value="cuttack">Trade Depot &mdash; Cuttack (Odisha)</option>
-                                        <option value="lucknow">Trade Depot &mdash; Lucknow (Uttar Pradesh)</option>
-                                        <option value="jaipur">Trade Depot &mdash; Jaipur (Rajasthan)</option>
-                                    </optgroup>
-                                    <optgroup label="Authorized Distributors & Regional Hubs (18)">
-                                        <option value="wb">Distributor Hub &mdash; West Bengal</option>
-                                        <option value="jharkhand">Distributor Hub &mdash; Jharkhand</option>
-                                        <option value="odhisa">Distributor Hub &mdash; Odisha</option>
-                                        <option value="assam">Distributor Hub &mdash; Assam &amp; North-East</option>
-                                        <option value="delhi">Distributor Hub &mdash; Delhi NCR</option>
-                                        <option value="haryana">Distributor Hub &mdash; Haryana</option>
-                                        <option value="east-up">Distributor Hub &mdash; East Uttar Pradesh</option>
-                                        <option value="west-up">Distributor Hub &mdash; West Uttar Pradesh</option>
-                                        <option value="punjab">Distributor Hub &mdash; Punjab</option>
-                                        <option value="jammu">Distributor Hub &mdash; Jammu &amp; Kashmir</option>
-                                        <option value="uttarakhand">Distributor Hub &mdash; Uttarakhand</option>
-                                        <option value="bihar">Distributor Hub &mdash; Bihar</option>
-                                        <option value="chattisgarh">Distributor Hub &mdash; Chhattisgarh</option>
-                                        <option value="maharshtra">Distributor Hub &mdash; Maharashtra</option>
-                                        <option value="gujarat">Distributor Hub &mdash; Gujarat</option>
-                                        <option value="himachal-pradesh">Distributor Hub &mdash; Himachal Pradesh</option>
-                                        <option value="madhya-pradesh">Distributor Hub &mdash; Madhya Pradesh</option>
-                                        <option value="rajasthan">Distributor Hub &mdash; Rajasthan</option>
-                                    </optgroup>
-                                </select>
-                            </div>
+                        <!-- Supreme 1:1 Legend with Interactive Filters -->
+                        <div class="pan_india_list pan_india_legend_supreme">
+                            <p class="para-text color_para is-active" data-filter="plant" onclick="filterMapCategory('plant')" role="button" tabindex="0" title="4 Manufacturing Plants">
+                                <span class="legend_dot dot_unit"></span> Plants <em>4</em>
+                            </p>
+                            <p class="para-text color_para is-active" data-filter="office" onclick="filterMapCategory('office')" role="button" tabindex="0" title="Corporate Head Office">
+                                <span class="legend_dot dot_office"></span> Head Office <em>1</em>
+                            </p>
+                            <p class="para-text color_para is-active" data-filter="depot" onclick="filterMapCategory('depot')" role="button" tabindex="0" title="4 Regional Trade Depots">
+                                <span class="legend_dot dot_depot"></span> Trade Depots <em>4</em>
+                            </p>
+                            <p class="para-text color_para is-active" data-filter="distributor" onclick="filterMapCategory('distributor')" role="button" tabindex="0" title="18 Authorized Distributors">
+                                <span class="legend_dot dot_dealer"></span> Distributors <em>18</em>
+                            </p>
                         </div>
 
-                        <!-- Live Selected Facility Data (Supreme.co.in Style: Unboxed & Clean Editorial Layout) -->
-                        <div class="np-map-loc-card np-map-loc-unboxed" id="panIndiaDataCard" data-category="office">
-                            <div class="np-mlc-header">
-                                <span class="np-card-badge np-loc-eyebrow badge-office" id="mlcBadge"><i class="fas fa-building"></i> Head Office</span>
-                                <h3 class="np-mlc-name" id="mlcName">National Plasto Corporate Headquarters</h3>
-                                <div class="np-mlc-scope" id="mlcScope">Central Executive &amp; Commercial Governance</div>
-                            </div>
-                            <div class="np-mlc-details">
-                                <div class="np-loc-detail-row">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span id="mlcAddress">19 Sukeas Lane, Radhabazar, Kolkata, West Bengal 700001</span>
-                                </div>
-                                <div class="np-loc-detail-row">
-                                    <i class="fas fa-phone-alt"></i>
-                                    <span id="mlcPhone"><a href="tel:+919830012345">+91 98300 12345</a> &bull; <a href="tel:+913322421997">+91 33 2242 1997</a></span>
-                                </div>
-                                <div class="np-loc-detail-row">
-                                    <i class="fas fa-envelope"></i>
-                                    <span id="mlcEmail"><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></span>
-                                </div>
-                                <div class="np-loc-detail-row" id="mlcMetaRow">
-                                    <i class="fas fa-clock" id="mlcMetaIcon"></i>
-                                    <span id="mlcMeta">Mon &ndash; Sat: 10:00 AM &ndash; 7:00 PM</span>
-                                </div>
-                            </div>
-                            <!-- State Dealers Preview Container -->
-                            <div id="mlcStateDealersPreview" class="np-state-dealers-preview" style="display:none;"></div>
-                            <div class="np-mlc-actions">
-                                <a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane%2C+Kolkata%2C+West+Bengal+700001" target="_blank" rel="noopener" class="np-btn-dir-map" id="mlcMapBtn">
-                                    <i class="fas fa-directions"></i> Get Directions
-                                </a>
-                                <a href="tel:+919830012345" class="np-btn-dir-call" id="mlcCallBtn">
-                                    <i class="fas fa-phone-alt"></i> Call Facility
-                                </a>
+                        <!-- Sleek Toggle for 18 Authorized Distributors -->
+                        <div class="np-dist-drawer-toggle-wrap">
+                            <button type="button" class="np-btn-toggle-distributors" id="btnToggleDist" onclick="toggleDistributorDrawer()" aria-expanded="false">
+                                <span><i class="fas fa-list-ol"></i> List of Distributors (18 Hubs)</span>
+                                <i class="fas fa-chevron-down np-chevron-icon"></i>
+                            </button>
+                        </div>
+
+                        <!-- Collapsible 18-Distributor Quick Directory -->
+                        <div class="np-dist-drawer" id="npDistDrawer" style="display: none;">
+                            <div class="np-dist-chips-scroll">
+                                <button type="button" class="np-dist-chip" data-loc="wb" onclick="focusMapLocation('wb')">1. WB</button>
+                                <button type="button" class="np-dist-chip" data-loc="jharkhand" onclick="focusMapLocation('jharkhand')">2. Jharkhand</button>
+                                <button type="button" class="np-dist-chip" data-loc="odhisa" onclick="focusMapLocation('odhisa')">3. Odhisa</button>
+                                <button type="button" class="np-dist-chip" data-loc="assam" onclick="focusMapLocation('assam')">4. Assam</button>
+                                <button type="button" class="np-dist-chip" data-loc="delhi" onclick="focusMapLocation('delhi')">5. Delhi</button>
+                                <button type="button" class="np-dist-chip" data-loc="haryana" onclick="focusMapLocation('haryana')">6. Haryana</button>
+                                <button type="button" class="np-dist-chip" data-loc="east-up" onclick="focusMapLocation('east-up')">7. East UP</button>
+                                <button type="button" class="np-dist-chip" data-loc="west-up" onclick="focusMapLocation('west-up')">8. West UP</button>
+                                <button type="button" class="np-dist-chip" data-loc="punjab" onclick="focusMapLocation('punjab')">9. Punjab</button>
+                                <button type="button" class="np-dist-chip" data-loc="jammu" onclick="focusMapLocation('jammu')">10. Jammu</button>
+                                <button type="button" class="np-dist-chip" data-loc="uttarakhand" onclick="focusMapLocation('uttarakhand')">11. Uttarkhand</button>
+                                <button type="button" class="np-dist-chip" data-loc="bihar" onclick="focusMapLocation('bihar')">12. Bihar</button>
+                                <button type="button" class="np-dist-chip" data-loc="chattisgarh" onclick="focusMapLocation('chattisgarh')">13. Chattisgarh</button>
+                                <button type="button" class="np-dist-chip" data-loc="maharshtra" onclick="focusMapLocation('maharshtra')">14. Maharshtra</button>
+                                <button type="button" class="np-dist-chip" data-loc="gujarat" onclick="focusMapLocation('gujarat')">15. Gujarat</button>
+                                <button type="button" class="np-dist-chip" data-loc="himachal-pradesh" onclick="focusMapLocation('himachal-pradesh')">16. Himachal Pradesh</button>
+                                <button type="button" class="np-dist-chip" data-loc="madhya-pradesh" onclick="focusMapLocation('madhya-pradesh')">17. Madhya Pradesh</button>
+                                <button type="button" class="np-dist-chip" data-loc="rajasthan" onclick="focusMapLocation('rajasthan')">18. Rajasthan</button>
                             </div>
                         </div>
                     </div>
@@ -4507,70 +4299,176 @@
 };
 window.allLocationsData = allLocationsData;
 
-        function onMapLocationSelect(locKey) {
-            if (!locKey) return;
-            var data = allLocationsData[locKey];
-            if (!data) return;
+        // ==========================================================================
+        // SUPREME.CO.IN PAN INDIA ANIMATION ENGINE & INTERACTION (HOMEPAGE MATCH)
+        // ==========================================================================
+        var isUserInteracting = false;
+        var cycleTimeout = null;
+        var currentCyclePhase = 0;
+        var phases = ['all', 'plant_office', 'depot', 'distributor'];
 
-            // Sync select dropdown if not already selected
-            if ($('#panIndiaLocSelect').val() !== locKey) {
-                $('#panIndiaLocSelect').val(locKey);
-            }
+        window.focusMapLocation = function(locKey) {
+            isUserInteracting = true;
+            clearTimeout(cycleTimeout);
+            resumeCycleAfterDelay();
 
-            // Sync card data-category
-            var card = $('#panIndiaDataCard');
-            card.attr('data-category', data.category);
+            $('#np_map').removeClass('is-filtering');
+            $('.np-map-pin').removeClass('is-active is-highlighted');
+            var pin = $('.np-map-pin[data-loc="' + locKey + '"]');
+            if (pin.length) {
+                pin.addClass('is-active is-highlighted');
 
-            // Badge icon & CSS class
-            var badgeClass = 'badge-' + (data.category === 'plant' ? 'plant' : data.category === 'depot' ? 'depot' : data.category === 'distributor' ? 'distributor' : 'office');
-            var badgeIcon = data.category === 'office' ? 'fa-building' : (data.category === 'plant' ? 'fa-industry' : (data.category === 'depot' ? 'fa-warehouse' : 'fa-handshake'));
+                // Dynamic Popover Card placement
+                var card = $('#np_map_card');
+                if (card.length) {
+                    var name = pin.data('name') || '';
+                    var type = pin.data('type') || '';
+                    var addr = pin.data('addr') || '';
+                    var mapUrl = pin.data('map') || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(name + ' ' + addr));
 
-            $('#mlcBadge').attr('class', 'np-card-badge np-loc-eyebrow ' + badgeClass).html('<i class="fas ' + badgeIcon + '"></i> ' + data.badge);
-            $('#mlcName').html(data.name);
-            $('#mlcScope').html(data.scope);
-            $('#mlcAddress').html(data.addr);
-            $('#mlcPhone').html(data.phone);
-            $('#mlcEmail').html('<a href="mailto:' + data.email.replace(/&amp;/g, '&') + '">' + data.email + '</a>');
-            $('#mlcMeta').html(data.meta);
-            $('#mlcMapBtn').attr('href', data.map.replace(/&amp;/g, '&'));
-            $('#mlcCallBtn').attr('href', 'tel:' + data.call);
+                    card.find('.np-map-card-type').text(type).attr('class', 'np-map-card-type is-' + (pin.hasClass('np-map-pin--office') ? 'office' : (pin.hasClass('np-map-pin--unit') ? 'plant' : (pin.hasClass('np-map-pin--depot') ? 'depot' : 'dealer'))));
+                    card.find('.np-map-card-name').text(name);
+                    card.find('.np-map-card-addr').text(addr);
+                    card.find('.np-map-card-link').attr('href', mapUrl);
 
-            // Highlight corresponding map pin
-            $('.np-map-pin').removeClass('is-active').attr('aria-expanded', 'false');
-            var activePin = $('.np-map-pin[data-loc="' + locKey + '"]');
-            if (activePin.length) {
-                activePin.addClass('is-active').attr('aria-expanded', 'true');
-            }
-
-            // Sync legend active tab
-            $('.np-map-legend .para-text').removeClass('is-active');
-            var legendKind = data.category === 'office' ? 'office' : (data.category === 'plant' ? 'unit' : (data.category === 'depot' ? 'depot' : 'dealer'));
-            $('.np-map-legend .para-text[data-kind="' + legendKind + '"]').addClass('is-active');
-        }
-        window.onMapLocationSelect = onMapLocationSelect;
-
-        function filterMapCategory(cat) {
-            // Find first location in that category
-            for (var k in allLocationsData) {
-                if (allLocationsData[k].category === cat) {
-                    onMapLocationSelect(k);
-                    break;
+                    var pinPos = pin.position();
+                    card.css({
+                        top: Math.max(10, pinPos.top - 140) + 'px',
+                        left: Math.min(($('#np_map').width() || 500) - 260, Math.max(10, pinPos.left - 100)) + 'px'
+                    }).removeAttr('hidden').show();
                 }
             }
+            $('.np-dist-chip').removeClass('is-active');
+            $('.np-dist-chip[data-loc="' + locKey + '"]').addClass('is-active');
+
+            // Sync with dealer directory if available
+            if (window.locKeyToState && window.locKeyToState[locKey] && typeof window.onDealerStateChange === 'function') {
+                window.onDealerStateChange(window.locKeyToState[locKey]);
+            }
+        };
+
+        window.toggleDistributorDrawer = function() {
+            var drawer = $('#npDistDrawer');
+            var btn = $('#btnToggleDist');
+            var chevron = btn.find('.np-chevron-icon');
+            if (drawer.is(':visible')) {
+                drawer.slideUp(250);
+                btn.attr('aria-expanded', 'false');
+                chevron.css('transform', 'rotate(0deg)');
+            } else {
+                drawer.slideDown(250);
+                btn.attr('aria-expanded', 'true');
+                chevron.css('transform', 'rotate(180deg)');
+                filterMapCategory('distributor');
+            }
+        };
+
+        window.filterMapCategory = function(cat) {
+            isUserInteracting = true;
+            clearTimeout(cycleTimeout);
+            resumeCycleAfterDelay();
+
+            $('.pan_india_legend_supreme .para-text').removeClass('is-active');
+            $('.pan_india_legend_supreme .para-text[data-filter="' + cat + '"]').addClass('is-active');
+
+            if (cat === 'all') {
+                $('#np_map').removeClass('is-filtering');
+                $('.np-map-pin').removeClass('is-active is-highlighted');
+                return;
+            }
+
+            $('#np_map').addClass('is-filtering');
+            $('.np-map-pin').removeClass('is-active is-highlighted');
+            
+            var targetClass = cat === 'plant' ? '.np-map-pin--unit' :
+                              cat === 'office' ? '.np-map-pin--office' :
+                              cat === 'depot' ? '.np-map-pin--depot' : '.np-map-pin--dealer';
+            
+            $(targetClass).each(function(idx) {
+                var $pin = $(this);
+                setTimeout(function() {
+                    $pin.addClass('is-highlighted');
+                }, idx * 60);
+            });
+        };
+
+        function resumeCycleAfterDelay() {
+            clearTimeout(cycleTimeout);
+            cycleTimeout = setTimeout(function() {
+                isUserInteracting = false;
+                startSupremeCycle();
+            }, 8000);
         }
 
-        // Clicking any map pin activates that location in selector & data card
+        function startSupremeCycle() {
+            if (isUserInteracting) return;
+            
+            var phase = phases[currentCyclePhase];
+            currentCyclePhase = (currentCyclePhase + 1) % phases.length;
+
+            if (phase === 'all') {
+                $('#np_map').removeClass('is-filtering');
+                $('.pan_india_legend_supreme .para-text').addClass('is-active');
+                $('.np-map-pin').addClass('is-highlighted');
+            } else if (phase === 'plant_office') {
+                $('#np_map').addClass('is-filtering');
+                $('.pan_india_legend_supreme .para-text').removeClass('is-active');
+                $('.pan_india_legend_supreme .para-text[data-filter="plant"], .pan_india_legend_supreme .para-text[data-filter="office"]').addClass('is-active');
+                $('.np-map-pin').removeClass('is-highlighted is-active');
+                $('.np-map-pin--unit, .np-map-pin--office').each(function(idx) {
+                    var $p = $(this);
+                    setTimeout(function() { $p.addClass('is-highlighted'); }, idx * 90);
+                });
+            } else if (phase === 'depot') {
+                $('#np_map').addClass('is-filtering');
+                $('.pan_india_legend_supreme .para-text').removeClass('is-active');
+                $('.pan_india_legend_supreme .para-text[data-filter="depot"]').addClass('is-active');
+                $('.np-map-pin').removeClass('is-highlighted is-active');
+                $('.np-map-pin--depot').each(function(idx) {
+                    var $p = $(this);
+                    setTimeout(function() { $p.addClass('is-highlighted'); }, idx * 90);
+                });
+            } else if (phase === 'distributor') {
+                $('#np_map').addClass('is-filtering');
+                $('.pan_india_legend_supreme .para-text').removeClass('is-active');
+                $('.pan_india_legend_supreme .para-text[data-filter="distributor"]').addClass('is-active');
+                $('.np-map-pin').removeClass('is-highlighted is-active');
+                $('.np-map-pin--dealer').each(function(idx) {
+                    var $p = $(this);
+                    setTimeout(function() { $p.addClass('is-highlighted'); }, idx * 50);
+                });
+            }
+
+            cycleTimeout = setTimeout(startSupremeCycle, 4400);
+        }
+
+        // Start cycle
+        startSupremeCycle();
+
+        // Mouse hover pause
+        $('#np_map').on('mouseenter', function() {
+            isUserInteracting = true;
+            clearTimeout(cycleTimeout);
+        }).on('mouseleave', function() {
+            resumeCycleAfterDelay();
+        });
+
+        // Pin click
         $(document).on('click', '.np-map-pin', function(e) {
             e.stopPropagation();
             var loc = $(this).data('loc');
-            if (loc && allLocationsData[loc]) {
-                onMapLocationSelect(loc);
+            if (loc) {
+                focusMapLocation(loc);
             }
         });
 
+        // Close Popover Card
+        $(document).on('click', '.np-map-card-x', function(e) {
+            e.stopPropagation();
+            $('#np_map_card').attr('hidden', true).hide();
+        });
+
         $(document).ready(function() {
-            // Initialize default location to Head Office
-            onMapLocationSelect('kolkata');
 
             // Initialize Applications Showcase Slider
             if ($('.np-app-slider').length) {
