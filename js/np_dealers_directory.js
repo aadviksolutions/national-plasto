@@ -9,7 +9,7 @@
     var dealers = window.npDealerNetwork || [];
     var currentState = 'ALL';
     var currentQuery = '';
-    var pageSize = 24;
+    var pageSize = 12;
     var currentPage = 1;
     var filteredList = [];
 
@@ -71,22 +71,35 @@
         var grid = document.getElementById('dealersGrid');
         var countText = document.getElementById('dealerCountText');
         var loadMoreBtn = document.getElementById('loadMoreDealersBtn');
+        var resetBtn = document.getElementById('dealerResetBtn');
         if (!grid) return;
 
         var total = filteredList.length;
+        var isFiltered = (currentState !== 'ALL') || (currentQuery.trim() !== '');
+
+        if (resetBtn) {
+            resetBtn.style.display = isFiltered ? 'inline-flex' : 'none';
+        }
+
         if (countText) {
+            var stateDisplay = currentState === 'Delhi' ? 'Delhi NCR' : currentState;
+            var filterNote = '';
+            if (isFiltered) {
+                filterNote = ' <button type="button" class="np-btn-reset-filters" onclick="window.resetAllDealerFilters()">Clear</button>';
+            }
             countText.innerHTML = 'Showing <strong>' + Math.min(currentPage * pageSize, total) + '</strong> of <strong>' + total + '</strong> verified dealers' +
-                (currentState !== 'ALL' ? ' in <span style="color:#0094DC; font-weight:700;">' + escapeHtml(currentState) + '</span>' : ' nationwide');
+                (currentState !== 'ALL' ? ' in <span style="color:#0094DC; font-weight:700;">' + escapeHtml(stateDisplay) + '</span>' : ' nationwide') +
+                (currentQuery ? ' matching "<em>' + escapeHtml(currentQuery) + '</em>"' : '') +
+                filterNote;
         }
 
         var visibleItems = filteredList.slice(0, currentPage * pageSize);
 
         if (visibleItems.length === 0) {
             grid.innerHTML = '<div class="np-no-dealers-found">' +
-                '<i class="fas fa-store-slash"></i>' +
-                '<h4>No dealers found matching your search</h4>' +
-                '<p>Try searching another city or state, or apply to become an authorized dealer in this area.</p>' +
-                '<button type="button" class="btn_project_default" onclick="window.clearDealerSearch()">Reset Filters</button>' +
+                '<h4>No dealers found</h4>' +
+                '<p>Try searching another town, pincode, or select a state from the dropdown above.</p>' +
+                '<button type="button" class="np-btn-reset-large" onclick="window.resetAllDealerFilters()">Show All 470+ Dealers</button>' +
                 '</div>';
             if (loadMoreBtn) loadMoreBtn.style.display = 'none';
             return;
@@ -94,19 +107,21 @@
 
         var html = visibleItems.map(function (d, idx) {
             var pinBadge = d.pin ? '<span class="np-dealer-pin"><i class="fas fa-map-pin"></i> ' + escapeHtml(d.pin) + '</span>' : '';
+            var stateLabel = d.state === 'Delhi' ? 'Delhi NCR' : d.state;
+            var numStr = (idx + 1 < 10 ? '0' + (idx + 1) : (idx + 1));
             return '<div class="np-dealer-card toTop is-visible">' +
                 '<div class="np-dealer-card-top">' +
-                    '<span class="np-dealer-num">#' + (idx + 1) + '</span>' +
-                    '<span class="np-dealer-state-badge">' + escapeHtml(d.state) + '</span>' +
+                    '<span class="np-dealer-num">#' + numStr + '</span>' +
+                    '<span class="np-dealer-state-badge">' + escapeHtml(stateLabel) + '</span>' +
                 '</div>' +
-                '<h4 class="np-dealer-name"><i class="fas fa-store"></i> ' + escapeHtml(d.name) + '</h4>' +
+                '<h4 class="np-dealer-name">' + escapeHtml(d.name) + '</h4>' +
                 '<div class="np-dealer-loc">' +
                     '<i class="fas fa-map-marker-alt"></i> ' +
-                    '<span>' + escapeHtml(d.city) + (d.state ? ', ' + escapeHtml(d.state) : '') + '</span>' +
+                    '<span>' + escapeHtml(d.city) + (d.state ? ', ' + escapeHtml(stateLabel) : '') + '</span>' +
                 '</div>' +
                 '<div class="np-dealer-card-footer">' +
                     pinBadge +
-                    '<span class="np-dealer-verified"><i class="fas fa-check-circle"></i> Authorized Partner</span>' +
+                    '<span class="np-dealer-verified"><i class="fas fa-check-circle"></i> Verified Partner</span>' +
                 '</div>' +
             '</div>';
         }).join('');
@@ -115,8 +130,9 @@
 
         if (loadMoreBtn) {
             if (currentPage * pageSize < total) {
+                var remaining = total - currentPage * pageSize;
                 loadMoreBtn.style.display = 'inline-flex';
-                loadMoreBtn.innerHTML = 'Load More Dealers (' + (total - currentPage * pageSize) + ' remaining) <i class="fas fa-chevron-down"></i>';
+                loadMoreBtn.innerHTML = '<span>Load More Dealers (' + remaining + ' remaining)</span> <i class="fas fa-chevron-down"></i>';
             } else {
                 loadMoreBtn.style.display = 'none';
             }
@@ -132,7 +148,7 @@
         currentQuery = val || '';
         var clearBtn = document.getElementById('dealerSearchClear');
         if (clearBtn) {
-            clearBtn.style.display = currentQuery ? 'block' : 'none';
+            clearBtn.style.display = currentQuery ? 'flex' : 'none';
         }
         applyFilters();
     };
@@ -143,6 +159,19 @@
         currentQuery = '';
         var clearBtn = document.getElementById('dealerSearchClear');
         if (clearBtn) clearBtn.style.display = 'none';
+        applyFilters();
+    };
+
+    window.resetAllDealerFilters = function () {
+        currentState = 'ALL';
+        currentQuery = '';
+        var input = document.getElementById('dealerSearchInput');
+        if (input) input.value = '';
+        var select = document.getElementById('dealerStateFilter');
+        if (select) select.value = 'ALL';
+        var clearBtn = document.getElementById('dealerSearchClear');
+        if (clearBtn) clearBtn.style.display = 'none';
+        syncStatePills('ALL');
         applyFilters();
     };
 
@@ -181,10 +210,26 @@
         pills.forEach(function (btn) {
             if (btn.getAttribute('data-state') === activeState) {
                 btn.classList.add('is-active');
+                try {
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } catch (e) {}
             } else {
                 btn.classList.remove('is-active');
             }
         });
+    }
+
+    function populateStateSelect(counts, sortedStates) {
+        var select = document.getElementById('dealerStateFilter');
+        if (!select) return;
+        var currentVal = select.value || 'ALL';
+        var optsHtml = '<option value="ALL">All States (' + dealers.length + '+ Dealers)</option>';
+        sortedStates.forEach(function (st) {
+            var label = (st === 'Delhi' ? 'Delhi NCR' : st) + ' (' + counts[st] + ')';
+            optsHtml += '<option value="' + escapeHtml(st) + '">' + escapeHtml(label) + '</option>';
+        });
+        select.innerHTML = optsHtml;
+        select.value = currentVal;
     }
 
     function initStatePills() {
@@ -197,14 +242,21 @@
             counts[d.state] = (counts[d.state] || 0) + 1;
         });
 
+        // Alphabetical sort (A to Z)
         var sortedStates = Object.keys(counts).sort(function (a, b) {
-            return counts[b] - counts[a];
+            return a.localeCompare(b);
         });
+
+        // Ensure state select dropdown is also alphabetically populated
+        populateStateSelect(counts, sortedStates);
 
         var html = '<button type="button" class="np-state-pill-btn is-active" data-state="ALL" onclick="window.onDealerStateChange(\'ALL\')">All (' + dealers.length + ')</button>';
 
         sortedStates.forEach(function (st) {
-            html += '<button type="button" class="np-state-pill-btn" data-state="' + escapeHtml(st) + '" onclick="window.onDealerStateChange(\'' + escapeHtml(st) + '\')">' + escapeHtml(st) + ' (' + counts[st] + ')</button>';
+            var displayLabel = st === 'Delhi' ? 'Delhi NCR' : st;
+            html += '<button type="button" class="np-state-pill-btn" data-state="' + escapeHtml(st) + '" onclick="window.onDealerStateChange(\'' + escapeHtml(st) + '\')">' +
+                escapeHtml(displayLabel) + ' (' + counts[st] + ')' +
+            '</button>';
         });
 
         container.innerHTML = html;

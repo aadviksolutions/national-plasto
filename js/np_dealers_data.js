@@ -1008,205 +1008,205 @@ window.npDealerNetwork = [
     "state": "Delhi"
   },
   {
-    "name": "ARJUN FURNITURE (ETAWA) EUP",
+    "name": "ARJUN FURNITURE (ETAWA) UP",
     "city": "Etawah",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "AZAD STEEL WORKS (BANGERMAU) EUP",
+    "name": "AZAD STEEL WORKS (BANGERMAU) UP",
     "city": "Bangarmau",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "BHARAT ELECTRONICS FARRUKHABAD EUP",
+    "name": "BHARAT ELECTRONICS FARRUKHABAD UP",
     "city": "Farrukhabad",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "DIVY TRADING CO (SARATHU) EUP",
+    "name": "DIVY TRADING CO (SARATHU) UP",
     "city": "Sirathu",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "NEW KALA FURNITURE (RAI BAREILLY) EUP",
+    "name": "NEW KALA FURNITURE (RAI BAREILLY) UP",
     "city": "Rae Bareli",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "OFFICE FURNITURE (KANPUR) EUP",
+    "name": "OFFICE FURNITURE (KANPUR) UP",
     "city": "Kanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SHIV ENTERPRISES (BINDKI) (AKHIL) EUP",
+    "name": "SHIV ENTERPRISES (BINDKI) (AKHIL) UP",
     "city": "Bindki",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SHRI GIRRAJ INTERIOR & FURNITURE (AGRA) EUP",
+    "name": "SHRI GIRRAJ INTERIOR & FURNITURE (AGRA) UP",
     "city": "Agra",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SHYAM FURNITURE (JHANSI) EUP",
+    "name": "SHYAM FURNITURE (JHANSI) UP",
     "city": "Jhansi",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "DURGA FURNITURE (FAIZABAD) EUP",
+    "name": "DURGA FURNITURE (FAIZABAD) UP",
     "city": "Faizabad",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "GOPAL TRADING COMPANY (SIDHARTHNAGAR) EUP",
+    "name": "GOPAL TRADING COMPANY (SIDHARTHNAGAR) UP",
     "city": "Siddharthnagar",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "GUPTA FURNITURE (SAHJAHANPUR) EUP",
+    "name": "GUPTA FURNITURE (SAHJAHANPUR) UP",
     "city": "Shahjahanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "INDIAN STEEL FURNITURE (BAHRAICH) EUP",
+    "name": "INDIAN STEEL FURNITURE (BAHRAICH) UP",
     "city": "Bahraich",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAISAWAL IMPORIUM (TANDA) EUP",
+    "name": "JAISAWAL IMPORIUM (TANDA) UP",
     "city": "Tanda",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SUPER TRADERS (SULTANPUR) EUP",
+    "name": "SUPER TRADERS (SULTANPUR) UP",
     "city": "Sultanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "TRILOKI ENTERPRISES (GONDA) EUP",
+    "name": "TRILOKI ENTERPRISES (GONDA) UP",
     "city": "Gonda",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "BABA SEMRADHNATH ENTERPRISES (JANGIGANJ) EUP",
+    "name": "BABA SEMRADHNATH ENTERPRISES (JANGIGANJ) UP",
     "city": "Jangiganj",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "CHAMAN ENTERPRISES (PRATAPGARH) EUP",
+    "name": "CHAMAN ENTERPRISES (PRATAPGARH) UP",
     "city": "Pratapgarh",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAISWAL AGENCIES (BALIA) EUP",
+    "name": "JAISWAL AGENCIES (BALIA) UP",
     "city": "Ballia",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAY TRADERS (RASRA) EUP",
+    "name": "JAY TRADERS (RASRA) UP",
     "city": "Rasra",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "MANOHAR LAL SHYAM BIHARI (JAUNPUR) EUP",
+    "name": "MANOHAR LAL SHYAM BIHARI (JAUNPUR) UP",
     "city": "Jaunpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "RAJA ELECTRONICS (PRAYAGRAJ) EUP",
+    "name": "RAJA ELECTRONICS (PRAYAGRAJ) UP",
     "city": "Prayagraj",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SANKAT MOCHAN TRADERS (MIRZAPUR) EUP",
+    "name": "SANKAT MOCHAN TRADERS (MIRZAPUR) UP",
     "city": "Mirzapur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SWASTIKA ENGENERING CO (ALAHABAD) EUP",
+    "name": "SWASTIKA ENGENERING CO (ALAHABAD) UP",
     "city": "Prayagraj (Allahabad)",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "VINAY TRADERS (VARANSI) EUP",
+    "name": "VINAY TRADERS (VARANSI) UP",
     "city": "Varanasi",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "AGRAWAL TRADERS (BANDA) EUP",
+    "name": "AGRAWAL TRADERS (BANDA) UP",
     "city": "Banda",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "ASIF ELECTRONICS (HARDOI) EUP",
+    "name": "ASIF ELECTRONICS (HARDOI) UP",
     "city": "Hardoi",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "CHAWLA TRADING CO (KANPUR) EUP",
+    "name": "CHAWLA TRADING CO (KANPUR) UP",
     "city": "Kanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "DEEPAK TRADERS (MUKHALISPUR) EUP",
+    "name": "DEEPAK TRADERS (MUKHALISPUR) UP",
     "city": "Mukhlispur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "HARI TRADING CO (SITAPUR) EUP",
+    "name": "HARI TRADING CO (SITAPUR) UP",
     "city": "Sitapur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAIN FURNITURE (LKO) EUP",
+    "name": "JAIN FURNITURE (LKO) UP",
     "city": "Lucknow",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "KANPUR ELECTRONIC (LEHARPUR) EUP",
+    "name": "KANPUR ELECTRONIC (LEHARPUR) UP",
     "city": "Laharpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SINGH FURNITURE & REPAIRS (LAKHIMPUR) EUP",
+    "name": "SINGH FURNITURE & REPAIRS (LAKHIMPUR) UP",
     "city": "Lakhimpur Kheri",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "S K PLASTIC (MAHARAJGANJ) EUP",
+    "name": "S K PLASTIC (MAHARAJGANJ) UP",
     "city": "Maharajganj",
     "pin": "",
     "state": "Uttar Pradesh"
