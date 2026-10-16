@@ -90,7 +90,19 @@
     appLayout.style.display = 'flex';
     sidebarUserName.textContent = currentUser.username || 'Admin';
     initDashboard();
+
+    const initialHash = window.location.hash.replace('#', '');
+    if (initialHash && ['dashboard', 'products', 'cms', 'media', 'settings'].includes(initialHash)) {
+      navigateTo(initialHash);
+    }
   }
+
+  window.addEventListener('hashchange', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && ['dashboard', 'products', 'cms', 'media', 'settings'].includes(hash)) {
+      navigateTo(hash);
+    }
+  });
 
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -146,7 +158,14 @@
     });
 
     panels.forEach((p) => p.classList.remove('active'));
-    const targetPanel = document.getElementById(`panel${capitalize(target)}`);
+    const panelIdMap = {
+      dashboard: 'panelDashboard',
+      products: 'panelProducts',
+      cms: 'panelCms',
+      media: 'panelMedia',
+      settings: 'panelSettings'
+    };
+    const targetPanel = document.getElementById(panelIdMap[target]) || document.getElementById(`panel${capitalize(target)}`) || document.getElementById('panelCMS');
     if (targetPanel) targetPanel.classList.add('active');
 
     const titles = {
@@ -164,7 +183,7 @@
     if (target === 'products') loadProducts();
     if (target === 'cms') {
       loadCMS();
-      if (subtab) switchCMSTab(subtab);
+      switchCMSTab(subtab || 'home');
     }
     if (target === 'media') loadMedia();
   };
