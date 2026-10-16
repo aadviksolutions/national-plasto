@@ -4,6 +4,13 @@
   "description": "National Plasto official website",
   "scripts": {
     "build": "echo Build complete: Static website assets ready.",
-    "start": "npx serve ."
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "multer": "^2.4.0"
   }
 }

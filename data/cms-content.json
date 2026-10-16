@@ -1,0 +1,211 @@
+{
+  "general": {
+    "siteName": "National Plasto Products Pvt. Ltd.",
+    "tagline": "Precision Plastic Moulded Products. Built for India.",
+    "contactEmail": "info@nationalplasto.com",
+    "contactPhone": "+91 33 2289 1234",
+    "tollFree": "1800 123 4567",
+    "whatsapp": "+91 98300 00000",
+    "headOffice": "Kolkata, West Bengal, India",
+    "socialLinks": {
+      "facebook": "https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr",
+      "linkedin": "https://www.linkedin.com/company/nationalplasto/",
+      "instagram": "https://www.instagram.com/national_plasto_group/",
+      "amazon": "https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview",
+      "flipkart": "https://www.flipkart.com/search?q=npm%20national"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Precision Plastic Moulded Products. Built for India.",
+      "subtitle": "29+ Years of Industrial Pedigree. 4 ISO-Certified Plants. 1,200+ Products Delivered.",
+      "badge": "India's Trusted Furniture Manufacturer Since 1997",
+      "bannerImage": "images/brand/company-photo.jpg",
+      "ctaText": "Explore Catalogue",
+      "ctaLink": "products.html"
+    },
+    "virtues": [
+      {
+        "title": "Pure Virgin Polymer",
+        "desc": "100% virgin polypropylene and engineering polymers for maximum durability and strength."
+      },
+      {
+        "title": "Robotic Moulding",
+        "desc": "Precision microprocessor-controlled moulding machines with strict zero-defect tolerance."
+      },
+      {
+        "title": "Pan-India Reach",
+        "desc": "Fast-dispatch warehouses and trusted distributor network across all 28 Indian states."
+      },
+      {
+        "title": "ISO 9001:2015",
+        "desc": "Rigorous BIS and ISO quality compliance ensuring unmatched weight-bearing capability."
+      }
+    ],
+    "brandsSection": {
+      "title": "Four Iconic Brands",
+      "subtitle": "One promise — quality moulded furniture at every price point.",
+      "brands": [
+        {
+          "name": "NEXT",
+          "desc": "Premium virgin plastic designer furniture",
+          "link": "products.html?brand=next",
+          "logo": "images/brand/company-next-logo.png"
+        },
+        {
+          "name": "NATIONAL",
+          "desc": "Value, variety and trust for every space",
+          "link": "products.html?brand=national",
+          "logo": "images/brand/company-national-logo.png"
+        },
+        {
+          "name": "SAPPHIRE",
+          "desc": "A distinct range of value seating",
+          "link": "products.html?brand=sapphire",
+          "logo": "images/brand/sapphire-logo.png"
+        },
+        {
+          "name": "CAPTAIN",
+          "desc": "Economical furniture for everyday use",
+          "link": "products.html?brand=captain",
+          "logo": "images/brand/captain-logo.png"
+        }
+      ]
+    },
+    "uniqueStory": {
+      "title": "What makes us unique?",
+      "desc": "Since 1997, National Plasto has been making moulded plastic furniture for every space and every need. Four ISO-certified plants, four brands across price points and a Pan-India dealer network let us deliver durable, affordable furniture to homes, businesses and institutions across India.",
+      "image": "images/brand/company-photo.jpg",
+      "buttonText": "Know Our Story",
+      "buttonLink": "about.html"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Built on Trust, Precision & 29 Years of Innovation",
+      "subtitle": "From a single moulding line to India's foremost polymer manufacturing powerhouse.",
+      "bannerImage": "images/brand/products.png"
+    },
+    "overview": {
+      "title": "Company Overview",
+      "desc": "Established in 1997, National Plasto Products Pvt. Ltd. has grown into one of eastern India's largest and most technologically advanced manufacturers of moulded plastic furniture, industrial crates, and custom polymer products. Headquartered in Kolkata with modern manufacturing plants across West Bengal, we cater to retail, institutional, and industrial clients throughout India."
+    },
+    "leadership": [
+      {
+        "name": "Executive Board",
+        "role": "Founders & Managing Directors",
+        "desc": "Decades of combined polymer engineering and business leadership driving continuous technological advancements."
+      }
+    ],
+    "stats": [
+      {
+        "label": "Manufacturing Plants",
+        "value": "4+"
+      },
+      {
+        "label": "Daily Production Capacity",
+        "value": "50,000+ Units"
+      },
+      {
+        "label": "Authorized Dealers",
+        "value": "2,500+"
+      },
+      {
+        "label": "Satisfied Customers",
+        "value": "10M+"
+      }
+    ]
+  },
+  "products": {
+    "hero": {
+      "title": "Products & Complete Catalogue",
+      "subtitle": "Browse 360+ models of moulded chairs, dining sets, tables, stools and storage.",
+      "bannerImage": "images/brand/products.png"
+    },
+    "shopByBrandHeader": {
+      "title": "Shop by brand",
+      "desc": "Four brands, one promise — quality moulded furniture at every price point."
+    },
+    "exploreCollectionsHeader": {
+      "title": "Explore our collections",
+      "desc": "Browse through a wide range of chairs, tables, dining sets, stools, storage and kids furniture."
+    }
+  },
+  "manufacturing": {
+    "hero": {
+      "title": "World-Class Polymer Manufacturing Facilities",
+      "subtitle": "Robotic injection moulding, high-tonnage precision presses & ISO 9001:2015 accredited plants.",
+      "bannerImage": "images/brand/company-photo.jpg"
+    },
+    "highlights": [
+      {
+        "title": "High-Tonnage Injection Moulding",
+        "desc": "Equipped with state-of-the-art microprocessor-controlled moulding machines from 100T to 2200T clamping force."
+      },
+      {
+        "title": "In-House Tooling & Design",
+        "desc": "Advanced CAD/CAM tool rooms that ensure ergonomic perfection and rapid new mould deployment."
+      },
+      {
+        "title": "Comprehensive QA Lab",
+        "desc": "Drop impact testers, stack load testing, color fastness UV chambers, and cyclic load endurance test rigs."
+      }
+    ]
+  },
+  "distributor": {
+    "hero": {
+      "title": "Become a National Plasto Authorized Partner",
+      "subtitle": "Join our expanding Pan-India network of 2,500+ dealers and distributors.",
+      "bannerImage": "images/brand/products.png"
+    },
+    "perks": [
+      {
+        "title": "Competitive Margins",
+        "desc": "Industry-leading dealer pricing with attractive quarterly and annual performance rebates."
+      },
+      {
+        "title": "Priority Dispatch",
+        "desc": "Direct factory shipments with dedicated logistics support to keep your inventory moving."
+      },
+      {
+        "title": "Marketing Collateral",
+        "desc": "Showroom branding, full-color product catalogues, sample swatches, and digital marketing leads."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact National Plasto",
+      "subtitle": "We're here to assist with dealership queries, institutional orders, and customer support.",
+      "bannerImage": "images/brand/company-photo.jpg"
+    },
+    "addresses": [
+      {
+        "name": "Corporate Head Office",
+        "address": "National Plasto Products Pvt. Ltd., Kolkata, West Bengal, India"
+      },
+      {
+        "name": "Factory Unit 1",
+        "address": "Industrial Growth Centre, Uluberia, Howrah, West Bengal"
+      },
+      {
+        "name": "Factory Unit 2",
+        "address": "Kharagpur Polymer Park, Paschim Medinipur, West Bengal"
+      }
+    ],
+    "phones": [
+      "+91 33 2289 1234",
+      "+91 98300 00000"
+    ],
+    "emails": [
+      "info@nationalplasto.com",
+      "sales@nationalplasto.com",
+      "dealer@nationalplasto.com"
+    ]
+  },
+  "policies": {
+    "warrantyTitle": "Quality & Warranty Policy",
+    "warrantyText": "All National Plasto products are manufactured using 100% virgin polymer material and undergo strict automated quality inspection. Products carry manufacturer warranty against moulding and structural manufacturing defects.",
+    "privacyText": "National Plasto respects your privacy. Any inquiries, contact details, or business correspondence shared through our platforms are handled in strict confidence."
+  }
+}

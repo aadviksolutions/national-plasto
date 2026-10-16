@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard & CMS | National Plasto</title>
+  <link rel="shortcut icon" type="image/png" href="images/brand/company-national-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- ================= AUTH SCREEN ================= -->
+  <div id="authScreen" class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <img src="images/brand/company-national-logo.png" alt="National Plasto" class="auth-logo">
+        <h2 class="auth-title">Admin Management CMS</h2>
+        <p class="auth-subtitle">Sign in to manage products, banners, and page content</p>
+      </div>
+
+      <div id="authError" class="auth-error"></div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="loginUsername">Username</label>
+          <input type="text" id="loginUsername" class="form-control" placeholder="admin" required autofocus>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" class="form-control" placeholder="••••••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; margin-top: 8px;">
+          <i class="fas fa-sign-in-alt"></i> Sign In to Dashboard
+        </button>
+      </form>
+      <div class="auth-footer">
+        Default credentials: <strong>admin</strong> / <strong>nationalplasto2026</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= APP LAYOUT ================= -->
+  <div id="appLayout" class="app-layout" style="display: none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <img src="images/brand/company-national-logo.png" alt="National Plasto" class="sidebar-logo">
+          <span class="sidebar-badge">CMS</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" data-target="dashboard">
+          <i class="fas fa-chart-pie"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#products" class="nav-item" data-target="products">
+          <i class="fas fa-couch"></i>
+          <span>Products Manager</span>
+        </a>
+        <a href="#cms" class="nav-item" data-target="cms">
+          <i class="fas fa-file-alt"></i>
+          <span>Page Content CMS</span>
+        </a>
+        <a href="#media" class="nav-item" data-target="media">
+          <i class="fas fa-images"></i>
+          <span>Media Library</span>
+        </a>
+        <a href="#settings" class="nav-item" data-target="settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings & Backup</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar"><i class="fas fa-user-shield"></i></div>
+          <div class="user-meta">
+            <div class="user-name" id="sidebarUserName">Admin</div>
+            <div class="user-role">Site Administrator</div>
+          </div>
+          <button type="button" class="btn-logout" id="btnLogout" title="Logout">
+            <i class="fas fa-power-off"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 class="topbar-title" id="pageTitle">Dashboard</h1>
+        </div>
+        <div class="topbar-right">
+          <button type="button" class="btn btn-secondary btn-sm" id="btnSyncCatalogue" title="Compile products into static catalogue-2026.js">
+            <i class="fas fa-sync-alt"></i> Re-Sync Catalogue
+          </button>
+          <a href="/" target="_blank" class="btn btn-primary btn-sm">
+            <i class="fas fa-external-link-alt"></i> View Website
+          </a>
+        </div>
+      </header>
+
+      <main class="content-body">
+
+        <!-- ================= 1. DASHBOARD PANEL ================= -->
+        <section id="panelDashboard" class="view-panel active">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon blue"><i class="fas fa-couch"></i></div>
+              <div>
+                <div class="stat-value" id="statTotalProducts">362</div>
+                <div class="stat-label">Total Products</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon green"><i class="fas fa-tags"></i></div>
+              <div>
+                <div class="stat-value" id="statTotalBrands">4</div>
+                <div class="stat-label">Active Brands</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon orange"><i class="fas fa-th-large"></i></div>
+              <div>
+                <div class="stat-value" id="statTotalCategories">12</div>
+                <div class="stat-label">Product Categories</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon purple"><i class="fas fa-photo-video"></i></div>
+              <div>
+                <div class="stat-value" id="statTotalMedia">0</div>
+                <div class="stat-label">Custom Uploads</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand Breakdown Cards -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Brand Distribution</h2>
+              <button class="btn btn-secondary btn-sm" onclick="navigateTo('products')">Manage Products &rarr;</button>
+            </div>
+            <div class="card-body">
+              <div class="form-row" id="brandCardsContainer">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Recent Products Preview -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Quick Actions & Shortcuts</h2>
+            </div>
+            <div class="card-body" style="display:flex; flex-wrap:wrap; gap:12px;">
+              <button class="btn btn-primary" id="btnQuickAddProduct"><i class="fas fa-plus"></i> Add New Product</button>
+              <button class="btn btn-secondary" onclick="navigateTo('cms', 'home')"><i class="fas fa-image"></i> Change Home Banner</button>
+              <button class="btn btn-secondary" onclick="navigateTo('cms', 'contact')"><i class="fas fa-phone-alt"></i> Update Phone / Email</button>
+              <button class="btn btn-secondary" onclick="navigateTo('media')"><i class="fas fa-cloud-upload-alt"></i> Upload Photos</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 2. PRODUCTS MANAGER PANEL ================= -->
+        <section id="panelProducts" class="view-panel">
+          <div class="toolbar">
+            <div class="toolbar-left">
+              <div class="search-input-wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" id="productSearchInput" class="form-control" placeholder="Search model name, SKU, category...">
+              </div>
+              <div class="pill-group" id="brandPillGroup">
+                <button class="pill-btn active" data-brand="all">All Brands</button>
+                <button class="pill-btn" data-brand="National">National</button>
+                <button class="pill-btn" data-brand="Next">NEXT</button>
+                <button class="pill-btn" data-brand="Sapphire">Sapphire</button>
+                <button class="pill-btn" data-brand="Captain">Captain</button>
+              </div>
+              <select id="categorySelectFilter" class="form-control" style="width: auto; min-width: 170px;">
+                <option value="all">All Categories</option>
+              </select>
+            </div>
+            <div class="toolbar-right">
+              <button type="button" class="btn btn-primary" id="btnOpenAddProduct">
+                <i class="fas fa-plus"></i> Add Product
+              </button>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">
+                Catalogue List (<span id="productFilteredCount">0</span> items)
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 70px;">Image</th>
+                    <th>Model Name</th>
+                    <th>SKU</th>
+                    <th>Brand</th>
+                    <th>Category</th>
+                    <th>Variants</th>
+                    <th style="text-align: right; width: 140px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="productsTableBody">
+                  <tr><td colspan="7" style="text-align:center; padding: 40px;">Loading products...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 3. PAGE CONTENT CMS PANEL ================= -->
+        <section id="panelCMS" class="view-panel">
+          <div class="cms-tabs" id="cmsTabs">
+            <button class="cms-tab-btn active" data-cmspage="home"><i class="fas fa-home"></i> Home Page</button>
+            <button class="cms-tab-btn" data-cmspage="about"><i class="fas fa-info-circle"></i> About Us</button>
+            <button class="cms-tab-btn" data-cmspage="products"><i class="fas fa-couch"></i> Products Page</button>
+            <button class="cms-tab-btn" data-cmspage="manufacturing"><i class="fas fa-industry"></i> Manufacturing</button>
+            <button class="cms-tab-btn" data-cmspage="distributor"><i class="fas fa-handshake"></i> Dealer Desk</button>
+            <button class="cms-tab-btn" data-cmspage="contact"><i class="fas fa-envelope"></i> Contact Us</button>
+            <button class="cms-tab-btn" data-cmspage="policies"><i class="fas fa-shield-alt"></i> Policies</button>
+          </div>
+
+          <!-- Home Page Form -->
+          <div id="cmsForm_home" class="cms-page-form">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Hero Banner Section</h3></div>
+              <div class="card-body">
+                <div class="form-row">
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label">Hero Title</label>
+                    <input type="text" id="cms_home_hero_title" class="form-control">
+                  </div>
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label">Hero Subtitle</label>
+                    <textarea id="cms_home_hero_subtitle" class="form-control" rows="2"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Hero Badge / Tagline</label>
+                    <input type="text" id="cms_home_hero_badge" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Banner Image URL</label>
+                    <div style="display:flex; gap:8px;">
+                      <input type="text" id="cms_home_hero_image" class="form-control">
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_image')"><i class="fas fa-image"></i> Pick</button>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">CTA Button Text</label>
+                    <input type="text" id="cms_home_hero_ctaText" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">CTA Button Link</label>
+                    <input type="text" id="cms_home_hero_ctaLink" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Unique Story Section</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Story Heading</label>
+                  <input type="text" id="cms_home_story_title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Story Narrative</label>
+                  <textarea id="cms_home_story_desc" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Story Section Image</label>
+                  <div style="display:flex; gap:8px;">
+                    <input type="text" id="cms_home_story_image" class="form-control">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_story_image')"><i class="fas fa-image"></i> Pick</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentCMS('home')"><i class="fas fa-save"></i> Save Home Changes</button>
+            </div>
+          </div>
+
+          <!-- About Page Form -->
+          <div id="cmsForm_about" class="cms-page-form" style="display:none;">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">About Hero & Overview</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Hero Title</label>
+                  <input type="text" id="cms_about_hero_title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Hero Subtitle</label>
+                  <textarea id="cms_about_hero_subtitle" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Banner Image URL</label>
+                  <div style="display:flex; gap:8px;">
+                    <input type="text" id="cms_about_hero_image" class="form-control">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_hero_image')"><i class="fas fa-image"></i> Pick</button>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Company Overview Narrative</label>
+                  <textarea id="cms_about_overview_desc" class="form-control" rows="4"></textarea>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentCMS('about')"><i class="fas fa-save"></i> Save About Changes</button>
+            </div>
+          </div>
+
+          <!-- Products Page Form -->
+          <div id="cmsForm_products" class="cms-page-form" style="display:none;">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Products Header & Section Headings</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Hero Title</label>
+                  <input type="text" id="cms_products_hero_title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Hero Subtitle</label>
+                  <textarea id="cms_products_hero_subtitle" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Banner Image</label>
+                  <div style="display:flex; gap:8px;">
+                    <input type="text" id="cms_products_hero_image" class="form-control">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_products_hero_image')"><i class="fas fa-image"></i> Pick</button>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Shop By Brand Title</label>
+                    <input type="text" id="cms_products_brand_title" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Shop By Brand Description</label>
+                    <input type="text" id="cms_products_brand_desc" class="form-control">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Explore Collections Title</label>
+                    <input type="text" id="cms_products_collection_title" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Explore Collections Description</label>
+                    <input type="text" id="cms_products_collection_desc" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentCMS('products')"><i class="fas fa-save"></i> Save Products Page Changes</button>
+            </div>
+          </div>
+
+          <!-- Manufacturing Page Form -->
+          <div id="cmsForm_manufacturing" class="cms-page-form" style="display:none;">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Manufacturing Infrastructure</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Hero Title</label>
+                  <input type="text" id="cms_mfg_hero_title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Hero Subtitle</label>
+                  <textarea id="cms_mfg_hero_subtitle" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Banner Image</label>
+                  <div style="display:flex; gap:8px;">
+                    <input type="text" id="cms_mfg_hero_image" class="form-control">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_hero_image')"><i class="fas fa-image"></i> Pick</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentCMS('manufacturing')"><i class="fas fa-save"></i> Save Manufacturing Changes</button>
+            </div>
+          </div>
+
+          <!-- Distributor Page Form -->
+          <div id="cmsForm_distributor" class="cms-page-form" style="display:none;">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Dealer Desk & Partnerships</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Hero Title</label>
+                  <input type="text" id="cms_dist_hero_title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Hero Subtitle</label>
+                  <textarea id="cms_dist_hero_subtitle" class="form-control" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Banner Image</label>
+                  <div style="display:flex; gap:8px;">
+                    <input type="text" id="cms_dist_hero_image" class="form-control">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_hero_image')"><i class="fas fa-image"></i> Pick</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentCMS('distributor')"><i class="fas fa-save"></i> Save Dealer Desk Changes</button>
+            </div>
+          </div>
+
+          <!-- Contact Page Form -->
+          <div id="cmsForm_contact" class="cms-page-form" style="display:none;">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Contact & Social Details</h3></div>
+              <div class="card-body">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Contact Email</label>
+                    <input type="email" id="cms_contact_email" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Contact Phone</label>
+                    <input type="text" id="cms_contact_phone" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Toll-Free Helpline</label>
+                    <input type="text" id="cms_contact_tollfree" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">WhatsApp Number</label>
+                    <input type="text" id="cms_contact_whatsapp" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Corporate Office Address</label>
+                  <input type="text" id="cms_contact_address" class="form-control">
+                </div>
+                <h4 style="margin: 20px 0 12px; font-size: 15px;">Official Social Links</h4>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label"><i class="fab fa-facebook"></i> Facebook URL</label>
+                    <input type="text" id="cms_social_fb" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label"><i class="fab fa-instagram"></i> Instagram URL</label>
+                    <input type="text" id="cms_social_ig" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label"><i class="fab fa-linkedin"></i> LinkedIn URL</label>
+                    <input type="text" id="cms_social_li" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label"><i class="fab fa-amazon"></i> Amazon Store URL</label>
+                    <input type="text" id="cms_social_amz" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentCMS('contact')"><i class="fas fa-save"></i> Save Contact Details</button>
+            </div>
+          </div>
+
+          <!-- Policies Page Form -->
+          <div id="cmsForm_policies" class="cms-page-form" style="display:none;">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Policies & Terms</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Quality & Warranty Policy</label>
+                  <textarea id="cms_policy_warranty" class="form-control" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Privacy Policy Statement</label>
+                  <textarea id="cms_policy_privacy" class="form-control" rows="4"></textarea>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" onclick="saveCurrentCMS('policies')"><i class="fas fa-save"></i> Save Policies</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 4. MEDIA LIBRARY PANEL ================= -->
+        <section id="panelMedia" class="view-panel">
+          <!-- Upload Dropzone -->
+          <div class="card">
+            <div class="card-body">
+              <div class="dropzone" id="mediaDropzone">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <div class="dropzone-title">Drag & drop images here or click to browse</div>
+                <div class="dropzone-desc">Supports WebP, PNG, JPG, SVG, MP4 (Max 25MB each)</div>
+                <input type="file" id="mediaFileInput" multiple accept="image/*,video/*,application/pdf" style="display: none;">
+              </div>
+            </div>
+          </div>
+
+          <!-- Media Filter & Grid -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Media Library (<span id="mediaCount">0</span> files)</div>
+              <div class="pill-group" id="mediaPillGroup">
+                <button class="pill-btn active" data-mediatag="all">All Media</button>
+                <button class="pill-btn" data-mediatag="Uploads">Uploads</button>
+                <button class="pill-btn" data-mediatag="Brand">Brand</button>
+                <button class="pill-btn" data-mediatag="Divisions">Divisions</button>
+                <button class="pill-btn" data-mediatag="Collections">Collections</button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="media-grid" id="mediaGrid">
+                <!-- Dynamically loaded -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 5. SETTINGS PANEL ================= -->
+        <section id="panelSettings" class="view-panel">
+          <div class="form-row">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Admin Security & Password</h3></div>
+              <div class="card-body">
+                <form id="changePasswordForm">
+                  <div class="form-group">
+                    <label class="form-label" for="currPassword">Current Password</label>
+                    <input type="password" id="currPassword" class="form-control" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" class="form-control" required minlength="6">
+                    <div class="form-help">Minimum 6 characters</div>
+                  </div>
+                  <button type="submit" class="btn btn-primary"><i class="fas fa-key"></i> Update Password</button>
+                </form>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Data Export & Backup</h3></div>
+              <div class="card-body">
+                <p style="font-size:13.5px; color:var(--slate-600); margin-bottom:18px;">
+                  Download full raw JSON copies of your products database and page CMS settings for offline backups.
+                </p>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+                  <button class="btn btn-secondary" onclick="exportData('products')"><i class="fas fa-download"></i> Export Products JSON</button>
+                  <button class="btn btn-secondary" onclick="exportData('cms')"><i class="fas fa-download"></i> Export Page Content CMS JSON</button>
+                  <button class="btn btn-secondary" id="btnSettingsSync"><i class="fas fa-sync-alt"></i> Re-Sync Catalogue File</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- Add / Edit Product Modal -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="productModalTitle">Add New Product</h3>
+        <span class="modal-close" onclick="closeProductModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="productForm">
+          <input type="hidden" id="prodEditId">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="prodModelName">Model Name *</label>
+              <input type="text" id="prodModelName" class="form-control" required placeholder="e.g. Royal Arm Chair">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prodSku">SKU Code</label>
+              <input type="text" id="prodSku" class="form-control" placeholder="e.g. NP-NTL-101 (Auto-generated if empty)">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="prodBrand">Brand *</label>
+              <select id="prodBrand" class="form-control" required>
+                <option value="National">National</option>
+                <option value="Next">NEXT</option>
+                <option value="Sapphire">Sapphire</option>
+                <option value="Captain">Captain</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prodCategory">Category *</label>
+              <input type="text" id="prodCategory" class="form-control" list="categoryDataList" required placeholder="e.g. Arm Chairs">
+              <datalist id="categoryDataList">
+                <option value="Arm Chairs">
+                <option value="Armless Chairs">
+                <option value="Premium Arm Chairs">
+                <option value="Premium Armless Chairs">
+                <option value="Baby Chairs">
+                <option value="Metallic Chairs">
+                <option value="Steel Moulded Chairs">
+                <option value="Stools">
+                <option value="Tables">
+                <option value="Dining Sets">
+                <option value="Trolleys &amp; Racks">
+                <option value="Wardrobes">
+              </datalist>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Primary Image URL *</label>
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="prodPrimaryImage" class="form-control" placeholder="images/catalogue/..." required>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('prodPrimaryImage')">
+                <i class="fas fa-images"></i> Media Library
+              </button>
+            </div>
+            <div class="form-help">Paste path or click "Media Library" / upload a file below.</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Upload New Product Photo</label>
+            <input type="file" id="prodImageUploadInput" class="form-control" accept="image/*">
+          </div>
+
+          <div id="prodImagePreviewWrap" style="display:none; margin-bottom:16px;">
+            <label class="form-label">Image Preview</label>
+            <img id="prodImagePreview" src="" alt="" style="max-height: 120px; border-radius: 8px; border: 1px solid var(--slate-200); padding: 4px; background: #fff;">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Variants / Color Names (comma separated)</label>
+            <input type="text" id="prodVariants" class="form-control" placeholder="Red, Brown, Marble, Blue">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" id="btnSaveProduct"><i class="fas fa-check"></i> Save Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal-card" style="max-width: 420px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Confirm Deletion</h3>
+        <span class="modal-close" onclick="closeDeleteModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p id="deleteModalMessage" style="font-size: 14px; color: var(--slate-700);">
+          Are you sure you want to delete this product?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+        <button type="button" class="btn btn-danger" id="btnConfirmDelete"><i class="fas fa-trash"></i> Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Media Picker Modal (to pick existing photo for any field) -->
+  <div class="modal-backdrop" id="mediaPickerModal">
+    <div class="modal-card" style="max-width: 780px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Select from Media Library</h3>
+        <span class="modal-close" onclick="closeMediaPickerModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="media-grid" id="pickerMediaGrid" style="max-height: 400px; overflow-y: auto;">
+          <!-- Pickable items -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeMediaPickerModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -9,6 +9,5 @@ __pycache__/
 scratch_audit.json
 scratch/
 
-.vercel
-
+node_modules/
 .vercel
