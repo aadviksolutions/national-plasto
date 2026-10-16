@@ -288,17 +288,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: grab;
+            cursor: default;
             perspective: 1000px;
-            transform-style: preserve-3d;
-            touch-action: none;
+            touch-action: pan-y;
             user-select: none;
             -webkit-user-select: none;
             z-index: 2;
-        }
-        .np-modal-img-container:active,
-        .np-modal-img-container.is-dragging {
-            cursor: grabbing;
         }
         .np-360-turntable-wrapper {
             position: relative;
@@ -1582,65 +1577,34 @@
         </section>
     </main>
 
-    <!-- Quick View Modal with 360° Interactive Product Viewer -->
+    <!-- Quick View Modal -->
     <div class="np-modal" id="npModal" role="dialog" aria-modal="true" aria-labelledby="npModalTitle">
         <div class="np-modal-box">
             <button type="button" class="np-modal-x" aria-label="Close">&times;</button>
             <div class="np-modal-stage">
                 <button type="button" class="np-modal-nav np-modal-prev" id="npModalPrevProduct" title="Previous Product" aria-label="Previous Product"><i class="fas fa-chevron-left"></i></button>
                 <button type="button" class="np-modal-nav np-modal-next" id="npModalNextProduct" title="Next Product" aria-label="Next Product"><i class="fas fa-chevron-right"></i></button>
-                <div class="np-360-badge" id="np360Badge" title="Interactive 360° product rotation"><i class="fas fa-sync-alt fa-spin"></i> <span>360&deg; Interactive 3D Spin</span></div>
-                <div class="np-modal-img-container" id="npModalImgContainer" title="Drag horizontally to spin 360°">
-                    <div class="np-360-loader" id="np360Loader" style="display:none;"><i class="fas fa-circle-notch fa-spin"></i> <span>Loading 360&deg; frames...</span></div>
-                    <div class="np-360-stage-lighting"></div>
-                    <div class="np-360-turntable-wrapper" id="npModalTurntable">
+                <div class="np-modal-img-container" id="npModalImgContainer">
+                    <div class="np-360-turntable-wrapper" id="npModalTurntable" style="pointer-events:auto;">
                         <img id="npModalImg" alt="" draggable="false">
-                        <video id="npModalVideo360" loop muted playsinline preload="auto" style="display:none;" title="Click to play/pause 360° video"></video>
-                    </div>
-                    <div class="np-360-pedestal">
-                        <div class="np-360-turntable-ring" id="np360TurntableRing"></div>
-                        <div class="np-360-contact-shadow" id="np360ContactShadow"></div>
-                    </div>
-                    <div class="np-360-overlay" id="np360Overlay" aria-hidden="true">
-                        <span class="np-360-hint"><i class="fas fa-arrows-alt-h"></i> Drag / Swipe horizontally to rotate</span>
                     </div>
                 </div>
-
-                <!-- 360 View Mode Switcher: Studio Video vs 360 Interactive Drag vs Color Variations -->
-                <div class="np-360-view-tabs" id="npModalViewTabs" style="display:none;">
-                    <button type="button" class="np-view-tab-btn is-active" id="npTab360Video" data-mode="video" onclick="window.switchModalView('video')"><i class="fas fa-play-circle"></i> <span>360&deg; Studio Video</span></button>
-                    <button type="button" class="np-view-tab-btn" id="npTab360Spin" data-mode="spin" onclick="window.switchModalView('spin')"><i class="fas fa-sync-alt"></i> <span>360&deg; Interactive Drag</span></button>
-                    <button type="button" class="np-view-tab-btn" id="npTabPhotos" data-mode="colors" onclick="window.switchModalView('colors')"><i class="fas fa-palette"></i> <span>Studio Colors</span></button>
-                </div>
-
-                <div class="np-360-controls" id="np360Controls">
-                    <div class="np-360-slider-wrap">
-                        <span style="font-size:11px;font-weight:700;color:#64748B;">0&deg;</span>
-                        <input type="range" min="0" max="360" value="0" class="np-360-slider" id="np360Slider" aria-label="Modal 360 angle slider">
-                        <span style="font-size:11px;font-weight:700;color:#64748B;">360&deg;</span>
-                    </div>
-                    <div class="np-360-btn-row">
-                        <button type="button" class="np-360-btn" id="np360PrevBtn" title="Previous Angle" aria-label="Previous Angle"><i class="fas fa-chevron-left"></i></button>
-                        <button type="button" class="np-360-btn np-360-play" id="np360AutoSpinBtn" title="Auto-Rotate 360°"><i class="fas fa-play"></i> <span>Auto-Spin</span></button>
-                        <button type="button" class="np-360-btn" id="np360NextBtn" title="Next Angle" aria-label="Next Angle"><i class="fas fa-chevron-right"></i></button>
-                        <span class="np-360-step" id="np360Step">0&deg;</span>
-                    </div>
-                    <div class="np-360-presets" id="np360Presets">
-                        <button type="button" class="np-360-preset-btn active" data-deg="0">Front (0&deg;)</button>
-                        <button type="button" class="np-360-preset-btn" data-deg="90">Side (90&deg;)</button>
-                        <button type="button" class="np-360-preset-btn" data-deg="180">Back (180&deg;)</button>
-                        <button type="button" class="np-360-preset-btn" data-deg="270">Side (270&deg;)</button>
-                    </div>
-                </div>
-                <div class="np-single-notice" id="npSingleNotice" style="display:none;"><i class="fas fa-camera"></i> Single studio photograph &middot; 360&deg; rotation sequence in production</div>
                 <div class="np-modal-thumbs" id="npModalThumbs"></div>
+                <!-- Hidden legacy containers for clean script fallback -->
+                <div id="np360Badge" style="display:none !important;"></div>
+                <div id="np360Loader" style="display:none !important;"></div>
+                <div id="np360Overlay" style="display:none !important;"></div>
+                <div id="npModalViewTabs" style="display:none !important;"></div>
+                <div id="np360Controls" style="display:none !important;"></div>
+                <div id="npSingleNotice" style="display:none !important;"></div>
+                <video id="npModalVideo360" style="display:none !important;"></video>
             </div>
             <div class="np-modal-info">
                 <span id="npModalBrand" class="np-card-brand"></span>
                 <h3 id="npModalTitle"></h3>
                 <p class="np-modal-meta" id="npModalMeta"></p>
                 <ul class="np-modal-points">
-                    <li><i class="fas fa-sync-alt"></i> <span id="npModalViews"></span></li>
+                    <li><i class="fas fa-images"></i> <span id="npModalViews"></span></li>
                     <li><i class="fas fa-check-circle"></i> ISO 9001:2015 certified 100% prime polymer</li>
                     <li><i class="fas fa-weight-hanging"></i> Heavy-duty 200kg static &amp; dynamic load tested</li>
                     <li><i class="fas fa-truck"></i> Fast dispatch through 500+ nationwide dealers</li>
