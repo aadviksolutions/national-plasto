@@ -1054,52 +1054,6 @@
             </div>
         </section>
 
-
-
-        <section class="np-all-products" id="all-products">
-            <div class="container">
-                <h2 class="np-all-title" data-scroll>All <span>products</span></h2>
-            </div>
-        </section>
-        <section class="np-shop">
-            <div class="container">
-                <div class="np-shop-layout">
-                    <aside class="np-filter" id="npFilter" aria-label="Filter products">
-                        <div class="np-filter-head">
-                            <span><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</span>
-                            <button type="button" class="np-filter-x" id="npFilterClose" aria-label="Close filters">&times;</button>
-                        </div>
-                        <div class="np-filter-search">
-                            <input type="search" id="npSearch" placeholder="Search model name" aria-label="Search products">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </div>
-                        <div class="np-filter-group">
-                            <h4>Brand</h4>
-                            <div id="npBrandTabs"></div>
-                        </div>
-                        <div class="np-filter-group">
-                            <h4>Collection</h4>
-                            <div id="npCategoryChips"></div>
-                        </div>
-                        <div class="np-filter-foot">
-                            <button type="button" class="np-filter-clear" data-clear>Clear all</button>
-                            <button type="button" class="btn_project_default np-filter-apply" id="npFilterApply">Show products</button>
-                        </div>
-                    </aside>
-                    <div class="np-filter-backdrop" id="npFilterBackdrop"></div>
-
-                    <div class="np-shop-main">
-                        <div class="np-shop-bar">
-                            <button type="button" class="np-filter-open" id="npFilterOpen"><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</button>
-                            <p class="np-result-count" id="npResultCount"></p>
-                        </div>
-                        <!-- Catalogue grouped by category (rendered by js/catalogue-page.js) -->
-                        <div id="npCatalogue"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="collections-section">
             <div class="container" id="explore-collection">
                 <div class="row">
@@ -1280,6 +1234,50 @@
                         <div class="btn_section">
                             <a href="#all-products" class="btn_project_default">View all products</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="np-all-products" id="all-products">
+            <div class="container">
+                <h2 class="np-all-title" data-scroll>All <span>products</span></h2>
+            </div>
+        </section>
+        <section class="np-shop">
+            <div class="container">
+                <div class="np-shop-layout">
+                    <aside class="np-filter" id="npFilter" aria-label="Filter products">
+                        <div class="np-filter-head">
+                            <span><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</span>
+                            <button type="button" class="np-filter-x" id="npFilterClose" aria-label="Close filters">&times;</button>
+                        </div>
+                        <div class="np-filter-search">
+                            <input type="search" id="npSearch" placeholder="Search model name" aria-label="Search products">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="np-filter-group">
+                            <h4>Brand</h4>
+                            <div id="npBrandTabs"></div>
+                        </div>
+                        <div class="np-filter-group">
+                            <h4>Collection</h4>
+                            <div id="npCategoryChips"></div>
+                        </div>
+                        <div class="np-filter-foot">
+                            <button type="button" class="np-filter-clear" data-clear>Clear all</button>
+                            <button type="button" class="btn_project_default np-filter-apply" id="npFilterApply">Show products</button>
+                        </div>
+                    </aside>
+                    <div class="np-filter-backdrop" id="npFilterBackdrop"></div>
+
+                    <div class="np-shop-main">
+                        <div class="np-shop-bar">
+                            <button type="button" class="np-filter-open" id="npFilterOpen"><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</button>
+                            <p class="np-result-count" id="npResultCount"></p>
+                        </div>
+                        <!-- Catalogue grouped by category (rendered by js/catalogue-page.js) -->
+                        <div id="npCatalogue"></div>
                     </div>
                 </div>
             </div>
