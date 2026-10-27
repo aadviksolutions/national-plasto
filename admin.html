@@ -901,19 +901,42 @@
               </div>
             </div>
 
-            <!-- Executive Leadership (5 Board Members) -->
+            <!-- Section 6: Our Management Intro -->
             <div class="cms-section-card">
-              <div class="card-header"><h3><i class="fas fa-users"></i> Section 6: Board of Directors (All 5 Executive Directors)</h3></div>
+              <div class="card-header"><h3><i class="fas fa-align-left"></i> Section 6: Our Management (Intro Narrative)</h3></div>
               <div class="card-body">
-                <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="form-group">
+                  <label class="form-label">Section Title</label>
+                  <input type="text" id="cms_about_mgmt_title" class="form-control" placeholder="Our Management">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Intro Paragraph 1 (Since 1997 Heritage)</label>
+                  <textarea id="cms_about_mgmt_p1" class="form-control" rows="3" placeholder="Since 1997, National Plasto Products Pvt. Ltd. (NPPL)..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Intro Paragraph 2 (Manufacturing Plants & ISO Certification)</label>
+                  <textarea id="cms_about_mgmt_p2" class="form-control" rows="3" placeholder="What began as a single manufacturing unit has grown into four manufacturing plants..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Intro Paragraph 3 (Family-Led Management Team)</label>
+                  <textarea id="cms_about_mgmt_p3" class="form-control" rows="3" placeholder="Behind this growth is a family-led management team..."></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 7: Board of Directors (All 5 Executive Directors) -->
+            <div class="cms-section-card">
+              <div class="card-header"><h3><i class="fas fa-users"></i> Section 7: Board of Directors (All 5 Executive Directors)</h3></div>
+              <div class="card-body">
+                <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
                   <!-- 1. CMD -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">1. Chairman & Managing Director</div>
                     <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_0_name" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_0_role" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_0_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_0_bio" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><input type="text" id="cms_about_lead_0_quote" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Bio Narrative (Multiple paragraphs supported)</label><textarea id="cms_about_lead_0_bio" class="form-control" rows="6"></textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote / Leadership Message</label><textarea id="cms_about_lead_0_quote" class="form-control" rows="3"></textarea></div>
                   </div>
                   <!-- 2. Finance -->
                   <div class="cms-item-box">
@@ -921,8 +944,8 @@
                     <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_1_name" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_1_role" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_1_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_1_bio" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><input type="text" id="cms_about_lead_1_quote" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_1_bio" class="form-control" rows="6"></textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_1_quote" class="form-control" rows="3"></textarea></div>
                   </div>
                   <!-- 3. Production Memoriam -->
                   <div class="cms-item-box">
@@ -930,26 +953,26 @@
                     <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_2_name" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_2_role" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_2_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_2_bio" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><input type="text" id="cms_about_lead_2_quote" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_2_bio" class="form-control" rows="6"></textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_2_quote" class="form-control" rows="3"></textarea></div>
                   </div>
                   <!-- 4. Executive Director 1 -->
                   <div class="cms-item-box">
-                    <div class="cms-item-box-title">4. Executive Director (Operations)</div>
+                    <div class="cms-item-box-title">4. Executive Director (Operations / Sales & Marketing)</div>
                     <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_3_name" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_3_role" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_3_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_3_bio" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><input type="text" id="cms_about_lead_3_quote" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_3_bio" class="form-control" rows="6"></textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_3_quote" class="form-control" rows="3"></textarea></div>
                   </div>
                   <!-- 5. Executive Director 2 -->
                   <div class="cms-item-box">
-                    <div class="cms-item-box-title">5. Executive Director (Marketing & Sales)</div>
+                    <div class="cms-item-box-title">5. Executive Director (Plant Efficiency / Operations)</div>
                     <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_4_name" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_4_role" class="form-control"></div>
                     <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_4_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_4_bio" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><input type="text" id="cms_about_lead_4_quote" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_4_bio" class="form-control" rows="6"></textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_4_quote" class="form-control" rows="3"></textarea></div>
                   </div>
                 </div>
               </div>

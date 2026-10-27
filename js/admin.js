@@ -886,13 +886,21 @@
         setVal('cms_about_pillar_' + idx + '_img', p.image);
       });
 
+      // Management Intro Narrative
+      if (cmsData.about.managementIntro) {
+        setVal('cms_about_mgmt_title', cmsData.about.managementIntro.title || 'Our Management');
+        setVal('cms_about_mgmt_p1', cmsData.about.managementIntro.p1 || '');
+        setVal('cms_about_mgmt_p2', cmsData.about.managementIntro.p2 || '');
+        setVal('cms_about_mgmt_p3', cmsData.about.managementIntro.p3 || '');
+      }
+
       // Board of Directors (5 members)
       (cmsData.about.leadership || []).forEach((l, idx) => {
         setVal('cms_about_lead_' + idx + '_name', l.name);
         setVal('cms_about_lead_' + idx + '_role', l.role);
         setVal('cms_about_lead_' + idx + '_photo', l.photo);
-        setVal('cms_about_lead_' + idx + '_bio', l.bio);
-        setVal('cms_about_lead_' + idx + '_quote', l.quote);
+        setVal('cms_about_lead_' + idx + '_bio', Array.isArray(l.bio) ? l.bio.join('\n\n') : (l.bio || ''));
+        setVal('cms_about_lead_' + idx + '_quote', l.quote || '');
       });
     }
 
@@ -1126,6 +1134,13 @@
           desc: getVal('cms_about_pillar_' + i + '_desc'),
           image: getVal('cms_about_pillar_' + i + '_img')
         }));
+        // Management Intro Narrative
+        cmsData.about.managementIntro = {
+          title: getVal('cms_about_mgmt_title') || 'Our Management',
+          p1: getVal('cms_about_mgmt_p1'),
+          p2: getVal('cms_about_mgmt_p2'),
+          p3: getVal('cms_about_mgmt_p3')
+        };
         // 5 board members
         cmsData.about.leadership = [0, 1, 2, 3, 4].map((i) => ({
           name: getVal('cms_about_lead_' + i + '_name'),

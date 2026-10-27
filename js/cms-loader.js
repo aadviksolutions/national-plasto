@@ -365,7 +365,28 @@
       });
     }
 
-    // 5. Board of Directors (Card & Modal Hydration)
+    // 5. Our Management Intro
+    if (about.managementIntro) {
+      var mgmtHeading = document.querySelector('#leadership .supreme_board_heading');
+      if (mgmtHeading && about.managementIntro.title) {
+        var rawTitle = about.managementIntro.title.trim();
+        var parts = rawTitle.split(/\s+/);
+        if (parts.length > 1) {
+          mgmtHeading.innerHTML = '<span class="supreme_heading_red">' + parts[0] + '</span> ' + parts.slice(1).join(' ');
+        } else {
+          mgmtHeading.textContent = rawTitle;
+        }
+      }
+      var introDiv = document.querySelector('.supreme_lead_intro');
+      if (introDiv) {
+        var pList = introDiv.querySelectorAll('p');
+        if (pList[0] && about.managementIntro.p1) pList[0].textContent = about.managementIntro.p1;
+        if (pList[1] && about.managementIntro.p2) pList[1].textContent = about.managementIntro.p2;
+        if (pList[2] && about.managementIntro.p3) pList[2].textContent = about.managementIntro.p3;
+      }
+    }
+
+    // 6. Board of Directors (Card & Modal Hydration)
     if (about.leadership && about.leadership.length) {
       var cards = document.querySelectorAll('.supreme_director_card');
       about.leadership.forEach(function (leader, idx) {

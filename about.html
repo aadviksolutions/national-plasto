@@ -1671,7 +1671,7 @@
                     "Over nearly three decades, he has built the company on a foundation of perseverance, relationships and the values passed down by his father, whose guidance continues to influence his approach to business and leadership.",
                     "Under his leadership, NPPL has grown not only in scale and turnover, but also in the trust and respect it has built among its employees, partners and associates. He believes that every challenge presents an opportunity to learn, adapt and return stronger."
                 ],
-                quote: "“Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.”",
+                quote: "“Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.”\n— Mr. Ratan Kumar Sharma, Chairman & Managing Director",
                 governance: [
                     "Founded National Plasto Products Pvt. Ltd. on 29 October 1997",
                     "Spearheads nationwide expansion across 4 ISO-certified manufacturing hubs",
@@ -1724,7 +1724,7 @@
             },
             bhavesh: {
                 name: "Mr. Bhavesh Sharma",
-                role: "",
+                role: "Executive Director",
                 tier: "Next-Gen Leadership",
                 badge: "Sales, Marketing & E-Commerce",
                 category: "nextgen",
@@ -1746,7 +1746,7 @@
             },
             devesh: {
                 name: "Mr. Devesh Sharma",
-                role: "",
+                role: "Executive Director",
                 tier: "Next-Gen Leadership",
                 badge: "Operations & Plant Efficiency",
                 category: "nextgen",
@@ -1776,10 +1776,12 @@
             var body = document.getElementById('supremeModalBody');
             if (!modal || !body) return;
 
-            var bioParagraphs = Array.isArray(data.bio) ? data.bio : (data.bio ? [data.bio] : []);
+            var bioParagraphs = Array.isArray(data.bio)
+                ? data.bio
+                : (data.bio ? data.bio.split(/\r?\n\s*\r?\n|\r?\n/).filter(function (p) { return p.trim().length > 0; }) : []);
             var bioHtml = bioParagraphs.map(function (p) { return '<p>' + p + '</p>'; }).join('');
             var quoteHtml = data.quote ? (
-                '<blockquote class="supreme-modal-quote">' + data.quote + '</blockquote>'
+                '<blockquote class="supreme-modal-quote">' + data.quote.replace(/\n/g, '<br>') + '</blockquote>'
             ) : '';
 
             var isMemorial = data.isMemorial;
