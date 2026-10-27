@@ -8038,20 +8038,20 @@ body.np-modal-open {
 /* Strategic Offset Alignments so Labels NEVER collide */
 /* Howrah: Badge placed to the LEFT */
 .pan_india_main .np-map-pin[data-loc="howrah"] .np-map-pin-label {
-    top: 50% !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: calc(100% + 4px) !important;
-    transform: translateY(-50%) !important;
+    top: auto !important;
+    bottom: calc(100% + 3px) !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
 }
 
 /* Kolkata HQ: Badge placed to the RIGHT */
 .pan_india_main .np-map-pin[data-loc="kolkata"] .np-map-pin-label {
-    top: 50% !important;
+    top: calc(100% + 3px) !important;
     bottom: auto !important;
-    left: calc(100% + 4px) !important;
+    left: 50% !important;
     right: auto !important;
-    transform: translateY(-50%) !important;
+    transform: translateX(-50%) !important;
 }
 
 /* Roorkee: Badge placed ABOVE */
