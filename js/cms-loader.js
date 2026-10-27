@@ -6,9 +6,20 @@
   'use strict';
 
   function fetchCMSData() {
+    try {
+      var localCMS = localStorage.getItem('np_custom_cms');
+      if (localCMS) {
+        var parsed = JSON.parse(localCMS);
+        if (parsed && typeof parsed === 'object') {
+          return Promise.resolve(parsed);
+        }
+      }
+    } catch (e) {}
+
     return fetch('/api/cms?t=' + Date.now())
       .then(function (res) {
-        if (!res.ok) throw new Error('API not available');
+        var ct = res.headers.get('content-type') || '';
+        if (!res.ok || !ct.includes('application/json')) throw new Error('API not available');
         return res.json();
       })
       .then(function (res) {

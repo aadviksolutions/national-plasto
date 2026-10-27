@@ -1,0 +1,471 @@
+[
+  {
+    "name": "overview-video-poster.jpg",
+    "url": "/images/hero/overview-video-poster.jpg",
+    "tag": "Hero",
+    "size": 64155,
+    "mtime": "2026-10-27T06:32:01.184Z"
+  },
+  {
+    "name": "aboutus.png",
+    "url": "/images/brand/aboutus.png",
+    "tag": "Brand",
+    "size": 3334469,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "badge_crop.jpg",
+    "url": "/images/brand/badge_crop.jpg",
+    "tag": "Brand",
+    "size": 2553,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "captain-logo.png",
+    "url": "/images/brand/captain-logo.png",
+    "tag": "Brand",
+    "size": 79250,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "case-study-education.jpg",
+    "url": "/images/brand/case-study-education.jpg",
+    "tag": "Brand",
+    "size": 431521,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "case-study-hospitality.jpg",
+    "url": "/images/brand/case-study-hospitality.jpg",
+    "tag": "Brand",
+    "size": 995884,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "catalogue-mockup.png",
+    "url": "/images/brand/catalogue-mockup.png",
+    "tag": "Brand",
+    "size": 141278,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "company-national-logo.png",
+    "url": "/images/brand/company-national-logo.png",
+    "tag": "Brand",
+    "size": 36119,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "company-next-logo.png",
+    "url": "/images/brand/company-next-logo.png",
+    "tag": "Brand",
+    "size": 63257,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "company-photo.jpg",
+    "url": "/images/brand/company-photo.jpg",
+    "tag": "Brand",
+    "size": 3040827,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "contactus.jpg",
+    "url": "/images/brand/contactus.jpg",
+    "tag": "Brand",
+    "size": 2163237,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "corporate-office.jpg",
+    "url": "/images/brand/corporate-office.jpg",
+    "tag": "Brand",
+    "size": 86257,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "dealer-partner-hero.png",
+    "url": "/images/brand/dealer-partner-hero.png",
+    "tag": "Brand",
+    "size": 891798,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "dealer.jpg",
+    "url": "/images/brand/dealer.jpg",
+    "tag": "Brand",
+    "size": 2057180,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "dealer.png",
+    "url": "/images/brand/dealer.png",
+    "tag": "Brand",
+    "size": 425805,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "distributor-hero-partner.jpg",
+    "url": "/images/brand/distributor-hero-partner.jpg",
+    "tag": "Brand",
+    "size": 425805,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "distributor-man.jpg",
+    "url": "/images/brand/distributor-man.jpg",
+    "tag": "Brand",
+    "size": 171352,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "distributor-man.png",
+    "url": "/images/brand/distributor-man.png",
+    "tag": "Brand",
+    "size": 763533,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "furniture-for-every-community.jpg",
+    "url": "/images/brand/furniture-for-every-community.jpg",
+    "tag": "Brand",
+    "size": 431521,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "ind-agriculture.jpg",
+    "url": "/images/brand/ind-agriculture.jpg",
+    "tag": "Brand",
+    "size": 1100800,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "ind-automotive.jpg",
+    "url": "/images/brand/ind-automotive.jpg",
+    "tag": "Brand",
+    "size": 700117,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "ind-home.jpg",
+    "url": "/images/brand/ind-home.jpg",
+    "tag": "Brand",
+    "size": 969983,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "ind-logistics.jpg",
+    "url": "/images/brand/ind-logistics.jpg",
+    "tag": "Brand",
+    "size": 302850,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "ind-retail.jpg",
+    "url": "/images/brand/ind-retail.jpg",
+    "tag": "Brand",
+    "size": 982865,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "innovation-banner.jpg",
+    "url": "/images/brand/innovation-banner.jpg",
+    "tag": "Brand",
+    "size": 2431533,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "manufacter.png",
+    "url": "/images/brand/manufacter.png",
+    "tag": "Brand",
+    "size": 814236,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "manufacturing.jpg",
+    "url": "/images/brand/manufacturing.jpg",
+    "tag": "Brand",
+    "size": 814236,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "mob-innovation-banner.jpg",
+    "url": "/images/brand/mob-innovation-banner.jpg",
+    "tag": "Brand",
+    "size": 89066,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "mob-plant-1.jpg",
+    "url": "/images/brand/mob-plant-1.jpg",
+    "tag": "Brand",
+    "size": 71933,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "national-plasto-dark.png",
+    "url": "/images/brand/national-plasto-dark.png",
+    "tag": "Brand",
+    "size": 20857,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "next-nppl-dark.png",
+    "url": "/images/brand/next-nppl-dark.png",
+    "tag": "Brand",
+    "size": 61201,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "plant-1.jpg",
+    "url": "/images/brand/plant-1.jpg",
+    "tag": "Brand",
+    "size": 260501,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "plant-howrah-injection.jpg",
+    "url": "/images/brand/plant-howrah-injection.jpg",
+    "tag": "Brand",
+    "size": 2508026,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "products.jpg",
+    "url": "/images/brand/products.jpg",
+    "tag": "Brand",
+    "size": 465798,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "products.png",
+    "url": "/images/brand/products.png",
+    "tag": "Brand",
+    "size": 1140023,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "quality-lab-qa.jpg",
+    "url": "/images/brand/quality-lab-qa.jpg",
+    "tag": "Brand",
+    "size": 520822,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "reach-kolkata-hub.jpg",
+    "url": "/images/brand/reach-kolkata-hub.jpg",
+    "tag": "Brand",
+    "size": 2664842,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "sapphire-logo.png",
+    "url": "/images/brand/sapphire-logo.png",
+    "tag": "Brand",
+    "size": 251278,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "strategic-manufacturing-hubs.jpg",
+    "url": "/images/brand/strategic-manufacturing-hubs.jpg",
+    "tag": "Brand",
+    "size": 420153,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "captain.jpg",
+    "url": "/images/divisions/captain.jpg",
+    "tag": "Divisions",
+    "size": 97547,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "national.jpg",
+    "url": "/images/divisions/national.jpg",
+    "tag": "Divisions",
+    "size": 112846,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "next.jpg",
+    "url": "/images/divisions/next.jpg",
+    "tag": "Divisions",
+    "size": 115433,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "sapphire.jpg",
+    "url": "/images/divisions/sapphire.jpg",
+    "tag": "Divisions",
+    "size": 103860,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "arm-chairs.jpg",
+    "url": "/images/collections/arm-chairs.jpg",
+    "tag": "Collections",
+    "size": 38186,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "armless-chairs.jpg",
+    "url": "/images/collections/armless-chairs.jpg",
+    "tag": "Collections",
+    "size": 31496,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "baby-chairs.jpg",
+    "url": "/images/collections/baby-chairs.jpg",
+    "tag": "Collections",
+    "size": 37976,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "dining-sets.jpg",
+    "url": "/images/collections/dining-sets.jpg",
+    "tag": "Collections",
+    "size": 29574,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "metallic-chairs.jpg",
+    "url": "/images/collections/metallic-chairs.jpg",
+    "tag": "Collections",
+    "size": 35195,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "premium-arm-chairs.jpg",
+    "url": "/images/collections/premium-arm-chairs.jpg",
+    "tag": "Collections",
+    "size": 39484,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "premium-armless-chairs.jpg",
+    "url": "/images/collections/premium-armless-chairs.jpg",
+    "tag": "Collections",
+    "size": 34625,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "steel-moulded-chairs.jpg",
+    "url": "/images/collections/steel-moulded-chairs.jpg",
+    "tag": "Collections",
+    "size": 25997,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "stools.jpg",
+    "url": "/images/collections/stools.jpg",
+    "tag": "Collections",
+    "size": 32676,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "tables.jpg",
+    "url": "/images/collections/tables.jpg",
+    "tag": "Collections",
+    "size": 29897,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "trolleys-and-racks.jpg",
+    "url": "/images/collections/trolleys-and-racks.jpg",
+    "tag": "Collections",
+    "size": 69656,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "wardrobes.jpg",
+    "url": "/images/collections/wardrobes.jpg",
+    "tag": "Collections",
+    "size": 28992,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "corporate-mobile.jpg",
+    "url": "/images/hero/corporate-mobile.jpg",
+    "tag": "Hero",
+    "size": 381858,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "corporate.jpg",
+    "url": "/images/hero/corporate.jpg",
+    "tag": "Hero",
+    "size": 381858,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "distribution-mobile.jpg",
+    "url": "/images/hero/distribution-mobile.jpg",
+    "tag": "Hero",
+    "size": 408753,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "distribution.jpg",
+    "url": "/images/hero/distribution.jpg",
+    "tag": "Hero",
+    "size": 408753,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "image1-mobile.png",
+    "url": "/images/hero/image1-mobile.png",
+    "tag": "Hero",
+    "size": 1260351,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "image1.png",
+    "url": "/images/hero/image1.png",
+    "tag": "Hero",
+    "size": 2339733,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "image2-mobile.png",
+    "url": "/images/hero/image2-mobile.png",
+    "tag": "Hero",
+    "size": 1315593,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "image2.png",
+    "url": "/images/hero/image2.png",
+    "tag": "Hero",
+    "size": 2434359,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "team-group-mobile.jpg",
+    "url": "/images/hero/team-group-mobile.jpg",
+    "tag": "Hero",
+    "size": 1315593,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "team-group.jpg",
+    "url": "/images/hero/team-group.jpg",
+    "tag": "Hero",
+    "size": 2434359,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "team-products-mobile.jpg",
+    "url": "/images/hero/team-products-mobile.jpg",
+    "tag": "Hero",
+    "size": 1260351,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "team-products.jpg",
+    "url": "/images/hero/team-products.jpg",
+    "tag": "Hero",
+    "size": 2339733,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  }
+]

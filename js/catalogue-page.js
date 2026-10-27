@@ -5,7 +5,17 @@
  * and a rich 360° 3D Quick-View rotation modal.
  */
 (function () {
-  var DATA = window.NP_CATALOGUE || [];
+  var localProducts = null;
+  try {
+    var stored = localStorage.getItem('np_custom_products');
+    if (stored) {
+      var parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        localProducts = parsed;
+      }
+    }
+  } catch (e) {}
+  var DATA = localProducts || window.NP_CATALOGUE || [];
 
   var BRANDS = ['National', 'Next', 'Sapphire', 'Captain'];
   var CATEGORY_ORDER = [

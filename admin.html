@@ -162,6 +162,9 @@
           <h1 class="topbar-title" id="pageTitle">Dashboard</h1>
         </div>
         <div class="topbar-right">
+          <span id="cmsModeBadge" class="badge" style="font-size: 11.5px; padding: 6px 12px; border-radius: 9999px; background: #e0f2fe; color: #0284c7; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fas fa-cloud"></i> Vercel Cloud Mode
+          </span>
           <button type="button" class="btn btn-secondary btn-sm" id="btnSyncCatalogue" title="Compile products into static catalogue-2026.js">
             <i class="fas fa-sync-alt"></i> Re-Sync Catalogue
           </button>
@@ -1421,15 +1424,19 @@
             </div>
 
             <div class="card">
-              <div class="card-header"><h3 class="card-title">Data Export & Backup</h3></div>
+              <div class="card-header"><h3 class="card-title">Data Export, Backup & Vercel Sync</h3></div>
               <div class="card-body">
-                <p style="font-size:13.5px; color:var(--slate-600); margin-bottom:18px;">
-                  Download full raw JSON copies of your products database and page CMS settings for offline backups.
+                <p style="font-size:13.5px; color:var(--slate-600); margin-bottom:14px;">
+                  On Vercel, edits are stored in your browser storage and previewed live on the site. Download the updated JSON/JS files below and commit them to your repository for permanent site-wide updates.
                 </p>
                 <div style="display:flex; flex-direction:column; gap:10px;">
-                  <button class="btn btn-secondary" onclick="exportData('products')"><i class="fas fa-download"></i> Export Products JSON</button>
-                  <button class="btn btn-secondary" onclick="exportData('cms')"><i class="fas fa-download"></i> Export Page Content CMS JSON</button>
-                  <button class="btn btn-secondary" id="btnSettingsSync"><i class="fas fa-sync-alt"></i> Re-Sync Catalogue File</button>
+                  <button type="button" class="btn btn-secondary" onclick="exportData('products')"><i class="fas fa-download"></i> Export Products JSON (products.json)</button>
+                  <button type="button" class="btn btn-secondary" onclick="exportData('cms')"><i class="fas fa-download"></i> Export Page CMS JSON (cms-content.json)</button>
+                  <button type="button" class="btn btn-secondary" onclick="exportData('catalogue')"><i class="fas fa-download"></i> Export Catalogue JS (catalogue-2026.js)</button>
+                  <button type="button" class="btn btn-primary" onclick="exportAllBundle()"><i class="fas fa-download"></i> Download All Updated Files Bundle</button>
+                  <button type="button" class="btn btn-secondary" id="btnSettingsSync"><i class="fas fa-sync-alt"></i> Re-Sync Catalogue File</button>
+                  <hr style="border:0; border-top:1px solid var(--slate-200); margin:8px 0;">
+                  <button type="button" class="btn btn-outline-danger btn-sm" onclick="resetToPublishedDefaults()"><i class="fas fa-undo"></i> Reset to Published Site Defaults</button>
                 </div>
               </div>
             </div>
@@ -1565,6 +1572,6 @@
   <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <script src="js/admin.js?v=20261027"></script>
+  <script src="js/admin.js?v=20261027_cloud_v2"></script>
 </body>
 </html>

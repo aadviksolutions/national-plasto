@@ -24,10 +24,17 @@
   const mobileToggle = document.getElementById('mobileToggle');
   const sidebar = document.getElementById('sidebar');
 
+  // App Mode ('server' or 'cloud')
+  let appMode = 'cloud';
+
   // API Helper
   function apiFetch(url, options = {}) {
     options.headers = options.headers || {};
     return fetch(url, options).then(async (res) => {
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        throw new Error('Endpoint returned non-JSON response');
+      }
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         if (res.status === 401 && currentUser) {
@@ -37,6 +44,22 @@
       }
       return data;
     });
+  }
+
+  function updateModeBadge() {
+    const badge = document.getElementById('cmsModeBadge');
+    if (!badge) return;
+    if (appMode === 'server') {
+      badge.style.background = '#DCFCE7';
+      badge.style.color = '#15803D';
+      badge.innerHTML = '<i class="fas fa-server"></i> Local Server Connected';
+      badge.title = 'Connected to Express backend';
+    } else {
+      badge.style.background = '#E0F2FE';
+      badge.style.color = '#0284C7';
+      badge.innerHTML = '<i class="fas fa-cloud"></i> Vercel Cloud Mode';
+      badge.title = 'Running in Vercel Cloud Mode. Edits are saved to browser storage and previewed live on the site.';
+    }
   }
 
   // Toast System
@@ -66,17 +89,34 @@
 
   // ================= 1. AUTHENTICATION =================
   async function checkAuth() {
+    // 1. Try server session check
     try {
       const res = await apiFetch('/api/auth/me');
-      if (res.success && res.user) {
+      if (res && res.success && res.user) {
         currentUser = res.user;
+        appMode = 'server';
+        updateModeBadge();
         showApp();
-      } else {
-        showAuth();
+        return;
       }
     } catch {
-      showAuth();
+      // Local server not available or serverless session
     }
+
+    // 2. Check client-side stored session in localStorage
+    const savedToken = localStorage.getItem('np_admin_token') || sessionStorage.getItem('np_admin_token');
+    const savedUser = localStorage.getItem('np_admin_user');
+    if (savedToken && savedUser) {
+      try {
+        currentUser = JSON.parse(savedUser);
+        appMode = 'cloud';
+        updateModeBadge();
+        showApp();
+        return;
+      } catch (e) {}
+    }
+
+    showAuth();
   }
 
   function showAuth() {
@@ -88,7 +128,8 @@
   function showApp() {
     authScreen.style.display = 'none';
     appLayout.style.display = 'flex';
-    sidebarUserName.textContent = currentUser.username || 'Admin';
+    sidebarUserName.textContent = (currentUser && currentUser.username) || 'Admin';
+    updateModeBadge();
     initDashboard();
 
     const initialHash = window.location.hash.replace('#', '');
@@ -110,32 +151,66 @@
     const username = document.getElementById('loginUsername').value.trim();
     const password = document.getElementById('loginPassword').value;
 
+    let loginSuccess = false;
+
+    // 1. Try server login
     try {
       const res = await apiFetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
       });
-      if (res.success) {
-        currentUser = res.user;
-        showApp();
-        showToast('Welcome back, Admin!');
+      if (res && res.success) {
+        currentUser = res.user || { username };
+        appMode = 'server';
+        const token = res.token || ('np_' + Date.now());
+        localStorage.setItem('np_admin_token', token);
+        localStorage.setItem('np_admin_user', JSON.stringify(currentUser));
+        loginSuccess = true;
       }
     } catch (err) {
-      authError.textContent = err.message || 'Invalid login credentials';
+      console.warn('Server login not available, evaluating Cloud credentials:', err.message);
+    }
+
+    // 2. Fallback to Cloud verification if server unavailable / 405 / static
+    if (!loginSuccess) {
+      const validPass = localStorage.getItem('np_admin_password') || 'nationalplasto2026';
+      if (username === 'admin' && password === validPass) {
+        currentUser = {
+          username: 'admin',
+          lastLogin: new Date().toISOString(),
+          mode: 'cloud'
+        };
+        appMode = 'cloud';
+        const token = 'np_cloud_' + Math.random().toString(36).substring(2) + Date.now().toString(36);
+        localStorage.setItem('np_admin_token', token);
+        localStorage.setItem('np_admin_user', JSON.stringify(currentUser));
+        loginSuccess = true;
+      }
+    }
+
+    if (loginSuccess) {
+      updateModeBadge();
+      showApp();
+      showToast('Welcome back, Admin!');
+    } else {
+      authError.textContent = 'Invalid username or password';
       authError.style.display = 'block';
     }
   });
 
-  btnLogout.addEventListener('click', async () => {
+  function logout() {
     try {
-      await apiFetch('/api/auth/logout', { method: 'POST' });
-    } catch (e) {
-      console.warn(e);
-    }
+      apiFetch('/api/auth/logout', { method: 'POST' }).catch(() => {});
+    } catch (e) {}
+    localStorage.removeItem('np_admin_token');
+    localStorage.removeItem('np_admin_user');
+    sessionStorage.removeItem('np_admin_token');
     showAuth();
     showToast('Logged out successfully');
-  });
+  }
+
+  btnLogout.addEventListener('click', logout);
 
   // Mobile navigation toggle
   if (mobileToggle) {
@@ -202,23 +277,45 @@
 
   // ================= 3. DASHBOARD =================
   async function initDashboard() {
-    await loadStats();
     await loadProducts();
     await loadCMS();
     await loadMedia();
+    await loadStats();
   }
 
   async function loadStats() {
     try {
-      const stats = await apiFetch('/api/stats');
-      if (stats.success) {
-        document.getElementById('statTotalProducts').textContent = stats.totalProducts;
-        document.getElementById('statTotalBrands').textContent = Object.keys(stats.brands || {}).length;
-        document.getElementById('statTotalCategories').textContent = Object.keys(stats.categories || {}).length;
-        document.getElementById('statTotalMedia').textContent = stats.uploadedImagesCount;
+      let stats = null;
+      try {
+        const res = await apiFetch('/api/stats');
+        if (res && res.success) stats = res;
+      } catch (e) {}
 
-        // Render brand breakdown cards
-        const container = document.getElementById('brandCardsContainer');
+      // Calculate dynamically if API not available
+      if (!stats) {
+        const brands = {};
+        const categories = {};
+        (allProducts || []).forEach((p) => {
+          if (p.b) brands[p.b] = (brands[p.b] || 0) + 1;
+          if (p.c) categories[p.c] = (categories[p.c] || 0) + 1;
+        });
+        stats = {
+          success: true,
+          totalProducts: (allProducts || []).length,
+          brands,
+          categories,
+          uploadedImagesCount: (allMedia || []).length
+        };
+      }
+
+      document.getElementById('statTotalProducts').textContent = stats.totalProducts;
+      document.getElementById('statTotalBrands').textContent = Object.keys(stats.brands || {}).length;
+      document.getElementById('statTotalCategories').textContent = Object.keys(stats.categories || {}).length;
+      document.getElementById('statTotalMedia').textContent = stats.uploadedImagesCount;
+
+      // Render brand breakdown cards
+      const container = document.getElementById('brandCardsContainer');
+      if (container) {
         container.innerHTML = Object.entries(stats.brands || {})
           .map(([brand, count]) => `
             <div style="background:#F8FAFC; border:1px solid var(--slate-200); border-radius:12px; padding:16px;">
@@ -244,15 +341,30 @@
   const btnSettingsSync = document.getElementById('btnSettingsSync');
   async function triggerSync() {
     try {
-      btnSyncCatalogue.disabled = true;
-      btnSyncCatalogue.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Syncing...';
-      const res = await apiFetch('/api/sync/catalogue', { method: 'POST' });
-      showToast(res.message || 'Catalogue re-synced successfully!');
+      if (btnSyncCatalogue) {
+        btnSyncCatalogue.disabled = true;
+        btnSyncCatalogue.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Syncing...';
+      }
+      let serverSynced = false;
+      try {
+        const res = await apiFetch('/api/sync/catalogue', { method: 'POST' });
+        if (res && res.success) {
+          showToast(res.message || 'Catalogue re-synced successfully!');
+          serverSynced = true;
+        }
+      } catch (e) {}
+
+      if (!serverSynced) {
+        exportData('catalogue');
+        showToast('Compiled catalogue-2026.js & initiated download!');
+      }
     } catch (err) {
       showToast(err.message || 'Sync failed', 'error');
     } finally {
-      btnSyncCatalogue.disabled = false;
-      btnSyncCatalogue.innerHTML = '<i class="fas fa-sync-alt"></i> Re-Sync Catalogue';
+      if (btnSyncCatalogue) {
+        btnSyncCatalogue.disabled = false;
+        btnSyncCatalogue.innerHTML = '<i class="fas fa-sync-alt"></i> Re-Sync Catalogue';
+      }
     }
   }
   if (btnSyncCatalogue) btnSyncCatalogue.addEventListener('click', triggerSync);
@@ -261,9 +373,43 @@
   // ================= 4. PRODUCTS MANAGEMENT =================
   async function loadProducts() {
     try {
-      const res = await apiFetch('/api/products');
-      if (res.success) {
-        allProducts = res.products;
+      // 1. Check custom products in localStorage first
+      const cached = localStorage.getItem('np_custom_products');
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            allProducts = parsed;
+            populateCategoryFilter();
+            applyProductFilters();
+            return;
+          }
+        } catch (e) {}
+      }
+
+      // 2. Try API
+      let loaded = false;
+      try {
+        const res = await apiFetch('/api/products');
+        if (res && res.success && Array.isArray(res.products)) {
+          allProducts = res.products;
+          loaded = true;
+        }
+      } catch (e) {}
+
+      // 3. Fallback to static data/products.json
+      if (!loaded) {
+        const staticRes = await fetch('data/products.json?t=' + Date.now());
+        if (staticRes.ok) {
+          allProducts = await staticRes.json();
+          loaded = true;
+        } else if (window.NP_CATALOGUE && Array.isArray(window.NP_CATALOGUE)) {
+          allProducts = window.NP_CATALOGUE;
+          loaded = true;
+        }
+      }
+
+      if (loaded) {
         populateCategoryFilter();
         applyProductFilters();
       }
@@ -423,19 +569,27 @@
   // Preview uploaded image
   prodImageUploadInput.addEventListener('change', async function () {
     if (this.files && this.files[0]) {
-      const formData = new FormData();
-      formData.append('files', this.files[0]);
+      const file = this.files[0];
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        prodPrimaryImage.value = e.target.result;
+        prodImagePreview.src = e.target.result;
+        prodImagePreviewWrap.style.display = 'block';
+        showToast('Photo selected and preview ready!');
+      };
+      reader.readAsDataURL(file);
+
+      // Try server upload if available
       try {
-        showToast('Uploading photo...');
+        const formData = new FormData();
+        formData.append('files', file);
         const res = await fetch('/api/upload', { method: 'POST', body: formData }).then((r) => r.json());
-        if (res.success && res.files && res.files[0]) {
+        if (res && res.success && res.files && res.files[0]) {
           prodPrimaryImage.value = res.files[0].url.replace(/^\//, ''); // Clean leading slash
           prodImagePreview.src = prodPrimaryImage.value;
-          prodImagePreviewWrap.style.display = 'block';
-          showToast('Image uploaded successfully!');
         }
       } catch (err) {
-        showToast('Upload failed: ' + err.message, 'error');
+        console.warn('Server upload skipped in Cloud Mode, using Data URL');
       }
     }
   });
@@ -472,24 +626,43 @@
     const payload = { n, b, c, sku, img: imgArr };
     try {
       btnSaveProduct.disabled = true;
-      let res;
+
       if (id) {
-        res = await apiFetch(`/api/products/${encodeURIComponent(id)}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
+        const idx = allProducts.findIndex((p) => p.id === id || p.sku === id);
+        if (idx !== -1) {
+          allProducts[idx] = { ...allProducts[idx], ...payload, id };
+        }
       } else {
-        res = await apiFetch('/api/products', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
+        const nextNum = allProducts.length + 1;
+        const newId = `PROD-${Date.now().toString(36)}-${nextNum}`;
+        const autoSku = payload.sku || `NP-${(payload.b || 'NTL').substring(0, 3).toUpperCase()}-${String(nextNum).padStart(3, '0')}`;
+        allProducts.unshift({ ...payload, id: newId, sku: autoSku });
+      }
+      localStorage.setItem('np_custom_products', JSON.stringify(allProducts));
+
+      // Try server sync
+      try {
+        if (id) {
+          await apiFetch(`/api/products/${encodeURIComponent(id)}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        } else {
+          await apiFetch('/api/products', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+        }
+      } catch (e) {
+        console.warn('Server sync skipped, stored in Cloud storage');
       }
 
-      showToast(res.message || 'Product saved successfully!');
+      showToast('Product saved successfully!');
       closeProductModal();
-      await loadProducts();
+      populateCategoryFilter();
+      applyProductFilters();
       await loadStats();
     } catch (err) {
       showToast(err.message || 'Failed to save product', 'error');
@@ -517,10 +690,23 @@
     if (!deletingProductId) return;
     try {
       btnConfirmDelete.disabled = true;
-      const res = await apiFetch(`/api/products/${encodeURIComponent(deletingProductId)}`, { method: 'DELETE' });
-      showToast(res.message || 'Product deleted');
+
+      const idx = allProducts.findIndex((p) => p.id === deletingProductId || p.sku === deletingProductId);
+      if (idx !== -1) {
+        allProducts.splice(idx, 1);
+        localStorage.setItem('np_custom_products', JSON.stringify(allProducts));
+      }
+
+      try {
+        await apiFetch(`/api/products/${encodeURIComponent(deletingProductId)}`, { method: 'DELETE' });
+      } catch (e) {
+        console.warn('Server delete skipped, updated in Cloud storage');
+      }
+
+      showToast('Product deleted successfully');
       closeDeleteModal();
-      await loadProducts();
+      populateCategoryFilter();
+      applyProductFilters();
       await loadStats();
     } catch (err) {
       showToast(err.message || 'Delete failed', 'error');
@@ -532,9 +718,36 @@
   // ================= 5. PAGE CONTENT CMS =================
   async function loadCMS() {
     try {
-      const res = await apiFetch('/api/cms');
-      if (res.success && res.data) {
-        cmsData = res.data;
+      const cached = localStorage.getItem('np_custom_cms');
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          if (parsed && typeof parsed === 'object') {
+            cmsData = parsed;
+            populateCMSForms();
+            return;
+          }
+        } catch (e) {}
+      }
+
+      let loaded = false;
+      try {
+        const res = await apiFetch('/api/cms');
+        if (res && res.success && res.data) {
+          cmsData = res.data;
+          loaded = true;
+        }
+      } catch (e) {}
+
+      if (!loaded) {
+        const staticRes = await fetch('data/cms-content.json?t=' + Date.now());
+        if (staticRes.ok) {
+          cmsData = await staticRes.json();
+          loaded = true;
+        }
+      }
+
+      if (loaded) {
         populateCMSForms();
       }
     } catch (err) {
@@ -1053,23 +1266,30 @@
         };
       }
 
-      // Send to server
-      const res = await apiFetch('/api/cms/' + page, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(cmsData[page])
-      });
+      // Always persist in browser storage for instant cloud availability
+      localStorage.setItem('np_custom_cms', JSON.stringify(cmsData));
 
-      // Also persist general if updated
-      if (page === 'contact' && cmsData.general) {
-        await apiFetch('/api/cms/general', {
+      // Attempt server sync if available
+      try {
+        await apiFetch('/api/cms/' + page, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(cmsData.general)
+          body: JSON.stringify(cmsData[page])
         });
+
+        // Also persist general if updated
+        if (page === 'contact' && cmsData.general) {
+          await apiFetch('/api/cms/general', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cmsData.general)
+          });
+        }
+      } catch (e) {
+        console.warn('Server sync skipped in Cloud Mode');
       }
 
-      showToast(res.message || 'All ' + page.toUpperCase() + ' sections saved successfully!');
+      showToast('All ' + page.toUpperCase() + ' sections saved successfully!');
     } catch (err) {
       showToast(err.message || 'Save failed: ' + err, 'error');
     }
@@ -1107,12 +1327,36 @@
 
   async function loadMedia() {
     try {
-      const res = await apiFetch('/api/media');
-      if (res.success && res.media) {
-        allMedia = res.media;
-        document.getElementById('mediaCount').textContent = allMedia.length;
-        renderMediaGrid();
+      let loaded = false;
+      try {
+        const res = await apiFetch('/api/media');
+        if (res && res.success && Array.isArray(res.media)) {
+          allMedia = res.media;
+          loaded = true;
+        }
+      } catch (e) {}
+
+      if (!loaded) {
+        const staticRes = await fetch('data/media.json?t=' + Date.now());
+        if (staticRes.ok) {
+          allMedia = await staticRes.json();
+          loaded = true;
+        }
       }
+
+      // Merge custom uploaded images from localStorage
+      const customMediaStr = localStorage.getItem('np_custom_media');
+      if (customMediaStr) {
+        try {
+          const customMedia = JSON.parse(customMediaStr);
+          if (Array.isArray(customMedia)) {
+            allMedia = [...customMedia, ...allMedia];
+          }
+        } catch (e) {}
+      }
+
+      document.getElementById('mediaCount').textContent = allMedia.length;
+      renderMediaGrid();
     } catch (err) {
       console.warn('Error loading media:', err);
     }
@@ -1169,11 +1413,25 @@
   };
 
   window.deleteUploadFile = async function (filename) {
-    if (!confirm(`Permanently delete "${filename}" from server uploads?`)) return;
+    if (!confirm(`Permanently delete "${filename}" from uploads?`)) return;
     try {
-      const res = await apiFetch(`/api/media/${encodeURIComponent(filename)}`, { method: 'DELETE' });
-      showToast(res.message || 'File deleted');
-      await loadMedia();
+      // Remove from local custom media
+      const customMediaStr = localStorage.getItem('np_custom_media');
+      if (customMediaStr) {
+        let customMedia = JSON.parse(customMediaStr) || [];
+        customMedia = customMedia.filter((m) => m.name !== filename);
+        localStorage.setItem('np_custom_media', JSON.stringify(customMedia));
+      }
+      allMedia = allMedia.filter((m) => m.name !== filename);
+
+      try {
+        await apiFetch(`/api/media/${encodeURIComponent(filename)}`, { method: 'DELETE' });
+      } catch (e) {
+        console.warn('Server delete skipped');
+      }
+
+      showToast('File deleted');
+      renderMediaGrid();
       await loadStats();
     } catch (err) {
       showToast(err.message || 'Failed to delete file', 'error');
@@ -1201,23 +1459,56 @@
   });
 
   async function uploadFiles(fileList) {
-    const formData = new FormData();
+    showToast(`Processing ${fileList.length} file(s)...`);
+
+    const newMediaItems = [];
+    const readPromises = [];
+
     for (let i = 0; i < fileList.length; i++) {
-      formData.append('files', fileList[i]);
+      const file = fileList[i];
+      const p = new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const item = {
+            name: file.name,
+            url: e.target.result,
+            tag: 'Uploads',
+            size: file.size,
+            mtime: Date.now()
+          };
+          newMediaItems.push(item);
+          resolve();
+        };
+        reader.readAsDataURL(file);
+      });
+      readPromises.push(p);
     }
+
+    await Promise.all(readPromises);
+
+    // Save to localStorage
+    const existingStr = localStorage.getItem('np_custom_media');
+    const existing = existingStr ? JSON.parse(existingStr) : [];
+    const updated = [...newMediaItems, ...existing];
+    localStorage.setItem('np_custom_media', JSON.stringify(updated));
+
+    // Prepend to current in-memory media list
+    allMedia = [...newMediaItems, ...allMedia];
+
+    // Try server upload if available
     try {
-      showToast(`Uploading ${fileList.length} file(s)...`);
-      const res = await fetch('/api/upload', { method: 'POST', body: formData }).then((r) => r.json());
-      if (res.success) {
-        showToast(res.message || 'Files uploaded successfully!');
-        await loadMedia();
-        await loadStats();
-      } else {
-        throw new Error(res.error || 'Upload failed');
+      const formData = new FormData();
+      for (let i = 0; i < fileList.length; i++) {
+        formData.append('files', fileList[i]);
       }
-    } catch (err) {
-      showToast('Upload error: ' + err.message, 'error');
+      await fetch('/api/upload', { method: 'POST', body: formData }).then((r) => r.json());
+    } catch (e) {
+      console.warn('Server upload skipped in Cloud Mode');
     }
+
+    showToast(`${newMediaItems.length} file(s) ready in Media Library!`);
+    renderMediaGrid();
+    await loadStats();
   }
 
   // --- Media Picker Modal for CMS and Products ---
@@ -1269,27 +1560,33 @@
     e.preventDefault();
     const currentPassword = document.getElementById('currPassword').value;
     const newPassword = document.getElementById('newPassword').value;
+    const storedPass = localStorage.getItem('np_admin_password') || 'nationalplasto2026';
+
+    let success = false;
     try {
       const res = await apiFetch('/api/auth/change-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ currentPassword, newPassword })
       });
-      showToast(res.message || 'Password updated successfully!');
+      if (res && res.success) success = true;
+    } catch (err) {}
+
+    if (currentPassword === storedPass) {
+      localStorage.setItem('np_admin_password', newPassword);
+      success = true;
+    }
+
+    if (success) {
+      showToast('Password updated successfully!');
       changePasswordForm.reset();
-    } catch (err) {
-      showToast(err.message || 'Password update failed', 'error');
+    } else {
+      showToast('Current password is incorrect', 'error');
     }
   });
 
-  window.exportData = function (type) {
-    let filename = 'national-plasto-products.json';
-    let dataStr = JSON.stringify(allProducts, null, 2);
-    if (type === 'cms') {
-      filename = 'national-plasto-cms.json';
-      dataStr = JSON.stringify(cmsData, null, 2);
-    }
-    const blob = new Blob([dataStr], { type: 'application/json' });
+  window.downloadFile = function (filename, content, mimeType) {
+    const blob = new Blob([content], { type: mimeType || 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -1298,7 +1595,37 @@
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showToast(`Exported ${filename}`);
+  };
+
+  window.exportData = function (type) {
+    if (type === 'products') {
+      window.downloadFile('products.json', JSON.stringify(allProducts, null, 2), 'application/json');
+      showToast('Exported products.json');
+    } else if (type === 'cms') {
+      window.downloadFile('cms-content.json', JSON.stringify(cmsData, null, 2), 'application/json');
+      showToast('Exported cms-content.json');
+    } else if (type === 'catalogue') {
+      const header = '/* National Plasto product catalogue - Generated from Admin CMS */\nwindow.NP_CATALOGUE = ';
+      const jsContent = header + JSON.stringify(allProducts, null, 2) + ';\n';
+      window.downloadFile('catalogue-2026.js', jsContent, 'application/javascript');
+      showToast('Exported catalogue-2026.js');
+    }
+  };
+
+  window.exportAllBundle = function () {
+    exportData('products');
+    setTimeout(() => exportData('cms'), 300);
+    setTimeout(() => exportData('catalogue'), 600);
+    showToast('Downloaded products.json, cms-content.json, and catalogue-2026.js!');
+  };
+
+  window.resetToPublishedDefaults = function () {
+    if (!confirm('Are you sure you want to reset all browser overrides back to published site defaults? Any unpublished browser edits will be cleared.')) return;
+    localStorage.removeItem('np_custom_products');
+    localStorage.removeItem('np_custom_cms');
+    localStorage.removeItem('np_custom_media');
+    showToast('Reset to published defaults. Reloading...');
+    setTimeout(() => window.location.reload(), 800);
   };
 
   // Start app by checking authentication
