@@ -766,46 +766,48 @@
     navigateTo('cms');
   };
 
+  function getDefaultCMS() {
+    try {
+      const el = document.getElementById('np_default_cms');
+      if (el && el.textContent.trim()) {
+        return JSON.parse(el.textContent);
+      }
+    } catch (e) {
+      console.warn('Error reading np_default_cms:', e);
+    }
+    return null;
+  }
+
   async function loadCMS() {
     try {
-      // Invalidate stale client caches from earlier sessions so fresh applied content is shown
-      const CMS_SYNC_VERSION = 'v20261027_management_sync';
-      if (localStorage.getItem('np_cms_sync_ver') !== CMS_SYNC_VERSION) {
-        localStorage.removeItem('np_custom_cms');
-        localStorage.setItem('np_cms_sync_ver', CMS_SYNC_VERSION);
+      // 1. Immediately establish baseline from embedded master data
+      const masterCMS = getDefaultCMS();
+      if (masterCMS) {
+        cmsData = masterCMS;
+        populateCMSForms();
       }
 
+      // 2. Check client overrides from localStorage (if any valid customizations exist)
       const cached = localStorage.getItem('np_custom_cms');
       if (cached) {
         try {
           const parsed = JSON.parse(cached);
-          if (parsed && typeof parsed === 'object') {
-            cmsData = parsed;
+          if (parsed && typeof parsed === 'object' && Object.keys(parsed).length > 0) {
+            // Merge so master structure is preserved
+            cmsData = Object.assign({}, masterCMS || {}, parsed);
             populateCMSForms();
             return;
           }
         } catch (e) {}
       }
 
-      let loaded = false;
-      try {
-        const res = await apiFetch('/api/cms');
-        if (res && res.success && res.data) {
-          cmsData = res.data;
-          loaded = true;
-        }
-      } catch (e) {}
-
-      if (!loaded) {
+      // 3. Fallback to static fetch if master data wasn't in DOM
+      if (!masterCMS) {
         const staticRes = await fetch('data/cms-content.json?t=' + Date.now());
         if (staticRes.ok) {
           cmsData = await staticRes.json();
-          loaded = true;
+          populateCMSForms();
         }
-      }
-
-      if (loaded) {
-        populateCMSForms();
       }
     } catch (err) {
       console.warn('Error loading CMS data:', err);
@@ -1388,6 +1390,13 @@
       if (f.id === 'cmsForm_' + page) f.style.display = 'block';
       else f.style.display = 'none';
     });
+
+    // Auto-refresh form inputs & active previews whenever switching tabs
+    if (!cmsData || Object.keys(cmsData).length === 0) {
+      const master = getDefaultCMS();
+      if (master) cmsData = master;
+    }
+    if (cmsData) populateCMSForms();
   };
 
   // ================= 6. MEDIA LIBRARY =================

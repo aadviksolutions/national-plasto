@@ -293,14 +293,21 @@
         
         <!-- ================= 3. PAGE CONTENT CMS PANEL (ALL PAGES & ALL SECTIONS) ================= -->
         <section id="panelCms" class="view-panel">
-          <div class="cms-tabs" id="cmsTabs">
-            <button class="cms-tab-btn active" data-cmspage="home"><i class="fas fa-home"></i> Home Page</button>
-            <button class="cms-tab-btn" data-cmspage="about"><i class="fas fa-info-circle"></i> About Us</button>
-            <button class="cms-tab-btn" data-cmspage="products"><i class="fas fa-couch"></i> Products Page</button>
-            <button class="cms-tab-btn" data-cmspage="manufacturing"><i class="fas fa-industry"></i> Manufacturing</button>
-            <button class="cms-tab-btn" data-cmspage="distributor"><i class="fas fa-handshake"></i> Dealer Desk</button>
-            <button class="cms-tab-btn" data-cmspage="contact"><i class="fas fa-envelope"></i> Contact Us</button>
-            <button class="cms-tab-btn" data-cmspage="policies"><i class="fas fa-shield-alt"></i> Policies</button>
+          <div class="cms-tabs" id="cmsTabs" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <button class="cms-tab-btn active" data-cmspage="home"><i class="fas fa-home"></i> Home Page</button>
+              <button class="cms-tab-btn" data-cmspage="about"><i class="fas fa-info-circle"></i> About Us</button>
+              <button class="cms-tab-btn" data-cmspage="products"><i class="fas fa-couch"></i> Products Page</button>
+              <button class="cms-tab-btn" data-cmspage="manufacturing"><i class="fas fa-industry"></i> Manufacturing</button>
+              <button class="cms-tab-btn" data-cmspage="distributor"><i class="fas fa-handshake"></i> Dealer Desk</button>
+              <button class="cms-tab-btn" data-cmspage="contact"><i class="fas fa-envelope"></i> Contact Us</button>
+              <button class="cms-tab-btn" data-cmspage="policies"><i class="fas fa-shield-alt"></i> Policies</button>
+            </div>
+            <div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="resetToPublishedDefaults()" style="white-space:nowrap;" title="Restore all original content from published website">
+                <i class="fas fa-sync-alt"></i> Reload Published Content
+              </button>
+            </div>
           </div>
 
           <!-- ================= 1. HOME PAGE FULL SECTIONS ================= -->
@@ -315,37 +322,37 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Hero Eyebrow / Badge</label>
-                    <input type="text" id="cms_home_hero_eyebrow" class="form-control" placeholder="e.g. Since 1997">
+                    <input type="text" id="cms_home_hero_eyebrow" class="form-control" placeholder="e.g. Since 1997" value="Since 1997">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Rotating Title 1</label>
-                    <input type="text" id="cms_home_hero_title1" class="form-control">
+                    <input type="text" id="cms_home_hero_title1" class="form-control" value="Shaping Spaces, Engineering Trust">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Rotating Title 2</label>
-                    <input type="text" id="cms_home_hero_title2" class="form-control">
+                    <input type="text" id="cms_home_hero_title2" class="form-control" value="Designed for Life, Built for Generations">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Rotating Title 3</label>
-                    <input type="text" id="cms_home_hero_title3" class="form-control">
+                    <input type="text" id="cms_home_hero_title3" class="form-control" value="Empowering India with Premium Living">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Background Video URL</label>
-                    <input type="text" id="cms_home_hero_video" class="form-control">
+                    <input type="text" id="cms_home_hero_video" class="form-control" value="videos/hero/national-plasto-overview.mp4">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Video Poster Image URL</label>
                     <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_hero_poster" class="form-control">
+                      <input type="text" id="cms_home_hero_poster" class="form-control" value="images/hero/overview-video-poster.jpg">
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_poster')"><i class="fas fa-image"></i></button>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Desktop Fallback Banner Image</label>
                     <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_hero_image" class="form-control">
+                      <input type="text" id="cms_home_hero_image" class="form-control" value="images/brand/company-photo.jpg">
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_image')"><i class="fas fa-image"></i></button>
                     </div>
                   </div>
@@ -353,11 +360,11 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">CTA Button Text</label>
-                    <input type="text" id="cms_home_hero_ctaText" class="form-control">
+                    <input type="text" id="cms_home_hero_ctaText" class="form-control" value="About the Company">
                   </div>
                   <div class="form-group">
                     <label class="form-label">CTA Button Link</label>
-                    <input type="text" id="cms_home_hero_ctaLink" class="form-control">
+                    <input type="text" id="cms_home_hero_ctaLink" class="form-control" value="about.html">
                   </div>
                 </div>
               </div>
@@ -372,33 +379,33 @@
                 <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Virtue 1: Integrity</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_0_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_0_desc" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_0_title" class="form-control" value="Integrity"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_0_desc" class="form-control" rows="3">Our mission is to operate with integrity, foster a culture of the utmost respect for individuals and serve as a catalyst for development.</textarea></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Virtue 2: Customer Centricity</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_1_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_1_desc" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_1_title" class="form-control" value="Customer Centricity"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_1_desc" class="form-control" rows="3">With continuous innovation and efficiency, we aim to provide consistent products and services that improve the quality of life and exceed customer expectations.</textarea></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Virtue 3: Delivering Excellence</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_2_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_2_desc" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_2_title" class="form-control" value="Delivering Excellence"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_2_desc" class="form-control" rows="3">Our innovations have been backed by unparalleled quality that has withstood the effect of time throughout the years.</textarea></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Virtue 4: Innovation</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_3_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_3_desc" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_3_title" class="form-control" value="Innovation"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_3_desc" class="form-control" rows="3">Painstaking efforts and research behind every new development help us serve products that truly benefit humanity and the environment.</textarea></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Virtue 5: People First</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_4_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_4_desc" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_4_title" class="form-control" value="People First"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_4_desc" class="form-control" rows="3">National Plasto has always placed a great emphasis on taking care of those who are associated with us as they are one of our greatest assets.</textarea></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Virtue 6: Empowerment</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_5_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_5_desc" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_virtue_5_title" class="form-control" value="Empowerment"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_virtue_5_desc" class="form-control" rows="3">Our team of experts and our workforce are our biggest assets. Empowering them every step of the way constantly helps us deliver only the best.</textarea></div>
                   </div>
                 </div>
               </div>
@@ -413,30 +420,30 @@
                 <div class="form-row">
                   <div class="form-group" style="flex: 2;">
                     <label class="form-label">CMD Message Quote</label>
-                    <textarea id="cms_home_cmd_quote" class="form-control" rows="4"></textarea>
+                    <textarea id="cms_home_cmd_quote" class="form-control" rows="4">Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.</textarea>
                   </div>
                   <div class="form-group" style="flex: 1;">
                     <label class="form-label">CMD Leader Name</label>
-                    <input type="text" id="cms_home_cmd_name" class="form-control">
+                    <input type="text" id="cms_home_cmd_name" class="form-control" value="Ratan Kumar Sharma">
                     <label class="form-label" style="margin-top:10px;">Role Designation</label>
-                    <input type="text" id="cms_home_cmd_role" class="form-control">
+                    <input type="text" id="cms_home_cmd_role" class="form-control" value="Chairman &amp; Managing Director">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">CMD Photo Cutout</label>
                     <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_cmd_photo" class="form-control">
+                      <input type="text" id="cms_home_cmd_photo" class="form-control" value="images/team/ratan-kumar-sharma-cutout.webp">
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_cmd_photo')"><i class="fas fa-image"></i></button>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Text</label>
-                    <input type="text" id="cms_home_cmd_btnText" class="form-control">
+                    <input type="text" id="cms_home_cmd_btnText" class="form-control" value="Meet Our Management">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Link</label>
-                    <input type="text" id="cms_home_cmd_btnLink" class="form-control">
+                    <input type="text" id="cms_home_cmd_btnLink" class="form-control" value="about.html#leadership">
                   </div>
                 </div>
               </div>
@@ -450,21 +457,21 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Section Heading</label>
-                  <input type="text" id="cms_home_metrics_heading" class="form-control">
+                  <input type="text" id="cms_home_metrics_heading" class="form-control" value="India's Leading Precision Plastic Processor">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Section Description</label>
-                  <textarea id="cms_home_metrics_desc" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_home_metrics_desc" class="form-control" rows="2">Powered by four ISO-certified manufacturing plants and a family-led management team, National Plasto has been making plastic moulded furniture for every space and every need since 1997.</textarea>
                 </div>
                 <div class="form-row" style="grid-template-columns: repeat(4, 1fr);">
-                  <div class="cms-item-box"><div class="cms-item-box-title">Pedigree</div><input type="text" id="cms_home_stat_0" class="form-control" placeholder="29+ Years"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">States</div><input type="text" id="cms_home_stat_1" class="form-control" placeholder="15+ States"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Plants</div><input type="text" id="cms_home_stat_2" class="form-control" placeholder="4 Plants"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Brands</div><input type="text" id="cms_home_stat_3" class="form-control" placeholder="4 Brands"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">SKUs</div><input type="text" id="cms_home_stat_4" class="form-control" placeholder="1,200+ Products"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Dealers</div><input type="text" id="cms_home_stat_5" class="form-control" placeholder="500+ Dealers"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Workforce</div><input type="text" id="cms_home_stat_6" class="form-control" placeholder="1,000+ Workforce"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Certifications</div><input type="text" id="cms_home_stat_7" class="form-control" placeholder="ISO · CE · BIFMA"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Pedigree</div><input type="text" id="cms_home_stat_0" class="form-control" placeholder="29+ Years" value="29 + Years - Industrial Pedigree"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">States</div><input type="text" id="cms_home_stat_1" class="form-control" placeholder="15+ States" value="15 + States - Pan-India Presence"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Plants</div><input type="text" id="cms_home_stat_2" class="form-control" placeholder="4 Plants" value="4 Plants - Manufacturing Plants"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Brands</div><input type="text" id="cms_home_stat_3" class="form-control" placeholder="4 Brands" value="4 Brands - Brands &amp; Divisions"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">SKUs</div><input type="text" id="cms_home_stat_4" class="form-control" placeholder="1,200+ Products" value="1,200 + - Products in Range"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Dealers</div><input type="text" id="cms_home_stat_5" class="form-control" placeholder="500+ Dealers" value="500 + - Distributors &amp; Dealers"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Workforce</div><input type="text" id="cms_home_stat_6" class="form-control" placeholder="1,000+ Workforce" value="1000 + - Workforce Strength"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Certifications</div><input type="text" id="cms_home_stat_7" class="form-control" placeholder="ISO · CE · BIFMA" value="ISO · CE · BIFMA  - Certified Plants"></div>
                 </div>
               </div>
             </div>
@@ -478,22 +485,22 @@
                 <div class="form-row">
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Highlight 1</div>
-                    <div class="form-group"><label class="form-label">Button Title</label><input type="text" id="cms_home_highlight_0_title" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Button Title</label><input type="text" id="cms_home_highlight_0_title" class="form-control" value="Windsor KL 850 High-Tonnage Injection Moulding Unit"></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
                       <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_highlight_0_image" class="form-control">
+                        <input type="text" id="cms_home_highlight_0_image" class="form-control" value="images/home/plant-kl850.jpg">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_0_image')"><i class="fas fa-image"></i></button>
                       </div>
                     </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Highlight 2</div>
-                    <div class="form-group"><label class="form-label">Button Title</label><input type="text" id="cms_home_highlight_1_title" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Button Title</label><input type="text" id="cms_home_highlight_1_title" class="form-control" value="Explore Moulded Furniture Range"></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
                       <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_highlight_1_image" class="form-control">
+                        <input type="text" id="cms_home_highlight_1_image" class="form-control" value="images/home/premium-furniture-range.png">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_1_image')"><i class="fas fa-image"></i></button>
                       </div>
                     </div>
@@ -512,12 +519,12 @@
                   <!-- NEXT -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Brand 1: NEXT (Premium)</div>
-                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_0_tagline" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_0_desc" class="form-control" rows="2"></textarea></div>
+                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_0_tagline" class="form-control" value="Premium Virgin Plastic Furniture"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_0_desc" class="form-control" rows="2">Designer finishes, rich pastels, and premium ergonomic contours for modern living.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
                       <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_0_image" class="form-control">
+                        <input type="text" id="cms_home_brand_0_image" class="form-control" value="images/divisions/next.jpg">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_0_image')"><i class="fas fa-image"></i></button>
                       </div>
                     </div>
@@ -525,12 +532,12 @@
                   <!-- NATIONAL -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Brand 2: NATIONAL</div>
-                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_1_tagline" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_1_desc" class="form-control" rows="2"></textarea></div>
+                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_1_tagline" class="form-control" value="Value, Variety and Trust for Every Space"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_1_desc" class="form-control" rows="2">Eastern India's most trusted household seating, tables, and multi-tier utility storage.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
                       <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_1_image" class="form-control">
+                        <input type="text" id="cms_home_brand_1_image" class="form-control" value="images/divisions/national.jpg">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_1_image')"><i class="fas fa-image"></i></button>
                       </div>
                     </div>
@@ -538,12 +545,12 @@
                   <!-- CAPTAIN -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Brand 3: CAPTAIN</div>
-                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_2_tagline" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_2_desc" class="form-control" rows="2"></textarea></div>
+                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_2_tagline" class="form-control" value="Economical Furniture for Everyday Use"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_2_desc" class="form-control" rows="2">Robust, lightweight, high-utility monoblock chairs built for demanding daily commercial use.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
                       <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_2_image" class="form-control">
+                        <input type="text" id="cms_home_brand_2_image" class="form-control" value="images/divisions/captain.jpg">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_2_image')"><i class="fas fa-image"></i></button>
                       </div>
                     </div>
@@ -551,12 +558,12 @@
                   <!-- SAPPHIRE -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Brand 4: SAPPHIRE</div>
-                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_3_tagline" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_3_desc" class="form-control" rows="2"></textarea></div>
+                    <div class="form-group"><label class="form-label">Tagline</label><input type="text" id="cms_home_brand_3_tagline" class="form-control" value="Distinct Value Seating Range"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_3_desc" class="form-control" rows="2">Engineered heavy-duty seating with sleek modern aesthetics at exceptional value.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
                       <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_3_image" class="form-control">
+                        <input type="text" id="cms_home_brand_3_image" class="form-control" value="images/divisions/sapphire.jpg">
                         <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_3_image')"><i class="fas fa-image"></i></button>
                       </div>
                     </div>
@@ -574,33 +581,33 @@
                 <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">1981: Foundational Roots</div>
-                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_0_date" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_0_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_0_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_0_date" class="form-control" value="1981 · Heritage &amp; Industrial Roots"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_0_desc" class="form-control" rows="3">The foundational business legacy of the Sharma family was established in 1981, laying over four decades of industrial enterprise, customer trust, and ethical trade.</textarea></div>
+                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_0_img" class="form-control" value="images/home/milestone-1942.jpg"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">1997: Inception & Incorporation</div>
-                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_1_date" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_1_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_1_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_1_date" class="form-control" value="29 Oct 1997 · Kolkata, West Bengal"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_1_desc" class="form-control" rows="3">After 18 years in the plastic industry, Mr. Ratan Kumar Sharma incorporated National Plasto Products Pvt. Ltd., setting up the first advanced injection moulding plant in West Bengal.</textarea></div>
+                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_1_img" class="form-control" value="images/home/milestone-1997.jpg"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">2007: Guwahati Plant</div>
-                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_2_date" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_2_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_2_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_2_date" class="form-control" value="04 Jul 2007 · Guwahati, Assam"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_2_desc" class="form-control" rows="3">National Plasto inaugurated its Guwahati plant, bringing dedicated manufacturing and rapid logistics closer to customers across Assam and the North-East.</textarea></div>
+                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_2_img" class="form-control" value="images/home/milestone-2007.jpg"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">2010: Roorkee & Hajipur Expansion</div>
-                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_3_date" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_3_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_3_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_3_date" class="form-control" value="2010 · Roorkee &amp; Hajipur Expansion"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_3_desc" class="form-control" rows="3">High-tonnage production commenced across new facilities in Roorkee and Hajipur, completing four strategic manufacturing hubs across India.</textarea></div>
+                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_3_img" class="form-control" value="images/home/milestone-2010.jpg"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">2026: Modern Pan-India Complex</div>
-                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_4_date" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_4_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_4_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_4_date" class="form-control" value="Today · Pan-India Leadership"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_4_desc" class="form-control" rows="3">All four plants independently certified — 23 certificates covering ISO 9001, 14001, 45001, 50001, CE and BIFMA — and an extensive catalogue of 362+ models.</textarea></div>
+                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_4_img" class="form-control" value="images/home/milestone-2026.jpg"></div>
                   </div>
                 </div>
               </div>
@@ -614,24 +621,24 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Section Title</label>
-                  <input type="text" id="cms_home_sust_title" class="form-control">
+                  <input type="text" id="cms_home_sust_title" class="form-control" value="Sustainability">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Paragraph 1 (Reprocessed Plastic Furniture Narrative)</label>
-                  <textarea id="cms_home_sust_p1" class="form-control" rows="3"></textarea>
+                  <textarea id="cms_home_sust_p1" class="form-control" rows="3">At National Plasto, responsible manufacturing is part of how we make furniture for every space and every need. Our NATIONAL, CAPTAIN and SAPPHIRE ranges are built with reprocessed plastic, giving used plastic a long second life as durable everyday furniture.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Paragraph 2 (ISO 14001 & ISO 50001 Environmental Audit)</label>
-                  <textarea id="cms_home_sust_p2" class="form-control" rows="3"></textarea>
+                  <textarea id="cms_home_sust_p2" class="form-control" rows="3">Every one of our four plants — Howrah, Guwahati, Roorkee and Hajipur — is independently certified for environmental management, and our energy use is managed under ISO 50001.</textarea>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Button Text</label>
-                    <input type="text" id="cms_home_sust_btnText" class="form-control">
+                    <input type="text" id="cms_home_sust_btnText" class="form-control" value="Know More">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Link</label>
-                    <input type="text" id="cms_home_sust_btnLink" class="form-control">
+                    <input type="text" id="cms_home_sust_btnLink" class="form-control" value="manufacturing.html#certifications">
                   </div>
                 </div>
               </div>
@@ -645,27 +652,27 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Heading</label>
-                  <input type="text" id="cms_home_touch_title" class="form-control">
+                  <input type="text" id="cms_home_touch_title" class="form-control" value="Furniture For Every Community">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Description</label>
-                  <textarea id="cms_home_touch_desc" class="form-control" rows="3"></textarea>
+                  <textarea id="cms_home_touch_desc" class="form-control" rows="3">From classrooms and community halls to homes in Tier 2 and Tier 3 towns, National Plasto makes durable seating affordable for everyone. We give used plastic a second life through our reprocessed ranges, keep our 1,000+ strong workforce safe under ISO 45001, and grow together with the dealers and families who depend on us.</textarea>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Community Section Image</label>
                     <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_touch_image" class="form-control">
+                      <input type="text" id="cms_home_touch_image" class="form-control" value="images/brand/furniture-for-every-community.jpg">
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_touch_image')"><i class="fas fa-image"></i></button>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Text</label>
-                    <input type="text" id="cms_home_touch_btnText" class="form-control">
+                    <input type="text" id="cms_home_touch_btnText" class="form-control" value="Our Values">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Link</label>
-                    <input type="text" id="cms_home_touch_btnLink" class="form-control">
+                    <input type="text" id="cms_home_touch_btnLink" class="form-control" value="about.html">
                   </div>
                 </div>
               </div>
@@ -679,27 +686,27 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Heading</label>
-                  <input type="text" id="cms_home_inno_title" class="form-control">
+                  <input type="text" id="cms_home_inno_title" class="form-control" value="Innovating Products, Creating Impact">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Description</label>
-                  <textarea id="cms_home_inno_desc" class="form-control" rows="3"></textarea>
+                  <textarea id="cms_home_inno_desc" class="form-control" rows="3">Every National Plasto product is made to last and designed to make an Impact. From premium NEXT designs to everyday CAPTAIN and SAPPHIRE seating, our 360+ models bring comfort, durability and affordability to homes, businesses and institutions across India.</textarea>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Showcase Banner Image</label>
                     <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_inno_image" class="form-control">
+                      <input type="text" id="cms_home_inno_image" class="form-control" value="images/business/moulded-furniture.jpg">
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_inno_image')"><i class="fas fa-image"></i></button>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Text</label>
-                    <input type="text" id="cms_home_inno_btnText" class="form-control">
+                    <input type="text" id="cms_home_inno_btnText" class="form-control" value="Explore Products">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Link</label>
-                    <input type="text" id="cms_home_inno_btnLink" class="form-control">
+                    <input type="text" id="cms_home_inno_btnLink" class="form-control" value="products.html">
                   </div>
                 </div>
               </div>
@@ -714,27 +721,27 @@
                 <div class="form-row">
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 1: NEXT</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_0_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_0_poster" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_0_video" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_0_name" class="form-control" value="NEXT — Premium Virgin Plastic Furniture"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_0_poster" class="form-control" value="images/banner/next.jpg"></div>
+                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_0_video" class="form-control" value="images/banner/next.mp4"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 2: NATIONAL</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_1_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_1_poster" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_1_video" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_1_name" class="form-control" value="NATIONAL — Value, Variety &amp; Trust"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_1_poster" class="form-control" value="images/banner/national.jpg"></div>
+                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_1_video" class="form-control" value="images/banner/national.mp4"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 3: CAPTAIN</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_2_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_2_poster" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_2_video" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_2_name" class="form-control" value="CAPTAIN — Economical Everyday Furniture"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_2_poster" class="form-control" value="images/banner/captain.jpg"></div>
+                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_2_video" class="form-control" value="images/banner/captain.mp4"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 4: SAPPHIRE</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_3_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_3_poster" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_3_video" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_3_name" class="form-control" value="SAPPHIRE — Distinct Value Seating"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_3_poster" class="form-control" value="images/banner/sapphire.jpg"></div>
+                    <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_3_video" class="form-control" value="images/banner/sapphire.mp4"></div>
                   </div>
                 </div>
               </div>
@@ -749,27 +756,27 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Network Section Title</label>
-                    <input type="text" id="cms_home_network_title" class="form-control">
+                    <input type="text" id="cms_home_network_title" class="form-control" value="Pan-India Presence. Rapid Supply Chain.">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Network Section Subtitle</label>
-                    <input type="text" id="cms_home_network_subtitle" class="form-control">
+                    <input type="text" id="cms_home_network_subtitle" class="form-control" value="Four state-of-the-art plastic furniture manufacturing facilities powering over 500 authorized distributor and dealer hubs.">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Plants Stat</label>
-                    <input type="text" id="cms_home_network_plants" class="form-control">
+                    <input type="text" id="cms_home_network_plants" class="form-control" value="4">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Daily Capacity Stat</label>
-                    <input type="text" id="cms_home_network_capacity" class="form-control">
+                    <input type="text" id="cms_home_network_capacity" class="form-control" value="50,000+">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Authorized Dealers Stat</label>
-                    <input type="text" id="cms_home_network_dealers" class="form-control">
+                    <input type="text" id="cms_home_network_dealers" class="form-control" value="500+">
                   </div>
                   <div class="form-group">
                     <label class="form-label">States Covered</label>
-                    <input type="text" id="cms_home_network_states" class="form-control">
+                    <input type="text" id="cms_home_network_states" class="form-control" value="18">
                   </div>
                 </div>
               </div>
@@ -789,11 +796,11 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Hero Title</label>
-                  <input type="text" id="cms_about_hero_title" class="form-control">
+                  <input type="text" id="cms_about_hero_title" class="form-control" value="Rooted in 1981, Incorporated in 1997">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Hero Subtitle</label>
-                  <textarea id="cms_about_hero_subtitle" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_about_hero_subtitle" class="form-control" rows="2">Over four decades of industrial heritage and nearly three decades of pioneering plastic injection moulding excellence.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image URL</label>
@@ -868,7 +875,7 @@
                   </div>
                   <div class="cms-item-box">
                     <label class="form-label">Stat 4</label>
-                    <input type="text" id="cms_about_stat_3_label" class="form-control" value="Active SKUs & Moulds" style="margin-bottom:6px;">
+                    <input type="text" id="cms_about_stat_3_label" class="form-control" value="Active SKUs &amp; Moulds" style="margin-bottom:6px;">
                     <input type="text" id="cms_about_stat_3_value" class="form-control" value="1,000+">
                   </div>
                 </div>
@@ -980,7 +987,7 @@
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">1. Chairman & Managing Director</div>
                     <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_0_name" class="form-control" value="Mr. Ratan Kumar Sharma"></div>
-                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_0_role" class="form-control" value="Chairman & Managing Director"></div>
+                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_0_role" class="form-control" value="Chairman &amp; Managing Director"></div>
                     <div class="form-group">
                       <label class="form-label">Photo URL</label>
                       <div style="display:flex; gap:8px; margin-bottom:8px;">
@@ -1002,7 +1009,7 @@ He founded National Plasto Products Pvt. Ltd. in 1997 and has led its journey fr
 Over nearly three decades, he has built the company on a foundation of perseverance, relationships and the values passed down by his father, whose guidance continues to influence his approach to business and leadership.
 
 Under his leadership, NPPL has grown not only in scale and turnover, but also in the trust and respect it has built among its employees, partners and associates. He believes that every challenge presents an opportunity to learn, adapt and return stronger.</textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote / Leadership Message</label><textarea id="cms_about_lead_0_quote" class="form-control" rows="4">“Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.” — Mr. Ratan Kumar Sharma, Chairman & Managing Director</textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote / Leadership Message</label><textarea id="cms_about_lead_0_quote" class="form-control" rows="4">“Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.” — Mr. Ratan Kumar Sharma, Chairman &amp; Managing Director</textarea></div>
                   </div>
                   <!-- 2. Finance -->
                   <div class="cms-item-box">
@@ -1032,7 +1039,7 @@ As the senior-most member of the management team, his steady and disciplined app
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">3. Director – Production (In Memoriam)</div>
                     <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_2_name" class="form-control" value="Late Mr. Sukhram Sharma"></div>
-                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_2_role" class="form-control" value="Director – Production"></div>
+                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_2_role" class="form-control" value="Director – Production (In Memoriam)"></div>
                     <div class="form-group">
                       <label class="form-label">Photo URL</label>
                       <div style="display:flex; gap:8px; margin-bottom:8px;">
@@ -1124,16 +1131,16 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Hero Title</label>
-                  <input type="text" id="cms_products_hero_title" class="form-control">
+                  <input type="text" id="cms_products_hero_title" class="form-control" value="Products &amp; Complete Catalogue">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Hero Subtitle</label>
-                  <textarea id="cms_products_hero_subtitle" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_products_hero_subtitle" class="form-control" rows="2">Browse 360+ models of moulded chairs, dining sets, tables, stools and storage.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
                   <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_products_hero_image" class="form-control">
+                    <input type="text" id="cms_products_hero_image" class="form-control" value="images/brand/products.png">
                     <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_products_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
                 </div>
@@ -1147,21 +1154,21 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Shop By Brand Title</label>
-                    <input type="text" id="cms_products_brand_title" class="form-control">
+                    <input type="text" id="cms_products_brand_title" class="form-control" value="Shop by brand">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Shop By Brand Description</label>
-                    <input type="text" id="cms_products_brand_desc" class="form-control">
+                    <input type="text" id="cms_products_brand_desc" class="form-control" value="Four brands, one promise — quality moulded furniture at every price point.">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Explore Collections Title</label>
-                    <input type="text" id="cms_products_collection_title" class="form-control">
+                    <input type="text" id="cms_products_collection_title" class="form-control" value="Explore our collections">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Explore Collections Description</label>
-                    <input type="text" id="cms_products_collection_desc" class="form-control">
+                    <input type="text" id="cms_products_collection_desc" class="form-control" value="Browse through a wide range of chairs, tables, dining sets, stools, storage and kids furniture.">
                   </div>
                 </div>
               </div>
@@ -1172,18 +1179,18 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-header"><h3><i class="fas fa-th"></i> Section 3: 12 Category Collection Cards</h3></div>
               <div class="card-body">
                 <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-                  <div class="cms-item-box" id="coll_box_0"><div class="cms-item-box-title">1. Arm Chairs</div><input type="text" id="cms_coll_0_count" class="form-control" placeholder="135 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_0_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_1"><div class="cms-item-box-title">2. Premium Arm Chairs</div><input type="text" id="cms_coll_1_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_1_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_2"><div class="cms-item-box-title">3. Armless Chairs</div><input type="text" id="cms_coll_2_count" class="form-control" placeholder="52 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_2_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_3"><div class="cms-item-box-title">4. Premium Armless</div><input type="text" id="cms_coll_3_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_3_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_4"><div class="cms-item-box-title">5. Metallic Chairs</div><input type="text" id="cms_coll_4_count" class="form-control" placeholder="11 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_4_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_5"><div class="cms-item-box-title">6. Steel Moulded</div><input type="text" id="cms_coll_5_count" class="form-control" placeholder="3 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_5_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_6"><div class="cms-item-box-title">7. Baby Chairs</div><input type="text" id="cms_coll_6_count" class="form-control" placeholder="14 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_6_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_7"><div class="cms-item-box-title">8. Stools</div><input type="text" id="cms_coll_7_count" class="form-control" placeholder="39 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_7_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_8"><div class="cms-item-box-title">9. Tables</div><input type="text" id="cms_coll_8_count" class="form-control" placeholder="51 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_8_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_9"><div class="cms-item-box-title">10. Dining Sets</div><input type="text" id="cms_coll_9_count" class="form-control" placeholder="45 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_9_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_10"><div class="cms-item-box-title">11. Trolleys & Racks</div><input type="text" id="cms_coll_10_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_10_img" class="form-control" placeholder="Image URL"></div>
-                  <div class="cms-item-box" id="coll_box_11"><div class="cms-item-box-title">12. Wardrobes</div><input type="text" id="cms_coll_11_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;"><input type="text" id="cms_coll_11_img" class="form-control" placeholder="Image URL"></div>
+                  <div class="cms-item-box" id="coll_box_0"><div class="cms-item-box-title">1. Arm Chairs</div><input type="text" id="cms_coll_0_count" class="form-control" placeholder="135 Products" style="margin-bottom:6px;" value="135 Products"><input type="text" id="cms_coll_0_img" class="form-control" placeholder="Image URL" value="images/collections/arm-chairs.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_1"><div class="cms-item-box-title">2. Premium Arm Chairs</div><input type="text" id="cms_coll_1_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products"><input type="text" id="cms_coll_1_img" class="form-control" placeholder="Image URL" value="images/collections/premium-arm-chairs.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_2"><div class="cms-item-box-title">3. Armless Chairs</div><input type="text" id="cms_coll_2_count" class="form-control" placeholder="52 Products" style="margin-bottom:6px;" value="52 Products"><input type="text" id="cms_coll_2_img" class="form-control" placeholder="Image URL" value="images/collections/armless-chairs.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_3"><div class="cms-item-box-title">4. Premium Armless</div><input type="text" id="cms_coll_3_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products"><input type="text" id="cms_coll_3_img" class="form-control" placeholder="Image URL" value="images/collections/premium-armless-chairs.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_4"><div class="cms-item-box-title">5. Metallic Chairs</div><input type="text" id="cms_coll_4_count" class="form-control" placeholder="11 Products" style="margin-bottom:6px;" value="11 Products"><input type="text" id="cms_coll_4_img" class="form-control" placeholder="Image URL" value="images/collections/metallic-chairs.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_5"><div class="cms-item-box-title">6. Steel Moulded</div><input type="text" id="cms_coll_5_count" class="form-control" placeholder="3 Products" style="margin-bottom:6px;" value="3 Products"><input type="text" id="cms_coll_5_img" class="form-control" placeholder="Image URL" value="images/collections/steel-moulded-chairs.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_6"><div class="cms-item-box-title">7. Baby Chairs</div><input type="text" id="cms_coll_6_count" class="form-control" placeholder="14 Products" style="margin-bottom:6px;" value="14 Products"><input type="text" id="cms_coll_6_img" class="form-control" placeholder="Image URL" value="images/collections/baby-chairs.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_7"><div class="cms-item-box-title">8. Stools</div><input type="text" id="cms_coll_7_count" class="form-control" placeholder="39 Products" style="margin-bottom:6px;" value="39 Products"><input type="text" id="cms_coll_7_img" class="form-control" placeholder="Image URL" value="images/collections/stools.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_8"><div class="cms-item-box-title">9. Tables</div><input type="text" id="cms_coll_8_count" class="form-control" placeholder="51 Products" style="margin-bottom:6px;" value="51 Products"><input type="text" id="cms_coll_8_img" class="form-control" placeholder="Image URL" value="images/collections/tables.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_9"><div class="cms-item-box-title">10. Dining Sets</div><input type="text" id="cms_coll_9_count" class="form-control" placeholder="45 Products" style="margin-bottom:6px;" value="45 Products"><input type="text" id="cms_coll_9_img" class="form-control" placeholder="Image URL" value="images/collections/dining-sets.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_10"><div class="cms-item-box-title">11. Trolleys & Racks</div><input type="text" id="cms_coll_10_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products"><input type="text" id="cms_coll_10_img" class="form-control" placeholder="Image URL" value="images/collections/trolleys-and-racks.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_11"><div class="cms-item-box-title">12. Wardrobes</div><input type="text" id="cms_coll_11_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products"><input type="text" id="cms_coll_11_img" class="form-control" placeholder="Image URL" value="images/collections/wardrobes.jpg"></div>
                 </div>
               </div>
             </div>
@@ -1195,15 +1202,15 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Brochure Title</label>
-                    <input type="text" id="cms_products_brochure_title" class="form-control">
+                    <input type="text" id="cms_products_brochure_title" class="form-control" value="Download National Plasto Product Catalogue 2026">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Brochure PDF Path / URL</label>
-                    <input type="text" id="cms_products_brochure_url" class="form-control">
+                    <input type="text" id="cms_products_brochure_url" class="form-control" value="docs/national-plasto-catalogue-2026.pdf">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Download Button Text</label>
-                    <input type="text" id="cms_products_brochure_btn" class="form-control">
+                    <input type="text" id="cms_products_brochure_btn" class="form-control" value="Download Catalogue PDF">
                   </div>
                 </div>
               </div>
@@ -1223,16 +1230,16 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Hero Title</label>
-                  <input type="text" id="cms_mfg_hero_title" class="form-control">
+                  <input type="text" id="cms_mfg_hero_title" class="form-control" value="World-Class Plastic Furniture Manufacturing Facilities">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Hero Subtitle</label>
-                  <textarea id="cms_mfg_hero_subtitle" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_mfg_hero_subtitle" class="form-control" rows="2">Robotic injection moulding, high-tonnage precision machinery &amp; ISO 9001:2015 accredited plants.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
                   <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_mfg_hero_image" class="form-control">
+                    <input type="text" id="cms_mfg_hero_image" class="form-control" value="images/brand/company-photo.jpg">
                     <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
                 </div>
@@ -1246,31 +1253,31 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <div class="form-row">
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Hub 1: Howrah Plant (West Bengal)</div>
-                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_0_loc" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_0_cap" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_0_mach" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_0_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_0_loc" class="form-control" value="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411"></div>
+                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_0_cap" class="form-control" value="18,000 Units / Day"></div>
+                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_0_mach" class="form-control" value="16 Injection Moulding Machines (80T - 1,200T)"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_0_img" class="form-control" value="images/home/plant-kl850.jpg"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Hub 2: Guwahati Plant (Assam)</div>
-                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_1_loc" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_1_cap" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_1_mach" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_1_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_1_loc" class="form-control" value="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031"></div>
+                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_1_cap" class="form-control" value="12,000 Units / Day"></div>
+                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_1_mach" class="form-control" value="12 Injection Moulding Machines (100T - 850T)"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_1_img" class="form-control" value="images/home/milestone-2007.jpg"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Hub 3: Roorkee Plant (Uttarakhand)</div>
-                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_2_loc" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_2_cap" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_2_mach" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_2_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_2_loc" class="form-control" value="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661"></div>
+                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_2_cap" class="form-control" value="10,000 Units / Day"></div>
+                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_2_mach" class="form-control" value="10 Injection Moulding Machines (100T - 800T)"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_2_img" class="form-control" value="images/home/milestone-2010.jpg"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Hub 4: Hajipur Plant (Bihar)</div>
-                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_3_loc" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_3_cap" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_3_mach" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_3_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_3_loc" class="form-control" value="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101"></div>
+                    <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_3_cap" class="form-control" value="10,000 Units / Day"></div>
+                    <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_3_mach" class="form-control" value="8 Injection Moulding Machines (100T - 650T)"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_3_img" class="form-control" value="images/home/milestone-2026.jpg"></div>
                   </div>
                 </div>
               </div>
@@ -1282,11 +1289,11 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">QA Section Title</label>
-                  <input type="text" id="cms_mfg_qa_title" class="form-control">
+                  <input type="text" id="cms_mfg_qa_title" class="form-control" value="Quality Assurance &amp; In-House Testing Laboratory">
                 </div>
                 <div class="form-group">
                   <label class="form-label">QA Description</label>
-                  <textarea id="cms_mfg_qa_desc" class="form-control" rows="3"></textarea>
+                  <textarea id="cms_mfg_qa_desc" class="form-control" rows="3">Every batch undergoes rigorous structural stress tests, UV exposure analysis, color fastness checks, and automated weight-bearing load tests up to 200kg.</textarea>
                 </div>
               </div>
             </div>
@@ -1305,16 +1312,16 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Hero Title</label>
-                  <input type="text" id="cms_dist_hero_title" class="form-control">
+                  <input type="text" id="cms_dist_hero_title" class="form-control" value="Partner With India's Fastest Growing Furniture Network">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Hero Subtitle</label>
-                  <textarea id="cms_dist_hero_subtitle" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_dist_hero_subtitle" class="form-control" rows="2">Join over 500+ successful distributors and dealers across 15+ states with assured margins and prompt factory dispatch.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
                   <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_dist_hero_image" class="form-control">
+                    <input type="text" id="cms_dist_hero_image" class="form-control" value="images/hero/image2.png">
                     <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
                 </div>
@@ -1328,19 +1335,19 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Perks Section Title</label>
-                    <input type="text" id="cms_dist_perks_title" class="form-control">
+                    <input type="text" id="cms_dist_perks_title" class="form-control" value="Why Become a National Plasto Partner?">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Dealer Desk Direct Phone</label>
-                    <input type="text" id="cms_dist_contact_phone" class="form-control">
+                    <input type="text" id="cms_dist_contact_phone" class="form-control" value="+91 98300 12345">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Dealer Support Email</label>
-                    <input type="email" id="cms_dist_contact_email" class="form-control">
+                    <input type="email" id="cms_dist_contact_email" class="form-control" value="dealer@nationalplasto.com">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Desk Working Hours</label>
-                    <input type="text" id="cms_dist_contact_hours" class="form-control">
+                    <input type="text" id="cms_dist_contact_hours" class="form-control" value="Monday – Saturday: 9:30 AM to 6:30 PM">
                   </div>
                 </div>
               </div>
@@ -1351,10 +1358,10 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-header"><h3><i class="fas fa-step-forward"></i> Section 3: 4-Step Partnership Onboarding</h3></div>
               <div class="card-body">
                 <div class="form-row">
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 1: Apply Online</div><input type="text" id="cms_dist_step_0_title" class="form-control" style="margin-bottom:6px;"><textarea id="cms_dist_step_0_desc" class="form-control" rows="2"></textarea></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 2: Verification</div><input type="text" id="cms_dist_step_1_title" class="form-control" style="margin-bottom:6px;"><textarea id="cms_dist_step_1_desc" class="form-control" rows="2"></textarea></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 3: Agreement</div><input type="text" id="cms_dist_step_2_title" class="form-control" style="margin-bottom:6px;"><textarea id="cms_dist_step_2_desc" class="form-control" rows="2"></textarea></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 4: Dispatch</div><input type="text" id="cms_dist_step_3_title" class="form-control" style="margin-bottom:6px;"><textarea id="cms_dist_step_3_desc" class="form-control" rows="2"></textarea></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Step 1: Apply Online</div><input type="text" id="cms_dist_step_0_title" class="form-control" style="margin-bottom:6px;" value="Apply Online"><textarea id="cms_dist_step_0_desc" class="form-control" rows="2">Submit your dealership interest form with firm details and GST number.</textarea></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Step 2: Verification</div><input type="text" id="cms_dist_step_1_title" class="form-control" style="margin-bottom:6px;" value="Regional Verification"><textarea id="cms_dist_step_1_desc" class="form-control" rows="2">Our regional sales manager connects with you to discuss territory and demand.</textarea></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Step 3: Agreement</div><input type="text" id="cms_dist_step_2_title" class="form-control" style="margin-bottom:6px;" value="Dealership Agreement"><textarea id="cms_dist_step_2_desc" class="form-control" rows="2">Finalize credit terms, catalog selection, and onboarding documentation.</textarea></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Step 4: Dispatch</div><input type="text" id="cms_dist_step_3_title" class="form-control" style="margin-bottom:6px;" value="First Dispatch"><textarea id="cms_dist_step_3_desc" class="form-control" rows="2">Receive your initial curated stock with complimentary marketing kits.</textarea></div>
                 </div>
               </div>
             </div>
@@ -1373,16 +1380,16 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Hero Title</label>
-                  <input type="text" id="cms_contact_hero_title" class="form-control">
+                  <input type="text" id="cms_contact_hero_title" class="form-control" value="Contact National Plasto">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Hero Subtitle</label>
-                  <textarea id="cms_contact_hero_subtitle" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_contact_hero_subtitle" class="form-control" rows="2">Reach out to our corporate headquarters, manufacturing plants, or dealership helpdesk.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
                   <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_contact_hero_image" class="form-control">
+                    <input type="text" id="cms_contact_hero_image" class="form-control" value="images/brand/company-photo.jpg">
                     <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_contact_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
                 </div>
@@ -1396,28 +1403,28 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">General Contact Email</label>
-                    <input type="email" id="cms_contact_email" class="form-control">
+                    <input type="email" id="cms_contact_email" class="form-control" value="info@nationalplasto.com">
                   </div>
                   <div class="form-group">
                     <label class="form-label">General Contact Phone</label>
-                    <input type="text" id="cms_contact_phone" class="form-control">
+                    <input type="text" id="cms_contact_phone" class="form-control" value="+91 98300 12345">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Toll-Free Helpline</label>
-                    <input type="text" id="cms_contact_tollfree" class="form-control">
+                    <input type="text" id="cms_contact_tollfree" class="form-control" value="1800 123 4567">
                   </div>
                   <div class="form-group">
                     <label class="form-label">WhatsApp Helpline (used by all direct WhatsApp links)</label>
-                    <input type="text" id="cms_contact_whatsapp" class="form-control">
+                    <input type="text" id="cms_contact_whatsapp" class="form-control" value="+91 98300 12345">
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Corporate Head Office Address</label>
-                  <input type="text" id="cms_contact_address" class="form-control">
+                  <input type="text" id="cms_contact_address" class="form-control" value="135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata, West Bengal 700026">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Google Maps Link</label>
-                  <input type="text" id="cms_contact_map_url" class="form-control">
+                  <input type="text" id="cms_contact_map_url" class="form-control" value="https://www.google.com/maps/search/?api=1&amp;query=135G+Shyama+Prasad+Mukherjee+Road%2C+Sterling+Apartment%2C+Kolkata%2C+West+Bengal+700026">
                 </div>
               </div>
             </div>
@@ -1429,21 +1436,21 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Factory 1 (Howrah, WB)</label>
-                    <input type="text" id="cms_contact_factory_0" class="form-control">
+                    <input type="text" id="cms_contact_factory_0" class="form-control" value="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Factory 2 (Guwahati, Assam)</label>
-                    <input type="text" id="cms_contact_factory_1" class="form-control">
+                    <input type="text" id="cms_contact_factory_1" class="form-control" value="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Factory 3 (Roorkee, Uttarakhand)</label>
-                    <input type="text" id="cms_contact_factory_2" class="form-control">
+                    <input type="text" id="cms_contact_factory_2" class="form-control" value="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661">
                   </div>
                   <div class="form-group">
                     <label class="form-label">Factory 4 (Hajipur, Bihar)</label>
-                    <input type="text" id="cms_contact_factory_3" class="form-control">
+                    <input type="text" id="cms_contact_factory_3" class="form-control" value="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101">
                   </div>
                 </div>
               </div>
@@ -1456,19 +1463,19 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label"><i class="fab fa-facebook"></i> Facebook URL</label>
-                    <input type="text" id="cms_social_fb" class="form-control">
+                    <input type="text" id="cms_social_fb" class="form-control" value="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr">
                   </div>
                   <div class="form-group">
                     <label class="form-label"><i class="fab fa-instagram"></i> Instagram URL</label>
-                    <input type="text" id="cms_social_ig" class="form-control">
+                    <input type="text" id="cms_social_ig" class="form-control" value="https://www.instagram.com/national_plasto_group/">
                   </div>
                   <div class="form-group">
                     <label class="form-label"><i class="fab fa-linkedin"></i> LinkedIn URL</label>
-                    <input type="text" id="cms_social_li" class="form-control">
+                    <input type="text" id="cms_social_li" class="form-control" value="https://www.linkedin.com/company/nationalplasto/">
                   </div>
                   <div class="form-group">
                     <label class="form-label"><i class="fab fa-amazon"></i> Amazon Store URL</label>
-                    <input type="text" id="cms_social_amz" class="form-control">
+                    <input type="text" id="cms_social_amz" class="form-control" value="https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview">
                   </div>
                 </div>
               </div>
@@ -1488,11 +1495,11 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Hero Title</label>
-                  <input type="text" id="cms_policy_hero_title" class="form-control">
+                  <input type="text" id="cms_policy_hero_title" class="form-control" value="Policies, Warranty &amp; Consumer Care">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Hero Subtitle</label>
-                  <textarea id="cms_policy_hero_subtitle" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_policy_hero_subtitle" class="form-control" rows="2">Our commitment to quality, consumer trust, data privacy, and ethical manufacturing practices.</textarea>
                 </div>
               </div>
             </div>
@@ -1503,19 +1510,19 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Quality & 1-Year Structural Warranty Policy</label>
-                  <textarea id="cms_policy_warranty" class="form-control" rows="4"></textarea>
+                  <textarea id="cms_policy_warranty" class="form-control" rows="4">National Plasto products are manufactured using 100% virgin polypropylene and precision computer-aided tooling. We warrant our moulded furniture against manufacturing structural defects, premature stress cracking, and unintended moulding flaws for a period of one (1) year from the date of retail purchase. This warranty does not cover normal wear and tear, intentional misuse, or exposure to excessive open heat sources.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Privacy & Data Protection Policy</label>
-                  <textarea id="cms_policy_privacy" class="form-control" rows="4"></textarea>
+                  <textarea id="cms_policy_privacy" class="form-control" rows="4">National Plasto respects your privacy. We collect minimal personal information (such as your name, business name, telephone number, and email address) exclusively to respond to your commercial inquiries, facilitate dealership applications, and fulfill catalogue requests. We do not sell, rent, or disclose your personal information to any third parties without your explicit consent.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Return & Replacement Policy</label>
-                  <textarea id="cms_policy_returns" class="form-control" rows="4"></textarea>
+                  <textarea id="cms_policy_returns" class="form-control" rows="4">For retail and institutional buyers, goods damaged during transit or found with manufacturing faults upon arrival must be reported within 48 hours of delivery along with photographic evidence. Our authorized dealership network or regional trade depot will promptly inspect and issue a 100% free product replacement.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Shipping, Transit Times & Logistics Policy</label>
-                  <textarea id="cms_policy_shipping" class="form-control" rows="4"></textarea>
+                  <textarea id="cms_policy_shipping" class="form-control" rows="4">With four strategically positioned production plants in Howrah, Guwahati, Roorkee, and Hajipur, National Plasto guarantees direct-to-warehouse dispatch within 24 to 48 hours of order confirmation. Transit times generally range from 1 to 4 business days depending on dealer destination across India.</textarea>
                 </div>
               </div>
             </div>
@@ -1728,5 +1735,722 @@ As part of the next generation of leadership, he continues to carry forward the 
   <div class="toast-container" id="toastContainer"></div>
 
   <script src="js/admin.js?v=20261027_cloud_v2"></script>
+
+  <!-- Embedded Master CMS Data (Ensures immediate synchronous load on any network/cloud) -->
+  <script id="np_default_cms" type="application/json">
+{
+  "general": {
+    "siteName": "National Plasto Products Pvt. Ltd.",
+    "tagline": "Precision Plastic Moulded Products. Built for India.",
+    "contactEmail": "info@nationalplasto.com",
+    "salesEmail": "sales@nationalplasto.com",
+    "dealerEmail": "dealer@nationalplasto.com",
+    "exportEmail": "export@nationalplasto.com",
+    "contactPhone": "+91 98300 12345",
+    "landline": "+91 33 2289 1234",
+    "tollFree": "1800 123 4567",
+    "whatsapp": "+91 98300 12345",
+    "headOffice": "135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata, West Bengal 700026",
+    "cataloguePdfUrl": "docs/national-plasto-catalogue-2026.pdf",
+    "workingHours": "Monday – Saturday: 9:30 AM to 6:30 PM",
+    "socialLinks": {
+      "facebook": "https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr",
+      "linkedin": "https://www.linkedin.com/company/nationalplasto/",
+      "instagram": "https://www.instagram.com/national_plasto_group/",
+      "amazon": "https://www.amazon.in/stores/page/0DC6798F-D636-4A69-8FC0-2BE41AE507DD?isPreview",
+      "flipkart": "https://www.flipkart.com/search?q=npm%20national"
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Since 1997",
+      "title1": "Shaping Spaces, Engineering Trust",
+      "title2": "Designed for Life, Built for Generations",
+      "title3": "Empowering India with Premium Living",
+      "title": "Precision Plastic Moulded Products. Built for India.",
+      "subtitle": "29+ Years of Industrial Pedigree. 4 ISO-Certified Plants. 1,200+ Products Delivered.",
+      "badge": "India's Trusted Furniture Manufacturer Since 1997",
+      "bannerImage": "images/brand/company-photo.jpg",
+      "mobileBannerImage": "images/brand/company-photo.jpg",
+      "videoUrl": "videos/hero/national-plasto-overview.mp4",
+      "videoPoster": "images/hero/overview-video-poster.jpg",
+      "ctaText": "About the Company",
+      "ctaLink": "about.html"
+    },
+    "virtues": [
+      {
+        "title": "Integrity",
+        "desc": "Our mission is to operate with integrity, foster a culture of the utmost respect for individuals and serve as a catalyst for development.",
+        "icon": "images/icons/hand.gif"
+      },
+      {
+        "title": "Customer Centricity",
+        "desc": "With continuous innovation and efficiency, we aim to provide consistent products and services that improve the quality of life and exceed customer expectations.",
+        "icon": "images/icons/peoples.gif"
+      },
+      {
+        "title": "Delivering Excellence",
+        "desc": "Our innovations have been backed by unparalleled quality that has withstood the effect of time throughout the years.",
+        "icon": "images/icons/delivering_excellence.gif"
+      },
+      {
+        "title": "Innovation",
+        "desc": "Painstaking efforts and research behind every new development help us serve products that truly benefit humanity and the environment.",
+        "icon": "images/icons/innovation.gif"
+      },
+      {
+        "title": "People First",
+        "desc": "National Plasto has always placed a great emphasis on taking care of those who are associated with us as they are one of our greatest assets.",
+        "icon": "images/icons/people_first.gif"
+      },
+      {
+        "title": "Empowerment",
+        "desc": "Our team of experts and our workforce are our biggest assets. Empowering them every step of the way constantly helps us deliver only the best.",
+        "icon": "images/icons/empowerment.gif"
+      }
+    ],
+    "cmdTestimonial": {
+      "title": "Chairman & Managing Director's Message",
+      "quote": "Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.",
+      "name": "Ratan Kumar Sharma",
+      "role": "Chairman & Managing Director",
+      "photo": "images/team/ratan-kumar-sharma-cutout.webp",
+      "btnText": "Meet Our Management",
+      "btnLink": "about.html#leadership"
+    },
+    "metricsSection": {
+      "heading": "India's Leading Precision Plastic Processor",
+      "desc": "Powered by four ISO-certified manufacturing plants and a family-led management team, National Plasto has been making plastic moulded furniture for every space and every need since 1997.",
+      "stats": [
+        {
+          "value": "29",
+          "unit": "+ Years",
+          "label": "Industrial Pedigree"
+        },
+        {
+          "value": "15",
+          "unit": "+ States",
+          "label": "Pan-India Presence"
+        },
+        {
+          "value": "4",
+          "unit": "Plants",
+          "label": "Manufacturing Plants"
+        },
+        {
+          "value": "4",
+          "unit": "Brands",
+          "label": "Brands & Divisions"
+        },
+        {
+          "value": "1,200",
+          "unit": "+",
+          "label": "Products in Range"
+        },
+        {
+          "value": "500",
+          "unit": "+",
+          "label": "Distributors & Dealers"
+        },
+        {
+          "value": "1000",
+          "unit": "+",
+          "label": "Workforce Strength"
+        },
+        {
+          "value": "ISO · CE · BIFMA",
+          "unit": "",
+          "label": "Certified Plants"
+        }
+      ]
+    },
+    "plantHighlights": [
+      {
+        "title": "Windsor KL 850 High-Tonnage Injection Moulding Unit",
+        "image": "images/home/plant-kl850.jpg",
+        "link": "manufacturing.html"
+      },
+      {
+        "title": "Explore Moulded Furniture Range",
+        "image": "images/home/premium-furniture-range.png",
+        "link": "products.html"
+      }
+    ],
+    "brandsSection": {
+      "title": "Our Brands",
+      "subtitle": "Four iconic brands engineered for every home, office, and institution.",
+      "brands": [
+        {
+          "name": "NEXT — Premium Furniture",
+          "tagline": "Premium Virgin Plastic Furniture",
+          "desc": "Designer finishes, rich pastels, and premium ergonomic contours for modern living.",
+          "logo": "images/brand/company-next-logo.png",
+          "image": "images/divisions/next.jpg",
+          "link": "products.html?brand=next"
+        },
+        {
+          "name": "NATIONAL — Moulded Furniture",
+          "tagline": "Value, Variety and Trust for Every Space",
+          "desc": "Eastern India's most trusted household seating, tables, and multi-tier utility storage.",
+          "logo": "images/brand/company-national-logo.png",
+          "image": "images/divisions/national.jpg",
+          "link": "products.html?brand=national"
+        },
+        {
+          "name": "CAPTAIN — Economical Furniture",
+          "tagline": "Economical Furniture for Everyday Use",
+          "desc": "Robust, lightweight, high-utility monoblock chairs built for demanding daily commercial use.",
+          "logo": "images/brand/captain-logo.png",
+          "image": "images/divisions/captain.jpg",
+          "link": "products.html?brand=captain"
+        },
+        {
+          "name": "SAPPHIRE — Value Seating",
+          "tagline": "Distinct Value Seating Range",
+          "desc": "Engineered heavy-duty seating with sleek modern aesthetics at exceptional value.",
+          "logo": "images/brand/sapphire-logo.png",
+          "image": "images/divisions/sapphire.jpg",
+          "link": "products.html?brand=sapphire"
+        }
+      ]
+    },
+    "milestones": [
+      {
+        "year": "1981",
+        "date": "1981 · Heritage & Industrial Roots",
+        "image": "images/home/milestone-1942.jpg",
+        "desc": "The foundational business legacy of the Sharma family was established in 1981, laying over four decades of industrial enterprise, customer trust, and ethical trade."
+      },
+      {
+        "year": "1997",
+        "date": "29 Oct 1997 · Kolkata, West Bengal",
+        "image": "images/home/milestone-1997.jpg",
+        "desc": "After 18 years in the plastic industry, Mr. Ratan Kumar Sharma incorporated National Plasto Products Pvt. Ltd., setting up the first advanced injection moulding plant in West Bengal."
+      },
+      {
+        "year": "2007",
+        "date": "04 Jul 2007 · Guwahati, Assam",
+        "image": "images/home/milestone-2007.jpg",
+        "desc": "National Plasto inaugurated its Guwahati plant, bringing dedicated manufacturing and rapid logistics closer to customers across Assam and the North-East."
+      },
+      {
+        "year": "2010",
+        "date": "2010 · Roorkee & Hajipur Expansion",
+        "image": "images/home/milestone-2010.jpg",
+        "desc": "High-tonnage production commenced across new facilities in Roorkee and Hajipur, completing four strategic manufacturing hubs across India."
+      },
+      {
+        "year": "2026",
+        "date": "Today · Pan-India Leadership",
+        "image": "images/home/milestone-2026.jpg",
+        "desc": "All four plants independently certified — 23 certificates covering ISO 9001, 14001, 45001, 50001, CE and BIFMA — and an extensive catalogue of 362+ models."
+      }
+    ],
+    "sustainability": {
+      "title": "Sustainability",
+      "p1": "At National Plasto, responsible manufacturing is part of how we make furniture for every space and every need. Our NATIONAL, CAPTAIN and SAPPHIRE ranges are built with reprocessed plastic, giving used plastic a long second life as durable everyday furniture.",
+      "p2": "Every one of our four plants — Howrah, Guwahati, Roorkee and Hajipur — is independently certified for environmental management, and our energy use is managed under ISO 50001.",
+      "p3": "We believe every manufacturer has a responsibility to make choices that benefit the environment and the people who work with us.",
+      "btnText": "Know More",
+      "btnLink": "manufacturing.html#certifications"
+    },
+    "touchingLives": {
+      "title": "Furniture For Every Community",
+      "desc": "From classrooms and community halls to homes in Tier 2 and Tier 3 towns, National Plasto makes durable seating affordable for everyone. We give used plastic a second life through our reprocessed ranges, keep our 1,000+ strong workforce safe under ISO 45001, and grow together with the dealers and families who depend on us.",
+      "image": "images/brand/furniture-for-every-community.jpg",
+      "btnText": "Our Values",
+      "btnLink": "about.html"
+    },
+    "innovativeProducts": {
+      "title": "Innovating Products, Creating Impact",
+      "desc": "Every National Plasto product is made to last and designed to make an Impact. From premium NEXT designs to everyday CAPTAIN and SAPPHIRE seating, our 360+ models bring comfort, durability and affordability to homes, businesses and institutions across India.",
+      "image": "images/business/moulded-furniture.jpg",
+      "btnText": "Explore Products",
+      "btnLink": "products.html"
+    },
+    "uniqueStory": {
+      "title": "What makes us unique?",
+      "desc": "Since 1997, National Plasto has been making moulded plastic furniture for every space and every need. Four ISO-certified plants, four brands across price points and a Pan-India dealer network let us deliver durable, affordable furniture to homes, businesses and institutions across India.",
+      "image": "images/brand/company-photo.jpg",
+      "buttonText": "Know Our Story",
+      "buttonLink": "about.html"
+    },
+    "reels": [
+      {
+        "name": "NEXT — Premium Virgin Plastic Furniture",
+        "video": "images/banner/next.mp4",
+        "poster": "images/banner/next.jpg"
+      },
+      {
+        "name": "NATIONAL — Value, Variety & Trust",
+        "video": "images/banner/national.mp4",
+        "poster": "images/banner/national.jpg"
+      },
+      {
+        "name": "CAPTAIN — Economical Everyday Furniture",
+        "video": "images/banner/captain.mp4",
+        "poster": "images/banner/captain.jpg"
+      },
+      {
+        "name": "SAPPHIRE — Distinct Value Seating",
+        "video": "images/banner/sapphire.mp4",
+        "poster": "images/banner/sapphire.jpg"
+      }
+    ],
+    "network": {
+      "title": "Pan-India Presence. Rapid Supply Chain.",
+      "subtitle": "Four state-of-the-art plastic furniture manufacturing facilities powering over 500 authorized distributor and dealer hubs.",
+      "plantsStat": "4",
+      "dailyCapacityStat": "50,000+",
+      "dealersStat": "500+",
+      "statesStat": "18"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Rooted in 1981, Incorporated in 1997",
+      "subtitle": "Over four decades of industrial heritage and nearly three decades of pioneering plastic injection moulding excellence.",
+      "bannerImage": "images/brand/aboutus.png"
+    },
+    "overview": {
+      "title": "Rooted in 1981, Incorporated in 1997",
+      "leadText": "Over four decades of industrial heritage and nearly three decades of pioneering plastic injection moulding excellence.",
+      "desc": "Tracing foundational commercial roots back to 1981, National Plasto Products Pvt. Ltd. (NPPL) was incorporated on 29 October 1997 under the visionary leadership of Mr. Ratan Kumar Sharma. From an initial manufacturing plant in Kolkata, West Bengal, NPPL has expanded into a nationwide plastic furniture manufacturing leader with 4 advanced manufacturing hubs across India. Operating high-tonnage microprocessor injection moulding machinery from 80T up to 1,200T across over 2,00,000 sq. ft. of production floor space, we design and produce over 1,000 active moulds and products. Our 4-tier brand architecture—NEXT, NATIONAL, SAPPHIRE, and CAPTAIN—delivers ergonomic, durable, and aesthetically superior moulded furniture to millions of Indian homes, institutions, and businesses.",
+      "image": "images/brand/aboutus.png"
+    },
+    "missionVision": {
+      "vision": "To be India's most trusted plastic-moulded furniture brand, setting the benchmark for ergonomic comfort, structural durability, and sustainable plastic manufacturing accessible to every home and enterprise.",
+      "mission": "Delivering high-value, long-lasting plastic-moulded furniture solutions through continuous technological innovation, rigorous 200kg load testing, and an empowered pan-India network of over 500 distribution partners."
+    },
+    "pillars": [
+      {
+        "number": "01",
+        "title": "Precision in Every Product",
+        "desc": "Our advanced manufacturing capabilities combine modern technology and precision engineering to deliver consistent quality, superior finishes and dependable performance.",
+        "image": "images/about/01-advanced-manufacturing.png"
+      },
+      {
+        "number": "02",
+        "title": "Built for Efficiency. Ready for Growth.",
+        "desc": "Our integrated manufacturing operations are designed for efficiency, consistency and reliable supply, helping us meet diverse customer requirements with confidence.",
+        "image": "images/about/02-manufacturing-at-scale.jpg"
+      },
+      {
+        "number": "03",
+        "title": "Quality You Can Trust",
+        "desc": "Every product reflects our commitment to quality, strength and durability. Careful inspection and consistent manufacturing standards help ensure reliable performance in everyday use.",
+        "image": "images/about/03-quality-reliability-lab.jpg"
+      },
+      {
+        "number": "04",
+        "title": "Efficiency in Every Process",
+        "desc": "Our streamlined manufacturing processes focus on precision, productivity and consistency. By optimizing workflows and maintaining high operational standards, we deliver dependable quality.",
+        "image": "images/about/04-operational-excellence-facility.png"
+      }
+    ],
+    "managementIntro": {
+      "title": "Our Management",
+      "p1": "Since 1997, National Plasto Products Pvt. Ltd. (NPPL) has been manufacturing plastic moulded furniture designed for every space and every need. From homes and educational institutions to healthcare facilities, government establishments and businesses across the country, our products have become part of everyday environments across India.",
+      "p2": "What began as a single manufacturing unit has grown into four manufacturing plants located in Howrah (West Bengal), Guwahati (Assam), Roorkee (Uttarakhand) and Hajipur (Bihar). All NPPL manufacturing units are ISO certified across various levels, reflecting our commitment to consistent processes and quality standards.",
+      "p3": "Behind this growth is a family-led management team that brings together decades of hands-on experience, strong operational knowledge and clear defined responsibilities across finance, production, sales and marketing."
+    },
+    "leadership": [
+      {
+        "name": "Mr. Ratan Kumar Sharma",
+        "role": "Chairman & Managing Director",
+        "photo": "images/team/ratan-kumar-sharma-cmd.jpg",
+        "bio": "With 18 years of experience in the plastic furniture industry prior to establishing National Plasto Products Pvt. Ltd., Mr. Ratan Kumar Sharma brought extensive industry knowledge and practical experience to the foundation of the company in 1997.\n\nHe founded National Plasto Products Pvt. Ltd. in 1997 and has led its journey from a single manufacturing unit to four plants across Howrah, Hajipur, Guwahati and Roorkee.\n\nOver nearly three decades, he has built the company on a foundation of perseverance, relationships and the values passed down by his father, whose guidance continues to influence his approach to business and leadership.\n\nUnder his leadership, NPPL has grown not only in scale and turnover, but also in the trust and respect it has built among its employees, partners and associates. He believes that every challenge presents an opportunity to learn, adapt and return stronger.",
+        "quote": "“Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.” — Mr. Ratan Kumar Sharma, Chairman & Managing Director"
+      },
+      {
+        "name": "Mr. Rajkumar Sharma",
+        "role": "Director – Finance",
+        "photo": "images/team/rajkumar-sharma-director-finance.jpg",
+        "bio": "Mr. Rajkumar Sharma, the eldest of the family and elder brother of Mr. Ratan Kumar Sharma, has overseen the company's financial operations since its inception in 1997.\n\nAs the senior-most member of the management team, his steady and disciplined approach to financial management and accounts has been a constant strength behind the company's growth. His experience and practical understanding continue to play an important role in shaping key financial decisions across the organisation and its four manufacturing units.",
+        "quote": "Strong financial management and transparent operations are the foundation of our long-term success."
+      },
+      {
+        "name": "Late Mr. Sukhram Sharma",
+        "role": "Director – Production (In Memoriam)",
+        "photo": "images/team/sukhram-sharma-director-production.jpg",
+        "bio": "Mr. Sukhram Sharma, the youngest brother of Mr. Raj Kumar Sharma and Mr. Ratan Kumar Sharma, was an integral part of National Plasto Products Pvt. Ltd. and made significant contribution to the Company's growth and establishment.\n\nHe was closely involved with the factory and production operations, where his hands-on approach and dedication earned him the trust and respect of the entire factory team. He shared a strong bond with the employees and treated them like family.\n\nMr. Sukhram Sharma passed away three years ago, leaving behind a legacy of dedication, relationships and contribution to the Company's growth. He will always be remembered as a valued member of the NPPL family.",
+        "quote": "Our machines shape the furniture, but it is our people who shape the quality, consistency, and trust behind every National Plasto product."
+      },
+      {
+        "name": "Mr. Bhavesh Sharma",
+        "role": "Executive Director",
+        "photo": "images/team/bhavesh-sharma-executive-director.jpg",
+        "bio": "Mr. Bhavesh Sharma, son of Mr. Ratan Kumar Sharma, oversees production, sales and marketing across all four manufacturing units, working closely with teams to maintain consistency in quality, output and operations.\n\nA key part of the company's next phase of growth has been its expansion into E-Commerce. Under his leadership, NPPL has strengthened its presence on platforms such as Amazon and Flipkart, extending the company's reach beyond traditional dealer networks.\n\nWith a hands-on approach and focus on exploring new markets, he continues to drive the company's growth while remaining firmly connected to the values on which NPPL was built.",
+        "quote": "With decades of dealer trust and an expanding presence across digital marketplaces, we are taking National Plasto products to more homes and businesses across the country."
+      },
+      {
+        "name": "Mr. Devesh Sharma",
+        "role": "Executive Director",
+        "photo": "images/team/devesh-sharma-executive-director.jpg",
+        "bio": "Mr. Devesh Sharma, the youngest member of the family and son of Late Mr. Sukhram Sharma, oversees production and sales operations across the company's manufacturing units.\n\nWorking closely with the teams on a day-to-day basis, he contributes to operational efficiency and the company's continued expansion. His attention to detail, willingness to embrace new challenges and commitment to the business reflect the evolving role of the next generation in taking NPPL forward.\n\nAs part of the next generation of leadership, he continues to carry forward the company's values while contributing to its future growth and ambitions.",
+        "quote": "“Operational excellence is achieved every day through precision engineering, team empowerment, and an unwavering commitment to quality standards.”"
+      }
+    ],
+    "stats": [
+      {
+        "label": "Foundational Heritage",
+        "value": "45+ Years (Since 1981)"
+      },
+      {
+        "label": "Plastic-Moulded Furniture Excellence",
+        "value": "29+ Years (Est. 1997)"
+      },
+      {
+        "label": "Modern Plants",
+        "value": "4 (Howrah, Guwahati, Roorkee, Hajipur)"
+      },
+      {
+        "label": "Active SKUs & Moulds",
+        "value": "1,000+"
+      }
+    ]
+  },
+  "products": {
+    "hero": {
+      "title": "Products & Complete Catalogue",
+      "subtitle": "Browse 360+ models of moulded chairs, dining sets, tables, stools and storage.",
+      "bannerImage": "images/brand/products.png"
+    },
+    "shopByBrandHeader": {
+      "title": "Shop by brand",
+      "desc": "Four brands, one promise — quality moulded furniture at every price point."
+    },
+    "exploreCollectionsHeader": {
+      "title": "Explore our collections",
+      "desc": "Browse through a wide range of chairs, tables, dining sets, stools, storage and kids furniture."
+    },
+    "collections": [
+      {
+        "name": "Arm Chairs",
+        "count": "135 Products",
+        "desc": "Sturdy, comfortable moulded arm chairs for homes, offices and events.",
+        "image": "images/collections/arm-chairs.jpg",
+        "link": "products.html?cat=arm-chairs"
+      },
+      {
+        "name": "Premium Arm Chairs",
+        "count": "2 Products",
+        "desc": "Cushioned premium arm chairs with a rich finish.",
+        "image": "images/collections/premium-arm-chairs.jpg",
+        "link": "products.html?cat=premium-arm-chairs"
+      },
+      {
+        "name": "Armless Chairs",
+        "count": "52 Products",
+        "desc": "Space-saving, stackable armless chairs for every room.",
+        "image": "images/collections/armless-chairs.jpg",
+        "link": "products.html?cat=armless-chairs"
+      },
+      {
+        "name": "Premium Armless Chairs",
+        "count": "4 Products",
+        "desc": "Premium cushioned armless chairs for dining and lounges.",
+        "image": "images/collections/premium-armless-chairs.jpg",
+        "link": "products.html?cat=premium-armless-chairs"
+      },
+      {
+        "name": "Metallic Chairs",
+        "count": "11 Products",
+        "desc": "Chairs with a metallic finish for a modern look.",
+        "image": "images/collections/metallic-chairs.jpg",
+        "link": "products.html?cat=metallic-chairs"
+      },
+      {
+        "name": "Steel Moulded Chairs",
+        "count": "3 Products",
+        "desc": "Moulded seats on strong steel legs for cafes and offices.",
+        "image": "images/collections/steel-moulded-chairs.jpg",
+        "link": "products.html?cat=steel-moulded-chairs"
+      },
+      {
+        "name": "Baby Chairs",
+        "count": "14 Products",
+        "desc": "Bright, safe and lightweight chairs for little ones.",
+        "image": "images/collections/baby-chairs.jpg",
+        "link": "products.html?cat=baby-chairs"
+      },
+      {
+        "name": "Stools",
+        "count": "39 Products",
+        "desc": "Strong, portable stools for kitchens, shops and everyday use.",
+        "image": "images/collections/stools.jpg",
+        "link": "products.html?cat=stools"
+      },
+      {
+        "name": "Tables",
+        "count": "51 Products",
+        "desc": "Durable, easy-to-clean tables for homes and businesses.",
+        "image": "images/collections/tables.jpg",
+        "link": "products.html?cat=tables"
+      },
+      {
+        "name": "Dining Sets",
+        "count": "45 Products",
+        "desc": "Table and chair sets for family dining, indoors and out.",
+        "image": "images/collections/dining-sets.jpg",
+        "link": "products.html?cat=dining-sets"
+      },
+      {
+        "name": "Trolleys & Racks",
+        "count": "4 Products",
+        "desc": "Multi-tier utility racks and trolleys for smart storage.",
+        "image": "images/collections/trolleys-and-racks.jpg",
+        "link": "products.html?cat=trolleys-and-racks"
+      },
+      {
+        "name": "Wardrobes",
+        "count": "2 Products",
+        "desc": "Lockable plastic wardrobes for clutter-free rooms.",
+        "image": "images/collections/wardrobes.jpg",
+        "link": "products.html?cat=wardrobes"
+      }
+    ],
+    "orderTimingNotice": {
+      "badge": "Fast Dispatch Guarantee",
+      "title": "Pan-India Order Processing",
+      "desc": "All dealer and bulk orders are dispatched within 24 to 48 hours directly from the nearest regional plant."
+    },
+    "brochure": {
+      "title": "Download National Plasto Product Catalogue 2026",
+      "desc": "Complete 2026 product range with exact specifications, dimensions, color palettes, and container packing sizes.",
+      "pdfUrl": "docs/national-plasto-catalogue-2026.pdf",
+      "btnText": "Download Catalogue PDF"
+    }
+  },
+  "manufacturing": {
+    "hero": {
+      "title": "World-Class Plastic Furniture Manufacturing Facilities",
+      "subtitle": "Robotic injection moulding, high-tonnage precision machinery & ISO 9001:2015 accredited plants.",
+      "bannerImage": "images/brand/company-photo.jpg"
+    },
+    "intro": {
+      "title": "Industrial Manufacturing Capabilities",
+      "desc": "Spanning four integrated production hubs, National Plasto converts over 35,000 metric tonnes of virgin plastic annually into precision-engineered moulded products.",
+      "image": "images/brand/company-photo.jpg"
+    },
+    "metrics": [
+      {
+        "number": "35,000",
+        "unit": "MT+",
+        "label": "Plastic Furniture Produced Annually"
+      },
+      {
+        "number": "1,200",
+        "unit": "Tons",
+        "label": "Max Injection Moulding Clamp Force"
+      },
+      {
+        "number": "200,000",
+        "unit": "Sq. Ft.",
+        "label": "Total Manufacturing Floor Space"
+      },
+      {
+        "number": "100%",
+        "unit": "QA",
+        "label": "Rigorous 200kg Load & Drop Tested"
+      }
+    ],
+    "plants": [
+      {
+        "name": "Howrah Manufacturing Hub",
+        "region": "West Bengal",
+        "location": "Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411",
+        "capacity": "18,000 Units / Day",
+        "machines": "16 Injection Moulding Machines (80T - 1,200T)",
+        "image": "images/home/plant-kl850.jpg"
+      },
+      {
+        "name": "Guwahati Manufacturing Hub",
+        "region": "Assam",
+        "location": "E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031",
+        "capacity": "12,000 Units / Day",
+        "machines": "12 Injection Moulding Machines (100T - 850T)",
+        "image": "images/home/milestone-2007.jpg"
+      },
+      {
+        "name": "Roorkee Manufacturing Hub",
+        "region": "Uttarakhand",
+        "location": "Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661",
+        "capacity": "10,000 Units / Day",
+        "machines": "10 Injection Moulding Machines (100T - 800T)",
+        "image": "images/home/milestone-2010.jpg"
+      },
+      {
+        "name": "Hajipur Manufacturing Hub",
+        "region": "Bihar",
+        "location": "EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101",
+        "capacity": "10,000 Units / Day",
+        "machines": "8 Injection Moulding Machines (100T - 650T)",
+        "image": "images/home/milestone-2026.jpg"
+      }
+    ],
+    "qualityTesting": {
+      "title": "Quality Assurance & In-House Testing Laboratory",
+      "desc": "Every batch undergoes rigorous structural stress tests, UV exposure analysis, color fastness checks, and automated weight-bearing load tests up to 200kg.",
+      "tests": [
+        {
+          "name": "200kg Static Load Test",
+          "desc": "Simulates prolonged extreme weight bearing without plastic deformation."
+        },
+        {
+          "name": "Drop Impact Test",
+          "desc": "Drop-tested from 1.5m at multiple angles to guarantee impact resistance."
+        },
+        {
+          "name": "UV & Climate Aging",
+          "desc": "Weathering test to verify resistance against yellowing, cracking, and fading."
+        },
+        {
+          "name": "Melt Flow Index (MFI)",
+          "desc": "Testing virgin plastic purity before feeding raw pellets into hoppers."
+        }
+      ]
+    }
+  },
+  "distributor": {
+    "hero": {
+      "title": "Partner With India's Fastest Growing Furniture Network",
+      "subtitle": "Join over 500+ successful distributors and dealers across 15+ states with assured margins and prompt factory dispatch.",
+      "bannerImage": "images/hero/image2.png"
+    },
+    "whyPartner": {
+      "title": "Why Become a National Plasto Partner?",
+      "subtitle": "Experience unmatched trade support, clear margins, and an extensive catalogue.",
+      "perks": [
+        {
+          "title": "Direct Factory Pricing",
+          "desc": "Enjoy Tier-1 manufacturer margins with no intermediary cuts."
+        },
+        {
+          "title": "Priority Plant Dispatch",
+          "desc": "Orders dispatched within 24-48 hours from nearest production hub."
+        },
+        {
+          "title": "Exclusive Brand Territories",
+          "desc": "Protected regional distribution rights for qualified stocking dealers."
+        },
+        {
+          "title": "Comprehensive POS & Marketing",
+          "desc": "Free display stands, flex banners, product sample kits, and digital catalogues."
+        },
+        {
+          "title": "100% Replacement Guarantee",
+          "desc": "Hassle-free replacement for any transit damage or manufacturing imperfections."
+        },
+        {
+          "title": "Annual Volume Rebates",
+          "desc": "Tiered incentives and annual bonus schemes for high-performing partners."
+        }
+      ]
+    },
+    "process": {
+      "title": "4 Simple Steps to Dealership",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Apply Online",
+          "desc": "Submit your dealership interest form with firm details and GST number."
+        },
+        {
+          "step": "02",
+          "title": "Regional Verification",
+          "desc": "Our regional sales manager connects with you to discuss territory and demand."
+        },
+        {
+          "step": "03",
+          "title": "Dealership Agreement",
+          "desc": "Finalize credit terms, catalog selection, and onboarding documentation."
+        },
+        {
+          "step": "04",
+          "title": "First Dispatch",
+          "desc": "Receive your initial curated stock with complimentary marketing kits."
+        }
+      ]
+    },
+    "contactInfo": {
+      "hotline": "+91 98300 12345",
+      "email": "dealer@nationalplasto.com",
+      "hours": "Monday – Saturday: 9:30 AM to 6:30 PM",
+      "portalNotice": "Existing dealers can log in to check dispatch invoices and LR status."
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact National Plasto",
+      "subtitle": "Reach out to our corporate headquarters, manufacturing plants, or dealership helpdesk.",
+      "bannerImage": "images/brand/company-photo.jpg"
+    },
+    "corporateOffice": {
+      "title": "National Plasto Products Pvt. Ltd. (Head Office)",
+      "address": "135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata, West Bengal 700026",
+      "phone": "+91 98300 12345",
+      "landline": "+91 33 2289 1234",
+      "email": "info@nationalplasto.com",
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=135G+Shyama+Prasad+Mukherjee+Road%2C+Sterling+Apartment%2C+Kolkata%2C+West+Bengal+700026"
+    },
+    "factories": [
+      {
+        "name": "Howrah Plant (West Bengal)",
+        "address": "Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411",
+        "phone": "+91 33 2669 0001",
+        "email": "howrah@nationalplasto.com"
+      },
+      {
+        "name": "Guwahati Plant (Assam)",
+        "address": "E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031",
+        "phone": "+91 361 284 0002",
+        "email": "guwahati@nationalplasto.com"
+      },
+      {
+        "name": "Roorkee Plant (Uttarakhand)",
+        "address": "Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661",
+        "phone": "+91 1332 235 003",
+        "email": "roorkee@nationalplasto.com"
+      },
+      {
+        "name": "Hajipur Plant (Bihar)",
+        "address": "EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101",
+        "phone": "+91 6224 271 004",
+        "email": "hajipur@nationalplasto.com"
+      }
+    ],
+    "supportChannels": {
+      "general": "info@nationalplasto.com",
+      "dealership": "dealer@nationalplasto.com",
+      "sales": "sales@nationalplasto.com",
+      "tollFree": "1800 123 4567",
+      "whatsapp": "+91 98300 12345"
+    }
+  },
+  "policies": {
+    "hero": {
+      "title": "Policies, Warranty & Consumer Care",
+      "subtitle": "Our commitment to quality, consumer trust, data privacy, and ethical manufacturing practices."
+    },
+    "qualityWarranty": {
+      "title": "Quality Standards & 1-Year Structural Warranty",
+      "text": "National Plasto products are manufactured using 100% virgin polypropylene and precision computer-aided tooling. We warrant our moulded furniture against manufacturing structural defects, premature stress cracking, and unintended moulding flaws for a period of one (1) year from the date of retail purchase. This warranty does not cover normal wear and tear, intentional misuse, or exposure to excessive open heat sources."
+    },
+    "privacy": {
+      "title": "Privacy & Data Protection Policy",
+      "text": "National Plasto respects your privacy. We collect minimal personal information (such as your name, business name, telephone number, and email address) exclusively to respond to your commercial inquiries, facilitate dealership applications, and fulfill catalogue requests. We do not sell, rent, or disclose your personal information to any third parties without your explicit consent."
+    },
+    "returnsReplacement": {
+      "title": "Return & Replacement Policy",
+      "text": "For retail and institutional buyers, goods damaged during transit or found with manufacturing faults upon arrival must be reported within 48 hours of delivery along with photographic evidence. Our authorized dealership network or regional trade depot will promptly inspect and issue a 100% free product replacement."
+    },
+    "shippingDispatch": {
+      "title": "Logistics, Shipping & Pan-India Dispatch",
+      "text": "With four strategically positioned production plants in Howrah, Guwahati, Roorkee, and Hajipur, National Plasto guarantees direct-to-warehouse dispatch within 24 to 48 hours of order confirmation. Transit times generally range from 1 to 4 business days depending on dealer destination across India."
+    }
+  </script>
+
+  <script src="js/admin.js?v=20261027_sync_all_pages_v3"></script>
 </body>
 </html>
