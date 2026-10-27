@@ -100,7 +100,7 @@ const fullCMS = {
         { value: "4", unit: "Brands", label: "Brands & Divisions" },
         { value: "1,200", unit: "+", label: "Products in Range" },
         { value: "500", unit: "+", label: "Distributors & Dealers" },
-        { value: "150", unit: "+", label: "Workforce Strength" },
+        { value: "1000", unit: "+", label: "Workforce Strength" },
         { value: "ISO · CE · BIFMA", unit: "", label: "Certified Plants" }
       ]
     },
@@ -196,7 +196,7 @@ const fullCMS = {
     },
     touchingLives: {
       title: "Furniture For Every Community",
-      desc: "From classrooms and community halls to homes in Tier 2 and Tier 3 towns, National Plasto makes durable seating affordable for everyone. We give used plastic a second life through our reprocessed ranges, keep our 150+ strong workforce safe under ISO 45001, and grow together with the dealers and families who depend on us.",
+      desc: "From classrooms and community halls to homes in Tier 2 and Tier 3 towns, National Plasto makes durable seating affordable for everyone. We give used plastic a second life through our reprocessed ranges, keep our 1,000+ strong workforce safe under ISO 45001, and grow together with the dealers and families who depend on us.",
       image: "images/brand/furniture-for-every-community.jpg",
       btnText: "Our Values",
       btnLink: "about.html"

@@ -178,7 +178,7 @@ const cmsPanelHtml = `
                   <div class="cms-item-box"><div class="cms-item-box-title">Brands</div><input type="text" id="cms_home_stat_3" class="form-control" placeholder="4 Brands"></div>
                   <div class="cms-item-box"><div class="cms-item-box-title">SKUs</div><input type="text" id="cms_home_stat_4" class="form-control" placeholder="1,200+ Products"></div>
                   <div class="cms-item-box"><div class="cms-item-box-title">Dealers</div><input type="text" id="cms_home_stat_5" class="form-control" placeholder="500+ Dealers"></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Workforce</div><input type="text" id="cms_home_stat_6" class="form-control" placeholder="150+ Workforce"></div>
+                  <div class="cms-item-box"><div class="cms-item-box-title">Workforce</div><input type="text" id="cms_home_stat_6" class="form-control" placeholder="1,000+ Workforce"></div>
                   <div class="cms-item-box"><div class="cms-item-box-title">Certifications</div><input type="text" id="cms_home_stat_7" class="form-control" placeholder="ISO · CE · BIFMA"></div>
                 </div>
               </div>
