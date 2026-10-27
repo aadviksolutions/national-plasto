@@ -570,26 +570,28 @@
   prodImageUploadInput.addEventListener('change', async function () {
     if (this.files && this.files[0]) {
       const file = this.files[0];
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        prodPrimaryImage.value = e.target.result;
-        prodImagePreview.src = e.target.result;
+      showToast(`Optimizing "${file.name}"...`, 'info');
+      try {
+        const compressed = await compressImageFile(file, 900, 900, 0.82);
+        prodPrimaryImage.value = compressed;
+        prodImagePreview.src = compressed;
         prodImagePreviewWrap.style.display = 'block';
         showToast('Photo selected and preview ready!');
-      };
-      reader.readAsDataURL(file);
 
-      // Try server upload if available
-      try {
-        const formData = new FormData();
-        formData.append('files', file);
-        const res = await fetch('/api/upload', { method: 'POST', body: formData }).then((r) => r.json());
-        if (res && res.success && res.files && res.files[0]) {
-          prodPrimaryImage.value = res.files[0].url.replace(/^\//, ''); // Clean leading slash
-          prodImagePreview.src = prodPrimaryImage.value;
+        // Try server upload if available
+        try {
+          const formData = new FormData();
+          formData.append('files', file);
+          const res = await fetch('/api/upload', { method: 'POST', body: formData }).then((r) => r.json());
+          if (res && res.success && res.files && res.files[0]) {
+            prodPrimaryImage.value = res.files[0].url.replace(/^\//, ''); // Clean leading slash
+            prodImagePreview.src = prodPrimaryImage.value;
+          }
+        } catch (err) {
+          console.warn('Server upload skipped in Cloud Mode, using Data URL');
         }
-      } catch (err) {
-        console.warn('Server upload skipped in Cloud Mode, using Data URL');
+      } catch (e) {
+        showToast('Error processing product photo: ' + e.message, 'danger');
       }
     }
   });
@@ -766,6 +768,137 @@
     navigateTo('cms');
   };
 
+  // ================= 4.5 CLIENT-SIDE PERSISTENCE & IMAGE COMPRESSION (INDEXEDDB + CANVAS) =================
+  const DB_NAME = 'np_cms_db';
+  const DB_VERSION = 1;
+  const STORE_NAME = 'cms_store';
+
+  function getDB() {
+    return new Promise((resolve) => {
+      if (typeof window === 'undefined' || !window.indexedDB) return resolve(null);
+      try {
+        const req = window.indexedDB.open(DB_NAME, DB_VERSION);
+        req.onupgradeneeded = function (e) {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME);
+          }
+        };
+        req.onsuccess = function (e) {
+          resolve(e.target.result);
+        };
+        req.onerror = function () {
+          resolve(null);
+        };
+      } catch (_) {
+        resolve(null);
+      }
+    });
+  }
+
+  const idbStorage = {
+    async get(key) {
+      const db = await getDB();
+      if (!db) return null;
+      return new Promise((resolve) => {
+        try {
+          const tx = db.transaction(STORE_NAME, 'readonly');
+          const store = tx.objectStore(STORE_NAME);
+          const req = store.get(key);
+          req.onsuccess = () => resolve(req.result || null);
+          req.onerror = () => resolve(null);
+        } catch (_) {
+          resolve(null);
+        }
+      });
+    },
+    async set(key, value) {
+      const db = await getDB();
+      if (!db) return false;
+      return new Promise((resolve) => {
+        try {
+          const tx = db.transaction(STORE_NAME, 'readwrite');
+          const store = tx.objectStore(STORE_NAME);
+          const req = store.put(value, key);
+          req.onsuccess = () => resolve(true);
+          req.onerror = () => resolve(false);
+        } catch (_) {
+          resolve(false);
+        }
+      });
+    },
+    async remove(key) {
+      const db = await getDB();
+      if (!db) return false;
+      return new Promise((resolve) => {
+        try {
+          const tx = db.transaction(STORE_NAME, 'readwrite');
+          const store = tx.objectStore(STORE_NAME);
+          const req = store.delete(key);
+          req.onsuccess = () => resolve(true);
+          req.onerror = () => resolve(false);
+        } catch (_) {
+          resolve(false);
+        }
+      });
+    }
+  };
+
+  // Safe client-side image compression: converts heavy 5MB-10MB photos into lightweight ~70KB-120KB Web JPEGs
+  function compressImageFile(file, maxWidth = 1200, maxHeight = 900, quality = 0.82) {
+    return new Promise((resolve, reject) => {
+      if (!file) return reject(new Error('No file provided'));
+      if (file.type === 'image/svg+xml' || (file.size < 40 * 1024 && file.type === 'image/png')) {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          let width = img.width;
+          let height = img.height;
+
+          // Proportional scaling
+          if (width > maxWidth || height > maxHeight) {
+            if (width / height > maxWidth / maxHeight) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            } else {
+              width = Math.round((width * maxHeight) / height);
+              height = maxHeight;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+
+          if (file.type !== 'image/png') {
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, width, height);
+          }
+
+          ctx.drawImage(img, 0, 0, width, height);
+          const outType = (file.type === 'image/png' && file.size < 250 * 1024) ? 'image/png' : 'image/jpeg';
+          const compressed = canvas.toDataURL(outType, quality);
+          resolve(compressed);
+        };
+        img.onerror = () => resolve(e.target.result);
+        img.src = e.target.result;
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
   window.uploadImageForField = function (targetId) {
     let fileInput = document.getElementById('cmsGlobalImagePicker');
     if (!fileInput) {
@@ -777,19 +910,17 @@
       document.body.appendChild(fileInput);
     }
 
-    fileInput.onchange = function () {
+    fileInput.onchange = async function () {
       if (!fileInput.files || !fileInput.files[0]) return;
       const file = fileInput.files[0];
 
-      if (file.size > 8 * 1024 * 1024) {
-        showToast('Image is larger than 8MB. Consider optimizing for fast loading.', 'warning');
-      }
+      showToast(`Optimizing "${file.name}"...`, 'info');
 
-      showToast(`Loading "${file.name}"...`, 'info');
-
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const dataUrl = e.target.result;
+      try {
+        const isBanner = targetId.includes('hero') || targetId.includes('banner');
+        const maxW = isBanner ? 1400 : 900;
+        const maxH = isBanner ? 900 : 800;
+        const dataUrl = await compressImageFile(file, maxW, maxH, 0.82);
 
         // 1. Update the target input field value and fire events
         const inputEl = document.getElementById(targetId);
@@ -813,21 +944,23 @@
           preview.style.display = 'block';
         }
 
-        // 3. Save to Custom Media Library in localStorage so it appears in the Media tab
+        // 3. Save to Custom Media Library in IndexedDB and lean localStorage
         const mediaItem = {
           name: file.name,
           url: dataUrl,
           tag: 'Uploads',
-          size: file.size,
+          size: Math.round(dataUrl.length * 0.75),
           mtime: Date.now()
         };
+        allMedia = [mediaItem, ...(allMedia || [])];
+        await idbStorage.set('np_custom_media', allMedia);
+
+        // Keep localStorage lean (only 3 items max) so it never causes quota failure
         try {
-          const existingStr = localStorage.getItem('np_custom_media');
-          const existing = existingStr ? JSON.parse(existingStr) : [];
-          localStorage.setItem('np_custom_media', JSON.stringify([mediaItem, ...existing]));
-          allMedia = [mediaItem, ...(allMedia || [])];
-        } catch (storageErr) {
-          console.warn('LocalStorage media error (quota):', storageErr);
+          const leanMedia = (allMedia || []).slice(0, 3);
+          localStorage.setItem('np_custom_media', JSON.stringify(leanMedia));
+        } catch (_) {
+          try { localStorage.removeItem('np_custom_media'); } catch (_) {}
         }
 
         // 4. If server backend is reachable, upload in parallel
@@ -837,16 +970,13 @@
           fetch('/api/upload', { method: 'POST', body: fd }).catch(() => {});
         } catch (_) {}
 
-        showToast(`"${file.name}" uploaded! Preview updated. Click "Save" on bottom bar to publish.`, 'success');
+        showToast(`"${file.name}" uploaded and optimized! Click "Save" below to publish.`, 'success');
+      } catch (err) {
+        console.error('Upload processing error:', err);
+        showToast('Failed to process image: ' + err.message, 'danger');
+      } finally {
         fileInput.value = '';
-      };
-
-      reader.onerror = function () {
-        showToast('Failed to read file from your device.', 'danger');
-        fileInput.value = '';
-      };
-
-      reader.readAsDataURL(file);
+      }
     };
 
     fileInput.click();
@@ -873,18 +1003,24 @@
         populateCMSForms();
       }
 
-      // 2. Check client overrides from localStorage (if any valid customizations exist)
-      const cached = localStorage.getItem('np_custom_cms');
-      if (cached) {
-        try {
-          const parsed = JSON.parse(cached);
-          if (parsed && typeof parsed === 'object' && Object.keys(parsed).length > 0) {
-            // Merge so master structure is preserved
-            cmsData = Object.assign({}, masterCMS || {}, parsed);
-            populateCMSForms();
-            return;
-          }
-        } catch (e) {}
+      // 2. Check IndexedDB first (holds richest customizations without quota limits)
+      let customData = await idbStorage.get('np_custom_cms');
+
+      // 3. Fallback to localStorage
+      if (!customData) {
+        const cached = localStorage.getItem('np_custom_cms');
+        if (cached) {
+          try {
+            const parsed = JSON.parse(cached);
+            if (parsed && typeof parsed === 'object') customData = parsed;
+          } catch (e) {}
+        }
+      }
+
+      if (customData && typeof customData === 'object' && Object.keys(customData).length > 0) {
+        cmsData = Object.assign({}, masterCMS || {}, customData);
+        populateCMSForms();
+        return;
       }
 
       // 3. Fallback to static fetch if master data wasn't in DOM
@@ -1426,8 +1562,21 @@
         };
       }
 
-      // Always persist in browser storage for instant cloud availability
-      localStorage.setItem('np_custom_cms', JSON.stringify(cmsData));
+      // 1. Always persist in IndexedDB (virtually unlimited capacity, zero quota limits)
+      await idbStorage.set('np_custom_cms', cmsData);
+
+      // 2. Also persist to localStorage for fast synchronous bootstrap if within quota
+      try {
+        localStorage.setItem('np_custom_cms', JSON.stringify(cmsData));
+      } catch (quotaErr) {
+        console.warn('LocalStorage quota reached. Purging temporary media cache:', quotaErr);
+        try {
+          localStorage.removeItem('np_custom_media');
+          localStorage.setItem('np_custom_cms', JSON.stringify(cmsData));
+        } catch (_) {
+          console.warn('LocalStorage quota still exceeded, saved safely in IndexedDB without data loss.');
+        }
+      }
 
       // Attempt server sync if available
       try {
@@ -1511,15 +1660,20 @@
         }
       }
 
-      // Merge custom uploaded images from localStorage
-      const customMediaStr = localStorage.getItem('np_custom_media');
-      if (customMediaStr) {
-        try {
-          const customMedia = JSON.parse(customMediaStr);
-          if (Array.isArray(customMedia)) {
-            allMedia = [...customMedia, ...allMedia];
-          }
-        } catch (e) {}
+      // Merge custom uploaded images from IndexedDB (first) or localStorage
+      const idbMedia = await idbStorage.get('np_custom_media');
+      if (Array.isArray(idbMedia) && idbMedia.length > 0) {
+        allMedia = [...idbMedia, ...allMedia];
+      } else {
+        const customMediaStr = localStorage.getItem('np_custom_media');
+        if (customMediaStr) {
+          try {
+            const customMedia = JSON.parse(customMediaStr);
+            if (Array.isArray(customMedia)) {
+              allMedia = [...customMedia, ...allMedia];
+            }
+          } catch (e) {}
+        }
       }
 
       document.getElementById('mediaCount').textContent = allMedia.length;
@@ -1632,41 +1786,40 @@
   });
 
   async function uploadFiles(fileList) {
-    showToast(`Processing ${fileList.length} file(s)...`);
+    showToast(`Optimizing & uploading ${fileList.length} file(s)...`);
 
     const newMediaItems = [];
-    const readPromises = [];
 
     for (let i = 0; i < fileList.length; i++) {
       const file = fileList[i];
-      const p = new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const item = {
-            name: file.name,
-            url: e.target.result,
-            tag: 'Uploads',
-            size: file.size,
-            mtime: Date.now()
-          };
-          newMediaItems.push(item);
-          resolve();
+      try {
+        const compressedUrl = await compressImageFile(file, 1200, 900, 0.82);
+        const item = {
+          name: file.name,
+          url: compressedUrl,
+          tag: 'Uploads',
+          size: Math.round(compressedUrl.length * 0.75),
+          mtime: Date.now()
         };
-        reader.readAsDataURL(file);
-      });
-      readPromises.push(p);
+        newMediaItems.push(item);
+      } catch (err) {
+        console.warn('Error processing media file:', file.name, err);
+      }
     }
-
-    await Promise.all(readPromises);
-
-    // Save to localStorage
-    const existingStr = localStorage.getItem('np_custom_media');
-    const existing = existingStr ? JSON.parse(existingStr) : [];
-    const updated = [...newMediaItems, ...existing];
-    localStorage.setItem('np_custom_media', JSON.stringify(updated));
 
     // Prepend to current in-memory media list
     allMedia = [...newMediaItems, ...allMedia];
+
+    // Save to IndexedDB (virtually unlimited capacity)
+    await idbStorage.set('np_custom_media', allMedia);
+
+    // Keep localStorage lean (only 3 recent items max)
+    try {
+      const lean = allMedia.slice(0, 3);
+      localStorage.setItem('np_custom_media', JSON.stringify(lean));
+    } catch (_) {
+      try { localStorage.removeItem('np_custom_media'); } catch (_) {}
+    }
 
     // Try server upload if available
     try {
@@ -1679,9 +1832,10 @@
       console.warn('Server upload skipped in Cloud Mode');
     }
 
-    showToast(`${newMediaItems.length} file(s) ready in Media Library!`);
     renderMediaGrid();
+    document.getElementById('mediaCount').textContent = allMedia.length;
     await loadStats();
+    showToast(`Added ${newMediaItems.length} optimized photo(s) to Media Library!`);
   }
 
   // --- Media Picker Modal for CMS and Products ---
@@ -1792,14 +1946,26 @@
     showToast('Downloaded products.json, cms-content.json, and catalogue-2026.js!');
   };
 
-  window.resetToPublishedDefaults = function () {
+  window.resetToPublishedDefaults = async function () {
     if (!confirm('Are you sure you want to reset all browser overrides back to published site defaults? Any unpublished browser edits will be cleared.')) return;
     localStorage.removeItem('np_custom_products');
     localStorage.removeItem('np_custom_cms');
     localStorage.removeItem('np_custom_media');
+    await idbStorage.remove('np_custom_cms');
+    await idbStorage.remove('np_custom_media');
     showToast('Reset to published defaults. Reloading...');
     setTimeout(() => window.location.reload(), 800);
   };
+
+  // Self-heal any bloated local storage from previous uncompressed uploads
+  try {
+    const existingMedia = localStorage.getItem('np_custom_media');
+    if (existingMedia && existingMedia.length > 500000) {
+      const parsed = JSON.parse(existingMedia);
+      idbStorage.set('np_custom_media', parsed);
+      localStorage.setItem('np_custom_media', JSON.stringify(parsed.slice(0, 2)));
+    }
+  } catch (_) {}
 
   // Start app by checking authentication
   checkAuth();

@@ -5,34 +5,69 @@
 (function () {
   'use strict';
 
-  function fetchCMSData() {
-    try {
-      var localCMS = localStorage.getItem('np_custom_cms');
-      if (localCMS) {
-        var parsed = JSON.parse(localCMS);
-        if (parsed && typeof parsed === 'object') {
-          return Promise.resolve(parsed);
-        }
-      }
-    } catch (e) {}
+  var DB_NAME = 'np_cms_db';
+  var DB_VERSION = 1;
+  var STORE_NAME = 'cms_store';
 
-    return fetch('/api/cms?t=' + Date.now())
-      .then(function (res) {
-        var ct = res.headers.get('content-type') || '';
-        if (!res.ok || !ct.includes('application/json')) throw new Error('API not available');
-        return res.json();
-      })
-      .then(function (res) {
-        return res.data || res;
-      })
-      .catch(function () {
-        return fetch('data/cms-content.json?t=' + Date.now())
-          .then(function (res) { return res.json(); })
-          .catch(function (err) {
-            console.warn('[CMS Loader] Fallback JSON error:', err);
-            return null;
-          });
-      });
+  function getIdbData(key) {
+    if (typeof window === 'undefined' || !window.indexedDB) return Promise.resolve(null);
+    return new Promise(function (resolve) {
+      try {
+        var req = window.indexedDB.open(DB_NAME, DB_VERSION);
+        req.onupgradeneeded = function (e) {
+          var db = e.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME);
+          }
+        };
+        req.onsuccess = function (e) {
+          var db = e.target.result;
+          try {
+            var tx = db.transaction(STORE_NAME, 'readonly');
+            var store = tx.objectStore(STORE_NAME);
+            var getReq = store.get(key);
+            getReq.onsuccess = function () { resolve(getReq.result || null); };
+            getReq.onerror = function () { resolve(null); };
+          } catch (_) { resolve(null); }
+        };
+        req.onerror = function () { resolve(null); };
+      } catch (_) { resolve(null); }
+    });
+  }
+
+  function fetchCMSData() {
+    return getIdbData('np_custom_cms').then(function (idbCMS) {
+      if (idbCMS && typeof idbCMS === 'object' && Object.keys(idbCMS).length > 0) {
+        return idbCMS;
+      }
+      try {
+        var localCMS = localStorage.getItem('np_custom_cms');
+        if (localCMS) {
+          var parsed = JSON.parse(localCMS);
+          if (parsed && typeof parsed === 'object') {
+            return parsed;
+          }
+        }
+      } catch (e) {}
+
+      return fetch('/api/cms?t=' + Date.now())
+        .then(function (res) {
+          var ct = res.headers.get('content-type') || '';
+          if (!res.ok || !ct.includes('application/json')) throw new Error('API not available');
+          return res.json();
+        })
+        .then(function (res) {
+          return res.data || res;
+        })
+        .catch(function () {
+          return fetch('data/cms-content.json?t=' + Date.now())
+            .then(function (res) { return res.json(); })
+            .catch(function (err) {
+              console.warn('[CMS Loader] Fallback JSON error:', err);
+              return null;
+            });
+        });
+    });
   }
 
   function getNested(obj, path) {
