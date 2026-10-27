@@ -2943,7 +2943,7 @@
   <!-- Core JS dependencies -->
   <script src="js/jquery.min.js"></script>
   <script src="js/slick.min.js"></script>
-  <script src="js/supreme_app.min.js?v=20261013_div_v2"></script>
+  <script src="js/supreme_app.min.js?v=20261027_virtues_pause"></script>
   <script src="js/supreme_mobile.js?v=20260926"></script>
 
   <!-- Supreme 1:1 Homepage Slick Initializations -->
@@ -2961,6 +2961,66 @@
             $titles.eq(currentIndex).addClass('is-active');
           }, intervalMs);
         }
+      })();
+
+      // National Plasto Virtues Slider — Pause on mouse hover (desktop) & mobile view (touch / swipe / tap)
+      (function initVirtuesSliderPause() {
+        var $slider = $('#virtues_slider');
+        var $section = $('.virtues_main');
+
+        function setupVirtuesPause() {
+          if (!$slider.length) return;
+
+          // Enable Slick native pause options
+          if ($slider.hasClass('slick-initialized')) {
+            $slider.slick('slickSetOption', 'pauseOnHover', true, true);
+            $slider.slick('slickSetOption', 'pauseOnFocus', true, true);
+            $slider.slick('slickSetOption', 'pauseOnDotsHover', true, true);
+          }
+
+          // Desktop: Pause when mouse cursor enters section or any card, resume when leaving
+          $section.add($slider).off('.npVirtuesHover')
+            .on('mouseenter.npVirtuesHover pointerenter.npVirtuesHover', function () {
+              if ($slider.hasClass('slick-initialized')) {
+                $slider.slick('slickPause');
+              }
+            })
+            .on('mouseleave.npVirtuesHover pointerleave.npVirtuesHover', function () {
+              if ($slider.hasClass('slick-initialized')) {
+                $slider.slick('slickPlay');
+              }
+            });
+
+          // Mobile View: Pause on touch, swipe, tap, or scroll interaction over virtues section
+          var mobileResumeTimer = null;
+          $section.add($slider).off('.npVirtuesTouch')
+            .on('touchstart.npVirtuesTouch pointerdown.npVirtuesTouch', function () {
+              if (mobileResumeTimer) clearTimeout(mobileResumeTimer);
+              if ($slider.hasClass('slick-initialized')) {
+                $slider.slick('slickPause');
+              }
+            })
+            .on('touchend.npVirtuesTouch pointerup.npVirtuesTouch touchcancel.npVirtuesTouch', function () {
+              if (mobileResumeTimer) clearTimeout(mobileResumeTimer);
+              // Keeps slider paused while user is reading on mobile; resumes after 8s of inactivity
+              mobileResumeTimer = setTimeout(function () {
+                if ($slider.hasClass('slick-initialized')) {
+                  $slider.slick('slickPlay');
+                }
+              }, 8000);
+            });
+
+          // Card Click/Tap: ensure it stays paused while reading
+          $slider.find('.item_box, .item').off('.npCardClick').on('click.npCardClick', function () {
+            if ($slider.hasClass('slick-initialized')) {
+              $slider.slick('slickPause');
+            }
+          });
+        }
+
+        setupVirtuesPause();
+        setTimeout(setupVirtuesPause, 400);
+        setTimeout(setupVirtuesPause, 1200);
       })();
 
 
