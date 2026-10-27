@@ -25,6 +25,7 @@
   <!-- Google Fonts: Poppins, Work Sans, Outfit, Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -1332,7 +1333,7 @@
       <nav>
         <div class="logo_section">
           <a href="index.html" class="rem_link_style">
-            <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive">
+            <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive" decoding="async" loading="eager" fetchpriority="high">
           </a>
         </div>
         <ul class="menu">
@@ -1370,7 +1371,7 @@
           <li class="header_social search_icon">
             <div class="search_main_box remove_box">
               <a class="icon_open_close" href="#" onclick="searchToggle(this, event);" aria-label="Toggle Search">
-                <img src="images/icons/search_icon.svg" alt="Search">
+                <img src="images/icons/search_icon.svg" alt="Search" decoding="async" loading="lazy">
                 <i class="fas fa-times"></i>
               </a>
               <div class="search_box">
@@ -1426,12 +1427,12 @@
       <span></span>
     </div>
     <a href="index.html" class="rem_link_style mobile_logo_center">
-      <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive navbar_logo">
+      <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive navbar_logo" decoding="async" loading="eager" fetchpriority="high">
     </a>
     <div class="search_main_box">
       <a class="icon_open_close" href="javascript:void(0);" onclick="searchToggle(this, event);"
         aria-label="Toggle Search">
-        <img src="images/icons/search_icon.svg" alt="Search">
+        <img src="images/icons/search_icon.svg" alt="Search" decoding="async" loading="lazy">
         <i class="fas fa-times"></i>
       </a>
       <div class="search_box">
@@ -1524,7 +1525,7 @@
 
     <!-- Video Only Background: Continuous playback across all titles -->
     <div class="banner_img np-hero-bg-video-wrap">
-      <video class="np-hero-video" autoplay muted loop playsinline poster="images/hero/overview-video-poster.jpg">
+      <video class="np-hero-video" autoplay muted loop playsinline preload="metadata" poster="images/hero/overview-video-poster.jpg">
         <source src="videos/hero/national-plasto-overview.mp4" type="video/mp4">
       </video>
     </div>
@@ -1557,7 +1558,7 @@
           <div class="item color_one">
             <div class="content">
               <div class="icon_img">
-                <img src="images/icons/hand.gif" alt="icon">
+                <img src="images/icons/hand.gif" alt="icon" decoding="async" loading="lazy">
               </div>
               <h4 class="subheading-text">Integrity</h4>
               <p class="para-text">Our mission is to operate with integrity, foster a culture of the utmost respect for
@@ -1570,7 +1571,7 @@
           <div class="item color_two">
             <div class="content">
               <div class="icon_img">
-                <img src="images/icons/peoples.gif" alt="icon">
+                <img src="images/icons/peoples.gif" alt="icon" decoding="async" loading="lazy">
               </div>
               <h4 class="subheading-text">Customer Centricity</h4>
               <p class="para-text">With continuous innovation and efficiency, we aim to provide consistent products
@@ -1583,7 +1584,7 @@
           <div class="item color_three">
             <div class="content">
               <div class="icon_img">
-                <img src="images/icons/delivering_excellence.gif" alt="icon">
+                <img src="images/icons/delivering_excellence.gif" alt="icon" decoding="async" loading="lazy">
               </div>
               <h4 class="subheading-text">Delivering Excellence</h4>
               <p class="para-text">Our innovations have been backed by unparalleled quality that has withstood the
@@ -1596,7 +1597,7 @@
           <div class="item color_four">
             <div class="content">
               <div class="icon_img">
-                <img src="images/icons/innovation.gif" alt="icon">
+                <img src="images/icons/innovation.gif" alt="icon" decoding="async" loading="lazy">
               </div>
               <h4 class="subheading-text">Innovation</h4>
               <p class="para-text">Painstaking efforts and research behind every new development help us serve
@@ -1609,7 +1610,7 @@
           <div class="item color_two">
             <div class="content">
               <div class="icon_img">
-                <img src="images/icons/people_first.gif" alt="icon">
+                <img src="images/icons/people_first.gif" alt="icon" decoding="async" loading="lazy">
               </div>
               <h4 class="subheading-text">People First</h4>
               <p class="para-text">National Plasto has always placed a great emphasis on taking care of those who are
@@ -1622,7 +1623,7 @@
           <div class="item color_five">
             <div class="content">
               <div class="icon_img">
-                <img src="images/icons/empowerment.gif" alt="icon">
+                <img src="images/icons/empowerment.gif" alt="icon" decoding="async" loading="lazy">
               </div>
               <h4 class="subheading-text">Empowerment</h4>
               <p class="para-text">Our team of experts and our workforce are our biggest assets. Empowering them every
@@ -1640,15 +1641,15 @@
       <div class="testimonial_flex">
         <div class="testimonial_img" data-scroll>
           <img src="images/team/ratan-kumar-sharma-cutout.webp" loading="eager" class="img-responsive np-cmd-cutout"
-            width="692" height="762" alt="Mr. Ratan Kumar Sharma, Chairman &amp; Managing Director">
+            width="692" height="762" alt="Mr. Ratan Kumar Sharma, Chairman &amp; Managing Director" decoding="async">
         </div>
         <div class="testimonial_content toTop" data-scroll>
           <p class="para-text color_para np-cmd-quote"><span class="quate_img"><img src="images/quate_one.jpg"
-                alt="icon"></span><span>Every business goes through difficult phases. What matters is not avoiding
+                alt="icon" decoding="async" loading="lazy"></span><span>Every business goes through difficult phases. What matters is not avoiding
               losses, but learning from them and growing bigger and better each time. My father taught me that how you
               treat people matters as much as how you run a business &mdash; that belief has shaped this company since
               1997, and it continues to guide how we build for the future.<img class="quate_two"
-                src="images/quate_two.jpg" alt="icon"></span></p>
+                src="images/quate_two.jpg" alt="icon" decoding="async" loading="lazy"></span></p>
           <div class="testmonial_name">
             <h3>Ratan Kumar Sharma</h3>
             <p class="para-text color_para">Chairman &amp; Managing Director</p>
@@ -1726,7 +1727,7 @@
       <div class="plant_item" data-cms-plant-item="0">
         <img src="images/home/plant-kl850.jpg" loading="lazy" data-lazy-src="images/home/plant-kl850.jpg"
           class="img-responsive" alt="Windsor KL 850 High-Tonnage Injection Moulding Machine at Howrah Plant"
-          data-cms-plant-img="0">
+          data-cms-plant-img="0" decoding="async">
         <div class="container">
           <a class="plant_btn" href="manufacturing.html" data-cms-plant-btn="0">Windsor KL 850 High-Tonnage Injection Moulding Machine</a>
         </div>
@@ -1735,7 +1736,7 @@
         <img src="images/home/premium-furniture-range.png?v=20261027_v2" loading="lazy"
           data-lazy-src="images/home/premium-furniture-range.png?v=20261027_v2" class="img-responsive"
           alt="National Plasto Moulded Furniture Range for Home, Office, Education & Dining"
-          data-cms-plant-img="1">
+          data-cms-plant-img="1" decoding="async">
         <div class="container">
           <a class="plant_btn" href="products.html" data-cms-plant-btn="1">Explore Moulded Furniture Range</a>
         </div>
@@ -1748,7 +1749,7 @@
         <!-- Left: Clean India Map with State Borders and Pins -->
         <div class="pan_india_img np-map" id="np_map">
           <img src="images/icons/india-map.svg?v=20261028_clean_v4" class="np-map-base" alt="Pan India Presence Map - National Plasto"
-            width="612" height="696" loading="lazy">
+            width="612" height="696" loading="lazy" decoding="async">
 
           <!-- 4 Manufacturing Plants (Green) -->
           <button type="button" class="np-map-pin np-map-pin--unit" style="left:65.7%;top:50.0%" data-loc="howrah"
@@ -1978,25 +1979,25 @@
             <div class="slider_title_item is-active slick-current" data-slide="0">
               <a href="products.html?brand=next">
                 <h4 class="subheading-text">NEXT &mdash; Premium Furniture <img src="images/icons/arrow-right.svg"
-                    class="slider_arrow" alt="icon"></h4>
+                    class="slider_arrow" alt="icon" decoding="async" loading="lazy"></h4>
               </a>
             </div>
             <div class="slider_title_item" data-slide="1">
               <a href="products.html?brand=national">
                 <h4 class="subheading-text">NATIONAL &mdash; Moulded Furniture <img src="images/icons/arrow-right.svg"
-                    class="slider_arrow" alt="icon"></h4>
+                    class="slider_arrow" alt="icon" decoding="async" loading="lazy"></h4>
               </a>
             </div>
             <div class="slider_title_item" data-slide="2">
               <a href="products.html?brand=captain">
                 <h4 class="subheading-text">CAPTAIN &mdash; Economical Furniture <img src="images/icons/arrow-right.svg"
-                    class="slider_arrow" alt="icon"></h4>
+                    class="slider_arrow" alt="icon" decoding="async" loading="lazy"></h4>
               </a>
             </div>
             <div class="slider_title_item" data-slide="3">
               <a href="products.html?brand=sapphire">
                 <h4 class="subheading-text">SAPPHIRE &mdash; Value Seating <img src="images/icons/arrow-right.svg"
-                    class="slider_arrow" alt="icon"></h4>
+                    class="slider_arrow" alt="icon" decoding="async" loading="lazy"></h4>
               </a>
             </div>
           </div>
@@ -2006,19 +2007,19 @@
           <h2 class="heading-text di_show">Our <span class="color_red_home">Brands</span></h2>
           <div class="our_business_img_slider" id="business_img">
             <div class="our_business_img_item" data-slide="0">
-              <img src="images/divisions/next.jpg" class="img-responsive" alt="NEXT - Premium Furniture" loading="lazy">
+              <img src="images/divisions/next.jpg" class="img-responsive" alt="NEXT - Premium Furniture" loading="lazy" decoding="async">
             </div>
             <div class="our_business_img_item" data-slide="1">
               <img src="images/divisions/national.jpg" class="img-responsive" alt="NATIONAL - Moulded Furniture"
-                loading="lazy">
+                loading="lazy" decoding="async">
             </div>
             <div class="our_business_img_item" data-slide="2">
               <img src="images/divisions/captain.jpg" class="img-responsive" alt="CAPTAIN - Economical Furniture"
-                loading="lazy">
+                loading="lazy" decoding="async">
             </div>
             <div class="our_business_img_item" data-slide="3">
               <img src="images/divisions/sapphire.jpg" class="img-responsive" alt="SAPPHIRE - Value Seating"
-                loading="lazy">
+                loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -2042,7 +2043,7 @@
           <div class="dassed_border"></div>
           <div class="milestones_img">
             <img src="images/home/milestone-1942.jpg" loading="lazy" class="img-responsive"
-              alt="Foundational Roots 1981 - Sharma Family Industrial Legacy">
+              alt="Foundational Roots 1981 - Sharma Family Industrial Legacy" decoding="async">
           </div>
           <div class="milestones_content">
             <h2 class="heading-text"><span class="color_red_home fonthigh">1981</span></h2>
@@ -2057,7 +2058,7 @@
           <div class="dassed_border"></div>
           <div class="milestones_img">
             <img src="images/home/milestone-1997.jpg?v=2" loading="lazy" class="img-responsive"
-              alt="National Plasto Foundation 1997 - Advanced Injection Moulding Inception">
+              alt="National Plasto Foundation 1997 - Advanced Injection Moulding Inception" decoding="async">
           </div>
           <div class="milestones_content">
             <h2 class="heading-text"><span class="color_red_home fonthigh">1997</span></h2>
@@ -2072,7 +2073,7 @@
           <div class="dassed_border"></div>
           <div class="milestones_img">
             <img src="images/home/milestone-2007.jpg" loading="lazy" class="img-responsive"
-              alt="National Plasto 2007 - Guwahati Plant &amp; Regional Expansion">
+              alt="National Plasto 2007 - Guwahati Plant &amp; Regional Expansion" decoding="async">
           </div>
           <div class="milestones_content">
             <h2 class="heading-text"><span class="color_red_home fonthigh">2007</span></h2>
@@ -2086,7 +2087,7 @@
           <div class="dassed_border"></div>
           <div class="milestones_img">
             <img src="images/home/milestone-2010.jpg" loading="lazy" class="img-responsive"
-              alt="National Plasto 2010 - Roorkee and Hajipur Expansion">
+              alt="National Plasto 2010 - Roorkee and Hajipur Expansion" decoding="async">
           </div>
           <div class="milestones_content">
             <h2 class="heading-text"><span class="color_red_home fonthigh">2010</span></h2>
@@ -2101,7 +2102,7 @@
           <div class="dassed_border"></div>
           <div class="milestones_img">
             <img src="images/home/milestone-2026.jpg" loading="lazy" class="img-responsive"
-              alt="National Plasto 2026 - Modern Manufacturing Complex &amp; Nationwide Legacy">
+              alt="National Plasto 2026 - Modern Manufacturing Complex &amp; Nationwide Legacy" decoding="async">
           </div>
           <div class="milestones_content">
             <h2 class="heading-text"><span class="color_red_home fonthigh">2026</span></h2>
@@ -2172,7 +2173,7 @@
               data-desc="18 years of association with National Plasto &mdash; praising premium plastic moulded furniture strength, finish, and strong consumer demand.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/1.jpg" loading="lazy" alt="Shyam Furniture, Jhansi"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2194,7 +2195,7 @@
               data-desc="Uncompromising plastic moulded furniture durability, transparent business dealings, and high customer retention.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/2.jpg" loading="lazy" alt="Wholesale Stockist"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2215,7 +2216,7 @@
               data-desc="Associated with National Plasto since 2018; rapid stock movement and exceptional quality in dining sets &amp; chairs.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/12.jpg" loading="lazy" alt="New Chhattisgarh Traders"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2237,7 +2238,7 @@
               data-desc="10+ years as NPPL Distributor &mdash; superior mould designs, premium gloss finish, and outstanding dealer support.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/13.jpg" loading="lazy" alt="Sachin Agarwal - Vishnu Furniture"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2259,7 +2260,7 @@
               data-desc="Heartfelt appreciation for National Plasto leadership; family-like relationship, mutual respect, and unwavering trust.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/19.jpg" loading="lazy" alt="Sumit Kumar Singh - Vijay Enterprises"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2281,7 +2282,7 @@
               data-desc="Extensive product diversity across all 4 brands &mdash; NEXT, NATIONAL, SAPPHIRE &amp; CAPTAIN at highly competitive pricing.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/21.jpg" loading="lazy" alt="Abhishek Banka - AK Steel Furniture"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2302,7 +2303,7 @@
               data-desc="10+ years partnership in plastic furniture wholesale; continuous new model launches and 100% issue-free service.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/22.jpg" loading="lazy" alt="Santoshi Distributors, Bhubaneswar"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2326,7 +2327,7 @@
               data-desc="18 years of association with National Plasto &mdash; praising premium plastic moulded furniture strength, finish, and strong consumer demand.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/1.jpg" loading="lazy" alt="Shyam Furniture, Jhansi"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2348,7 +2349,7 @@
               data-desc="Uncompromising plastic moulded furniture durability, transparent business dealings, and high customer retention.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/2.jpg" loading="lazy" alt="Wholesale Stockist"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2369,7 +2370,7 @@
               data-desc="Associated with National Plasto since 2018; rapid stock movement and exceptional quality in dining sets &amp; chairs.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/12.jpg" loading="lazy" alt="New Chhattisgarh Traders"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2391,7 +2392,7 @@
               data-desc="10+ years as NPPL Distributor &mdash; superior mould designs, premium gloss finish, and outstanding dealer support.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/13.jpg" loading="lazy" alt="Sachin Agarwal - Vishnu Furniture"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2413,7 +2414,7 @@
               data-desc="Heartfelt appreciation for National Plasto leadership; family-like relationship, mutual respect, and unwavering trust.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/19.jpg" loading="lazy" alt="Sumit Kumar Singh - Vijay Enterprises"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2435,7 +2436,7 @@
               data-desc="Extensive product diversity across all 4 brands &mdash; NEXT, NATIONAL, SAPPHIRE &amp; CAPTAIN at highly competitive pricing.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/21.jpg" loading="lazy" alt="Abhishek Banka - AK Steel Furniture"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2456,7 +2457,7 @@
               data-desc="10+ years partnership in plastic furniture wholesale; continuous new model launches and 100% issue-free service.">
               <div class="np-video-wrapper">
                 <img src="images/testimonials/posters/22.jpg" loading="lazy" alt="Santoshi Distributors, Bhubaneswar"
-                  class="np-testi-thumb">
+                  class="np-testi-thumb" decoding="async">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -2501,7 +2502,7 @@
       <div class="touching_flex toTop" data-scroll>
         <div class="touching_img">
           <img src="images/brand/furniture-for-every-community.jpg" loading="lazy" class="img-responsive"
-            alt="National Plasto furniture for every community - classrooms, dining, celebrations and gatherings">
+            alt="National Plasto furniture for every community - classrooms, dining, celebrations and gatherings" decoding="async">
         </div>
         <div class="touching_content">
           <h2 class="heading-text">Furniture For <br>Every Community</h2>
@@ -2519,7 +2520,7 @@
   <section class="innovative_banner np-innovative">
     <div class="innovative_box np-fit-blur" style="--np-photo:url('images/business/moulded-furniture.jpg')">
       <img src="images/business/moulded-furniture.jpg" loading="lazy" class="img-responsive innovative_img"
-        alt="National Plasto moulded chairs in a bright living space">
+        alt="National Plasto moulded chairs in a bright living space" decoding="async">
     </div>
   </section>
   <section class="innovative_content np-innovative-content">
@@ -2554,11 +2555,11 @@
           <div class="awards_item">
             <div class="awards_content">
               <div class="awards_icon_img np-cert-logo"><img src="images/certs/iso-9001.png" alt="ISO 9001 certified"
-                  width="320" height="320" loading="lazy"></div>
+                  width="320" height="320" loading="lazy" decoding="async"></div>
               <h4 class="subheading-text">2026</h4>
               <p class="para-text">Quality Management System &middot; all four plants</p>
               <a class="arrow_right" href="docs/certificates/howrah/iso-9001.pdf" target="_blank" rel="noopener"
-                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt=""></a>
+                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt="" decoding="async" loading="lazy"></a>
             </div>
           </div>
         </div>
@@ -2566,11 +2567,11 @@
           <div class="awards_item">
             <div class="awards_content">
               <div class="awards_icon_img np-cert-logo"><img src="images/certs/iso-14001.png" alt="ISO 14001 certified"
-                  width="320" height="320" loading="lazy"></div>
+                  width="320" height="320" loading="lazy" decoding="async"></div>
               <h4 class="subheading-text">2026</h4>
               <p class="para-text">Environmental Management &middot; all four plants</p>
               <a class="arrow_right" href="docs/certificates/howrah/iso-14001.pdf" target="_blank" rel="noopener"
-                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt=""></a>
+                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt="" decoding="async" loading="lazy"></a>
             </div>
           </div>
         </div>
@@ -2578,11 +2579,11 @@
           <div class="awards_item">
             <div class="awards_content">
               <div class="awards_icon_img np-cert-logo"><img src="images/certs/iso-45001.png" alt="ISO 45001 certified"
-                  width="320" height="320" loading="lazy"></div>
+                  width="320" height="320" loading="lazy" decoding="async"></div>
               <h4 class="subheading-text">2026</h4>
               <p class="para-text">Occupational Health &amp; Safety &middot; all four plants</p>
               <a class="arrow_right" href="docs/certificates/howrah/iso-45001.pdf" target="_blank" rel="noopener"
-                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt=""></a>
+                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt="" decoding="async" loading="lazy"></a>
             </div>
           </div>
         </div>
@@ -2590,11 +2591,11 @@
           <div class="awards_item">
             <div class="awards_content">
               <div class="awards_icon_img np-cert-logo"><img src="images/certs/iso-50001.png" alt="ISO 50001 certified"
-                  width="320" height="320" loading="lazy"></div>
+                  width="320" height="320" loading="lazy" decoding="async"></div>
               <h4 class="subheading-text">2026</h4>
               <p class="para-text">Energy Management &middot; Howrah, Roorkee &amp; Hajipur</p>
               <a class="arrow_right" href="docs/certificates/howrah/iso-50001.pdf" target="_blank" rel="noopener"
-                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt=""></a>
+                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt="" decoding="async" loading="lazy"></a>
             </div>
           </div>
         </div>
@@ -2602,11 +2603,11 @@
           <div class="awards_item">
             <div class="awards_content">
               <div class="awards_icon_img np-cert-logo"><img src="images/certs/ce.png" alt="CE mark" width="320"
-                  height="320" loading="lazy"></div>
+                  height="320" loading="lazy" decoding="async"></div>
               <h4 class="subheading-text">2026</h4>
               <p class="para-text">European Conformity for moulded furniture</p>
               <a class="arrow_right" href="docs/certificates/howrah/ce.pdf" target="_blank" rel="noopener"
-                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt=""></a>
+                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt="" decoding="async" loading="lazy"></a>
             </div>
           </div>
         </div>
@@ -2614,11 +2615,11 @@
           <div class="awards_item">
             <div class="awards_content">
               <div class="awards_icon_img np-cert-logo"><img src="images/certs/bifma.png" alt="BIFMA certified"
-                  width="320" height="320" loading="lazy"></div>
+                  width="320" height="320" loading="lazy" decoding="async"></div>
               <h4 class="subheading-text">2026</h4>
               <p class="para-text">Furniture Industry Standard compliance</p>
               <a class="arrow_right" href="docs/certificates/howrah/bifma.pdf" target="_blank" rel="noopener"
-                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt=""></a>
+                aria-label="View certificate"><img src="images/icons/arrow_slider.svg" alt="" decoding="async" loading="lazy"></a>
             </div>
           </div>
         </div>
@@ -2639,7 +2640,7 @@
               <div class="blogs-inside">
                 <div class="blogs-img-sec">
                   <img src="images/home/catalogue-2026.jpg" loading="lazy" class="img-responsive"
-                    alt="Product Catalogue 2026">
+                    alt="Product Catalogue 2026" decoding="async">
                 </div>
                 <div class="blogs-info-sec">
                   <div class="name-date-sec">
@@ -2657,7 +2658,7 @@
               <div class="blogs-inside">
                 <div class="blogs-img-sec">
                   <img src="images/home/certificates-2026.jpg" loading="lazy" class="img-responsive"
-                    alt="All Four Plants Certified">
+                    alt="All Four Plants Certified" decoding="async">
                 </div>
                 <div class="blogs-info-sec">
                   <div class="name-date-sec">
@@ -2674,7 +2675,7 @@
               <div class="blogs-inside">
                 <div class="blogs-img-sec">
                   <img src="images/hero/image2.png?v=20260929g" loading="lazy" class="img-responsive"
-                    alt="Our Dealer Network">
+                    alt="Our Dealer Network" decoding="async">
                 </div>
                 <div class="blogs-info-sec">
                   <div class="name-date-sec">
@@ -2700,7 +2701,7 @@
 
           <div class="contact-details-home toTop" data-scroll>
             <p class="para-text flex_st">
-              <img src="images/icons/location.svg" loading="lazy" data-lazy-src="images/icons/location.svg" class="">
+              <img src="images/icons/location.svg" loading="lazy" data-lazy-src="images/icons/location.svg" class="" decoding="async">
               <span>NATIONAL PLASTO MOULDING, 135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next
                 to Mahindra Showroom, Kolkata, West Bengal 700026</span>
             </p>
@@ -2708,14 +2709,14 @@
 
           <div class="contact-details-home toTop" data-scroll>
             <p>
-              <img src="images/icons/telephone.svg" loading="lazy" data-lazy-src="images/icons/telephone.svg" class="">
+              <img src="images/icons/telephone.svg" loading="lazy" data-lazy-src="images/icons/telephone.svg" class="" decoding="async">
               <a href="tel:+919830012345">+91 98300 12345</a>
             </p>
           </div>
 
           <div class="contact-details-home toTop" data-scroll>
             <p>
-              <img src="images/icons/mail.svg" loading="lazy" data-lazy-src="images/icons/mail.svg" class="">
+              <img src="images/icons/mail.svg" loading="lazy" data-lazy-src="images/icons/mail.svg" class="" decoding="async">
               <a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a>
             </p>
           </div>
@@ -2846,17 +2847,17 @@
     <div class="scroll_section_box" id="scroll_btn">
       <div class="scroll icon">
         <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
-          <img src="images/icons/arrow_up.png" alt="Back to top">
+          <img src="images/icons/arrow_up.png" alt="Back to top" decoding="async" loading="lazy">
         </a>
       </div>
     </div>
 
     <div class="container np-sfooter-brand">
       <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png"
-          alt="National - Excellence in Plastic Moulded Products" width="486" height="236" loading="lazy"></a>
+          alt="National - Excellence in Plastic Moulded Products" width="486" height="236" loading="lazy" decoding="async"></a>
       <span class="np-sfooter-brand-divider" aria-hidden="true"></span>
       <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png"
-          alt="Next - From the House of NPPL National" width="436" height="189" loading="lazy"></a>
+          alt="Next - From the House of NPPL National" width="436" height="189" loading="lazy" decoding="async"></a>
     </div>
 
     <div class="container np-sfooter-top">
@@ -2907,10 +2908,10 @@
 
       <div class="np-sfooter-brochure">
         <img src="images/brand/catalogue-mockup.png" alt="National Plasto Product Catalogue 2026" width="467"
-          height="421" loading="lazy">
+          height="421" loading="lazy" decoding="async">
         <p>National Plasto Product Catalogue 2026</p>
         <a href="docs/national-plasto-catalogue-2026.pdf" target="_blank" rel="noopener"
-          class="btn_project_default"><img src="images/icons/icon_pdf.png" alt="" aria-hidden="true">View Catalogue</a>
+          class="btn_project_default"><img src="images/icons/icon_pdf.png" alt="" aria-hidden="true" decoding="async" loading="lazy">View Catalogue</a>
       </div>
     </div>
 
@@ -3625,10 +3626,10 @@
 
     });
   </script>
-  <script src="js/np-reveal.js?v=20260929"></script>
-  <script src="js/np-counter.js?v=20261006"></script>
-  <script src="js/np-testimonials-modal.js?v=20261007_v3"></script>
-  <script src="js/cms-loader.js?v=20261028_v1"></script>
+  <script defer src="js/np-reveal.js?v=20260929"></script>
+  <script defer src="js/np-counter.js?v=20261006"></script>
+  <script defer src="js/np-testimonials-modal.js?v=20261007_v3"></script>
+  <script defer src="js/cms-loader.js?v=20261028_v1"></script>
 </body>
 
 </html>

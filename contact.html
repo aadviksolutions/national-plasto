@@ -24,6 +24,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -400,7 +401,7 @@
             <nav>
                 <div class="logo_section">
                     <a href="index.html" class="rem_link_style">
-                        <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive">
+                        <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive" decoding="async" loading="eager" fetchpriority="high">
                     </a>
                 </div>
                 <ul class="menu">
@@ -439,7 +440,7 @@
                         <div class="search_main_box">
                             <a class="icon_open_close" href="javascript:void(0);" onclick="searchToggle(this, event);"
                                 title="Search">
-                                <img src="images/icons/search_icon.svg" alt="Search">
+                                <img src="images/icons/search_icon.svg" alt="Search" decoding="async" loading="lazy">
                                 <i class="fas fa-times"></i>
                             </a>
                             <div class="search_box">
@@ -500,12 +501,12 @@
             <span></span>
         </div>
         <a href="index.html" class="rem_link_style mobile_logo_center">
-            <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive navbar_logo">
+            <img src="images/brand/company-national-logo.png" alt="National Plasto" class="img-responsive navbar_logo" decoding="async" loading="eager" fetchpriority="high">
         </a>
         <div class="search_main_box">
             <a class="icon_open_close" href="javascript:void(0);" onclick="searchToggle(this, event);"
                 aria-label="Toggle Search">
-                <img src="images/icons/search_icon.svg" alt="Search">
+                <img src="images/icons/search_icon.svg" alt="Search" decoding="async" loading="lazy">
                 <i class="fas fa-times"></i>
             </a>
             <div class="search_box">
@@ -601,7 +602,7 @@
                     style="height: 520px; position: relative; overflow: hidden; display: block;">
                     <img src="images/brand/contactus.jpg" class="np-inner-hero-img"
                         alt="National Plasto Team and Manufacturing Facility"
-                        style="width: 100%; height: 100%; object-fit: cover; object-position: center 36%; display: block;">
+                        style="width: 100%; height: 100%; object-fit: cover; object-position: center 36%; display: block;" decoding="async" loading="lazy">
                 </div>
             </div>
         </div>
@@ -618,7 +619,7 @@
             <div class="container">
                 <div class="np-breadcrumb-pill">
                     <a href="index.html">Home</a>
-                    <span class="np-bc-sep"><img src="images/icon_arrow_right.png" alt=""></span>
+                    <span class="np-bc-sep"><img src="images/icon_arrow_right.png" alt="" decoding="async" loading="lazy"></span>
                     <span class="np-bc-current">Contact Us</span>
                 </div>
             </div>
@@ -679,7 +680,7 @@
                         <!-- Facility Visual Badge -->
                         <div class="facility_photo_card toTop" data-scroll>
                             <img src="images/manufacturing/plant-howrah-kl850.jpg"
-                                alt="National Plasto Central Injection Moulding Facility Howrah">
+                                alt="National Plasto Central Injection Moulding Facility Howrah" decoding="async" loading="lazy">
                             <div class="facility_photo_badge">
                                 <h4>Central Manufacturing Hub</h4>
                                 <p>Jalan Industrial Complex, Dhulagarh, Howrah &bull; Est. 1997</p>
@@ -871,17 +872,17 @@
         <div class="scroll_section_box" id="scroll_btn">
             <div class="scroll icon">
                 <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
-                    <img src="images/icons/arrow_up.png" alt="Back to top">
+                    <img src="images/icons/arrow_up.png" alt="Back to top" decoding="async" loading="lazy">
                 </a>
             </div>
         </div>
 
         <div class="container np-sfooter-brand">
             <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png"
-                    alt="National - Excellence in Plastic Moulded Products" width="486" height="236" loading="lazy"></a>
+                    alt="National - Excellence in Plastic Moulded Products" width="486" height="236" loading="lazy" decoding="async"></a>
             <span class="np-sfooter-brand-divider" aria-hidden="true"></span>
             <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png"
-                    alt="Next - From the House of NPPL National" width="436" height="189" loading="lazy"></a>
+                    alt="Next - From the House of NPPL National" width="436" height="189" loading="lazy" decoding="async"></a>
         </div>
 
         <div class="container np-sfooter-top">
@@ -931,10 +932,10 @@
 
             <div class="np-sfooter-brochure">
                 <img src="images/brand/catalogue-mockup.png" alt="National Plasto Product Catalogue 2026" width="467"
-                    height="421" loading="lazy">
+                    height="421" loading="lazy" decoding="async">
                 <p>National Plasto Product Catalogue 2026</p>
                 <a href="docs/national-plasto-catalogue-2026.pdf" target="_blank" rel="noopener"
-                    class="btn_project_default"><img src="images/icons/icon_pdf.png" alt="" aria-hidden="true">View
+                    class="btn_project_default"><img src="images/icons/icon_pdf.png" alt="" aria-hidden="true" decoding="async" loading="lazy">View
                     Catalogue</a>
             </div>
         </div>
@@ -1106,8 +1107,8 @@
             });
         })();
     </script>
-    <script src="js/np-reveal.js?v=20260929"></script>
-    <script src="js/cms-loader.js?v=20261028_v1"></script>
+    <script defer src="js/np-reveal.js?v=20260929"></script>
+    <script defer src="js/cms-loader.js?v=20261028_v1"></script>
 </body>
 
 </html>

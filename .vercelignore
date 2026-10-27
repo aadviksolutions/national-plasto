@@ -1,2 +1,3 @@
-# Developer helper scripts and retired assets - not part of the live website
-tools/
+.git
+.gitignore
+*.log
