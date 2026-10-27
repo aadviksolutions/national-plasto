@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261028_states_pins_v2">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261028_clean_v3">
 
     <style>
         /* ==========================================================================
@@ -3489,42 +3489,130 @@
                 <div class="pan_india_flex">
                     <!-- Left: Clean India Map with State Borders and Pins -->
                     <div class="pan_india_img np-map" id="np_map">
-                        <img src="images/icons/india-map.svg?v=20261028_states_v2" class="np-map-base" alt="Pan India Presence Map - National Plasto" width="612" height="696" loading="lazy">
+                        <img src="images/icons/india-map.svg?v=20261028_clean_v3" class="np-map-base" alt="Pan India Presence Map - National Plasto" width="612" height="696" loading="lazy">
 
-                        <!-- 4 Manufacturing Plants (Green Dots) -->
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:69.4%;top:46.0%" data-loc="howrah" data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal" data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411" data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411" aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Howrah</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:78.5%;top:38.2%" data-loc="guwahati" data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam" data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031" data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031" aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Guwahati</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:33.6%;top:24.5%" data-loc="roorkee" data-name="Roorkee Plant" data-type="Manufacturing Unit" data-region="Uttarakhand" data-addr="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661" data-map="https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661" aria-label="Roorkee Plant, Uttarakhand"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Roorkee</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--unit" style="left:58.5%;top:38.0%" data-loc="hajipur" data-name="Hajipur Plant" data-type="Manufacturing Unit" data-region="Bihar" data-addr="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101" data-map="https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101" aria-label="Hajipur Plant, Bihar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Hajipur</span></button>
+                        <!-- 4 Manufacturing Plants (Green) -->
+          <button type="button" class="np-map-pin np-map-pin--unit" style="left:69.8%;top:50.4%" data-loc="howrah"
+            data-name="Howrah Plant" data-type="Manufacturing Unit" data-region="West Bengal"
+            data-addr="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411"
+            data-map="https://www.google.com/maps/search/?api=1&amp;query=Jalan+Industrial+Estate%2C+Dakshin+Jhapardaha%2C+Howrah%2C+West+Bengal+711411"
+            aria-label="Howrah Plant, West Bengal"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Howrah</span></button>
+          <button type="button" class="np-map-pin np-map-pin--unit" style="left:80.1%;top:40.5%" data-loc="guwahati"
+            data-name="Guwahati Plant" data-type="Manufacturing Unit" data-region="Assam"
+            data-addr="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031"
+            data-map="https://www.google.com/maps/search/?api=1&amp;query=E.P.I.P.+Complex%2C+Amingaon%2C+Guwahati%2C+Assam+781031"
+            aria-label="Guwahati Plant, Assam"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Guwahati</span></button>
+          <button type="button" class="np-map-pin np-map-pin--unit" style="left:35.1%;top:27.6%" data-loc="roorkee"
+            data-name="Roorkee Plant" data-type="Manufacturing Unit" data-region="Uttarakhand"
+            data-addr="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661"
+            data-map="https://www.google.com/maps/search/?api=1&amp;query=Raipur+Industrial+Area%2C+Bhagwanpur%2C+Roorkee%2C+Uttarakhand+247661"
+            aria-label="Roorkee Plant, Uttarakhand"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Roorkee</span></button>
+          <button type="button" class="np-map-pin np-map-pin--unit" style="left:60.1%;top:39.5%" data-loc="hajipur"
+            data-name="Hajipur Plant" data-type="Manufacturing Unit" data-region="Bihar"
+            data-addr="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101"
+            data-map="https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101"
+            aria-label="Hajipur Plant, Bihar"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Hajipur</span></button>
 
-                        <!-- Corporate Head Office (Red Dot) -->
-                        <button type="button" class="np-map-pin np-map-pin--office" style="left:71.4%;top:47.4%" data-loc="kolkata" data-name="Head Office &bull; National Plasto Moulding" data-type="Head Office" data-region="Kolkata, West Bengal" data-addr="135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata 700026" data-map="https://www.google.com/maps/search/?api=1&amp;query=135G+Shyama+Prasad+Mukherjee+Road%2C+Sterling+Apartment%2C+Kolkata%2C+West+Bengal+700026" aria-label="Head Office, Kolkata"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Kolkata HQ</span></button>
+          <!-- 1 Corporate Head Office (Red) -->
+          <button type="button" class="np-map-pin np-map-pin--office" style="left:71.8%;top:51.4%" data-loc="kolkata"
+            data-name="Head Office &bull; National Plasto Moulding" data-type="Head Office"
+            data-region="Kolkata, West Bengal"
+            data-addr="135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata 700026"
+            data-map="https://www.google.com/maps/search/?api=1&amp;query=135G+Shyama+Prasad+Mukherjee+Road%2C+Sterling+Apartment%2C+Kolkata%2C+West+Bengal+700026"
+            aria-label="Head Office, Kolkata"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Kolkata HQ</span></button>
 
-                        <!-- 4 Regional Trade Depots (Amber Dots) -->
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:21.0%;top:56.5%" data-loc="nasik" data-name="Nasik Trade Depot" data-type="Trade Depot" data-region="Maharashtra" data-addr="Ambad MIDC, Nashik, Maharashtra 422010" aria-label="Nasik Trade Depot"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Nashik</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:60.5%;top:55.0%" data-loc="cuttack" data-name="Cuttack Trade Depot" data-type="Trade Depot" data-region="Odisha" data-addr="Jagatpur Industrial Area, Cuttack, Odisha 754021" aria-label="Cuttack Trade Depot"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Cuttack</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:44.5%;top:34.5%" data-loc="lucknow" data-name="Lucknow Trade Depot" data-type="Trade Depot" data-region="Uttar Pradesh" data-addr="Transport Nagar Phase 2, Lucknow, UP 226012" aria-label="Lucknow Trade Depot"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Lucknow</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--depot" style="left:27.5%;top:31.0%" data-loc="jaipur" data-name="Jaipur Trade Depot" data-type="Trade Depot" data-region="Rajasthan" data-addr="VKI Industrial Area, Jaipur, Rajasthan 302013" aria-label="Jaipur Trade Depot"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jaipur</span></button>
+          <!-- 4 Regional Trade Depots (Amber) -->
+          <button type="button" class="np-map-pin np-map-pin--depot" style="left:22.1%;top:60.6%" data-loc="nasik"
+            data-name="Nasik Trade Depot" data-type="Trade Depot" data-region="Maharashtra"
+            data-addr="Ambad MIDC, Nashik, Maharashtra 422010" aria-label="Nasik Trade Depot"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Nashik</span></button>
+          <button type="button" class="np-map-pin np-map-pin--depot" style="left:60.8%;top:58.6%" data-loc="cuttack"
+            data-name="Cuttack Trade Depot" data-type="Trade Depot" data-region="Odisha"
+            data-addr="Jagatpur Industrial Area, Cuttack, Odisha 754021" aria-label="Cuttack Trade Depot"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Cuttack</span></button>
+          <button type="button" class="np-map-pin np-map-pin--depot" style="left:43.8%;top:36.2%" data-loc="lucknow"
+            data-name="Lucknow Trade Depot" data-type="Trade Depot" data-region="Uttar Pradesh"
+            data-addr="Transport Nagar Phase 2, Lucknow, UP 226012" aria-label="Lucknow Trade Depot"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Lucknow</span></button>
+          <button type="button" class="np-map-pin np-map-pin--depot" style="left:27.5%;top:33.9%" data-loc="jaipur"
+            data-name="Jaipur Trade Depot" data-type="Trade Depot" data-region="Rajasthan"
+            data-addr="VKI Industrial Area, Jaipur, Rajasthan 302013" aria-label="Jaipur Trade Depot"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Jaipur</span></button>
 
-                        <!-- 18 Regional Distributors (Exact User Order 1-18 - Blue Dots) -->
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:70.5%;top:43.5%" data-loc="wb" data-name="1. WB Distributor Hub" data-type="Distributor" data-region="WB" data-addr="Kolkata, Siliguri, Asansol &amp; Durgapur" aria-label="1. WB Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">WB</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:56.0%;top:44.5%" data-loc="jharkhand" data-name="2. Jharkhand Distributor Hub" data-type="Distributor" data-region="Jharkhand" data-addr="Ranchi, Jamshedpur &amp; Dhanbad" aria-label="2. Jharkhand Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jharkhand</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:55.5%;top:58.0%" data-loc="odhisa" data-name="3. Odhisa Distributor Hub" data-type="Distributor" data-region="Odhisa" data-addr="Bhubaneswar, Cuttack &amp; Rourkela" aria-label="3. Odhisa Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Odisha</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:83.5%;top:37.0%" data-loc="assam" data-name="4. Assam Distributor Hub" data-type="Distributor" data-region="Assam" data-addr="Guwahati, Dibrugarh &amp; Silchar" aria-label="4. Assam Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Assam</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:30.5%;top:30.2%" data-loc="delhi" data-name="5. Delhi Distributor Hub" data-type="Distributor" data-region="Delhi" data-addr="New Delhi, Noida &amp; Gurugram" aria-label="5. Delhi Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Delhi</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:27.0%;top:27.5%" data-loc="haryana" data-name="6. Haryana Distributor Hub" data-type="Distributor" data-region="Haryana" data-addr="Faridabad, Panipat &amp; Karnal" aria-label="6. Haryana Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Haryana</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:50.5%;top:37.0%" data-loc="east-up" data-name="7. East UP Distributor Hub" data-type="Distributor" data-region="East UP" data-addr="Varanasi, Gorakhpur &amp; Prayagraj" aria-label="7. East UP Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">East UP</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:38.5%;top:32.5%" data-loc="west-up" data-name="8. West UP Distributor Hub" data-type="Distributor" data-region="West UP" data-addr="Kanpur, Agra &amp; Meerut" aria-label="8. West UP Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">West UP</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:24.5%;top:21.5%" data-loc="punjab" data-name="9. Punjab Distributor Hub" data-type="Distributor" data-region="Punjab" data-addr="Ludhiana, Amritsar &amp; Jalandhar" aria-label="9. Punjab Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Punjab</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:24.0%;top:12.0%" data-loc="jammu" data-name="10. Jammu Distributor Hub" data-type="Distributor" data-region="Jammu" data-addr="Jammu Tawi, Udhampur &amp; Srinagar" aria-label="10. Jammu Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Jammu</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:36.5%;top:23.5%" data-loc="uttarakhand" data-name="11. Uttarkhand Distributor Hub" data-type="Distributor" data-region="Uttarakhand" data-addr="Dehradun, Haridwar &amp; Roorkee" aria-label="11. Uttarkhand Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Uttarakhand</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:62.5%;top:38.0%" data-loc="bihar" data-name="12. Bihar Distributor Hub" data-type="Distributor" data-region="Bihar" data-addr="Patna, Muzaffarpur &amp; Gaya" aria-label="12. Bihar Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Bihar</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:48.0%;top:55.0%" data-loc="chattisgarh" data-name="13. Chattisgarh Distributor Hub" data-type="Distributor" data-region="Chattisgarh" data-addr="Raipur, Bilaspur &amp; Bhilai" aria-label="13. Chattisgarh Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Chhattisgarh</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:26.5%;top:62.0%" data-loc="maharshtra" data-name="14. Maharshtra Distributor Hub" data-type="Distributor" data-region="Maharashtra" data-addr="Mumbai, Pune, Nagpur &amp; Nashik" aria-label="14. Maharshtra Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Maharashtra</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:14.5%;top:50.0%" data-loc="gujarat" data-name="15. Gujarat Distributor Hub" data-type="Distributor" data-region="Gujarat" data-addr="Ahmedabad, Surat &amp; Vadodara" aria-label="15. Gujarat Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Gujarat</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:31.0%;top:18.5%" data-loc="himachal-pradesh" data-name="16. Himachal Pradesh Distributor Hub" data-type="Distributor" data-region="Himachal Pradesh" data-addr="Shimla, Solan, Baddi &amp; Kangra" aria-label="16. Himachal Pradesh Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Himachal</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:42.0%;top:42.0%" data-loc="madhya-pradesh" data-name="17. Madhya Pradesh Distributor Hub" data-type="Distributor" data-region="Madhya Pradesh" data-addr="Indore, Bhopal &amp; Jabalpur" aria-label="17. Madhya Pradesh Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">MP</span></button>
-                        <button type="button" class="np-map-pin np-map-pin--dealer" style="left:25.0%;top:35.0%" data-loc="rajasthan" data-name="18. Rajasthan Distributor Hub" data-type="Distributor" data-region="Rajasthan" data-addr="Jaipur, Jodhpur &amp; Kota" aria-label="18. Rajasthan Distributor Hub"><span class="np-map-pin-dot"></span><span class="np-map-pin-label">Rajasthan</span></button>
+          <!-- 18 Authorized Distributor Hubs (Blue Dots) -->
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:67.3%;top:44.5%" data-loc="wb"
+            data-name="1. WB Distributor Hub" data-type="Distributor" data-region="WB"
+            data-addr="Kolkata, Siliguri, Asansol &amp; Durgapur" aria-label="1. WB Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">WB</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:59.8%;top:48.1%" data-loc="jharkhand"
+            data-name="2. Jharkhand Distributor Hub" data-type="Distributor" data-region="Jharkhand"
+            data-addr="Ranchi, Jamshedpur &amp; Dhanbad" aria-label="2. Jharkhand Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Jharkhand</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:54.9%;top:60.1%" data-loc="odhisa"
+            data-name="3. Odhisa Distributor Hub" data-type="Distributor" data-region="Odhisa"
+            data-addr="Bhubaneswar, Cuttack &amp; Rourkela" aria-label="3. Odhisa Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Odisha</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:87.4%;top:36.6%" data-loc="assam"
+            data-name="4. Assam Distributor Hub" data-type="Distributor" data-region="Assam"
+            data-addr="Guwahati, Dibrugarh &amp; Silchar" aria-label="4. Assam Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Assam</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:30.4%;top:30.2%" data-loc="delhi"
+            data-name="5. Delhi Distributor Hub" data-type="Distributor" data-region="Delhi"
+            data-addr="New Delhi, Noida &amp; Gurugram" aria-label="5. Delhi Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Delhi</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:28.1%;top:26.6%" data-loc="haryana"
+            data-name="6. Haryana Distributor Hub" data-type="Distributor" data-region="Haryana"
+            data-addr="Faridabad, Panipat &amp; Karnal" aria-label="6. Haryana Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Haryana</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:51.0%;top:39.9%" data-loc="east-up"
+            data-name="7. East UP Distributor Hub" data-type="Distributor" data-region="East UP"
+            data-addr="Varanasi, Gorakhpur &amp; Prayagraj" aria-label="7. East UP Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">East UP</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:35.6%;top:31.9%" data-loc="west-up"
+            data-name="8. West UP Distributor Hub" data-type="Distributor" data-region="West UP"
+            data-addr="Kanpur, Agra &amp; Meerut" aria-label="8. West UP Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">West UP</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:23.7%;top:21.8%" data-loc="punjab"
+            data-name="9. Punjab Distributor Hub" data-type="Distributor" data-region="Punjab"
+            data-addr="Ludhiana, Amritsar &amp; Jalandhar" aria-label="9. Punjab Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Punjab</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:27.0%;top:11.2%" data-loc="jammu"
+            data-name="10. Jammu Distributor Hub" data-type="Distributor" data-region="Jammu"
+            data-addr="Jammu Tawi, Udhampur &amp; Srinagar" aria-label="10. Jammu Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Jammu</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:38.9%;top:24.1%" data-loc="uttarakhand"
+            data-name="11. Uttarkhand Distributor Hub" data-type="Distributor" data-region="Uttarakhand"
+            data-addr="Dehradun, Haridwar &amp; Roorkee" aria-label="11. Uttarkhand Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Uttarakhand</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:63.7%;top:40.5%" data-loc="bihar"
+            data-name="12. Bihar Distributor Hub" data-type="Distributor" data-region="Bihar"
+            data-addr="Patna, Muzaffarpur &amp; Gaya" aria-label="12. Bihar Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Bihar</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:48.4%;top:55.7%" data-loc="chhattisgarh"
+            data-name="13. Chhattisgarh Distributor Hub" data-type="Distributor" data-region="Chhattisgarh"
+            data-addr="Raipur, Bilaspur &amp; Bhilai" aria-label="13. Chhattisgarh Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Chhattisgarh</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:33.5%;top:63.9%" data-loc="maharashtra"
+            data-name="14. Maharashtra Distributor Hub" data-type="Distributor" data-region="Maharashtra"
+            data-addr="Mumbai, Pune &amp; Nagpur" aria-label="14. Maharashtra Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Maharashtra</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:13.9%;top:52.0%" data-loc="gujarat"
+            data-name="15. Gujarat Distributor Hub" data-type="Distributor" data-region="Gujarat"
+            data-addr="Ahmedabad, Surat &amp; Rajkot" aria-label="15. Gujarat Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Gujarat</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:31.2%;top:19.1%"
+            data-loc="himachal-pradesh" data-name="16. Himachal Pradesh Distributor Hub" data-type="Distributor"
+            data-region="Himachal Pradesh" data-addr="Shimla, Solan, Baddi &amp; Kangra"
+            aria-label="16. Himachal Pradesh Distributor Hub"><span class="np-map-pin-dot"></span><span
+              class="np-map-pin-label">Himachal</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:35.0%;top:47.1%" data-loc="mp"
+            data-name="17. MP Distributor Hub" data-type="Distributor" data-region="MP"
+            data-addr="Indore, Bhopal &amp; Jabalpur" aria-label="17. MP Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">MP</span></button>
+          <button type="button" class="np-map-pin np-map-pin--dealer" style="left:18.8%;top:38.8%" data-loc="rajasthan"
+            data-name="18. Rajasthan Distributor Hub" data-type="Distributor" data-region="Rajasthan"
+            data-addr="Jaipur, Jodhpur &amp; Kota" aria-label="18. Rajasthan Distributor Hub"><span
+              class="np-map-pin-dot"></span><span class="np-map-pin-label">Rajasthan</span></button>
 
                         <!-- Dynamic Popover Card -->
                         <div class="np-map-card" id="np_map_card" role="dialog" aria-live="polite" hidden>
