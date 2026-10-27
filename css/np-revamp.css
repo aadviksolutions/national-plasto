@@ -8565,7 +8565,7 @@ body.np-modal-open {
 }
 
 #distributor_page .pan_india_main .np-map-pin--dealer.np-cycle-active .np-map-pin-dot {
-    color: #0094DC !important;
+    color: #1D4ED8 !important;
 }
 
 #distributor_page .pan_india_main .pan_india_legend_supreme .para-text.is-cycle-active {
@@ -8586,5 +8586,208 @@ body.np-modal-open {
 }
 
 #distributor_page .pan_india_main .pan_india_legend_supreme .para-text[data-filter="distributor"].is-cycle-active {
-    color: #0094DC !important;
+    color: #1D4ED8 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Distributor Desk map: keep the India map identical to the homepage map
+   -------------------------------------------------------------------------- */
+#distributor_page .pan_india_main {
+    background: #FFFFFF !important;
+    padding: 60px 0 70px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border-top: 1px solid #F1F5F9 !important;
+    border-bottom: 1px solid #F1F5F9 !important;
+}
+
+#distributor_page .pan_india_main .container {
+    max-width: 1220px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    box-sizing: border-box !important;
+}
+
+#distributor_page .pan_india_main .pan_india_flex {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 70px !important;
+    margin-bottom: 0 !important;
+}
+
+#distributor_page .pan_india_main .pan_india_img.np-map {
+    flex: 1.15 !important;
+    max-width: 550px !important;
+    width: 100% !important;
+    position: relative !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+}
+
+#distributor_page .pan_india_main .pan_india_img img.np-map-base {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.04)) !important;
+}
+
+#distributor_page .pan_india_main .np-map-pin {
+    position: absolute !important;
+    z-index: 5 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    transform: translate(-50%, -50%) !important;
+    cursor: pointer !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    animation: none !important;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease !important;
+}
+
+#distributor_page .pan_india_main .np-map-pin .np-map-pin-dot {
+    position: relative !important;
+    width: 9.5px !important;
+    height: 9.5px !important;
+    border-radius: 50% !important;
+    border: 1.5px solid #FFFFFF !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35) !important;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease !important;
+    animation: none !important;
+}
+
+#distributor_page .pan_india_main .np-map-pin .np-map-pin-dot::after {
+    display: none !important;
+}
+
+/* Homepage radar ripple and category colors */
+#distributor_page .pan_india_main .np-map-pin .np-map-pin-dot::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 24px !important;
+    height: 24px !important;
+    transform: translate(-50%, -50%) scale(0.3) !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    animation: supremeRadarRipple 2.6s infinite cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+#distributor_page .pan_india_main .np-map-pin--unit .np-map-pin-dot { background: #1E8E3E !important; }
+#distributor_page .pan_india_main .np-map-pin--unit .np-map-pin-dot::before {
+    border: 2px solid rgba(30, 142, 62, 0.8) !important;
+    background: rgba(30, 142, 62, 0.15) !important;
+}
+#distributor_page .pan_india_main .np-map-pin--office .np-map-pin-dot { background: #E31E24 !important; }
+#distributor_page .pan_india_main .np-map-pin--office .np-map-pin-dot::before {
+    border: 2px solid rgba(227, 30, 36, 0.85) !important;
+    background: rgba(227, 30, 36, 0.2) !important;
+}
+#distributor_page .pan_india_main .np-map-pin--depot .np-map-pin-dot { background: #D97706 !important; }
+#distributor_page .pan_india_main .np-map-pin--depot .np-map-pin-dot::before {
+    border: 2px solid rgba(217, 119, 6, 0.8) !important;
+    background: rgba(217, 119, 6, 0.15) !important;
+}
+#distributor_page .pan_india_main .np-map-pin--dealer .np-map-pin-dot { background: #0094DC !important; }
+#distributor_page .pan_india_main .np-map-pin--dealer .np-map-pin-dot::before {
+    border: 2px solid rgba(0, 148, 220, 0.8) !important;
+    background: rgba(0, 148, 220, 0.15) !important;
+}
+
+#distributor_page .pan_india_main .np-map-pin:nth-child(2n) .np-map-pin-dot::before { animation-delay: 0.35s !important; }
+#distributor_page .pan_india_main .np-map-pin:nth-child(3n) .np-map-pin-dot::before { animation-delay: 0.7s !important; }
+#distributor_page .pan_india_main .np-map-pin:nth-child(4n) .np-map-pin-dot::before { animation-delay: 1.05s !important; }
+#distributor_page .pan_india_main .np-map-pin:nth-child(5n) .np-map-pin-dot::before { animation-delay: 1.4s !important; }
+
+#distributor_page .pan_india_main .np-map-pin:hover,
+#distributor_page .pan_india_main .np-map-pin.is-active,
+#distributor_page .pan_india_main .np-map-pin.is-highlighted {
+    z-index: 30 !important;
+}
+
+#distributor_page .pan_india_main .np-map-pin:hover .np-map-pin-dot,
+#distributor_page .pan_india_main .np-map-pin.is-active .np-map-pin-dot,
+#distributor_page .pan_india_main .np-map-pin.is-highlighted .np-map-pin-dot {
+    transform: scale(1.75) !important;
+    box-shadow: 0 0 0 3px #FFFFFF, 0 3px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+#distributor_page .pan_india_main .np-map-pin .np-map-pin-label { display: none !important; }
+
+#distributor_page .pan_india_main .np-map-pin::after {
+    content: attr(data-name);
+    position: absolute;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: #0F172A;
+    color: #FFFFFF;
+    font-size: 11.5px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    padding: 5px 11px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    z-index: 35;
+}
+
+#distributor_page .pan_india_main .np-map-pin::before {
+    content: "";
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    border-width: 5px 4.5px 0 4.5px;
+    border-style: solid;
+    border-color: #0F172A transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 35;
+}
+
+#distributor_page .pan_india_main .np-map-pin:hover::after,
+#distributor_page .pan_india_main .np-map-pin:hover::before,
+#distributor_page .pan_india_main .np-map-pin.is-active::after,
+#distributor_page .pan_india_main .np-map-pin.is-active::before {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) translateY(0) !important;
+}
+
+@media screen and (max-width: 991px) {
+    #distributor_page .pan_india_main {
+        padding: 50px 0 !important;
+    }
+
+    #distributor_page .pan_india_main .pan_india_flex {
+        flex-direction: column !important;
+        gap: 36px !important;
+        text-align: left !important;
+    }
+
+    #distributor_page .pan_india_main .pan_india_img.np-map,
+    #distributor_page .pan_india_main .pan_india_content {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
 }
