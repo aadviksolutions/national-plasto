@@ -225,7 +225,7 @@
             <div class="card-header">
               <h2 class="card-title">Quick Actions & Shortcuts</h2>
             </div>
-            <div class="card-body" style="display:flex; flex-wrap:wrap; gap:12px;">
+            <div class="card-body" style="display:flex; gap:12px;">
               <button class="btn btn-primary" id="btnQuickAddProduct"><i class="fas fa-plus"></i> Add New Product</button>
               <button class="btn btn-secondary" onclick="navigateTo('cms', 'home')"><i class="fas fa-image"></i> Edit Home Banner</button>
               <button class="btn btn-secondary" onclick="navigateTo('cms', 'products')"><i class="fas fa-th-list"></i> Edit Collections</button>
@@ -293,8 +293,8 @@
         
         <!-- ================= 3. PAGE CONTENT CMS PANEL (ALL PAGES & ALL SECTIONS) ================= -->
         <section id="panelCms" class="view-panel">
-          <div class="cms-tabs" id="cmsTabs" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <div class="cms-tabs" id="cmsTabs" style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+            <div style="display:flex; gap:6px; ">
               <button class="cms-tab-btn active" data-cmspage="home"><i class="fas fa-home"></i> Home Page</button>
               <button class="cms-tab-btn" data-cmspage="about"><i class="fas fa-info-circle"></i> About Us</button>
               <button class="cms-tab-btn" data-cmspage="products"><i class="fas fa-couch"></i> Products Page</button>
@@ -349,12 +349,13 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_hero_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_poster')"><i class="fas fa-image"></i></button>
                     </div>
-                      <div onclick="uploadImageForField('cms_home_hero_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_hero_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_hero_poster_preview" src="images/hero/overview-video-poster.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 1080 px (16:9 Landscape) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                   </div>
                   <div class="form-group">
@@ -364,12 +365,13 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_image')"><i class="fas fa-image"></i></button>
                     </div>
-                      <div onclick="uploadImageForField('cms_home_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_hero_image_preview" src="images/brand/company-photo.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 1080 px (16:9 Landscape) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                   </div>
                 </div>
@@ -453,12 +455,13 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_cmd_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_cmd_photo')"><i class="fas fa-image"></i></button>
                     </div>
-                      <div onclick="uploadImageForField('cms_home_cmd_photo')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_cmd_photo')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_cmd_photo_preview" src="images/team/ratan-kumar-sharma-cutout.webp" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 750 px (4:5 Portrait Cutout) • Format: Transparent PNG / JPG</div>
+                      </div>
                       </div>
                   </div>
                   <div class="form-group">
@@ -517,12 +520,13 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_highlight_0_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_0_image')"><i class="fas fa-image"></i></button>
                       </div>
-                      <div onclick="uploadImageForField('cms_home_highlight_0_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_highlight_0_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_highlight_0_image_preview" src="images/home/plant-kl850.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1600 × 500 px (16:9 Wide Landscape) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -536,12 +540,13 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_highlight_1_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_1_image')"><i class="fas fa-image"></i></button>
                       </div>
-                      <div onclick="uploadImageForField('cms_home_highlight_1_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_highlight_1_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_highlight_1_image_preview" src="images/home/premium-furniture-range.png" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1600 × 500 px (16:9 Wide Landscape) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -568,12 +573,13 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_0_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_0_image')"><i class="fas fa-image"></i></button>
                       </div>
-                      <div onclick="uploadImageForField('cms_home_brand_0_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_brand_0_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_brand_0_image_preview" src="images/divisions/next.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1200 × 800 px (3:2 Landscape) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -589,12 +595,13 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_1_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_1_image')"><i class="fas fa-image"></i></button>
                       </div>
-                      <div onclick="uploadImageForField('cms_home_brand_1_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_brand_1_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_brand_1_image_preview" src="images/divisions/national.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1200 × 800 px (3:2 Landscape) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -610,12 +617,13 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_2_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_2_image')"><i class="fas fa-image"></i></button>
                       </div>
-                      <div onclick="uploadImageForField('cms_home_brand_2_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_brand_2_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_brand_2_image_preview" src="images/divisions/captain.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1200 × 800 px (3:2 Landscape) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -631,12 +639,13 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_3_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_3_image')"><i class="fas fa-image"></i></button>
                       </div>
-                      <div onclick="uploadImageForField('cms_home_brand_3_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_brand_3_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_brand_3_image_preview" src="images/divisions/sapphire.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1200 × 800 px (3:2 Landscape) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -661,11 +670,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_0_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_ms_0_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_ms_0_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_ms_0_img_preview" src="images/home/milestone-1942.jpg" alt="Milestone Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
                       </div>
                     </div></div>
                   </div>
@@ -679,11 +689,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_1_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_ms_1_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_ms_1_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_ms_1_img_preview" src="images/home/milestone-1997.jpg" alt="Milestone Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
                       </div>
                     </div></div>
                   </div>
@@ -697,11 +708,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_2_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_ms_2_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_ms_2_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_ms_2_img_preview" src="images/home/milestone-2007.jpg" alt="Milestone Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
                       </div>
                     </div></div>
                   </div>
@@ -715,11 +727,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_3_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_ms_3_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_ms_3_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_ms_3_img_preview" src="images/home/milestone-2010.jpg" alt="Milestone Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
                       </div>
                     </div></div>
                   </div>
@@ -733,11 +746,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_4_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_4_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_ms_4_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_ms_4_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_ms_4_img_preview" src="images/home/milestone-2026.jpg" alt="Milestone Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
                       </div>
                     </div></div>
                   </div>
@@ -798,12 +812,13 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_touch_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_touch_image')"><i class="fas fa-image"></i></button>
                     </div>
-                      <div onclick="uploadImageForField('cms_home_touch_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_touch_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_touch_image_preview" src="images/brand/furniture-for-every-community.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1000 × 750 px (4:3 Landscape) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                   </div>
                   <div class="form-group">
@@ -840,12 +855,13 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_inno_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_inno_image')"><i class="fas fa-image"></i></button>
                     </div>
-                      <div onclick="uploadImageForField('cms_home_inno_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_home_inno_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_home_inno_image_preview" src="images/business/moulded-furniture.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1000 × 750 px (4:3 Landscape) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                   </div>
                   <div class="form-group">
@@ -876,11 +892,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_0_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_0_poster')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_reel_0_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_reel_0_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_reel_0_poster_preview" src="images/banner/next.jpg" alt="Reel Poster" style="width:40px; height:50px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Reel Poster</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 720 × 1280 px (9:16 Vertical Reel Poster) • Format: JPG</div>
                       </div>
                     </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_0_video" class="form-control" value="images/banner/next.mp4"></div>
@@ -894,11 +911,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_1_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_1_poster')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_reel_1_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_reel_1_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_reel_1_poster_preview" src="images/banner/national.jpg" alt="Reel Poster" style="width:40px; height:50px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Reel Poster</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 720 × 1280 px (9:16 Vertical Reel Poster) • Format: JPG</div>
                       </div>
                     </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_1_video" class="form-control" value="images/banner/national.mp4"></div>
@@ -912,11 +930,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_2_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_2_poster')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_reel_2_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_reel_2_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_reel_2_poster_preview" src="images/banner/captain.jpg" alt="Reel Poster" style="width:40px; height:50px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Reel Poster</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 720 × 1280 px (9:16 Vertical Reel Poster) • Format: JPG</div>
                       </div>
                     </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_2_video" class="form-control" value="images/banner/captain.mp4"></div>
@@ -930,11 +949,12 @@
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_3_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_3_poster')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_home_reel_3_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_home_reel_3_poster')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_home_reel_3_poster_preview" src="images/banner/sapphire.jpg" alt="Reel Poster" style="width:40px; height:50px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Reel Poster</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 720 × 1280 px (9:16 Vertical Reel Poster) • Format: JPG</div>
                       </div>
                     </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_3_video" class="form-control" value="images/banner/sapphire.mp4"></div>
@@ -1005,12 +1025,13 @@
                     <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_hero_image')"><i class="fas fa-images"></i> Pick</button>
                   </div>
-                  <div onclick="uploadImageForField('cms_about_hero_image')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                  <div onclick="uploadImageForField('cms_about_hero_image')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;; flex-wrap:wrap;">
                     <img id="cms_about_hero_image_preview" src="images/brand/aboutus.png" alt="About Hero Banner" style="width:120px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                     <div>
                       <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Banner</span>
                       <div style="font-size:12px; color:#0F172A; font-weight:600;">images/brand/aboutus.png</div>
-                    </div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 800 px (Wide Banner) • Format: JPG / WebP</div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -1095,11 +1116,12 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_0_img')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_pillar_0_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                      <div onclick="uploadImageForField('cms_about_pillar_0_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;; flex-wrap:wrap;">
                         <img id="cms_about_pillar_0_img_preview" src="images/about/01-advanced-manufacturing.png" alt="Layer 01" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 01 Image</span>
                       </div>
-                    </div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
+                      </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 02: Built for Efficiency</div>
@@ -1112,11 +1134,12 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_1_img')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_pillar_1_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                      <div onclick="uploadImageForField('cms_about_pillar_1_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;; flex-wrap:wrap;">
                         <img id="cms_about_pillar_1_img_preview" src="images/about/02-manufacturing-at-scale.jpg" alt="Layer 02" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 02 Image</span>
                       </div>
-                    </div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
+                      </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 03: Quality You Can Trust</div>
@@ -1129,11 +1152,12 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_2_img')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_pillar_2_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                      <div onclick="uploadImageForField('cms_about_pillar_2_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;; flex-wrap:wrap;">
                         <img id="cms_about_pillar_2_img_preview" src="images/about/03-quality-reliability-lab.jpg" alt="Layer 03" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 03 Image</span>
                       </div>
-                    </div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
+                      </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 04: Efficiency in Every Process</div>
@@ -1146,11 +1170,12 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_3_img')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_pillar_3_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                      <div onclick="uploadImageForField('cms_about_pillar_3_img')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;; flex-wrap:wrap;">
                         <img id="cms_about_pillar_3_img_preview" src="images/about/04-operational-excellence-facility.png" alt="Layer 04" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 04 Image</span>
                       </div>
-                    </div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -1196,12 +1221,13 @@
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_0_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_0_photo')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_lead_0_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                      <div onclick="uploadImageForField('cms_about_lead_0_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;; flex-wrap:wrap;">
                         <img id="cms_about_lead_0_photo_preview" src="images/team/ratan-kumar-sharma-cmd.jpg" alt="Mr. Ratan Kumar Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
                           <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Ratan Kumar Sharma</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 750 px (4:5 Portrait) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative (Multiple paragraphs supported)</label><textarea id="cms_about_lead_0_bio" class="form-control" rows="7">With 18 years of experience in the plastic furniture industry prior to establishing National Plasto Products Pvt. Ltd., Mr. Ratan Kumar Sharma brought extensive industry knowledge and practical experience to the foundation of the company in 1997.
@@ -1225,12 +1251,13 @@ Under his leadership, NPPL has grown not only in scale and turnover, but also in
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_1_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_1_photo')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_lead_1_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                      <div onclick="uploadImageForField('cms_about_lead_1_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;; flex-wrap:wrap;">
                         <img id="cms_about_lead_1_photo_preview" src="images/team/rajkumar-sharma-director-finance.jpg" alt="Mr. Rajkumar Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
                           <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Rajkumar Sharma</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 750 px (4:5 Portrait) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_1_bio" class="form-control" rows="7">Mr. Rajkumar Sharma, the eldest of the family and elder brother of Mr. Ratan Kumar Sharma, has overseen the company's financial operations since its inception in 1997.
@@ -1250,12 +1277,13 @@ As the senior-most member of the management team, his steady and disciplined app
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_2_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_2_photo')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_lead_2_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                      <div onclick="uploadImageForField('cms_about_lead_2_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;; flex-wrap:wrap;">
                         <img id="cms_about_lead_2_photo_preview" src="images/team/sukhram-sharma-director-production.jpg" alt="Late Mr. Sukhram Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
                           <div style="font-size:12px; color:#0F172A; font-weight:600;">Late Mr. Sukhram Sharma</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 750 px (4:5 Portrait) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_2_bio" class="form-control" rows="7">Mr. Sukhram Sharma, the youngest brother of Mr. Raj Kumar Sharma and Mr. Ratan Kumar Sharma, was an integral part of National Plasto Products Pvt. Ltd. and made significant contribution to the Company's growth and establishment.
@@ -1277,12 +1305,13 @@ Mr. Sukhram Sharma passed away three years ago, leaving behind a legacy of dedic
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_3_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_3_photo')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_lead_3_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                      <div onclick="uploadImageForField('cms_about_lead_3_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;; flex-wrap:wrap;">
                         <img id="cms_about_lead_3_photo_preview" src="images/team/bhavesh-sharma-executive-director.jpg" alt="Mr. Bhavesh Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
                           <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Bhavesh Sharma</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 750 px (4:5 Portrait) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_3_bio" class="form-control" rows="7">Mr. Bhavesh Sharma, son of Mr. Ratan Kumar Sharma, oversees production, sales and marketing across all four manufacturing units, working closely with teams to maintain consistency in quality, output and operations.
@@ -1304,12 +1333,13 @@ With a hands-on approach and focus on exploring new markets, he continues to dri
                         <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_4_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_4_photo')"><i class="fas fa-images"></i> Pick</button>
                       </div>
-                      <div onclick="uploadImageForField('cms_about_lead_4_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                      <div onclick="uploadImageForField('cms_about_lead_4_photo')" title="Click to upload and change photo" style="cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;; flex-wrap:wrap;">
                         <img id="cms_about_lead_4_photo_preview" src="images/team/devesh-sharma-executive-director.jpg" alt="Mr. Devesh Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
                           <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Devesh Sharma</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 750 px (4:5 Portrait) • Format: JPG / PNG</div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_4_bio" class="form-control" rows="7">Mr. Devesh Sharma, the youngest member of the family and son of Late Mr. Sukhram Sharma, oversees production and sales operations across the company's manufacturing units.
@@ -1350,12 +1380,13 @@ As part of the next generation of leadership, he continues to carry forward the 
                     <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_products_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_products_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
-                      <div onclick="uploadImageForField('cms_products_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_products_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_products_hero_image_preview" src="images/brand/products.png" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 800 px (Wide Banner) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                 </div>
               </div>
@@ -1399,120 +1430,132 @@ As part of the next generation of leadership, he continues to carry forward the 
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_0_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_0_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_0_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_0_img_preview" src="images/collections/arm-chairs.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_1"><div class="cms-item-box-title">2. Premium Arm Chairs</div><input type="text" id="cms_coll_1_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_1_img" class="form-control" placeholder="Image URL" value="images/collections/premium-arm-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_1_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_1_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_1_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_1_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_1_img_preview" src="images/collections/premium-arm-chairs.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_2"><div class="cms-item-box-title">3. Armless Chairs</div><input type="text" id="cms_coll_2_count" class="form-control" placeholder="52 Products" style="margin-bottom:6px;" value="52 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_2_img" class="form-control" placeholder="Image URL" value="images/collections/armless-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_2_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_2_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_2_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_2_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_2_img_preview" src="images/collections/armless-chairs.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_3"><div class="cms-item-box-title">4. Premium Armless</div><input type="text" id="cms_coll_3_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_3_img" class="form-control" placeholder="Image URL" value="images/collections/premium-armless-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_3_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_3_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_3_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_3_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_3_img_preview" src="images/collections/premium-armless-chairs.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_4"><div class="cms-item-box-title">5. Metallic Chairs</div><input type="text" id="cms_coll_4_count" class="form-control" placeholder="11 Products" style="margin-bottom:6px;" value="11 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_4_img" class="form-control" placeholder="Image URL" value="images/collections/metallic-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_4_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_4_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_4_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_4_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_4_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_4_img_preview" src="images/collections/metallic-chairs.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_5"><div class="cms-item-box-title">6. Steel Moulded</div><input type="text" id="cms_coll_5_count" class="form-control" placeholder="3 Products" style="margin-bottom:6px;" value="3 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_5_img" class="form-control" placeholder="Image URL" value="images/collections/steel-moulded-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_5_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_5_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_5_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_5_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_5_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_5_img_preview" src="images/collections/steel-moulded-chairs.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_6"><div class="cms-item-box-title">7. Baby Chairs</div><input type="text" id="cms_coll_6_count" class="form-control" placeholder="14 Products" style="margin-bottom:6px;" value="14 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_6_img" class="form-control" placeholder="Image URL" value="images/collections/baby-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_6_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_6_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_6_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_6_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_6_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_6_img_preview" src="images/collections/baby-chairs.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_7"><div class="cms-item-box-title">8. Stools</div><input type="text" id="cms_coll_7_count" class="form-control" placeholder="39 Products" style="margin-bottom:6px;" value="39 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_7_img" class="form-control" placeholder="Image URL" value="images/collections/stools.jpg" oninput="updateImagePreview(this, 'cms_coll_7_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_7_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_7_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_7_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_7_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_7_img_preview" src="images/collections/stools.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_8"><div class="cms-item-box-title">9. Tables</div><input type="text" id="cms_coll_8_count" class="form-control" placeholder="51 Products" style="margin-bottom:6px;" value="51 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_8_img" class="form-control" placeholder="Image URL" value="images/collections/tables.jpg" oninput="updateImagePreview(this, 'cms_coll_8_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_8_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_8_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_8_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_8_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_8_img_preview" src="images/collections/tables.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_9"><div class="cms-item-box-title">10. Dining Sets</div><input type="text" id="cms_coll_9_count" class="form-control" placeholder="45 Products" style="margin-bottom:6px;" value="45 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_9_img" class="form-control" placeholder="Image URL" value="images/collections/dining-sets.jpg" oninput="updateImagePreview(this, 'cms_coll_9_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_9_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_9_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_9_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_9_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_9_img_preview" src="images/collections/dining-sets.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_10"><div class="cms-item-box-title">11. Trolleys & Racks</div><input type="text" id="cms_coll_10_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_10_img" class="form-control" placeholder="Image URL" value="images/collections/trolleys-and-racks.jpg" oninput="updateImagePreview(this, 'cms_coll_10_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_10_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_10_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_10_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_10_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_10_img_preview" src="images/collections/trolleys-and-racks.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                   <div class="cms-item-box" id="coll_box_11"><div class="cms-item-box-title">12. Wardrobes</div><input type="text" id="cms_coll_11_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products">
                     <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
                       <input type="text" id="cms_coll_11_img" class="form-control" placeholder="Image URL" value="images/collections/wardrobes.jpg" oninput="updateImagePreview(this, 'cms_coll_11_img_preview')">
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_11_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_11_img')"><i class="fas fa-images"></i></button>
                     </div>
-                    <div onclick="uploadImageForField('cms_coll_11_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_coll_11_img')" style="display:flex; align-items:center; gap:8px; padding:6px 10px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_coll_11_img_preview" src="images/collections/wardrobes.jpg" alt="Category Image" style="width:40px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div style="font-size:11px; color:#475569;">Click to upload new image</div>
-                    </div></div>
+                    <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 600 × 600 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div></div>
                 </div>
               </div>
             </div>
@@ -1565,12 +1608,13 @@ As part of the next generation of leadership, he continues to carry forward the 
                     <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
-                      <div onclick="uploadImageForField('cms_mfg_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_mfg_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_mfg_hero_image_preview" src="images/brand/company-photo.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 800 px (Wide Banner) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                 </div>
               </div>
@@ -1592,11 +1636,12 @@ As part of the next generation of leadership, he continues to carry forward the 
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_0_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_mfg_plant_0_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_mfg_plant_0_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_mfg_plant_0_img_preview" src="images/home/plant-kl850.jpg" alt="Plant Hub Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 500 px (16:10 Landscape) • Format: JPG / WebP</div>
                       </div>
                     </div></div>
                   </div>
@@ -1611,11 +1656,12 @@ As part of the next generation of leadership, he continues to carry forward the 
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_1_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_mfg_plant_1_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_mfg_plant_1_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_mfg_plant_1_img_preview" src="images/home/milestone-2007.jpg" alt="Plant Hub Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 500 px (16:10 Landscape) • Format: JPG / WebP</div>
                       </div>
                     </div></div>
                   </div>
@@ -1630,11 +1676,12 @@ As part of the next generation of leadership, he continues to carry forward the 
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_2_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_mfg_plant_2_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_mfg_plant_2_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_mfg_plant_2_img_preview" src="images/home/milestone-2010.jpg" alt="Plant Hub Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 500 px (16:10 Landscape) • Format: JPG / WebP</div>
                       </div>
                     </div></div>
                   </div>
@@ -1649,11 +1696,12 @@ As part of the next generation of leadership, he continues to carry forward the 
                       <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_3_img')"><i class="fas fa-images"></i> Pick</button>
                     </div>
-                    <div onclick="uploadImageForField('cms_mfg_plant_3_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;" title="Click to upload and change photo">
+                    <div onclick="uploadImageForField('cms_mfg_plant_3_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer;; flex-wrap:wrap;" title="Click to upload and change photo">
                       <img id="cms_mfg_plant_3_img_preview" src="images/home/milestone-2026.jpg" alt="Plant Hub Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                       <div>
                         <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                         <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 500 px (16:10 Landscape) • Format: JPG / WebP</div>
                       </div>
                     </div></div>
                   </div>
@@ -1703,12 +1751,13 @@ As part of the next generation of leadership, he continues to carry forward the 
                     <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_dist_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
-                      <div onclick="uploadImageForField('cms_dist_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_dist_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_dist_hero_image_preview" src="images/hero/image2.png" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 800 px (Wide Banner) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                 </div>
               </div>
@@ -1779,12 +1828,13 @@ As part of the next generation of leadership, he continues to carry forward the 
                     <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_contact_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
                       <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_contact_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
-                      <div onclick="uploadImageForField('cms_contact_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('cms_contact_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="cms_contact_hero_image_preview" src="images/brand/company-photo.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 800 px (Wide Banner) • Format: JPG / WebP</div>
+                      </div>
                       </div>
                 </div>
               </div>
@@ -2065,12 +2115,13 @@ As part of the next generation of leadership, he continues to carry forward the 
                 <i class="fas fa-images"></i> Media Library
               </button>
             </div>
-                      <div onclick="uploadImageForField('prodPrimaryImage')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;" title="Click to upload and change photo">
+                      <div onclick="uploadImageForField('prodPrimaryImage')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
                         <img id="prodPrimaryImage_preview" src="images/brand/company-national-logo.png" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
                         <div>
                           <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
                           <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        </div>
+                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 800 px (1:1 Square) • Format: Transparent PNG / JPG</div>
+                      </div>
                       </div>
             <div class="form-help">Paste path or click "Media Library" / upload a file below.</div>
           </div>
