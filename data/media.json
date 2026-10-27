@@ -1,5 +1,26 @@
 [
   {
+    "name": "main.jpg",
+    "url": "/images/home/main.jpg",
+    "tag": "Home",
+    "size": 2792167,
+    "mtime": "2026-10-27T07:23:43.545Z"
+  },
+  {
+    "name": "main.png",
+    "url": "/images/home/main.png",
+    "tag": "Home",
+    "size": 2792167,
+    "mtime": "2026-10-27T07:23:43.545Z"
+  },
+  {
+    "name": "premium-furniture-range.png",
+    "url": "/images/home/premium-furniture-range.png",
+    "tag": "Home",
+    "size": 2792167,
+    "mtime": "2026-10-27T07:23:43.545Z"
+  },
+  {
     "name": "overview-video-poster.jpg",
     "url": "/images/hero/overview-video-poster.jpg",
     "tag": "Hero",
@@ -466,6 +487,69 @@
     "url": "/images/hero/team-products.jpg",
     "tag": "Hero",
     "size": 2339733,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "catalogue-2026.jpg",
+    "url": "/images/home/catalogue-2026.jpg",
+    "tag": "Home",
+    "size": 55402,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "certificates-2026.jpg",
+    "url": "/images/home/certificates-2026.jpg",
+    "tag": "Home",
+    "size": 170002,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "milestone-1942.jpg",
+    "url": "/images/home/milestone-1942.jpg",
+    "tag": "Home",
+    "size": 342348,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "milestone-1997.jpg",
+    "url": "/images/home/milestone-1997.jpg",
+    "tag": "Home",
+    "size": 582632,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "milestone-2007.jpg",
+    "url": "/images/home/milestone-2007.jpg",
+    "tag": "Home",
+    "size": 559966,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "milestone-2010.jpg",
+    "url": "/images/home/milestone-2010.jpg",
+    "tag": "Home",
+    "size": 774153,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "milestone-2026.jpg",
+    "url": "/images/home/milestone-2026.jpg",
+    "tag": "Home",
+    "size": 3415874,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "plant-kl850.jpg",
+    "url": "/images/home/plant-kl850.jpg",
+    "tag": "Home",
+    "size": 487504,
+    "mtime": "2026-10-16T22:56:02.000Z"
+  },
+  {
+    "name": "sustainability-banner.jpg",
+    "url": "/images/home/sustainability-banner.jpg",
+    "tag": "Home",
+    "size": 276041,
     "mtime": "2026-10-16T22:56:02.000Z"
   }
 ]
