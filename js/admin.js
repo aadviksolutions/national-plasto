@@ -1280,6 +1280,17 @@
       setVal('cms_contact_address', cmsData.contact?.corporateOffice?.address || cmsData.general?.headOffice);
       setVal('cms_contact_map_url', cmsData.contact?.corporateOffice?.mapUrl);
 
+      if (cmsData.contact?.channels && Array.isArray(cmsData.contact.channels) && cmsData.contact.channels.length > 0) {
+        window.renderChannelRows(cmsData.contact.channels);
+      } else {
+        window.renderChannelRows([
+          { label: 'Authorized Dealer & Trade Helpline', type: 'phone', value: '+91 33 2242 1997 / 1998', placement: 'both', note: 'Mon - Sat: 9:30 AM - 6:30 PM' },
+          { label: 'Retail, Bulk & WhatsApp Support', type: 'whatsapp', value: '+91 98300 12345', placement: 'both', note: 'Instant WhatsApp Chat' },
+          { label: 'Official Correspondence', type: 'email', value: 'info@nationalplasto.com', placement: 'both', note: 'General inquiries & feedback' },
+          { label: 'Commercial & Bulk Trade Desk', type: 'email', value: 'trade@nationalplasto.com', placement: 'contact_card', note: 'Institutional bulk purchases' }
+        ]);
+      }
+
       if (cmsData.contact?.factories && Array.isArray(cmsData.contact.factories) && cmsData.contact.factories.length > 0) {
         window.renderFactoryRows(cmsData.contact.factories);
       } else {
@@ -1554,6 +1565,20 @@
           address: getVal('cms_contact_address'),
           mapUrl: getVal('cms_contact_map_url')
         };
+
+        const channelCards = document.querySelectorAll('#cms_channels_container .channel-row-card');
+        const channels = [];
+        channelCards.forEach((c) => {
+          const label = c.querySelector('.channel-label')?.value?.trim() || '';
+          const type = c.querySelector('.channel-type')?.value || 'phone';
+          const value = c.querySelector('.channel-value')?.value?.trim() || '';
+          const placement = c.querySelector('.channel-placement')?.value || 'both';
+          const note = c.querySelector('.channel-note')?.value?.trim() || '';
+          if (label || value) {
+            channels.push({ label, type, value, placement, note });
+          }
+        });
+        cmsData.contact.channels = channels;
         const factoryCards = document.querySelectorAll('#cms_factories_container .factory-row-card');
         const factories = [];
         factoryCards.forEach((c) => {
@@ -2017,6 +2042,118 @@
   // Start app by checking authentication
   
   // Dynamic Factory & Regional Location rows management
+  
+  // Dynamic Support Helplines & Department Channels management
+  window.renderChannelRows = function (list) {
+    const container = document.getElementById('cms_channels_container');
+    if (!container) return;
+    container.innerHTML = '';
+    const items = (Array.isArray(list) && list.length > 0) ? list : [
+      { label: 'Authorized Dealer & Trade Helpline', type: 'phone', value: '+91 33 2242 1997 / 1998', placement: 'both', note: 'Mon - Sat: 9:30 AM - 6:30 PM' },
+      { label: 'Retail, Bulk & WhatsApp Support', type: 'whatsapp', value: '+91 98300 12345', placement: 'both', note: 'Instant WhatsApp Chat' },
+      { label: 'Official Correspondence', type: 'email', value: 'info@nationalplasto.com', placement: 'both', note: 'General inquiries & feedback' },
+      { label: 'Commercial & Bulk Trade Desk', type: 'email', value: 'trade@nationalplasto.com', placement: 'contact_card', note: 'Institutional bulk purchases' }
+    ];
+    items.forEach((item) => {
+      window.addChannelRow(item, false);
+    });
+  };
+
+  window.addChannelRow = function (data = {}, autoScroll = true) {
+    const container = document.getElementById('cms_channels_container');
+    if (!container) return;
+    const card = document.createElement('div');
+    card.className = 'channel-row-card';
+    card.style.cssText = 'background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:14px; position:relative; box-shadow:0 1px 3px rgba(0,0,0,0.04);';
+
+    const label = data.label || '';
+    const type = data.type || 'phone';
+    const value = data.value || '';
+    const placement = data.placement || 'both';
+    const note = data.note || '';
+
+    card.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; border-bottom:1px solid #E2E8F0; padding-bottom:6px;">
+        <span style="font-weight:700; color:#1E293B; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+          <i class="fas fa-headset" style="color:#2563EB;"></i> Helpline / Channel #<span class="channel-num"></span>
+        </span>
+        <button type="button" class="btn btn-sm" onclick="removeChannelRow(this)" style="background:#FEE2E2; color:#DC2626; border:1px solid #FECACA; padding:3px 8px; border-radius:6px; font-size:12px; cursor:pointer; font-weight:600; display:inline-flex; align-items:center; gap:4px; transition:0.2s;">
+          <i class="fas fa-trash-alt"></i> Remove
+        </button>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:10px; margin-bottom:10px;">
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Channel / Department Label</label>
+          <input type="text" class="form-control channel-label" placeholder="e.g. Sales Desk, Dealer Helpline" value="${label.replace(/"/g, '&quot;')}" style="font-size:13px;">
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Channel Type</label>
+          <select class="form-control channel-type" style="font-size:13px; font-weight:500;">
+            <option value="phone"${type === 'phone' ? ' selected' : ''}>Phone / Helpline</option>
+            <option value="whatsapp"${type === 'whatsapp' ? ' selected' : ''}>WhatsApp Direct</option>
+            <option value="email"${type === 'email' ? ' selected' : ''}>Email Address</option>
+            <option value="landline"${type === 'landline' ? ' selected' : ''}>Office Landline</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Contact Value (Number / Email)</label>
+          <input type="text" class="form-control channel-value" placeholder="e.g. +91 98300 12345 or info@..." value="${value.replace(/"/g, '&quot;')}" style="font-size:13px;">
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block; color:#0F172A;">
+            <i class="fas fa-layer-group" style="color:#2563EB;"></i> Frontend Placement
+          </label>
+          <select class="form-control channel-placement" style="font-size:13px; font-weight:600; background:#FFFFFF; border-color:#93C5FD;">
+            <option value="both"${placement === 'both' ? ' selected' : ''}>Both (Contact Box &amp; Footer)</option>
+            <option value="contact_card"${placement === 'contact_card' ? ' selected' : ''}>Contact Page (Registered Office Box)</option>
+            <option value="footer"${placement === 'footer' ? ' selected' : ''}>Website Footer (Contact Column)</option>
+            <option value="whatsapp_bar"${placement === 'whatsapp_bar' ? ' selected' : ''}>Floating WhatsApp Quick Bar</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin:0;">
+        <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Subtitle / Hours / Note (Optional)</label>
+        <input type="text" class="form-control channel-note" placeholder="e.g. Mon - Sat: 9:30 AM - 6:30 PM or Instant Response" value="${note.replace(/"/g, '&quot;')}" style="font-size:13px;">
+      </div>
+    `;
+
+    container.appendChild(card);
+    updateChannelRowIndices();
+
+    if (autoScroll) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const firstInput = card.querySelector('.channel-label');
+      if (firstInput) firstInput.focus();
+    }
+  };
+
+  window.removeChannelRow = function (btn) {
+    const card = btn.closest('.channel-row-card');
+    if (!card) return;
+    const container = document.getElementById('cms_channels_container');
+    if (container.querySelectorAll('.channel-row-card').length <= 1) {
+      alert('At least one helpline / channel row must be kept.');
+      return;
+    }
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.95)';
+    card.style.transition = 'all 0.2s';
+    setTimeout(() => {
+      card.remove();
+      updateChannelRowIndices();
+    }, 200);
+  };
+
+  function updateChannelRowIndices() {
+    const cards = document.querySelectorAll('#cms_channels_container .channel-row-card');
+    cards.forEach((c, idx) => {
+      const numSpan = c.querySelector('.channel-num');
+      if (numSpan) numSpan.textContent = idx + 1;
+    });
+  }
+
   window.renderFactoryRows = function (list) {
     const container = document.getElementById('cms_factories_container');
     if (!container) return;

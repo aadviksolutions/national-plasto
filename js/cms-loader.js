@@ -609,6 +609,94 @@
       document.querySelectorAll('.contact-address-val').forEach(function (el) { el.textContent = address; });
     }
 
+    // Dynamic Support Channels & Helplines Hydration
+    if (contact && Array.isArray(contact.channels) && contact.channels.length > 0) {
+      // 1. Hydrate Corporate & Registered Office Box on contact.html
+      var contactCardBox = document.querySelector('.contact_card_box');
+      if (contactCardBox) {
+        var cardChannels = contact.channels.filter(function (ch) {
+          return !ch.placement || ch.placement === 'contact_card' || ch.placement === 'both' || ch.placement === 'all';
+        });
+
+        if (cardChannels.length > 0) {
+          var registeredAddr = (contact.corporateOffice && contact.corporateOffice.address) || address || '135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata 700026';
+          var mapLink = (contact.corporateOffice && contact.corporateOffice.mapUrl) || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(registeredAddr);
+
+          var boxHtml = '<h3><i class="fas fa-building" style="color:var(--brand-primary);font-size:20px;"></i> Corporate &amp; Registered Office</h3>' +
+            '<div class="contact_item_row">' +
+              '<div class="contact_item_icon"><i class="fas fa-map-marker-alt"></i></div>' +
+              '<div class="contact_item_text">' +
+                '<h5>Registered Address</h5>' +
+                '<p><strong>NATIONAL PLASTO MOULDING</strong><br>' +
+                '<a href="' + mapLink + '" target="_blank" rel="noopener">' + registeredAddr + '</a></p>' +
+              '</div>' +
+            '</div>';
+
+          cardChannels.forEach(function (ch) {
+            var iconClass = 'fas fa-phone-alt';
+            var valHtml = '';
+            var cleanVal = (ch.value || '').trim();
+
+            if (ch.type === 'whatsapp') {
+              iconClass = 'fab fa-whatsapp';
+              var waNum = cleanVal.replace(/[^0-9]/g, '');
+              valHtml = '<a href="tel:' + cleanVal + '">' + cleanVal + '</a> &bull; ' +
+                '<a href="https://wa.me/' + waNum + '?text=Hello%20National%20Plasto%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products." target="_blank" rel="noopener" style="color:#22C55E;font-weight:600;"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>';
+            } else if (ch.type === 'email') {
+              iconClass = 'fas fa-envelope';
+              valHtml = '<a class="contact-email-link" href="mailto:' + cleanVal + '">' + cleanVal + '</a>';
+            } else {
+              iconClass = 'fas fa-phone-alt';
+              valHtml = '<a href="tel:' + cleanVal.split('/')[0].trim() + '">' + cleanVal + '</a>';
+            }
+
+            if (ch.note) {
+              valHtml += ' <span style="display:block; font-size:12px; color:#64748B; margin-top:2px;">' + ch.note + '</span>';
+            }
+
+            boxHtml += '<div class="contact_item_row">' +
+              '<div class="contact_item_icon"><i class="' + iconClass + '"></i></div>' +
+              '<div class="contact_item_text">' +
+                '<h5>' + (ch.label || 'Support Helpline') + '</h5>' +
+                '<p>' + valHtml + '</p>' +
+              '</div>' +
+            '</div>';
+          });
+
+          contactCardBox.innerHTML = boxHtml;
+        }
+      }
+
+      // 2. Hydrate Footer Contact Column across all pages
+      var footerContactNav = document.querySelector('.np-sfooter-col[aria-label="Contact"] ul');
+      if (footerContactNav) {
+        var footerChannels = contact.channels.filter(function (ch) {
+          return ch.placement === 'footer' || ch.placement === 'both' || ch.placement === 'all';
+        });
+
+        if (footerChannels.length > 0) {
+          var footerAddr = (contact.corporateOffice && contact.corporateOffice.address) || address || '135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata 700026';
+          var fHtml = '<li><a href="https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(footerAddr) + '" target="_blank" rel="noopener">' + footerAddr + '</a></li>';
+
+          footerChannels.forEach(function (ch) {
+            var val = (ch.value || '').trim();
+            if (ch.type === 'email') {
+              fHtml += '<li><a href="mailto:' + val + '">' + (ch.label ? ch.label + ': ' : '') + val + '</a></li>';
+            } else if (ch.type === 'whatsapp') {
+              var waNum = val.replace(/[^0-9]/g, '');
+              fHtml += '<li><a href="https://wa.me/' + waNum + '" target="_blank" rel="noopener"><i class="fab fa-whatsapp" style="color:#22C55E;"></i> ' + (ch.label ? ch.label + ': ' : '') + val + '</a></li>';
+            } else {
+              fHtml += '<li><a href="tel:' + val.split('/')[0].trim() + '">' + (ch.label ? ch.label + ': ' : '') + val + '</a></li>';
+            }
+          });
+
+          fHtml += '<li><a href="policies.html#privacy">Privacy Policy</a></li>' +
+                   '<li><a href="policies.html#terms">Terms &amp; Conditions</a></li>';
+          footerContactNav.innerHTML = fHtml;
+        }
+      }
+    }
+
     // Dynamic Factory Units, Regional Depots & Offices Hydration
     if (contact && Array.isArray(contact.factories) && contact.factories.length > 0) {
       // 1. Interactive Map Tabs on contact.html (#map .np-findus-tabs)
