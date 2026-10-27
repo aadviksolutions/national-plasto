@@ -35,21 +35,34 @@
     });
   }
 
+  function deepMerge(target, source) {
+    if (!source || typeof source !== 'object') return target;
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+          target[key] = deepMerge(target[key] || {}, source[key]);
+        } else {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  }
+
   function fetchCMSData() {
     return getIdbData('np_custom_cms').then(function (idbCMS) {
-      if (idbCMS && typeof idbCMS === 'object' && Object.keys(idbCMS).length > 0) {
-        return idbCMS;
-      }
-      try {
-        var localCMS = localStorage.getItem('np_custom_cms');
-        if (localCMS) {
-          var parsed = JSON.parse(localCMS);
-          if (parsed && typeof parsed === 'object') {
-            return parsed;
+      var customCMS = (idbCMS && typeof idbCMS === 'object' && Object.keys(idbCMS).length > 0) ? idbCMS : null;
+      if (!customCMS) {
+        try {
+          var local = localStorage.getItem('np_custom_cms');
+          if (local) {
+            var parsed = JSON.parse(local);
+            if (parsed && typeof parsed === 'object') customCMS = parsed;
           }
-        }
-      } catch (e) {}
+        } catch (_) {}
+      }
 
+      // Fetch base content to merge custom overrides on top
       return fetch('/api/cms?t=' + Date.now())
         .then(function (res) {
           var ct = res.headers.get('content-type') || '';
@@ -57,14 +70,18 @@
           return res.json();
         })
         .then(function (res) {
-          return res.data || res;
+          var base = res.data || res;
+          return customCMS ? deepMerge(base, customCMS) : base;
         })
         .catch(function () {
           return fetch('data/cms-content.json?t=' + Date.now())
             .then(function (res) { return res.json(); })
+            .then(function (base) {
+              return customCMS ? deepMerge(base, customCMS) : base;
+            })
             .catch(function (err) {
-              console.warn('[CMS Loader] Fallback JSON error:', err);
-              return null;
+              console.warn('[CMS Loader] Base JSON fetch failed, using customCMS directly:', err);
+              return customCMS;
             });
         });
     });
@@ -77,6 +94,22 @@
     }, obj);
   }
 
+  /**
+   * Safe image setter: updates src and synchronizes data-lazy-src & data-src
+   * so supreme_app.min.js lazy-loader never overwrites new CMS images on scroll/load.
+   */
+  function setSafeImage(img, url) {
+    if (!img || !url) return;
+    img.src = url;
+    try {
+      img.setAttribute('data-lazy-src', url);
+      img.setAttribute('data-src', url);
+      if (window.jQuery) {
+        window.jQuery(img).attr('data-lazy-src', url).attr('src', url);
+      }
+    } catch (_) {}
+  }
+
   function applyCMS(data) {
     if (!data) return;
 
@@ -87,7 +120,7 @@
       var val = getNested(data, keyPath);
       if (val !== undefined && val !== null) {
         if (el.tagName === 'IMG') {
-          el.src = val;
+          setSafeImage(el, val);
         } else if (el.tagName === 'A' && el.getAttribute('data-cms-attr') === 'href') {
           el.href = val;
         } else {
@@ -209,6 +242,8 @@
           heroVideo.load();
         }
       }
+      var heroPosterImg = document.querySelector('.np-hero-poster-img');
+      if (heroPosterImg && home.hero.videoPoster) setSafeImage(heroPosterImg, home.hero.videoPoster);
     }
 
     // 2. Virtues (6 items)
@@ -237,7 +272,7 @@
       if (cmdRole && home.cmdTestimonial.role) cmdRole.textContent = home.cmdTestimonial.role;
 
       var cmdImg = document.querySelector('.np-cmd-cutout');
-      if (cmdImg && home.cmdTestimonial.photo) cmdImg.src = home.cmdTestimonial.photo;
+      if (cmdImg && home.cmdTestimonial.photo) setSafeImage(cmdImg, home.cmdTestimonial.photo);
 
       var cmdBtn = document.querySelector('.np-cmd-btn');
       if (cmdBtn) {
@@ -254,18 +289,56 @@
       if (mDesc && home.metricsSection.desc) mDesc.textContent = home.metricsSection.desc;
     }
 
-    // 5. Plant Highlights Slider
+    // 5. Plant Highlights Slider (With Slick Clone & Lazy-Load Synchronization)
     if (home.plantHighlights && home.plantHighlights.length) {
-      var plantItems = document.querySelectorAll('.plant_slider .plant_item');
-      plantItems.forEach(function (item, idx) {
-        if (home.plantHighlights[idx]) {
-          var img = item.querySelector('img');
-          var btn = item.querySelector('.plant_btn');
-          if (img && home.plantHighlights[idx].image) img.src = home.plantHighlights[idx].image;
-          if (btn && home.plantHighlights[idx].title) btn.textContent = home.plantHighlights[idx].title;
-          if (btn && home.plantHighlights[idx].link) btn.href = home.plantHighlights[idx].link;
+      home.plantHighlights.forEach(function (ph, idx) {
+        if (!ph) return;
+
+        // A. Target by explicit data attributes (matches BOTH original and Slick-cloned items)
+        var explicitImgs = document.querySelectorAll('[data-cms-plant-img="' + idx + '"]');
+        if (explicitImgs.length > 0) {
+          explicitImgs.forEach(function (img) {
+            if (ph.image) setSafeImage(img, ph.image);
+            if (ph.title) img.alt = ph.title;
+          });
         }
+
+        var explicitBtns = document.querySelectorAll('[data-cms-plant-btn="' + idx + '"]');
+        if (explicitBtns.length > 0) {
+          explicitBtns.forEach(function (btn) {
+            if (ph.title) btn.textContent = ph.title;
+            if (ph.link) btn.href = ph.link;
+          });
+        }
+
+        // B. Target real slides excluding slick clones to ensure non-cloned items are updated
+        var realItems = document.querySelectorAll('.plant_slider .plant_item:not(.slick-cloned)');
+        if (realItems[idx]) {
+          var rImg = realItems[idx].querySelector('img');
+          var rBtn = realItems[idx].querySelector('.plant_btn');
+          if (rImg && ph.image) setSafeImage(rImg, ph.image);
+          if (rBtn && ph.title) rBtn.textContent = ph.title;
+          if (rBtn && ph.link) rBtn.href = ph.link;
+        }
+
+        // C. Target any slick cloned slides containing this index
+        var clonedImgs = document.querySelectorAll('.plant_slider .slick-cloned [data-cms-plant-img="' + idx + '"]');
+        clonedImgs.forEach(function (cImg) {
+          if (ph.image) setSafeImage(cImg, ph.image);
+        });
+        var clonedBtns = document.querySelectorAll('.plant_slider .slick-cloned [data-cms-plant-btn="' + idx + '"]');
+        clonedBtns.forEach(function (cBtn) {
+          if (ph.title) cBtn.textContent = ph.title;
+          if (ph.link) cBtn.href = ph.link;
+        });
       });
+
+      // D. Refresh Slick carousel positions if initialized
+      if (window.jQuery && window.jQuery('#plant_slider').hasClass('slick-initialized')) {
+        try {
+          window.jQuery('#plant_slider').slick('setPosition');
+        } catch (_) {}
+      }
     }
 
     // 6. Our Brands
@@ -277,7 +350,7 @@
           brandTitles[idx].innerHTML = b.name + ' <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon">';
         }
         if (brandImgs[idx] && b.image) {
-          brandImgs[idx].src = b.image;
+          setSafeImage(brandImgs[idx], b.image);
         }
       });
     }
@@ -292,7 +365,7 @@
           var imgEl = box.querySelector('.milestones_img img');
           if (dateEl && home.milestones[idx].date) dateEl.textContent = home.milestones[idx].date;
           if (descEl && home.milestones[idx].desc) descEl.textContent = home.milestones[idx].desc;
-          if (imgEl && home.milestones[idx].image) imgEl.src = home.milestones[idx].image;
+          if (imgEl && home.milestones[idx].image) setSafeImage(imgEl, home.milestones[idx].image);
         }
       });
     }
@@ -322,7 +395,7 @@
       if (touchDesc && home.touchingLives.desc) touchDesc.textContent = home.touchingLives.desc;
 
       var touchImg = document.querySelector('.touching_img img');
-      if (touchImg && home.touchingLives.image) touchImg.src = home.touchingLives.image;
+      if (touchImg && home.touchingLives.image) setSafeImage(touchImg, home.touchingLives.image);
 
       var touchBtn = document.querySelector('.touching_content .btn_project_default');
       if (touchBtn) {
@@ -340,7 +413,7 @@
       if (innoDesc && home.innovativeProducts.desc) innoDesc.innerHTML = home.innovativeProducts.desc;
 
       var innoImg = document.querySelector('.innovative_img');
-      if (innoImg && home.innovativeProducts.image) innoImg.src = home.innovativeProducts.image;
+      if (innoImg && home.innovativeProducts.image) setSafeImage(innoImg, home.innovativeProducts.image);
 
       var innoBtn = document.querySelector('.innovative_content_desc .btn_project_default');
       if (innoBtn) {
@@ -357,7 +430,7 @@
       var bannerDiv = document.querySelector('.banner-slider-img1');
       if (bannerDiv) bannerDiv.style.backgroundImage = 'url("' + about.hero.bannerImage + '")';
       var mobImg = document.querySelector('.mob-banner-img');
-      if (mobImg) mobImg.src = about.hero.bannerImage;
+      if (mobImg) setSafeImage(mobImg, about.hero.bannerImage);
     }
 
     // 2. Overview / Heritage
@@ -395,7 +468,7 @@
           var img = layers[idx].querySelector('.care_for_img img');
           if (h3 && pil.title) h3.textContent = pil.title;
           if (p && pil.desc) p.textContent = pil.desc;
-          if (img && pil.image) img.src = pil.image;
+          if (img && pil.image) setSafeImage(img, pil.image);
         }
       });
     }
@@ -431,7 +504,7 @@
           var photoEl = cards[idx].querySelector('.supreme_director_photo img');
           if (nameEl && leader.name) nameEl.textContent = leader.name;
           if (roleEl && leader.role) roleEl.innerHTML = leader.role;
-          if (photoEl && leader.photo) photoEl.src = leader.photo;
+          if (photoEl && leader.photo) setSafeImage(photoEl, leader.photo);
         }
       });
 
@@ -480,7 +553,7 @@
           var imgEl = collCards[idx].querySelector('img');
           if (titleEl && c.name) titleEl.textContent = c.name;
           if (countEl && c.count) countEl.textContent = c.count;
-          if (imgEl && c.image) imgEl.src = c.image;
+          if (imgEl && c.image) setSafeImage(imgEl, c.image);
         }
       });
     }
@@ -502,7 +575,7 @@
           var imgEl = plantCards[idx].querySelector('img');
           if (titleEl && p.name) titleEl.textContent = p.name;
           if (locEl && p.location) locEl.textContent = p.location;
-          if (imgEl && p.image) imgEl.src = p.image;
+          if (imgEl && p.image) setSafeImage(imgEl, p.image);
         }
       });
     }
@@ -549,12 +622,38 @@
     }
   }
 
-  // Execute on DOM Ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () {
-      fetchCMSData().then(applyCMS);
-    });
-  } else {
+  function initLoader() {
     fetchCMSData().then(applyCMS);
+  }
+
+  // 1. Run as early as possible on DOM Ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initLoader);
+  } else {
+    initLoader();
+  }
+
+  // 2. Re-run on window.load (ensures Slick clones and lazy loader attributes stay synchronized)
+  window.addEventListener('load', function () {
+    setTimeout(initLoader, 80);
+  });
+
+  // 3. Listen for cross-tab storage updates
+  window.addEventListener('storage', function (e) {
+    if (e.key === 'np_custom_cms' || e.key === 'np_custom_cms_timestamp') {
+      initLoader();
+    }
+  });
+
+  // 4. Listen for BroadcastChannel updates
+  if (typeof BroadcastChannel !== 'undefined') {
+    try {
+      var bc = new BroadcastChannel('np_cms_channel');
+      bc.onmessage = function (ev) {
+        if (ev.data && ev.data.type === 'cms_updated') {
+          initLoader();
+        }
+      };
+    } catch (_) {}
   }
 })();

@@ -756,13 +756,24 @@
     showToast('Click "Select" on any photo below to apply it to ' + targetId, 'info');
   };
 
-  window.selectMediaForField = function (url) {
+  window.selectMediaForField = async function (url) {
     if (!currentTargetFieldForMedia) return;
     const input = document.getElementById(currentTargetFieldForMedia);
     if (input) {
       input.value = url;
       setVal(currentTargetFieldForMedia, url);
-      showToast('Image applied to ' + currentTargetFieldForMedia + '!');
+      let activePage = 'home';
+      if (currentTargetFieldForMedia.includes('about')) activePage = 'about';
+      else if (currentTargetFieldForMedia.includes('product') || currentTargetFieldForMedia.includes('coll')) activePage = 'products';
+      else if (currentTargetFieldForMedia.includes('mfg')) activePage = 'manufacturing';
+      else if (currentTargetFieldForMedia.includes('dist')) activePage = 'distributor';
+      else if (currentTargetFieldForMedia.includes('contact') || currentTargetFieldForMedia.includes('social')) activePage = 'contact';
+      else if (currentTargetFieldForMedia.includes('policy')) activePage = 'policies';
+
+      if (typeof window.saveCurrentCMS === 'function') {
+        try { await window.saveCurrentCMS(activePage); } catch (_) {}
+      }
+      showToast('Photo selected and applied live to site!', 'success');
     }
     currentTargetFieldForMedia = null;
     navigateTo('cms');
@@ -970,7 +981,20 @@
           fetch('/api/upload', { method: 'POST', body: fd }).catch(() => {});
         } catch (_) {}
 
-        showToast(`"${file.name}" uploaded and optimized! Click "Save" below to publish.`, 'success');
+        // Auto-save the active page so updates apply to the live site immediately
+        let activePage = 'home';
+        if (targetId.includes('about')) activePage = 'about';
+        else if (targetId.includes('product') || targetId.includes('coll')) activePage = 'products';
+        else if (targetId.includes('mfg')) activePage = 'manufacturing';
+        else if (targetId.includes('dist')) activePage = 'distributor';
+        else if (targetId.includes('contact') || targetId.includes('social')) activePage = 'contact';
+        else if (targetId.includes('policy')) activePage = 'policies';
+
+        if (typeof window.saveCurrentCMS === 'function') {
+          try { await window.saveCurrentCMS(activePage); } catch (_) {}
+        }
+
+        showToast(`"${file.name}" uploaded, optimized, and saved live!`, 'success');
       } catch (err) {
         console.error('Upload processing error:', err);
         showToast('Failed to process image: ' + err.message, 'danger');
@@ -1597,6 +1621,17 @@
       } catch (e) {
         console.warn('Server sync skipped in Cloud Mode');
       }
+
+      // 3. Notify all other open browser tabs (e.g. index.html) to instantly reload content
+      if (typeof BroadcastChannel !== 'undefined') {
+        try {
+          const bc = new BroadcastChannel('np_cms_channel');
+          bc.postMessage({ type: 'cms_updated', page: page });
+        } catch (_) {}
+      }
+      try {
+        localStorage.setItem('np_custom_cms_timestamp', Date.now().toString());
+      } catch (_) {}
 
       showToast('All ' + page.toUpperCase() + ' sections saved successfully!');
     } catch (err) {
