@@ -428,7 +428,7 @@ window.NPPL_DATA = {
     "next": {
       "name": "NEXT Collection",
       "tagline": "Precision-Engineered Contemporary Seating",
-      "description": "Futuristic silhouettes, ergonomic contours, and ultra-durable polymer formulations designed for modern workspaces and premium residences.",
+      "description": "Futuristic silhouettes, ergonomic contours, and ultra-durable plastic formulations designed for modern workspaces and premium residences.",
       "count": 46,
       "sample": [
         {
@@ -5447,5 +5447,4 @@ window.NPPL_DATA = {
     }
   ]
 };
-
 

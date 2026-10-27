@@ -15,7 +15,7 @@
       b2bClients: 500,
       distributionNetwork: "Pan-India",
       statesCovered: 24,
-      pressMaxTonnage: 1200,
+      mouldingClampForceTonnage: 1200,
       loadBearingCapacityKg: 200,
       sqFtFacility: "100,000+"
     },
@@ -39,12 +39,12 @@
         id: "next",
         name: "NEXT",
         tagline: "Premium Plastic Furniture",
-        tier: "100% Prime Virgin Polymer",
+        tier: "100% Prime Virgin Plastic Furniture",
         logo: "images/brand/company-next-logo.png",
         productCount: "46+ Products",
         accentColor: "#076282",
         bgBadge: "rgba(179, 230, 251, 0.25)",
-        description: "Engineered with 100% prime virgin polymer and contemporary ergonomics for modern residences, premium commercial complexes, and executive seating environments.",
+        description: "Engineered with 100% prime virgin plastic and contemporary ergonomics for modern residences, premium commercial complexes, and executive seating environments.",
         highlights: ["100% Virgin Grade", "Ultra-Smooth High-Gloss Finish", "Contemporary Ergonomics"],
         image: "images/products/np-ntl-049-4725aa0165.jpg"
       },
@@ -190,7 +190,7 @@
         id: "government",
         title: "GOVERNMENT",
         subtitle: "Government and public-sector requirements",
-        description: "RDSO-compliant vendor lineage and tender-compliant high-volume polymer procurement solutions.",
+        description: "RDSO-compliant vendor lineage and tender-compliant high-volume plastic furniture procurement solutions.",
         image: "images/brand/company-photo.jpg",
         categoryFilter: "institutional"
       },
@@ -218,7 +218,7 @@
         city: "Howrah",
         state: "West Bengal",
         type: "Central Manufacturing Hub & Tooling Facility",
-        capacity: "Microprocessor presses up to 1,200T",
+         capacity: "Microprocessor injection moulding machines up to 1,200T clamp force",
         address: "Jalan Industrial Complex, Dhulagarh, Howrah – 711302, West Bengal",
         certifications: "ISO 9001:2015 Certified",
         isHQ: true
@@ -259,7 +259,7 @@
         role: "Chairman & Managing Director",
         tag: "Founder & CMD",
         image: "images/team/ratan-kumar-sharma.jpg",
-        bio: "With over 18 years of experience in the polymer industry prior to founding National Plasto in 1997, Mr. Ratan Kumar Sharma pioneered the company's expansion from a single manufacturing unit to four major manufacturing hubs across Howrah, Hajipur, Guwahati, and Roorkee.",
+        bio: "With over 18 years of experience in the plastic furniture industry prior to founding National Plasto in 1997, Mr. Ratan Kumar Sharma pioneered the company's expansion from a single manufacturing unit to four major manufacturing hubs across Howrah, Hajipur, Guwahati, and Roorkee.",
         quote: "Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. How you treat people matters as much as how you run a business."
       },
       {
@@ -299,7 +299,7 @@
         id: "news-1",
         date: "September 15, 2026",
         category: "Manufacturing",
-        title: "Installation of New 1,200T High-Speed Injection Moulding Press at Howrah Plant",
+         title: "Installation of New 1,200T High-Speed Injection Moulding Machine at Howrah Plant",
         summary: "Enhanced production capacity for ultra-large monoblock banquet tables and heavy-duty institutional seating with 20% shorter cycle times.",
         image: "images/brand/quality-lab-qa.jpg"
       },

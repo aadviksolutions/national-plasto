@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261009_supreme_bc">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261027_pan_cycle_v2">
 
     <style>
         /* ==========================================================================
@@ -3699,7 +3699,7 @@
                     </div>
                     <div class="np-unique-right">
                         <p class="np-unique-desc">
-                            National Plasto is an approved partner and trusted manufacturer to major commercial enterprises and over 2,500+ authorized dealers across India. With over 29 years of polymer excellence, our high-precision plastic moulded furniture and material handling solutions are manufactured at 4 high-tech, ISO 9001, 14001, 45001, 50001, CE, and BIFMA-certified plants.
+                            National Plasto is an approved partner and trusted manufacturer to major commercial enterprises and over 2,500+ authorized dealers across India. With over 29 years of furniture excellence, our high-precision plastic moulded furniture and material handling solutions are manufactured at 4 high-tech, ISO 9001, 14001, 45001, 50001, CE, and BIFMA-certified plants.
                         </p>
                     </div>
                 </div>
@@ -3953,7 +3953,7 @@
             'Maharashtra': {
                 cities: ['Nagpur', 'Mumbai', 'Pune', 'Nashik', 'Aurangabad'],
                 pinLoc: 'maharshtra',
-                name: 'Vidarbha Polymers & Furniture Hub',
+                name: 'Vidarbha Plastic Furniture Hub',
                 address: 'Central Avenue, Gandhibagh, Nagpur, Maharashtra 440002',
                 phone: '+91 98222 34110',
                 type: 'Regional Distribution Center'
@@ -3985,7 +3985,7 @@
             'Bihar': {
                 cities: ['Patna', 'Muzaffarpur', 'Gaya', 'Bhagalpur'],
                 pinLoc: 'bihar',
-                name: 'Magadh Polymers & Supply Co.',
+                name: 'Magadh Plastic Furniture & Supply Co.',
                 address: 'Anisabad Roundabout, Patna, Bihar 800002',
                 phone: '+91 94310 11223',
                 type: 'Authorized Distributor'
@@ -4033,7 +4033,7 @@
             'Assam': {
                 cities: ['Guwahati', 'Dibrugarh', 'Silchar', 'Jorhat'],
                 pinLoc: 'assam',
-                name: 'North-East Polymers & Trade Logistics',
+                name: 'North-East Plastic Furniture & Trade Logistics',
                 address: 'Paltan Bazaar, G.S. Road, Guwahati, Assam 781008',
                 phone: '+91 94350 44556',
                 type: 'Regional Distribution Center'
@@ -4151,7 +4151,7 @@
                 "category": "plant",
                 "badge": "Plant 1 &bull; West Bengal",
                 "name": "Dhulagarh Central Facility &amp; Toolroom",
-                "scope": "1,200T High-Tonnage Presses &amp; Tooling Workshop",
+                "scope": "1,200T Injection Moulding Machines &amp; Tooling Workshop",
                 "addr": "Jalan Industrial Estate, Dakshin Jhapardaha, Dhulagarh, Howrah, West Bengal 711411",
                 "phone": "+91 33 2242 1997",
                 "email": "trade@nationalplasto.com",
@@ -4191,7 +4191,7 @@
                 "addr": "EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101",
                 "phone": "+91 98300 12345",
                 "email": "bihar@nationalplasto.com",
-                "meta": "15,000 MT Annual Finished Polymer Throughput",
+                "meta": "15,000 MT Annual Finished Furniture Production",
                 "map": "https://www.google.com/maps/search/?api=1&amp;query=EPIP+Industrial+Area%2C+Hajipur%2C+Vaishali%2C+Bihar+844101",
                 "call": "+919830012345"
         },
@@ -4282,7 +4282,7 @@
         "gujarat": {
                 "category": "distributor",
                 "badge": "Distributor &bull; Gujarat",
-                "name": "Gujarat Wholesale Polymer Hub",
+                "name": "Gujarat Wholesale Plastic Furniture Hub",
                 "scope": "Ahmedabad, Surat, Vadodara &amp; Rajkot Hubs",
                 "addr": "Changodar Industrial Estate, S.G. Highway, Ahmedabad 382213",
                 "phone": "+91 98300 12345",
@@ -4366,7 +4366,7 @@
         "odhisa": {
                 "category": "distributor",
                 "badge": "Distributor &bull; Odisha",
-                "name": "Odisha Polymer Distribution Hub",
+                "name": "Odisha Plastic Furniture Distribution Hub",
                 "scope": "Bhubaneswar, Cuttack &amp; Rourkela Channel Desks",
                 "addr": "Mancheswar Industrial Estate, Bhubaneswar, Odisha 751010",
                 "phone": "+91 98300 12345",
@@ -4414,7 +4414,7 @@
         "assam": {
                 "category": "distributor",
                 "badge": "Distributor &bull; Assam &amp; NE",
-                "name": "North-East Polymers &amp; Trade Logistics",
+                "name": "North-East Plastic Furniture &amp; Trade Logistics",
                 "scope": "Guwahati, Dibrugarh, Silchar &amp; Jorhat Regional Hubs",
                 "addr": "Paltan Bazaar, G.S. Road, Guwahati, Assam 781008",
                 "phone": "+91 98300 12345",
@@ -4468,13 +4468,42 @@ window.allLocationsData = allLocationsData;
         var isUserInteracting = false;
         var cycleTimeout = null;
         var currentCyclePhase = 0;
-        var phases = ['all', 'plant_office', 'depot', 'distributor'];
+        var categorySelectors = {
+            plant: '.np-map-pin--unit',
+            office: '.np-map-pin--office',
+            depot: '.np-map-pin--depot',
+            distributor: '.np-map-pin--dealer'
+        };
+        var phases = Object.keys(categorySelectors).filter(function(category) {
+            return $('.pan_india_legend_supreme .para-text[data-filter="' + category + '"]').length &&
+                $(categorySelectors[category]).length;
+        });
+        var cycleDuration = 2400;
+
+        function clearCycleVisualState() {
+            $('#np_map').removeClass('np-cycle-mode').removeAttr('data-cycle-category');
+            $('.np-map-pin').removeClass('np-cycle-active np-cycle-dim is-highlighted is-active');
+            $('.pan_india_legend_supreme .para-text').removeClass('is-cycle-active');
+        }
+
+        function showCycleCategory(category) {
+            var targetClass = categorySelectors[category];
+            if (!targetClass) return;
+
+            $('#np_map').addClass('np-cycle-mode').removeClass('is-filtering')
+                .attr('data-cycle-category', category);
+            $('.np-map-pin').removeClass('np-cycle-active is-highlighted is-active').addClass('np-cycle-dim');
+            $(targetClass).removeClass('np-cycle-dim').addClass('np-cycle-active');
+            $('.pan_india_legend_supreme .para-text').removeClass('is-cycle-active');
+            $('.pan_india_legend_supreme .para-text[data-filter="' + category + '"]').addClass('is-cycle-active');
+        }
 
         window.focusMapLocation = function(locKey) {
             isUserInteracting = true;
             clearTimeout(cycleTimeout);
             resumeCycleAfterDelay();
 
+            clearCycleVisualState();
             $('#np_map').removeClass('is-filtering');
             $('.np-map-pin').removeClass('is-active is-highlighted');
             var pin = $('.np-map-pin[data-loc="' + locKey + '"]');
@@ -4531,6 +4560,7 @@ window.allLocationsData = allLocationsData;
             clearTimeout(cycleTimeout);
             resumeCycleAfterDelay();
 
+            clearCycleVisualState();
             $('.pan_india_legend_supreme .para-text').removeClass('is-active');
             $('.pan_india_legend_supreme .para-text[data-filter="' + cat + '"]').addClass('is-active');
 
@@ -4564,45 +4594,15 @@ window.allLocationsData = allLocationsData;
         }
 
         function startSupremeCycle() {
-            if (isUserInteracting) return;
+            if (isUserInteracting || !phases.length) return;
             
             var phase = phases[currentCyclePhase];
             currentCyclePhase = (currentCyclePhase + 1) % phases.length;
 
-            if (phase === 'all') {
-                $('#np_map').removeClass('is-filtering');
-                $('.pan_india_legend_supreme .para-text').addClass('is-active');
-                $('.np-map-pin').addClass('is-highlighted');
-            } else if (phase === 'plant_office') {
-                $('#np_map').addClass('is-filtering');
-                $('.pan_india_legend_supreme .para-text').removeClass('is-active');
-                $('.pan_india_legend_supreme .para-text[data-filter="plant"], .pan_india_legend_supreme .para-text[data-filter="office"]').addClass('is-active');
-                $('.np-map-pin').removeClass('is-highlighted is-active');
-                $('.np-map-pin--unit, .np-map-pin--office').each(function(idx) {
-                    var $p = $(this);
-                    setTimeout(function() { $p.addClass('is-highlighted'); }, idx * 90);
-                });
-            } else if (phase === 'depot') {
-                $('#np_map').addClass('is-filtering');
-                $('.pan_india_legend_supreme .para-text').removeClass('is-active');
-                $('.pan_india_legend_supreme .para-text[data-filter="depot"]').addClass('is-active');
-                $('.np-map-pin').removeClass('is-highlighted is-active');
-                $('.np-map-pin--depot').each(function(idx) {
-                    var $p = $(this);
-                    setTimeout(function() { $p.addClass('is-highlighted'); }, idx * 90);
-                });
-            } else if (phase === 'distributor') {
-                $('#np_map').addClass('is-filtering');
-                $('.pan_india_legend_supreme .para-text').removeClass('is-active');
-                $('.pan_india_legend_supreme .para-text[data-filter="distributor"]').addClass('is-active');
-                $('.np-map-pin').removeClass('is-highlighted is-active');
-                $('.np-map-pin--dealer').each(function(idx) {
-                    var $p = $(this);
-                    setTimeout(function() { $p.addClass('is-highlighted'); }, idx * 50);
-                });
-            }
-
-            cycleTimeout = setTimeout(startSupremeCycle, 4400);
+            $('.pan_india_legend_supreme .para-text').removeClass('is-active');
+            $('.pan_india_legend_supreme .para-text[data-filter="' + phase + '"]').addClass('is-active');
+            showCycleCategory(phase);
+            cycleTimeout = setTimeout(startSupremeCycle, cycleDuration);
         }
 
         // Start cycle
@@ -4675,6 +4675,6 @@ window.allLocationsData = allLocationsData;
     <!-- 470+ Verified Authorized Dealer & Distributor Directory -->
     <script src="js/np_dealers_data.js?v=20261013_v1"></script>
     <script src="js/np_dealers_directory.js?v=20261013_v1"></script>
-    <script src="js/cms-loader.js"></script>
+    <script src="js/cms-loader.js?v=20261027"></script>
 </body>
 </html>

@@ -204,13 +204,13 @@ window.openProductQuickView = function (sku) {
   if (brandTier) brandTier.textContent = product.collection || 'NATIONAL PLASTO';
   if (nameEl) nameEl.textContent = product.name;
   if (skuEl) skuEl.textContent = `Model SKU: ${product.sku} | 100% Quality Inspected`;
-  if (descEl) descEl.textContent = `${product.name} is heavy-duty polymer moulded furniture engineered by National Plasto for extreme durability, ergonomic posture support, and long service life across Indian homes, banquets, and commercial spaces.`;
+  if (descEl) descEl.textContent = `${product.name} is heavy-duty plastic moulded furniture engineered by National Plasto for extreme durability, ergonomic posture support, and long service life across Indian homes, banquets, and commercial spaces.`;
 
   if (specsTbody) {
     specsTbody.innerHTML = `
       <tr><th>Category</th><td>${product.category || 'Moulded Furniture'}</td></tr>
       <tr><th>Brand Vertical</th><td>${product.collection || 'National'}</td></tr>
-      <tr><th>Polymer Material</th><td>${product.isPremium ? '100% Prime Virgin Polypropylene' : 'High-Impact Copolymer Blend'}</td></tr>
+      <tr><th>Furniture Material</th><td>${product.isPremium ? '100% Prime Virgin Polypropylene' : 'High-Impact Plastic Blend'}</td></tr>
       <tr><th>Tested Static Load</th><td>200 kg Static Tested</td></tr>
       <tr><th>UV Resistance</th><td>All-Weather UV Stabilized</td></tr>
       <tr><th>Manufacturing Plant</th><td>ISO 9001:2015 Certified Units</td></tr>

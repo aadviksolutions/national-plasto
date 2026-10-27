@@ -77,9 +77,17 @@
     var gen = data.general;
     if (!gen) return;
 
+    function phoneHref(value) {
+      return 'tel:' + String(value).replace(/\s+/g, '');
+    }
+
+    function whatsappNumber(value) {
+      return String(value).replace(/[^0-9]/g, '');
+    }
+
     // Contact Email
     if (gen.contactEmail) {
-      document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+      document.querySelectorAll('a[href^="mailto:"]:not(.contact-email-secondary)').forEach(function (a) {
         a.href = 'mailto:' + gen.contactEmail;
         if (a.textContent.includes('@')) a.textContent = gen.contactEmail;
       });
@@ -88,8 +96,22 @@
     // Phone
     if (gen.contactPhone) {
       document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
-        a.href = 'tel:' + gen.contactPhone.replace(/\\s+/g, '');
-        if (/\\+?\\d{5,}/.test(a.textContent)) a.textContent = gen.contactPhone;
+        a.href = phoneHref(gen.contactPhone);
+        if (/\+?\d{5,}/.test(a.textContent)) a.textContent = gen.contactPhone;
+      });
+    }
+
+    // WhatsApp links use their own admin-controlled helpline value.
+    if (gen.whatsapp) {
+      var waNumber = whatsappNumber(gen.whatsapp);
+      document.querySelectorAll('a[href*="wa.me/"]').forEach(function (a) {
+        var currentUrl = a.getAttribute('href') || '';
+        var query = currentUrl.indexOf('?');
+        var suffix = query === -1 ? '' : currentUrl.slice(query);
+        a.href = 'https://wa.me/' + waNumber + suffix;
+        if (/WhatsApp/i.test(a.textContent) && /\+?\d{5,}/.test(a.textContent)) {
+          a.textContent = a.textContent.replace(/\+?\d[\d\s-]{4,}/, gen.whatsapp);
+        }
       });
     }
 
@@ -346,17 +368,18 @@
         }
       });
 
-      // Synchronize window.supremeModalData if defined
-      if (window.supremeModalData) {
+      // Synchronize the profile modal data if defined
+      var profileData = window.execProfilesData || window.supremeModalData;
+      if (profileData) {
         var keys = ['ratan', 'rajkumar', 'sukhram', 'bhavesh', 'devesh'];
         about.leadership.forEach(function (leader, idx) {
           var k = keys[idx];
-          if (k && window.supremeModalData[k]) {
-            if (leader.name) window.supremeModalData[k].name = leader.name;
-            if (leader.role) window.supremeModalData[k].role = leader.role;
-            if (leader.photo) window.supremeModalData[k].photo = leader.photo;
-            if (leader.bio) window.supremeModalData[k].bio = leader.bio;
-            if (leader.quote) window.supremeModalData[k].quote = leader.quote;
+          if (k && profileData[k]) {
+            if (leader.name) profileData[k].name = leader.name;
+            if (leader.role) profileData[k].role = leader.role;
+            if (leader.photo) profileData[k].photo = leader.photo;
+            if (leader.bio) profileData[k].bio = leader.bio;
+            if (leader.quote) profileData[k].quote = leader.quote;
           }
         });
       }

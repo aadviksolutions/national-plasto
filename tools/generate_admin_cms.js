@@ -321,7 +321,7 @@ const cmsPanelHtml = `
               </div>
             </div>
 
-            <!-- Section 8: Sustainability & Circular Polymer -->
+            <!-- Section 8: Sustainability & Circular Plastic Furniture -->
             <div class="cms-section-card">
               <div class="card-header">
                 <h3><i class="fas fa-leaf"></i> Section 8: Sustainability & Green Manufacturing</h3>
@@ -332,7 +332,7 @@ const cmsPanelHtml = `
                   <input type="text" id="cms_home_sust_title" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Paragraph 1 (Reprocessed Polymer Narrative)</label>
+                  <label class="form-label">Paragraph 1 (Reprocessed Plastic Furniture Narrative)</label>
                   <textarea id="cms_home_sust_p1" class="form-control" rows="3"></textarea>
                 </div>
                 <div class="form-group">
@@ -967,7 +967,7 @@ const cmsPanelHtml = `
                     <input type="text" id="cms_contact_tollfree" class="form-control">
                   </div>
                   <div class="form-group">
-                    <label class="form-label">WhatsApp Helpline</label>
+                    <label class="form-label">WhatsApp Helpline (used by all direct WhatsApp links)</label>
                     <input type="text" id="cms_contact_whatsapp" class="form-control">
                   </div>
                 </div>

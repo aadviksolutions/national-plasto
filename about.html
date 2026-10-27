@@ -277,7 +277,6 @@
         }
 
         #about_us_overview .supreme_director_card {
-            cursor: pointer;
             transition: transform 0.25s ease;
             text-align: left;
             background: transparent;
@@ -334,6 +333,29 @@
             margin: 0;
             line-height: 1.4;
             font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        #about_us_overview .supreme_view_more {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 14px;
+            padding: 9px 18px;
+            border: 1px solid #0094DC;
+            border-radius: 999px;
+            background: #FFFFFF;
+            color: #0094DC;
+            font: 600 13px/1.2 'Inter', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        #about_us_overview .supreme_view_more:hover,
+        #about_us_overview .supreme_view_more:focus-visible {
+            background: #0094DC;
+            color: #FFFFFF;
+            transform: translateY(-1px);
+            outline: none;
         }
 
         /* In Memoriam Badges (Inside Photo & Inside Description) */
@@ -1093,11 +1115,11 @@
                     <h2 class="heading-text toTop" data-scroll><span class="color_red_home">Rooted in 1981, Incorporated
                             in 1997</span></h2>
                     <h3 class="heading-text toTop" data-scroll>Over four decades of industrial heritage and nearly three
-                        decades of pioneering polymer injection moulding excellence.</h3>
+                        decades of pioneering plastic injection moulding excellence.</h3>
                     <p class="para_new_font toTop" data-scroll>Tracing foundational commercial roots back to 1981,
                         National Plasto Products Pvt. Ltd. (NPPL) was incorporated on 29 October 1997 under the
                         visionary leadership of Mr. Ratan Kumar Sharma. From an initial manufacturing plant in Kolkata,
-                        West Bengal, NPPL has expanded into a nationwide polymer manufacturing leader with 4 advanced
+                        West Bengal, NPPL has expanded into a nationwide plastic furniture manufacturing leader with 4 advanced
                         manufacturing hubs across India. Operating high-tonnage microprocessor injection moulding
                         machinery from 80T up to 1,200T across over 2,00,000 sq. ft. of production floor space, we
                         design
@@ -1114,7 +1136,7 @@
                             </div>
                             <h2 class="heading-text">Vision</h2>
                         </div>
-                        <p class="para_new_font">To be India's most trusted polymer brand, setting the benchmark for
+                            <p class="para_new_font">To be India's most trusted plastic-moulded furniture brand, setting the benchmark for
                             ergonomic comfort, structural durability, and sustainable plastic manufacturing accessible
                             to every home and enterprise.</p>
                     </div>
@@ -1126,7 +1148,7 @@
                             </div>
                             <h2 class="heading-text">Mission</h2>
                         </div>
-                        <p class="para_new_font">Delivering high-value, long-lasting polymer solutions through
+                            <p class="para_new_font">Delivering high-value, long-lasting plastic-moulded furniture solutions through
                             continuous technological innovation, rigorous 200kg load testing, and an empowered pan-India
                             network of over 500 distribution partners.</p>
                     </div>
@@ -1140,7 +1162,7 @@
                     <h2 class="heading-text toTop" data-scroll>What makes us <span class="color_red_home">National
                             Plasto</span>?</h2>
                     <p class="para_new_font toTop" data-scroll>National Plasto holds its pre-eminent position across
-                        India through unrelenting manufacturing precision, continuous polymer research, and
+                        India through unrelenting manufacturing precision, advanced plastic moulding technology, and
                         long-standing dealer partnerships that touch millions of everyday lives.</p>
                 </div>
             </div>
@@ -1155,7 +1177,7 @@
                             </div>
                             <div class="value_content">
                                 <h5><span class="np-counter" data-target="29">29</span>+ Years</h5>
-                                <p class="para-text">Polymer Excellence (Est. 1997)</p>
+                                <p class="para-text">Plastic-Moulded Furniture Excellence (Est. 1997)</p>
                             </div>
                             <div class="value_content">
                                 <h5><span class="np-counter" data-target="4">4</span> Modern Plants</h5>
@@ -1319,7 +1341,7 @@
                     <!-- First Row: 3 Large Executive Cards -->
                     <div class="supreme_directors_row_3">
                         <!-- 1. Mr. Ratan Kumar Sharma -->
-                        <div class="supreme_director_card" onclick="openSupremeModal('ratan')">
+                        <div class="supreme_director_card" data-profile-key="ratan">
                             <div class="supreme_director_photo">
                                 <img loading="lazy" src="images/team/ratan-kumar-sharma-cmd.jpg"
                                     alt="Mr. Ratan Kumar Sharma - Chairman &amp; Managing Director" width="720"
@@ -1327,20 +1349,22 @@
                             </div>
                             <h3 class="supreme_director_name">Mr. Ratan Kumar Sharma</h3>
                             <p class="supreme_director_role">Chairman &amp; Managing Director</p>
+                            <button type="button" class="supreme_view_more" data-profile-key="ratan">View More</button>
                         </div>
 
                         <!-- 2. Mr. Rajkumar Sharma -->
-                        <div class="supreme_director_card" onclick="openSupremeModal('rajkumar')">
+                        <div class="supreme_director_card" data-profile-key="rajkumar">
                             <div class="supreme_director_photo">
                                 <img loading="lazy" src="images/team/rajkumar-sharma-director-finance.jpg"
                                     alt="Mr. Rajkumar Sharma - Director – Finance" width="720" height="850">
                             </div>
                             <h3 class="supreme_director_name">Mr. Rajkumar Sharma</h3>
                             <p class="supreme_director_role">Director &ndash; Finance</p>
+                            <button type="button" class="supreme_view_more" data-profile-key="rajkumar">View More</button>
                         </div>
 
                         <!-- 3. Late Mr. Sukhram Sharma -->
-                        <div class="supreme_director_card" onclick="openSupremeModal('sukhram')">
+                        <div class="supreme_director_card" data-profile-key="sukhram">
                             <div class="supreme_director_photo">
                                 <img loading="lazy" src="images/team/sukhram-sharma-director-production.jpg"
                                     alt="Late Mr. Sukhram Sharma - Director – Production" width="720" height="850">
@@ -1351,29 +1375,32 @@
                             <p class="supreme_director_role">Director &ndash; Production <span
                                     class="supreme_role_memoriam">&bull; <i class="fas fa-dove" aria-hidden="true"></i>
                                     In Memoriam</span></p>
+                            <button type="button" class="supreme_view_more" data-profile-key="sukhram">View More</button>
                         </div>
                     </div>
 
                     <!-- Second Row: 2 Large Executive Cards -->
                     <div class="supreme_directors_row_2">
                         <!-- 4. Mr. Bhavesh Sharma -->
-                        <div class="supreme_director_card" onclick="openSupremeModal('bhavesh')">
+                        <div class="supreme_director_card" data-profile-key="bhavesh">
                             <div class="supreme_director_photo">
                                 <img loading="lazy" src="images/team/bhavesh-sharma-executive-director.jpg"
                                     alt="Mr. Bhavesh Sharma" width="720" height="850">
                             </div>
                             <h3 class="supreme_director_name">Mr. Bhavesh Sharma</h3>
                             <p class="supreme_director_role">Executive Director</p>
+                            <button type="button" class="supreme_view_more" data-profile-key="bhavesh">View More</button>
                         </div>
 
                         <!-- 5. Mr. Devesh Sharma -->
-                        <div class="supreme_director_card" onclick="openSupremeModal('devesh')">
+                        <div class="supreme_director_card" data-profile-key="devesh">
                             <div class="supreme_director_photo">
                                 <img loading="lazy" src="images/team/devesh-sharma-executive-director.jpg"
                                     alt="Mr. Devesh Sharma" width="720" height="850">
                             </div>
                             <h3 class="supreme_director_name">Mr. Devesh Sharma</h3>
                             <p class="supreme_director_role">Executive Director</p>
+                            <button type="button" class="supreme_view_more" data-profile-key="devesh">View More</button>
                         </div>
                     </div>
                 </div>
@@ -1648,7 +1675,7 @@
                 governance: [
                     "Founded National Plasto Products Pvt. Ltd. on 29 October 1997",
                     "Spearheads nationwide expansion across 4 ISO-certified manufacturing hubs",
-                    "Pioneered high-tonnage microprocessor polymer moulding in Eastern & Northern India",
+                    "Pioneered high-tonnage microprocessor plastic furniture moulding in Eastern & Northern India",
                     "Guides overarching corporate philosophy, partner trust, and long-term capital investments"
                 ]
             },
@@ -1665,7 +1692,7 @@
                     "Mr. Rajkumar Sharma, the eldest of the family and elder brother of Mr. Ratan Kumar Sharma, has overseen the company's financial operations since its inception in 1997.",
                     "As the senior-most member of the management team, his steady and disciplined approach to financial management and accounts has been a constant strength behind the company's growth. His experience and practical understanding continue to play an important role in shaping key financial decisions across the organisation and its four manufacturing units."
                 ],
-                quote: "“Steady financial discipline and unwavering operational transparency are the quiet bedrock upon which enduring manufacturing enterprises thrive.”",
+                quote: "Strong financial management and transparent operations are the foundation of our long-term success.",
                 governance: [
                     "Overseen corporate finance & accounts operations continuously since 1997",
                     "Formulates financial strategies and budgetary allocations across 4 manufacturing units",
@@ -1687,7 +1714,7 @@
                     "He was closely involved with the factory and production operations, where his hands-on approach and dedication earned him the trust and respect of the entire factory team. He shared a strong bond with the employees and treated them like family.",
                     "Mr. Sukhram Sharma passed away three years ago, leaving behind a legacy of dedication, relationships and contribution to the Company's growth. He will always be remembered as a valued member of the NPPL family."
                 ],
-                quote: "“A manufacturing unit is built not solely of steel and tonnage, but of the dedication and family-like bond shared among the workforce on the shopfloor.”",
+                quote: "Our machines shape the furniture, but it is our people who shape the quality, consistency, and trust behind every National Plasto product.",
                 governance: [
                     "Led foundational factory operations and production setup across early manufacturing plants",
                     "Hands-on shopfloor management that built deep mutual respect and camaraderie",
@@ -1709,7 +1736,7 @@
                     "A key part of the company's next phase of growth has been its expansion into E-Commerce. Under his leadership, NPPL has strengthened its presence on platforms such as Amazon and Flipkart, extending the company's reach beyond traditional dealer networks.",
                     "With a hands-on approach and focus on exploring new markets, he continues to drive the company's growth while remaining firmly connected to the values on which NPPL was built."
                 ],
-                quote: "“Expanding rapidly into digital marketplaces while honoring four decades of dealer trust allows National Plasto products to enrich everyday lives in every corner of India.”",
+                quote: "With decades of dealer trust and an expanding presence across digital marketplaces, we are taking National Plasto products to more homes and businesses across the country.",
                 governance: [
                     "Directs production, sales, and marketing alignment across Howrah, Guwahati, Roorkee and Hajipur",
                     "Spearheaded national E-Commerce expansion onto Amazon Brand Store and Flipkart",
@@ -1749,7 +1776,8 @@
             var body = document.getElementById('supremeModalBody');
             if (!modal || !body) return;
 
-            var bioHtml = data.bio.map(function (p) { return '<p>' + p + '</p>'; }).join('');
+            var bioParagraphs = Array.isArray(data.bio) ? data.bio : (data.bio ? [data.bio] : []);
+            var bioHtml = bioParagraphs.map(function (p) { return '<p>' + p + '</p>'; }).join('');
             var quoteHtml = data.quote ? (
                 '<blockquote class="supreme-modal-quote">' + data.quote + '</blockquote>'
             ) : '';
@@ -1780,6 +1808,22 @@
             document.body.style.overflow = 'hidden';
         }
 
+        // Open the profile only from the explicit View More button.
+        document.querySelectorAll('.supreme_view_more[data-profile-key]').forEach(function (button) {
+            button.addEventListener('click', function () {
+                openSupremeModal(button.getAttribute('data-profile-key'));
+            });
+            button.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openSupremeModal(button.getAttribute('data-profile-key'));
+                }
+            });
+        });
+
+        // Keep the opener available to any existing inline integrations.
+        window.openSupremeModal = openSupremeModal;
+
         function closeSupremeModal() {
             var modal = document.getElementById('supremeModal');
             if (!modal) return;
@@ -1794,7 +1838,7 @@
     </script>
     <script src="js/np-reveal.js?v=20260929"></script>
     <script src="js/np-counter.js?v=20261006"></script>
-    <script src="js/cms-loader.js"></script>
+    <script src="js/cms-loader.js?v=20261027"></script>
 </body>
 
 </html>

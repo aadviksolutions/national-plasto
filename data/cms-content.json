@@ -208,7 +208,7 @@
     ],
     "sustainability": {
       "title": "Sustainability",
-      "p1": "At National Plasto, responsible manufacturing is part of how we make furniture for every space and every need. Our NATIONAL, CAPTAIN and SAPPHIRE ranges are built with reprocessed plastic, giving used polymer a long second life as durable everyday furniture.",
+      "p1": "At National Plasto, responsible manufacturing is part of how we make furniture for every space and every need. Our NATIONAL, CAPTAIN and SAPPHIRE ranges are built with reprocessed plastic, giving used plastic a long second life as durable everyday furniture.",
       "p2": "Every one of our four plants — Howrah, Guwahati, Roorkee and Hajipur — is independently certified for environmental management, and our energy use is managed under ISO 50001.",
       "p3": "We believe every manufacturer has a responsibility to make choices that benefit the environment and the people who work with us.",
       "btnText": "Know More",
@@ -216,7 +216,7 @@
     },
     "touchingLives": {
       "title": "Furniture For Every Community",
-      "desc": "From classrooms and community halls to homes in Tier 2 and Tier 3 towns, National Plasto makes durable seating affordable for everyone. We give used polymer a second life through our reprocessed ranges, keep our 150+ strong workforce safe under ISO 45001, and grow together with the dealers and families who depend on us.",
+      "desc": "From classrooms and community halls to homes in Tier 2 and Tier 3 towns, National Plasto makes durable seating affordable for everyone. We give used plastic a second life through our reprocessed ranges, keep our 150+ strong workforce safe under ISO 45001, and grow together with the dealers and families who depend on us.",
       "image": "images/brand/furniture-for-every-community.jpg",
       "btnText": "Our Values",
       "btnLink": "about.html"
@@ -259,7 +259,7 @@
     ],
     "network": {
       "title": "Pan-India Presence. Rapid Supply Chain.",
-      "subtitle": "Four state-of-the-art polymer manufacturing facilities powering over 500 authorized distributor and dealer hubs.",
+      "subtitle": "Four state-of-the-art plastic furniture manufacturing facilities powering over 500 authorized distributor and dealer hubs.",
       "plantsStat": "4",
       "dailyCapacityStat": "50,000+",
       "dealersStat": "500+",
@@ -269,18 +269,18 @@
   "about": {
     "hero": {
       "title": "Rooted in 1981, Incorporated in 1997",
-      "subtitle": "Over four decades of industrial heritage and nearly three decades of pioneering polymer injection moulding excellence.",
+      "subtitle": "Over four decades of industrial heritage and nearly three decades of pioneering plastic injection moulding excellence.",
       "bannerImage": "images/brand/aboutus.png"
     },
     "overview": {
       "title": "Rooted in 1981, Incorporated in 1997",
-      "leadText": "Over four decades of industrial heritage and nearly three decades of pioneering polymer injection moulding excellence.",
-      "desc": "Tracing foundational commercial roots back to 1981, National Plasto Products Pvt. Ltd. (NPPL) was incorporated on 29 October 1997 under the visionary leadership of Mr. Ratan Kumar Sharma. From an initial manufacturing plant in Kolkata, West Bengal, NPPL has expanded into a nationwide polymer manufacturing leader with 4 advanced manufacturing hubs across India. Operating high-tonnage microprocessor injection moulding machinery from 80T up to 1,200T across over 2,00,000 sq. ft. of production floor space, we design and produce over 1,000 active moulds and products. Our 4-tier brand architecture—NEXT, NATIONAL, SAPPHIRE, and CAPTAIN—delivers ergonomic, durable, and aesthetically superior moulded furniture to millions of Indian homes, institutions, and businesses.",
+      "leadText": "Over four decades of industrial heritage and nearly three decades of pioneering plastic injection moulding excellence.",
+      "desc": "Tracing foundational commercial roots back to 1981, National Plasto Products Pvt. Ltd. (NPPL) was incorporated on 29 October 1997 under the visionary leadership of Mr. Ratan Kumar Sharma. From an initial manufacturing plant in Kolkata, West Bengal, NPPL has expanded into a nationwide plastic furniture manufacturing leader with 4 advanced manufacturing hubs across India. Operating high-tonnage microprocessor injection moulding machinery from 80T up to 1,200T across over 2,00,000 sq. ft. of production floor space, we design and produce over 1,000 active moulds and products. Our 4-tier brand architecture—NEXT, NATIONAL, SAPPHIRE, and CAPTAIN—delivers ergonomic, durable, and aesthetically superior moulded furniture to millions of Indian homes, institutions, and businesses.",
       "image": "images/brand/aboutus.png"
     },
     "missionVision": {
-      "vision": "To be India's most trusted polymer brand, setting the benchmark for ergonomic comfort, structural durability, and sustainable plastic manufacturing accessible to every home and enterprise.",
-      "mission": "Delivering high-value, long-lasting polymer solutions through continuous technological innovation, rigorous 200kg load testing, and an empowered pan-India network of over 500 distribution partners."
+      "vision": "To be India's most trusted plastic-moulded furniture brand, setting the benchmark for ergonomic comfort, structural durability, and sustainable plastic manufacturing accessible to every home and enterprise.",
+      "mission": "Delivering high-value, long-lasting plastic-moulded furniture solutions through continuous technological innovation, rigorous 200kg load testing, and an empowered pan-India network of over 500 distribution partners."
     },
     "pillars": [
       {
@@ -319,29 +319,29 @@
         "name": "Mr. Ratan Kumar Sharma",
         "role": "Chairman & Managing Director",
         "photo": "images/team/ratan-kumar-sharma-cmd.jpg",
-        "bio": "Under Mr. Ratan Kumar Sharma's visionary leadership since 1997, National Plasto has expanded from a modest manufacturing facility into a multi-plant polymer engineering conglomerate.",
-        "quote": "Quality is not an accident; it is the deliberate outcome of uncompromising polymer integrity and relentless precision engineering."
+        "bio": "Under Mr. Ratan Kumar Sharma's visionary leadership since 1997, National Plasto has expanded from a modest manufacturing facility into a multi-plant furniture engineering conglomerate.",
+        "quote": "Quality is not an accident; it is the deliberate outcome of uncompromising material integrity and relentless precision engineering."
       },
       {
         "name": "Mr. Rajkumar Sharma",
         "role": "Director – Finance",
         "photo": "images/team/rajkumar-sharma-director-finance.jpg",
         "bio": "As the senior-most member of the management team, Mr. Rajkumar Sharma oversees fiscal governance, budgetary planning, and corporate compliance across all four plants.",
-        "quote": "Steady financial discipline and unwavering operational transparency are the quiet bedrock upon which enduring manufacturing enterprises thrive."
+        "quote": "Strong financial management and transparent operations are the foundation of our long-term success."
       },
       {
         "name": "Late Mr. Sukhram Sharma",
         "role": "Director – Production (In Memoriam)",
         "photo": "images/team/sukhram-sharma-director-production.jpg",
         "bio": "Late Mr. Sukhram Sharma served as the pillar of production engineering and shop-floor excellence, establishing the manufacturing benchmarks that continue to guide NPPL.",
-        "quote": "Engineering precision on the shop floor translates directly into trust in every Indian household."
+        "quote": "Our machines shape the furniture, but it is our people who shape the quality, consistency, and trust behind every National Plasto product."
       },
       {
         "name": "Mr. Bhavesh Sharma",
         "role": "Executive Director",
         "photo": "images/team/bhavesh-sharma-executive-director.jpg",
         "bio": "Directing operational scaling, advanced mould procurement, and automated injection moulding infrastructure across all four production complexes.",
-        "quote": "Embracing automation and cutting-edge polymer research ensures our products remain modern, robust, and globally competitive."
+        "quote": "With decades of dealer trust and an expanding presence across digital marketplaces, we are taking National Plasto products to more homes and businesses across the country."
       },
       {
         "name": "Mr. Devesh Sharma",
@@ -357,7 +357,7 @@
         "value": "45+ Years (Since 1981)"
       },
       {
-        "label": "Polymer Excellence",
+        "label": "Plastic-Moulded Furniture Excellence",
         "value": "29+ Years (Est. 1997)"
       },
       {
@@ -484,20 +484,20 @@
   },
   "manufacturing": {
     "hero": {
-      "title": "World-Class Polymer Manufacturing Facilities",
-      "subtitle": "Robotic injection moulding, high-tonnage precision presses & ISO 9001:2015 accredited plants.",
+      "title": "World-Class Plastic Furniture Manufacturing Facilities",
+      "subtitle": "Robotic injection moulding, high-tonnage precision machinery & ISO 9001:2015 accredited plants.",
       "bannerImage": "images/brand/company-photo.jpg"
     },
     "intro": {
       "title": "Industrial Manufacturing Capabilities",
-      "desc": "Spanning four integrated production hubs, National Plasto converts over 35,000 metric tonnes of virgin polymers annually into precision-engineered moulded products.",
+      "desc": "Spanning four integrated production hubs, National Plasto converts over 35,000 metric tonnes of virgin plastic annually into precision-engineered moulded products.",
       "image": "images/brand/company-photo.jpg"
     },
     "metrics": [
       {
         "number": "35,000",
         "unit": "MT+",
-        "label": "Polymer Processed Annually"
+        "label": "Plastic Furniture Produced Annually"
       },
       {
         "number": "1,200",
@@ -521,7 +521,7 @@
         "region": "West Bengal",
         "location": "Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411",
         "capacity": "18,000 Units / Day",
-        "machines": "16 Injection Presses (80T - 1,200T)",
+        "machines": "16 Injection Moulding Machines (80T - 1,200T)",
         "image": "images/home/plant-kl850.jpg"
       },
       {
@@ -529,7 +529,7 @@
         "region": "Assam",
         "location": "E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031",
         "capacity": "12,000 Units / Day",
-        "machines": "12 Injection Presses (100T - 850T)",
+        "machines": "12 Injection Moulding Machines (100T - 850T)",
         "image": "images/home/milestone-2007.jpg"
       },
       {
@@ -537,7 +537,7 @@
         "region": "Uttarakhand",
         "location": "Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661",
         "capacity": "10,000 Units / Day",
-        "machines": "10 Injection Presses (100T - 800T)",
+        "machines": "10 Injection Moulding Machines (100T - 800T)",
         "image": "images/home/milestone-2010.jpg"
       },
       {
@@ -545,7 +545,7 @@
         "region": "Bihar",
         "location": "EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101",
         "capacity": "10,000 Units / Day",
-        "machines": "8 Injection Presses (100T - 650T)",
+        "machines": "8 Injection Moulding Machines (100T - 650T)",
         "image": "images/home/milestone-2026.jpg"
       }
     ],
@@ -567,14 +567,14 @@
         },
         {
           "name": "Melt Flow Index (MFI)",
-          "desc": "Testing virgin polymer purity before feeding raw pellets into hoppers."
+          "desc": "Testing virgin plastic purity before feeding raw pellets into hoppers."
         }
       ]
     }
   },
   "distributor": {
     "hero": {
-      "title": "Partner With India's Fastest Growing Polymer Network",
+      "title": "Partner With India's Fastest Growing Furniture Network",
       "subtitle": "Join over 500+ successful distributors and dealers across 15+ states with assured margins and prompt factory dispatch.",
       "bannerImage": "images/hero/image2.png"
     },

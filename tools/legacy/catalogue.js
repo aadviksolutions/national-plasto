@@ -140,7 +140,7 @@
         if (!catMatch) return false;
       }
 
-      // Premium Virgin Polymer check
+      // Premium Virgin Plastic Moulded Furniture check
       if (activeFilters.premiumOnly && !p.isPremium) {
         return false;
       }
