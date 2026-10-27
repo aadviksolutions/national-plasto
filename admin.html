@@ -69,6 +69,84 @@
       z-index: 80;
       box-shadow: var(--shadow-lg);
     }
+  
+    .cms-img-field-group {
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+    .cms-img-input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+    .cms-image-preview-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .cms-image-preview-card:hover {
+      border-color: #0284C7;
+      background: #F0F9FF;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.12);
+    }
+    .cms-image-preview-card img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #CBD5E1;
+      background: #F8FAFC;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      flex-shrink: 0;
+    }
+    .cms-image-preview-card .preview-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .cms-image-preview-card .preview-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #0284C7;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+    .cms-image-preview-card .preview-hint {
+      font-size: 11.5px;
+      color: #64748B;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cms-image-preview-card .preview-btn {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #E0F2FE;
+      color: #0284C7;
+      border: 1px solid #BAE6FD;
+      pointer-events: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .cms-image-preview-card:hover .preview-btn {
+      background: #0284C7;
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -294,67 +372,41 @@
         <!-- ================= 3. PAGE CONTENT CMS PANEL (ALL PAGES & ALL SECTIONS) ================= -->
         <section id="panelCms" class="view-panel">
           <div class="cms-tabs" id="cmsTabs" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <button class="cms-tab-btn active" data-cmspage="home"><i class="fas fa-home"></i> Home Page</button>
-              <button class="cms-tab-btn" data-cmspage="about"><i class="fas fa-info-circle"></i> About Us</button>
-              <button class="cms-tab-btn" data-cmspage="products"><i class="fas fa-couch"></i> Products Page</button>
-              <button class="cms-tab-btn" data-cmspage="manufacturing"><i class="fas fa-industry"></i> Manufacturing</button>
-              <button class="cms-tab-btn" data-cmspage="distributor"><i class="fas fa-handshake"></i> Dealer Desk</button>
-              <button class="cms-tab-btn" data-cmspage="contact"><i class="fas fa-envelope"></i> Contact Us</button>
-              <button class="cms-tab-btn" data-cmspage="policies"><i class="fas fa-shield-alt"></i> Policies</button>
-            </div>
-            <div>
-              <button type="button" class="btn btn-secondary btn-sm" onclick="resetToPublishedDefaults()" style="white-space:nowrap;" title="Restore all original content from published website">
-                <i class="fas fa-sync-alt"></i> Reload Published Content
-              </button>
-            </div>
-          </div>
-
-          <!-- ================= 1. HOME PAGE FULL SECTIONS ================= -->
-          <div id="cmsForm_home" class="cms-page-form" style="display:block;">
             
-            <!-- Section 1: Hero Banner & Rotator -->
-            <div class="cms-section-card">
-              <div class="card-header">
-                <h3><i class="fas fa-image"></i> Section 1: Hero Banner & Continuous Rotator</h3>
-              </div>
-              <div class="card-body">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label">Hero Eyebrow / Badge</label>
-                    <input type="text" id="cms_home_hero_eyebrow" class="form-control" placeholder="e.g. Since 1997" value="Since 1997">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Rotating Title 1</label>
-                    <input type="text" id="cms_home_hero_title1" class="form-control" value="Shaping Spaces, Engineering Trust">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Rotating Title 2</label>
-                    <input type="text" id="cms_home_hero_title2" class="form-control" value="Designed for Life, Built for Generations">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Rotating Title 3</label>
-                    <input type="text" id="cms_home_hero_title3" class="form-control" value="Empowering India with Premium Living">
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label class="form-label">Background Video URL</label>
-                    <input type="text" id="cms_home_hero_video" class="form-control" value="videos/hero/national-plasto-overview.mp4">
-                  </div>
-                  <div class="form-group">
-                    <label class="form-label">Video Poster Image URL</label>
-                    <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_hero_poster" class="form-control" value="images/hero/overview-video-poster.jpg">
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_poster')"><i class="fas fa-image"></i></button>
-                    </div>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_hero_poster" class="form-control" value="images/hero/overview-video-poster.jpg" oninput="updateImagePreview(this, 'cms_home_hero_poster_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_hero_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_poster')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_hero_poster')" title="Click to upload new image from device">
+                          <img id="cms_home_hero_poster_preview" src="images/hero/overview-video-poster.jpg" alt="Video Poster" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload video poster</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Desktop Fallback Banner Image</label>
-                    <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_hero_image" class="form-control" value="images/brand/company-photo.jpg">
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_image')"><i class="fas fa-image"></i></button>
-                    </div>
+                    
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_hero_image" class="form-control" value="images/brand/company-photo.jpg" oninput="updateImagePreview(this, 'cms_home_hero_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_hero_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_hero_image')" title="Click to upload new image from device">
+                          <img id="cms_home_hero_image_preview" src="images/brand/company-photo.jpg" alt="Hero Banner" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload hero banner</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                   </div>
                 </div>
                 <div class="form-row">
@@ -432,10 +484,22 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">CMD Photo Cutout</label>
-                    <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_cmd_photo" class="form-control" value="images/team/ratan-kumar-sharma-cutout.webp">
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_cmd_photo')"><i class="fas fa-image"></i></button>
-                    </div>
+                    
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_cmd_photo" class="form-control" value="images/team/ratan-kumar-sharma-cutout.webp" oninput="updateImagePreview(this, 'cms_home_cmd_photo_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_cmd_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_cmd_photo')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_cmd_photo')" title="Click to upload new image from device">
+                          <img id="cms_home_cmd_photo_preview" src="images/team/ratan-kumar-sharma-cutout.webp" alt="CMD Photo" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Mr. Ratan Kumar Sharma • Click to upload</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Text</label>
@@ -488,9 +552,21 @@
                     <div class="form-group"><label class="form-label">Button Title</label><input type="text" id="cms_home_highlight_0_title" class="form-control" value="Windsor KL 850 High-Tonnage Injection Moulding Unit"></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
-                      <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_highlight_0_image" class="form-control" value="images/home/plant-kl850.jpg">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_0_image')"><i class="fas fa-image"></i></button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_highlight_0_image" class="form-control" value="images/home/plant-kl850.jpg" oninput="updateImagePreview(this, 'cms_home_highlight_0_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_highlight_0_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_0_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_highlight_0_image')" title="Click to upload new image from device">
+                          <img id="cms_home_highlight_0_image_preview" src="images/home/plant-kl850.jpg" alt="Plant 1 Highlight" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload plant photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -499,9 +575,21 @@
                     <div class="form-group"><label class="form-label">Button Title</label><input type="text" id="cms_home_highlight_1_title" class="form-control" value="Explore Moulded Furniture Range"></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
-                      <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_highlight_1_image" class="form-control" value="images/home/premium-furniture-range.png">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_1_image')"><i class="fas fa-image"></i></button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_highlight_1_image" class="form-control" value="images/home/premium-furniture-range.png" oninput="updateImagePreview(this, 'cms_home_highlight_1_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_highlight_1_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_highlight_1_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_highlight_1_image')" title="Click to upload new image from device">
+                          <img id="cms_home_highlight_1_image_preview" src="images/home/premium-furniture-range.png" alt="Plant 2 Highlight" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload plant photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -523,9 +611,21 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_0_desc" class="form-control" rows="2">Designer finishes, rich pastels, and premium ergonomic contours for modern living.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
-                      <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_0_image" class="form-control" value="images/divisions/next.jpg">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_0_image')"><i class="fas fa-image"></i></button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_brand_0_image" class="form-control" value="images/divisions/next.jpg" oninput="updateImagePreview(this, 'cms_home_brand_0_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_0_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_0_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_brand_0_image')" title="Click to upload new image from device">
+                          <img id="cms_home_brand_0_image_preview" src="images/divisions/next.jpg" alt="Next Living Brand" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload brand image</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -536,9 +636,21 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_1_desc" class="form-control" rows="2">Eastern India's most trusted household seating, tables, and multi-tier utility storage.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
-                      <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_1_image" class="form-control" value="images/divisions/national.jpg">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_1_image')"><i class="fas fa-image"></i></button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_brand_1_image" class="form-control" value="images/divisions/national.jpg" oninput="updateImagePreview(this, 'cms_home_brand_1_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_1_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_1_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_brand_1_image')" title="Click to upload new image from device">
+                          <img id="cms_home_brand_1_image_preview" src="images/divisions/national.jpg" alt="National Brand" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload brand image</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -549,9 +661,21 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_2_desc" class="form-control" rows="2">Robust, lightweight, high-utility monoblock chairs built for demanding daily commercial use.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
-                      <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_2_image" class="form-control" value="images/divisions/captain.jpg">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_2_image')"><i class="fas fa-image"></i></button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_brand_2_image" class="form-control" value="images/divisions/captain.jpg" oninput="updateImagePreview(this, 'cms_home_brand_2_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_2_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_2_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_brand_2_image')" title="Click to upload new image from device">
+                          <img id="cms_home_brand_2_image_preview" src="images/divisions/captain.jpg" alt="Captain Brand" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload brand image</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -562,9 +686,21 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_brand_3_desc" class="form-control" rows="2">Engineered heavy-duty seating with sleek modern aesthetics at exceptional value.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Brand Image</label>
-                      <div style="display:flex; gap:6px;">
-                        <input type="text" id="cms_home_brand_3_image" class="form-control" value="images/divisions/sapphire.jpg">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_3_image')"><i class="fas fa-image"></i></button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_brand_3_image" class="form-control" value="images/divisions/sapphire.jpg" oninput="updateImagePreview(this, 'cms_home_brand_3_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_brand_3_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_brand_3_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_brand_3_image')" title="Click to upload new image from device">
+                          <img id="cms_home_brand_3_image_preview" src="images/divisions/sapphire.jpg" alt="Sapphire Brand" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload brand image</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -583,31 +719,106 @@
                     <div class="cms-item-box-title">1981: Foundational Roots</div>
                     <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_0_date" class="form-control" value="1981 · Heritage &amp; Industrial Roots"></div>
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_0_desc" class="form-control" rows="3">The foundational business legacy of the Sharma family was established in 1981, laying over four decades of industrial enterprise, customer trust, and ethical trade.</textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_0_img" class="form-control" value="images/home/milestone-1942.jpg"></div>
+                    <div class="form-group"><label class="form-label">Image URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_ms_0_img" class="form-control" value="images/home/milestone-1942.jpg" oninput="updateImagePreview(this, 'cms_home_ms_0_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_0_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_ms_0_img')" title="Click to upload new image from device">
+                          <img id="cms_home_ms_0_img_preview" src="images/home/milestone-1942.jpg" alt="1942 Milestone" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload milestone photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">1997: Inception & Incorporation</div>
                     <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_1_date" class="form-control" value="29 Oct 1997 · Kolkata, West Bengal"></div>
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_1_desc" class="form-control" rows="3">After 18 years in the plastic industry, Mr. Ratan Kumar Sharma incorporated National Plasto Products Pvt. Ltd., setting up the first advanced injection moulding plant in West Bengal.</textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_1_img" class="form-control" value="images/home/milestone-1997.jpg"></div>
+                    <div class="form-group"><label class="form-label">Image URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_ms_1_img" class="form-control" value="images/home/milestone-1997.jpg" oninput="updateImagePreview(this, 'cms_home_ms_1_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_1_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_ms_1_img')" title="Click to upload new image from device">
+                          <img id="cms_home_ms_1_img_preview" src="images/home/milestone-1997.jpg" alt="1997 Milestone" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload milestone photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">2007: Guwahati Plant</div>
                     <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_2_date" class="form-control" value="04 Jul 2007 · Guwahati, Assam"></div>
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_2_desc" class="form-control" rows="3">National Plasto inaugurated its Guwahati plant, bringing dedicated manufacturing and rapid logistics closer to customers across Assam and the North-East.</textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_2_img" class="form-control" value="images/home/milestone-2007.jpg"></div>
+                    <div class="form-group"><label class="form-label">Image URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_ms_2_img" class="form-control" value="images/home/milestone-2007.jpg" oninput="updateImagePreview(this, 'cms_home_ms_2_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_2_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_ms_2_img')" title="Click to upload new image from device">
+                          <img id="cms_home_ms_2_img_preview" src="images/home/milestone-2007.jpg" alt="2007 Milestone" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload milestone photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">2010: Roorkee & Hajipur Expansion</div>
                     <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_3_date" class="form-control" value="2010 · Roorkee &amp; Hajipur Expansion"></div>
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_3_desc" class="form-control" rows="3">High-tonnage production commenced across new facilities in Roorkee and Hajipur, completing four strategic manufacturing hubs across India.</textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_3_img" class="form-control" value="images/home/milestone-2010.jpg"></div>
+                    <div class="form-group"><label class="form-label">Image URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_ms_3_img" class="form-control" value="images/home/milestone-2010.jpg" oninput="updateImagePreview(this, 'cms_home_ms_3_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_3_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_ms_3_img')" title="Click to upload new image from device">
+                          <img id="cms_home_ms_3_img_preview" src="images/home/milestone-2010.jpg" alt="2010 Milestone" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload milestone photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">2026: Modern Pan-India Complex</div>
                     <div class="form-group"><label class="form-label">Subtitle</label><input type="text" id="cms_home_ms_4_date" class="form-control" value="Today · Pan-India Leadership"></div>
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_home_ms_4_desc" class="form-control" rows="3">All four plants independently certified — 23 certificates covering ISO 9001, 14001, 45001, 50001, CE and BIFMA — and an extensive catalogue of 362+ models.</textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_home_ms_4_img" class="form-control" value="images/home/milestone-2026.jpg"></div>
+                    <div class="form-group"><label class="form-label">Image URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_ms_4_img" class="form-control" value="images/home/milestone-2026.jpg" oninput="updateImagePreview(this, 'cms_home_ms_4_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_4_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_4_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_ms_4_img')" title="Click to upload new image from device">
+                          <img id="cms_home_ms_4_img_preview" src="images/home/milestone-2026.jpg" alt="2026 Milestone" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload milestone photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                 </div>
               </div>
@@ -661,10 +872,22 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Community Section Image</label>
-                    <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_touch_image" class="form-control" value="images/brand/furniture-for-every-community.jpg">
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_touch_image')"><i class="fas fa-image"></i></button>
-                    </div>
+                    
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_touch_image" class="form-control" value="images/brand/furniture-for-every-community.jpg" oninput="updateImagePreview(this, 'cms_home_touch_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_touch_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_touch_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_touch_image')" title="Click to upload new image from device">
+                          <img id="cms_home_touch_image_preview" src="images/brand/furniture-for-every-community.jpg" alt="Touching Lives" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload community photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Text</label>
@@ -695,10 +918,22 @@
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Showcase Banner Image</label>
-                    <div style="display:flex; gap:6px;">
-                      <input type="text" id="cms_home_inno_image" class="form-control" value="images/business/moulded-furniture.jpg">
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_inno_image')"><i class="fas fa-image"></i></button>
-                    </div>
+                    
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_inno_image" class="form-control" value="images/business/moulded-furniture.jpg" oninput="updateImagePreview(this, 'cms_home_inno_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_inno_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_inno_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_inno_image')" title="Click to upload new image from device">
+                          <img id="cms_home_inno_image_preview" src="images/business/moulded-furniture.jpg" alt="Innovative Products" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload product photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                   </div>
                   <div class="form-group">
                     <label class="form-label">Button Text</label>
@@ -722,25 +957,85 @@
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 1: NEXT</div>
                     <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_0_name" class="form-control" value="NEXT — Premium Virgin Plastic Furniture"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_0_poster" class="form-control" value="images/banner/next.jpg"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_reel_0_poster" class="form-control" value="images/banner/next.jpg" oninput="updateImagePreview(this, 'cms_home_reel_0_poster_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_0_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_0_poster')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_reel_0_poster')" title="Click to upload new image from device">
+                          <img id="cms_home_reel_0_poster_preview" src="images/banner/next.jpg" alt="Next Reel Poster" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload reel poster</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_0_video" class="form-control" value="images/banner/next.mp4"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 2: NATIONAL</div>
                     <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_1_name" class="form-control" value="NATIONAL — Value, Variety &amp; Trust"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_1_poster" class="form-control" value="images/banner/national.jpg"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_reel_1_poster" class="form-control" value="images/banner/national.jpg" oninput="updateImagePreview(this, 'cms_home_reel_1_poster_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_1_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_1_poster')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_reel_1_poster')" title="Click to upload new image from device">
+                          <img id="cms_home_reel_1_poster_preview" src="images/banner/national.jpg" alt="National Reel Poster" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload reel poster</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_1_video" class="form-control" value="images/banner/national.mp4"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 3: CAPTAIN</div>
                     <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_2_name" class="form-control" value="CAPTAIN — Economical Everyday Furniture"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_2_poster" class="form-control" value="images/banner/captain.jpg"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_reel_2_poster" class="form-control" value="images/banner/captain.jpg" oninput="updateImagePreview(this, 'cms_home_reel_2_poster_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_2_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_2_poster')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_reel_2_poster')" title="Click to upload new image from device">
+                          <img id="cms_home_reel_2_poster_preview" src="images/banner/captain.jpg" alt="Captain Reel Poster" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload reel poster</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_2_video" class="form-control" value="images/banner/captain.mp4"></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Reel 4: SAPPHIRE</div>
                     <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_home_reel_3_name" class="form-control" value="SAPPHIRE — Distinct Value Seating"></div>
-                    <div class="form-group"><label class="form-label">Poster Image</label><input type="text" id="cms_home_reel_3_poster" class="form-control" value="images/banner/sapphire.jpg"></div>
+                    <div class="form-group"><label class="form-label">Poster Image</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_home_reel_3_poster" class="form-control" value="images/banner/sapphire.jpg" oninput="updateImagePreview(this, 'cms_home_reel_3_poster_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_reel_3_poster')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_reel_3_poster')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_home_reel_3_poster')" title="Click to upload new image from device">
+                          <img id="cms_home_reel_3_poster_preview" src="images/banner/sapphire.jpg" alt="Sapphire Reel Poster" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload reel poster</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                     <div class="form-group"><label class="form-label">Video URL</label><input type="text" id="cms_home_reel_3_video" class="form-control" value="images/banner/sapphire.mp4"></div>
                   </div>
                 </div>
@@ -804,16 +1099,22 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image URL</label>
-                  <div style="display:flex; gap:8px; margin-bottom:8px;">
-                    <input type="text" id="cms_about_hero_image" class="form-control" value="images/brand/aboutus.png" oninput="updateImagePreview(this, 'cms_about_hero_image_preview')">
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_hero_image')"><i class="fas fa-images"></i> Pick</button>
-                  </div>
-                  <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
-                    <img id="cms_about_hero_image_preview" src="images/brand/aboutus.png" alt="About Hero Banner" style="width:120px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
-                    <div>
-                      <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Banner</span>
-                      <div style="font-size:12px; color:#0F172A; font-weight:600;">images/brand/aboutus.png</div>
-                    </div>
+                  
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_hero_image" class="form-control" value="images/brand/aboutus.png" oninput="updateImagePreview(this, 'cms_about_hero_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_hero_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_hero_image')" title="Click to upload new image from device">
+                          <img id="cms_about_hero_image_preview" src="images/brand/aboutus.png" alt="About Hero Banner" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload banner photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -893,15 +1194,22 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_0_desc" class="form-control" rows="3">Our advanced manufacturing capabilities combine modern technology and precision engineering to deliver consistent quality, superior finishes and dependable performance.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_pillar_0_img" class="form-control" value="images/about/01-advanced-manufacturing.png" oninput="updateImagePreview(this, 'cms_about_pillar_0_img_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_0_img')"><i class="fas fa-images"></i> Pick</button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_pillar_0_img" class="form-control" value="images/about/01-advanced-manufacturing.png" oninput="updateImagePreview(this, 'cms_about_pillar_0_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_0_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_pillar_0_img')" title="Click to upload new image from device">
+                          <img id="cms_about_pillar_0_img_preview" src="images/about/01-advanced-manufacturing.png" alt="Layer 01 Manufacturing" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload layer photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
-                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
-                        <img id="cms_about_pillar_0_img_preview" src="images/about/01-advanced-manufacturing.png" alt="Layer 01" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
-                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 01 Image</span>
-                      </div>
-                    </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 02: Built for Efficiency</div>
@@ -909,15 +1217,22 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_1_desc" class="form-control" rows="3">Our integrated manufacturing operations are designed for efficiency, consistency and reliable supply, helping us meet diverse customer requirements with confidence.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_pillar_1_img" class="form-control" value="images/about/02-manufacturing-at-scale.jpg" oninput="updateImagePreview(this, 'cms_about_pillar_1_img_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_1_img')"><i class="fas fa-images"></i> Pick</button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_pillar_1_img" class="form-control" value="images/about/02-manufacturing-at-scale.jpg" oninput="updateImagePreview(this, 'cms_about_pillar_1_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_1_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_pillar_1_img')" title="Click to upload new image from device">
+                          <img id="cms_about_pillar_1_img_preview" src="images/about/02-manufacturing-at-scale.jpg" alt="Layer 02 Scale" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload layer photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
-                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
-                        <img id="cms_about_pillar_1_img_preview" src="images/about/02-manufacturing-at-scale.jpg" alt="Layer 02" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
-                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 02 Image</span>
-                      </div>
-                    </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 03: Quality You Can Trust</div>
@@ -925,15 +1240,22 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_2_desc" class="form-control" rows="3">Every product reflects our commitment to quality, strength and durability. Careful inspection and consistent manufacturing standards help ensure reliable performance in everyday use.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_pillar_2_img" class="form-control" value="images/about/03-quality-reliability-lab.jpg" oninput="updateImagePreview(this, 'cms_about_pillar_2_img_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_2_img')"><i class="fas fa-images"></i> Pick</button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_pillar_2_img" class="form-control" value="images/about/03-quality-reliability-lab.jpg" oninput="updateImagePreview(this, 'cms_about_pillar_2_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_2_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_pillar_2_img')" title="Click to upload new image from device">
+                          <img id="cms_about_pillar_2_img_preview" src="images/about/03-quality-reliability-lab.jpg" alt="Layer 03 QA Lab" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload layer photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
-                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
-                        <img id="cms_about_pillar_2_img_preview" src="images/about/03-quality-reliability-lab.jpg" alt="Layer 03" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
-                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 03 Image</span>
-                      </div>
-                    </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 04: Efficiency in Every Process</div>
@@ -941,15 +1263,22 @@
                     <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_3_desc" class="form-control" rows="3">Our streamlined manufacturing processes focus on precision, productivity and consistency. By optimizing workflows and maintaining high operational standards, we deliver dependable quality.</textarea></div>
                     <div class="form-group">
                       <label class="form-label">Image URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_pillar_3_img" class="form-control" value="images/about/04-operational-excellence-facility.png" oninput="updateImagePreview(this, 'cms_about_pillar_3_img_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_3_img')"><i class="fas fa-images"></i> Pick</button>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_pillar_3_img" class="form-control" value="images/about/04-operational-excellence-facility.png" oninput="updateImagePreview(this, 'cms_about_pillar_3_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_pillar_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_3_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_pillar_3_img')" title="Click to upload new image from device">
+                          <img id="cms_about_pillar_3_img_preview" src="images/about/04-operational-excellence-facility.png" alt="Layer 04 Facility" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload layer photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
                       </div>
-                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
-                        <img id="cms_about_pillar_3_img_preview" src="images/about/04-operational-excellence-facility.png" alt="Layer 04" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
-                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 04 Image</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -990,16 +1319,22 @@
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_0_role" class="form-control" value="Chairman &amp; Managing Director"></div>
                     <div class="form-group">
                       <label class="form-label">Photo URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_lead_0_photo" class="form-control" value="images/team/ratan-kumar-sharma-cmd.jpg" oninput="updateImagePreview(this, 'cms_about_lead_0_photo_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_0_photo')"><i class="fas fa-images"></i> Pick</button>
-                      </div>
-                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
-                        <img id="cms_about_lead_0_photo_preview" src="images/team/ratan-kumar-sharma-cmd.jpg" alt="Mr. Ratan Kumar Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
-                        <div>
-                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
-                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Ratan Kumar Sharma</div>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_lead_0_photo" class="form-control" value="images/team/ratan-kumar-sharma-cmd.jpg" oninput="updateImagePreview(this, 'cms_about_lead_0_photo_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_0_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_0_photo')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
                         </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_lead_0_photo')" title="Click to upload new image from device">
+                          <img id="cms_about_lead_0_photo_preview" src="images/team/ratan-kumar-sharma-cmd.jpg" alt="Mr. Ratan Kumar Sharma" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Chairman & Managing Director • Click to upload</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative (Multiple paragraphs supported)</label><textarea id="cms_about_lead_0_bio" class="form-control" rows="7">With 18 years of experience in the plastic furniture industry prior to establishing National Plasto Products Pvt. Ltd., Mr. Ratan Kumar Sharma brought extensive industry knowledge and practical experience to the foundation of the company in 1997.
@@ -1018,16 +1353,22 @@ Under his leadership, NPPL has grown not only in scale and turnover, but also in
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_1_role" class="form-control" value="Director – Finance"></div>
                     <div class="form-group">
                       <label class="form-label">Photo URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_lead_1_photo" class="form-control" value="images/team/rajkumar-sharma-director-finance.jpg" oninput="updateImagePreview(this, 'cms_about_lead_1_photo_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_1_photo')"><i class="fas fa-images"></i> Pick</button>
-                      </div>
-                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
-                        <img id="cms_about_lead_1_photo_preview" src="images/team/rajkumar-sharma-director-finance.jpg" alt="Mr. Rajkumar Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
-                        <div>
-                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
-                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Rajkumar Sharma</div>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_lead_1_photo" class="form-control" value="images/team/rajkumar-sharma-director-finance.jpg" oninput="updateImagePreview(this, 'cms_about_lead_1_photo_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_1_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_1_photo')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
                         </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_lead_1_photo')" title="Click to upload new image from device">
+                          <img id="cms_about_lead_1_photo_preview" src="images/team/rajkumar-sharma-director-finance.jpg" alt="Mr. Rajkumar Sharma" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Director – Finance • Click to upload</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_1_bio" class="form-control" rows="7">Mr. Rajkumar Sharma, the eldest of the family and elder brother of Mr. Ratan Kumar Sharma, has overseen the company's financial operations since its inception in 1997.
@@ -1042,16 +1383,22 @@ As the senior-most member of the management team, his steady and disciplined app
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_2_role" class="form-control" value="Director – Production (In Memoriam)"></div>
                     <div class="form-group">
                       <label class="form-label">Photo URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_lead_2_photo" class="form-control" value="images/team/sukhram-sharma-director-production.jpg" oninput="updateImagePreview(this, 'cms_about_lead_2_photo_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_2_photo')"><i class="fas fa-images"></i> Pick</button>
-                      </div>
-                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
-                        <img id="cms_about_lead_2_photo_preview" src="images/team/sukhram-sharma-director-production.jpg" alt="Late Mr. Sukhram Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
-                        <div>
-                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
-                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Late Mr. Sukhram Sharma</div>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_lead_2_photo" class="form-control" value="images/team/sukhram-sharma-director-production.jpg" oninput="updateImagePreview(this, 'cms_about_lead_2_photo_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_2_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_2_photo')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
                         </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_lead_2_photo')" title="Click to upload new image from device">
+                          <img id="cms_about_lead_2_photo_preview" src="images/team/sukhram-sharma-director-production.jpg" alt="Late Mr. Sukhram Sharma" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Director – Production • Click to upload</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_2_bio" class="form-control" rows="7">Mr. Sukhram Sharma, the youngest brother of Mr. Raj Kumar Sharma and Mr. Ratan Kumar Sharma, was an integral part of National Plasto Products Pvt. Ltd. and made significant contribution to the Company's growth and establishment.
@@ -1068,16 +1415,22 @@ Mr. Sukhram Sharma passed away three years ago, leaving behind a legacy of dedic
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_3_role" class="form-control" value="Executive Director"></div>
                     <div class="form-group">
                       <label class="form-label">Photo URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_lead_3_photo" class="form-control" value="images/team/bhavesh-sharma-executive-director.jpg" oninput="updateImagePreview(this, 'cms_about_lead_3_photo_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_3_photo')"><i class="fas fa-images"></i> Pick</button>
-                      </div>
-                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
-                        <img id="cms_about_lead_3_photo_preview" src="images/team/bhavesh-sharma-executive-director.jpg" alt="Mr. Bhavesh Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
-                        <div>
-                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
-                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Bhavesh Sharma</div>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_lead_3_photo" class="form-control" value="images/team/bhavesh-sharma-executive-director.jpg" oninput="updateImagePreview(this, 'cms_about_lead_3_photo_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_3_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_3_photo')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
                         </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_lead_3_photo')" title="Click to upload new image from device">
+                          <img id="cms_about_lead_3_photo_preview" src="images/team/bhavesh-sharma-executive-director.jpg" alt="Mr. Bhavesh Sharma" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Executive Director • Click to upload</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_3_bio" class="form-control" rows="7">Mr. Bhavesh Sharma, son of Mr. Ratan Kumar Sharma, oversees production, sales and marketing across all four manufacturing units, working closely with teams to maintain consistency in quality, output and operations.
@@ -1094,16 +1447,22 @@ With a hands-on approach and focus on exploring new markets, he continues to dri
                     <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_4_role" class="form-control" value="Executive Director"></div>
                     <div class="form-group">
                       <label class="form-label">Photo URL</label>
-                      <div style="display:flex; gap:8px; margin-bottom:8px;">
-                        <input type="text" id="cms_about_lead_4_photo" class="form-control" value="images/team/devesh-sharma-executive-director.jpg" oninput="updateImagePreview(this, 'cms_about_lead_4_photo_preview')">
-                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_4_photo')"><i class="fas fa-images"></i> Pick</button>
-                      </div>
-                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
-                        <img id="cms_about_lead_4_photo_preview" src="images/team/devesh-sharma-executive-director.jpg" alt="Mr. Devesh Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
-                        <div>
-                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
-                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Devesh Sharma</div>
+                      
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_about_lead_4_photo" class="form-control" value="images/team/devesh-sharma-executive-director.jpg" oninput="updateImagePreview(this, 'cms_about_lead_4_photo_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_about_lead_4_photo')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_4_photo')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
                         </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_about_lead_4_photo')" title="Click to upload new image from device">
+                          <img id="cms_about_lead_4_photo_preview" src="images/team/devesh-sharma-executive-director.jpg" alt="Mr. Devesh Sharma" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Executive Director • Click to upload</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                       </div>
                     </div>
                     <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_4_bio" class="form-control" rows="7">Mr. Devesh Sharma, the youngest member of the family and son of Late Mr. Sukhram Sharma, oversees production and sales operations across the company's manufacturing units.
@@ -1139,10 +1498,22 @@ As part of the next generation of leadership, he continues to carry forward the 
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
-                  <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_products_hero_image" class="form-control" value="images/brand/products.png">
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_products_hero_image')"><i class="fas fa-image"></i> Pick</button>
-                  </div>
+                  
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_products_hero_image" class="form-control" value="images/brand/products.png" oninput="updateImagePreview(this, 'cms_products_hero_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_products_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_products_hero_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_products_hero_image')" title="Click to upload new image from device">
+                          <img id="cms_products_hero_image_preview" src="images/brand/products.png" alt="Products Hero Banner" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload banner photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                 </div>
               </div>
             </div>
@@ -1179,18 +1550,198 @@ As part of the next generation of leadership, he continues to carry forward the 
               <div class="card-header"><h3><i class="fas fa-th"></i> Section 3: 12 Category Collection Cards</h3></div>
               <div class="card-body">
                 <div class="form-row" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
-                  <div class="cms-item-box" id="coll_box_0"><div class="cms-item-box-title">1. Arm Chairs</div><input type="text" id="cms_coll_0_count" class="form-control" placeholder="135 Products" style="margin-bottom:6px;" value="135 Products"><input type="text" id="cms_coll_0_img" class="form-control" placeholder="Image URL" value="images/collections/arm-chairs.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_1"><div class="cms-item-box-title">2. Premium Arm Chairs</div><input type="text" id="cms_coll_1_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products"><input type="text" id="cms_coll_1_img" class="form-control" placeholder="Image URL" value="images/collections/premium-arm-chairs.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_2"><div class="cms-item-box-title">3. Armless Chairs</div><input type="text" id="cms_coll_2_count" class="form-control" placeholder="52 Products" style="margin-bottom:6px;" value="52 Products"><input type="text" id="cms_coll_2_img" class="form-control" placeholder="Image URL" value="images/collections/armless-chairs.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_3"><div class="cms-item-box-title">4. Premium Armless</div><input type="text" id="cms_coll_3_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products"><input type="text" id="cms_coll_3_img" class="form-control" placeholder="Image URL" value="images/collections/premium-armless-chairs.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_4"><div class="cms-item-box-title">5. Metallic Chairs</div><input type="text" id="cms_coll_4_count" class="form-control" placeholder="11 Products" style="margin-bottom:6px;" value="11 Products"><input type="text" id="cms_coll_4_img" class="form-control" placeholder="Image URL" value="images/collections/metallic-chairs.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_5"><div class="cms-item-box-title">6. Steel Moulded</div><input type="text" id="cms_coll_5_count" class="form-control" placeholder="3 Products" style="margin-bottom:6px;" value="3 Products"><input type="text" id="cms_coll_5_img" class="form-control" placeholder="Image URL" value="images/collections/steel-moulded-chairs.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_6"><div class="cms-item-box-title">7. Baby Chairs</div><input type="text" id="cms_coll_6_count" class="form-control" placeholder="14 Products" style="margin-bottom:6px;" value="14 Products"><input type="text" id="cms_coll_6_img" class="form-control" placeholder="Image URL" value="images/collections/baby-chairs.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_7"><div class="cms-item-box-title">8. Stools</div><input type="text" id="cms_coll_7_count" class="form-control" placeholder="39 Products" style="margin-bottom:6px;" value="39 Products"><input type="text" id="cms_coll_7_img" class="form-control" placeholder="Image URL" value="images/collections/stools.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_8"><div class="cms-item-box-title">9. Tables</div><input type="text" id="cms_coll_8_count" class="form-control" placeholder="51 Products" style="margin-bottom:6px;" value="51 Products"><input type="text" id="cms_coll_8_img" class="form-control" placeholder="Image URL" value="images/collections/tables.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_9"><div class="cms-item-box-title">10. Dining Sets</div><input type="text" id="cms_coll_9_count" class="form-control" placeholder="45 Products" style="margin-bottom:6px;" value="45 Products"><input type="text" id="cms_coll_9_img" class="form-control" placeholder="Image URL" value="images/collections/dining-sets.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_10"><div class="cms-item-box-title">11. Trolleys & Racks</div><input type="text" id="cms_coll_10_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products"><input type="text" id="cms_coll_10_img" class="form-control" placeholder="Image URL" value="images/collections/trolleys-and-racks.jpg"></div>
-                  <div class="cms-item-box" id="coll_box_11"><div class="cms-item-box-title">12. Wardrobes</div><input type="text" id="cms_coll_11_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products"><input type="text" id="cms_coll_11_img" class="form-control" placeholder="Image URL" value="images/collections/wardrobes.jpg"></div>
+                  <div class="cms-item-box" id="coll_box_0"><div class="cms-item-box-title">1. Arm Chairs</div><input type="text" id="cms_coll_0_count" class="form-control" placeholder="135 Products" style="margin-bottom:6px;" value="135 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_0_img" class="form-control" value="images/collections/arm-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_0_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_0_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_0_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_0_img_preview" src="images/collections/arm-chairs.jpg" alt="1. Arm Chairs" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_1"><div class="cms-item-box-title">2. Premium Arm Chairs</div><input type="text" id="cms_coll_1_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_1_img" class="form-control" value="images/collections/premium-arm-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_1_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_1_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_1_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_1_img_preview" src="images/collections/premium-arm-chairs.jpg" alt="2. Premium Arm Chairs" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_2"><div class="cms-item-box-title">3. Armless Chairs</div><input type="text" id="cms_coll_2_count" class="form-control" placeholder="52 Products" style="margin-bottom:6px;" value="52 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_2_img" class="form-control" value="images/collections/armless-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_2_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_2_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_2_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_2_img_preview" src="images/collections/armless-chairs.jpg" alt="3. Armless Chairs" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_3"><div class="cms-item-box-title">4. Premium Armless</div><input type="text" id="cms_coll_3_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_3_img" class="form-control" value="images/collections/premium-armless-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_3_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_3_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_3_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_3_img_preview" src="images/collections/premium-armless-chairs.jpg" alt="4. Premium Armless" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_4"><div class="cms-item-box-title">5. Metallic Chairs</div><input type="text" id="cms_coll_4_count" class="form-control" placeholder="11 Products" style="margin-bottom:6px;" value="11 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_4_img" class="form-control" value="images/collections/metallic-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_4_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_4_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_4_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_4_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_4_img_preview" src="images/collections/metallic-chairs.jpg" alt="5. Metallic Chairs" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_5"><div class="cms-item-box-title">6. Steel Moulded</div><input type="text" id="cms_coll_5_count" class="form-control" placeholder="3 Products" style="margin-bottom:6px;" value="3 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_5_img" class="form-control" value="images/collections/steel-moulded-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_5_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_5_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_5_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_5_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_5_img_preview" src="images/collections/steel-moulded-chairs.jpg" alt="6. Steel Moulded" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_6"><div class="cms-item-box-title">7. Baby Chairs</div><input type="text" id="cms_coll_6_count" class="form-control" placeholder="14 Products" style="margin-bottom:6px;" value="14 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_6_img" class="form-control" value="images/collections/baby-chairs.jpg" oninput="updateImagePreview(this, 'cms_coll_6_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_6_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_6_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_6_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_6_img_preview" src="images/collections/baby-chairs.jpg" alt="7. Baby Chairs" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_7"><div class="cms-item-box-title">8. Stools</div><input type="text" id="cms_coll_7_count" class="form-control" placeholder="39 Products" style="margin-bottom:6px;" value="39 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_7_img" class="form-control" value="images/collections/stools.jpg" oninput="updateImagePreview(this, 'cms_coll_7_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_7_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_7_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_7_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_7_img_preview" src="images/collections/stools.jpg" alt="8. Stools" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_8"><div class="cms-item-box-title">9. Tables</div><input type="text" id="cms_coll_8_count" class="form-control" placeholder="51 Products" style="margin-bottom:6px;" value="51 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_8_img" class="form-control" value="images/collections/tables.jpg" oninput="updateImagePreview(this, 'cms_coll_8_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_8_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_8_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_8_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_8_img_preview" src="images/collections/tables.jpg" alt="9. Tables" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_9"><div class="cms-item-box-title">10. Dining Sets</div><input type="text" id="cms_coll_9_count" class="form-control" placeholder="45 Products" style="margin-bottom:6px;" value="45 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_9_img" class="form-control" value="images/collections/dining-sets.jpg" oninput="updateImagePreview(this, 'cms_coll_9_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_9_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_9_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_9_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_9_img_preview" src="images/collections/dining-sets.jpg" alt="10. Dining Sets" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_10"><div class="cms-item-box-title">11. Trolleys & Racks</div><input type="text" id="cms_coll_10_count" class="form-control" placeholder="4 Products" style="margin-bottom:6px;" value="4 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_10_img" class="form-control" value="images/collections/trolleys-and-racks.jpg" oninput="updateImagePreview(this, 'cms_coll_10_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_10_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_10_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_10_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_10_img_preview" src="images/collections/trolleys-and-racks.jpg" alt="11. Trolleys & Racks" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
+                  <div class="cms-item-box" id="coll_box_11"><div class="cms-item-box-title">12. Wardrobes</div><input type="text" id="cms_coll_11_count" class="form-control" placeholder="2 Products" style="margin-bottom:6px;" value="2 Products">
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_coll_11_img" class="form-control" value="images/collections/wardrobes.jpg" oninput="updateImagePreview(this, 'cms_coll_11_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_coll_11_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_coll_11_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_coll_11_img')" title="Click to upload new image from device">
+                          <img id="cms_coll_11_img_preview" src="images/collections/wardrobes.jpg" alt="12. Wardrobes" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload category photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                 </div>
               </div>
             </div>
@@ -1238,10 +1789,22 @@ As part of the next generation of leadership, he continues to carry forward the 
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
-                  <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_mfg_hero_image" class="form-control" value="images/brand/company-photo.jpg">
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_hero_image')"><i class="fas fa-image"></i> Pick</button>
-                  </div>
+                  
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_mfg_hero_image" class="form-control" value="images/brand/company-photo.jpg" oninput="updateImagePreview(this, 'cms_mfg_hero_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_hero_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_mfg_hero_image')" title="Click to upload new image from device">
+                          <img id="cms_mfg_hero_image_preview" src="images/brand/company-photo.jpg" alt="Manufacturing Banner" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload banner photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                 </div>
               </div>
             </div>
@@ -1256,28 +1819,88 @@ As part of the next generation of leadership, he continues to carry forward the 
                     <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_0_loc" class="form-control" value="Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411"></div>
                     <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_0_cap" class="form-control" value="18,000 Units / Day"></div>
                     <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_0_mach" class="form-control" value="16 Injection Moulding Machines (80T - 1,200T)"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_0_img" class="form-control" value="images/home/plant-kl850.jpg"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_mfg_plant_0_img" class="form-control" value="images/home/plant-kl850.jpg" oninput="updateImagePreview(this, 'cms_mfg_plant_0_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_0_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_0_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_mfg_plant_0_img')" title="Click to upload new image from device">
+                          <img id="cms_mfg_plant_0_img_preview" src="images/home/plant-kl850.jpg" alt="Hub 1: Howrah Plant" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload plant photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Hub 2: Guwahati Plant (Assam)</div>
                     <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_1_loc" class="form-control" value="E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031"></div>
                     <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_1_cap" class="form-control" value="12,000 Units / Day"></div>
                     <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_1_mach" class="form-control" value="12 Injection Moulding Machines (100T - 850T)"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_1_img" class="form-control" value="images/home/milestone-2007.jpg"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_mfg_plant_1_img" class="form-control" value="images/home/milestone-2007.jpg" oninput="updateImagePreview(this, 'cms_mfg_plant_1_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_1_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_1_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_mfg_plant_1_img')" title="Click to upload new image from device">
+                          <img id="cms_mfg_plant_1_img_preview" src="images/home/milestone-2007.jpg" alt="Hub 2: Guwahati Plant" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload plant photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Hub 3: Roorkee Plant (Uttarakhand)</div>
                     <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_2_loc" class="form-control" value="Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661"></div>
                     <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_2_cap" class="form-control" value="10,000 Units / Day"></div>
                     <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_2_mach" class="form-control" value="10 Injection Moulding Machines (100T - 800T)"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_2_img" class="form-control" value="images/home/milestone-2010.jpg"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_mfg_plant_2_img" class="form-control" value="images/home/milestone-2010.jpg" oninput="updateImagePreview(this, 'cms_mfg_plant_2_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_2_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_2_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_mfg_plant_2_img')" title="Click to upload new image from device">
+                          <img id="cms_mfg_plant_2_img_preview" src="images/home/milestone-2010.jpg" alt="Hub 3: Roorkee Plant" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload plant photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Hub 4: Hajipur Plant (Bihar)</div>
                     <div class="form-group"><label class="form-label">Location</label><input type="text" id="cms_mfg_plant_3_loc" class="form-control" value="EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101"></div>
                     <div class="form-group"><label class="form-label">Daily Capacity</label><input type="text" id="cms_mfg_plant_3_cap" class="form-control" value="10,000 Units / Day"></div>
                     <div class="form-group"><label class="form-label">Machines</label><input type="text" id="cms_mfg_plant_3_mach" class="form-control" value="8 Injection Moulding Machines (100T - 650T)"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_mfg_plant_3_img" class="form-control" value="images/home/milestone-2026.jpg"></div>
+                    <div class="form-group"><label class="form-label">Photo URL</label>
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_mfg_plant_3_img" class="form-control" value="images/home/milestone-2026.jpg" oninput="updateImagePreview(this, 'cms_mfg_plant_3_img_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_mfg_plant_3_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_mfg_plant_3_img')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_mfg_plant_3_img')" title="Click to upload new image from device">
+                          <img id="cms_mfg_plant_3_img_preview" src="images/home/milestone-2026.jpg" alt="Hub 4: Hajipur Plant" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload plant photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div></div>
                   </div>
                 </div>
               </div>
@@ -1320,10 +1943,22 @@ As part of the next generation of leadership, he continues to carry forward the 
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
-                  <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_dist_hero_image" class="form-control" value="images/hero/image2.png">
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_hero_image')"><i class="fas fa-image"></i> Pick</button>
-                  </div>
+                  
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_dist_hero_image" class="form-control" value="images/hero/image2.png" oninput="updateImagePreview(this, 'cms_dist_hero_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_dist_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_hero_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_dist_hero_image')" title="Click to upload new image from device">
+                          <img id="cms_dist_hero_image_preview" src="images/hero/image2.png" alt="Distributor Desk Banner" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload banner photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                 </div>
               </div>
             </div>
@@ -1388,10 +2023,22 @@ As part of the next generation of leadership, he continues to carry forward the 
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
-                  <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_contact_hero_image" class="form-control" value="images/brand/company-photo.jpg">
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_contact_hero_image')"><i class="fas fa-image"></i> Pick</button>
-                  </div>
+                  
+                      <div class="cms-img-field-group">
+                        <div class="cms-img-input-row">
+                          <input type="text" id="cms_contact_hero_image" class="form-control" value="images/brand/company-photo.jpg" oninput="updateImagePreview(this, 'cms_contact_hero_image_preview')">
+                          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_contact_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_contact_hero_image')" style="white-space:nowrap;"><i class="fas fa-images"></i> Pick</button>
+                        </div>
+                        <div class="cms-image-preview-card" onclick="uploadImageForField('cms_contact_hero_image')" title="Click to upload new image from device">
+                          <img id="cms_contact_hero_image_preview" src="images/brand/company-photo.jpg" alt="Contact Us Banner" onerror="this.src='images/brand/company-national-logo.png'">
+                          <div class="preview-info">
+                            <div class="preview-tag"><i class="fas fa-camera"></i> Applied Active Image</div>
+                            <div class="preview-hint">Click to upload banner photo</div>
+                          </div>
+                          <span class="preview-btn"><i class="fas fa-cloud-upload-alt"></i> Change</span>
+                        </div>
+                      </div>
                 </div>
               </div>
             </div>
@@ -1734,7 +2381,6 @@ As part of the next generation of leadership, he continues to carry forward the 
   <!-- Toast Container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <script src="js/admin.js?v=20261027_cloud_v2"></script>
 
   <!-- Embedded Master CMS Data (Ensures immediate synchronous load on any network/cloud) -->
   <script id="np_default_cms" type="application/json">
@@ -2451,6 +3097,6 @@ As part of the next generation of leadership, he continues to carry forward the 
     }
   </script>
 
-  <script src="js/admin.js?v=20261027_sync_all_pages_v3"></script>
+  <script src="js/admin.js?v=20261027_upload_all_images_v4"></script>
 </body>
 </html>

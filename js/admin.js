@@ -766,6 +766,92 @@
     navigateTo('cms');
   };
 
+  window.uploadImageForField = function (targetId) {
+    let fileInput = document.getElementById('cmsGlobalImagePicker');
+    if (!fileInput) {
+      fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.id = 'cmsGlobalImagePicker';
+      fileInput.accept = 'image/*';
+      fileInput.style.display = 'none';
+      document.body.appendChild(fileInput);
+    }
+
+    fileInput.onchange = function () {
+      if (!fileInput.files || !fileInput.files[0]) return;
+      const file = fileInput.files[0];
+
+      if (file.size > 8 * 1024 * 1024) {
+        showToast('Image is larger than 8MB. Consider optimizing for fast loading.', 'warning');
+      }
+
+      showToast(`Loading "${file.name}"...`, 'info');
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const dataUrl = e.target.result;
+
+        // 1. Update the target input field value and fire events
+        const inputEl = document.getElementById(targetId);
+        if (inputEl) {
+          inputEl.value = dataUrl;
+          try {
+            inputEl.dispatchEvent(new Event('input', { bubbles: true }));
+            inputEl.dispatchEvent(new Event('change', { bubbles: true }));
+          } catch (_) {}
+        }
+
+        // 2. Synchronize preview thumbnail directly
+        setVal(targetId, dataUrl);
+
+        const preview = document.getElementById(targetId + '_preview') ||
+                        document.getElementById(targetId.replace('_photo', '_photo_preview')) ||
+                        document.getElementById(targetId.replace('_img', '_img_preview')) ||
+                        document.getElementById(targetId.replace('_image', '_image_preview'));
+        if (preview) {
+          preview.src = dataUrl;
+          preview.style.display = 'block';
+        }
+
+        // 3. Save to Custom Media Library in localStorage so it appears in the Media tab
+        const mediaItem = {
+          name: file.name,
+          url: dataUrl,
+          tag: 'Uploads',
+          size: file.size,
+          mtime: Date.now()
+        };
+        try {
+          const existingStr = localStorage.getItem('np_custom_media');
+          const existing = existingStr ? JSON.parse(existingStr) : [];
+          localStorage.setItem('np_custom_media', JSON.stringify([mediaItem, ...existing]));
+          allMedia = [mediaItem, ...(allMedia || [])];
+        } catch (storageErr) {
+          console.warn('LocalStorage media error (quota):', storageErr);
+        }
+
+        // 4. If server backend is reachable, upload in parallel
+        try {
+          const fd = new FormData();
+          fd.append('files', file);
+          fetch('/api/upload', { method: 'POST', body: fd }).catch(() => {});
+        } catch (_) {}
+
+        showToast(`"${file.name}" uploaded! Preview updated. Click "Save" on bottom bar to publish.`, 'success');
+        fileInput.value = '';
+      };
+
+      reader.onerror = function () {
+        showToast('Failed to read file from your device.', 'danger');
+        fileInput.value = '';
+      };
+
+      reader.readAsDataURL(file);
+    };
+
+    fileInput.click();
+  };
+
   function getDefaultCMS() {
     try {
       const el = document.getElementById('np_default_cms');
