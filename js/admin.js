@@ -1280,11 +1280,15 @@
       setVal('cms_contact_address', cmsData.contact?.corporateOffice?.address || cmsData.general?.headOffice);
       setVal('cms_contact_map_url', cmsData.contact?.corporateOffice?.mapUrl);
 
-      if (cmsData.contact?.factories) {
-        setVal('cms_contact_factory_0', cmsData.contact.factories[0]?.address);
-        setVal('cms_contact_factory_1', cmsData.contact.factories[1]?.address);
-        setVal('cms_contact_factory_2', cmsData.contact.factories[2]?.address);
-        setVal('cms_contact_factory_3', cmsData.contact.factories[3]?.address);
+      if (cmsData.contact?.factories && Array.isArray(cmsData.contact.factories) && cmsData.contact.factories.length > 0) {
+        window.renderFactoryRows(cmsData.contact.factories);
+      } else {
+        window.renderFactoryRows([
+          { name: 'Howrah Plant', subtitle: 'West Bengal', placement: 'both', address: 'Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411', phone: '+91 33 2669 0001', email: 'howrah@nationalplasto.com' },
+          { name: 'Guwahati Plant', subtitle: 'Assam', placement: 'both', address: 'E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031', phone: '+91 361 284 0002', email: 'guwahati@nationalplasto.com' },
+          { name: 'Roorkee Plant', subtitle: 'Uttarakhand', placement: 'both', address: 'Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661', phone: '+91 1332 235 003', email: 'roorkee@nationalplasto.com' },
+          { name: 'Hajipur Plant', subtitle: 'Bihar', placement: 'both', address: 'EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101', phone: '+91 6224 271 004', email: 'hajipur@nationalplasto.com' }
+        ]);
       }
 
       setVal('cms_social_fb', cmsData.general?.socialLinks?.facebook);
@@ -1550,12 +1554,20 @@
           address: getVal('cms_contact_address'),
           mapUrl: getVal('cms_contact_map_url')
         };
-        cmsData.contact.factories = [
-          { name: 'Howrah Plant (West Bengal)', address: getVal('cms_contact_factory_0') },
-          { name: 'Guwahati Plant (Assam)', address: getVal('cms_contact_factory_1') },
-          { name: 'Roorkee Plant (Uttarakhand)', address: getVal('cms_contact_factory_2') },
-          { name: 'Hajipur Plant (Bihar)', address: getVal('cms_contact_factory_3') }
-        ];
+        const factoryCards = document.querySelectorAll('#cms_factories_container .factory-row-card');
+        const factories = [];
+        factoryCards.forEach((c) => {
+          const name = c.querySelector('.factory-name')?.value?.trim() || '';
+          const subtitle = c.querySelector('.factory-subtitle')?.value?.trim() || '';
+          const placement = c.querySelector('.factory-placement')?.value || 'both';
+          const address = c.querySelector('.factory-address')?.value?.trim() || '';
+          const phone = c.querySelector('.factory-phone')?.value?.trim() || '';
+          const email = c.querySelector('.factory-email')?.value?.trim() || '';
+          if (name || address) {
+            factories.push({ name, subtitle, placement, address, phone, email });
+          }
+        });
+        cmsData.contact.factories = factories;
         cmsData.general.socialLinks = {
           facebook: getVal('cms_social_fb'),
           instagram: getVal('cms_social_ig'),
@@ -2003,5 +2015,120 @@
   } catch (_) {}
 
   // Start app by checking authentication
+  
+  // Dynamic Factory & Regional Location rows management
+  window.renderFactoryRows = function (list) {
+    const container = document.getElementById('cms_factories_container');
+    if (!container) return;
+    container.innerHTML = '';
+    const items = (Array.isArray(list) && list.length > 0) ? list : [
+      { name: 'Howrah Plant', subtitle: 'West Bengal', placement: 'both', address: 'Jalan Industrial Estate, Dakshin Jhapardaha, Howrah, West Bengal 711411', phone: '+91 33 2669 0001', email: 'howrah@nationalplasto.com' },
+      { name: 'Guwahati Plant', subtitle: 'Assam', placement: 'both', address: 'E.P.I.P. Complex, Amingaon, Guwahati, Assam 781031', phone: '+91 361 284 0002', email: 'guwahati@nationalplasto.com' },
+      { name: 'Roorkee Plant', subtitle: 'Uttarakhand', placement: 'both', address: 'Raipur Industrial Area, Bhagwanpur, Roorkee, Uttarakhand 247661', phone: '+91 1332 235 003', email: 'roorkee@nationalplasto.com' },
+      { name: 'Hajipur Plant', subtitle: 'Bihar', placement: 'both', address: 'EPIP Industrial Area, Hajipur, Vaishali, Bihar 844101', phone: '+91 6224 271 004', email: 'hajipur@nationalplasto.com' }
+    ];
+    items.forEach((item) => {
+      window.addFactoryRow(item, false);
+    });
+  };
+
+  window.addFactoryRow = function (data = {}, autoScroll = true) {
+    const container = document.getElementById('cms_factories_container');
+    if (!container) return;
+    const card = document.createElement('div');
+    card.className = 'factory-row-card';
+    card.style.cssText = 'background:#F8FAFC; border:1px solid #E2E8F0; border-radius:10px; padding:16px; position:relative; box-shadow:0 1px 3px rgba(0,0,0,0.04);';
+
+    const name = data.name || '';
+    const subtitle = data.subtitle || '';
+    const placement = data.placement || 'both';
+    const address = data.address || '';
+    const phone = data.phone || '';
+    const email = data.email || '';
+
+    card.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid #E2E8F0; padding-bottom:8px;">
+        <span style="font-weight:700; color:#1E293B; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+          <i class="fas fa-map-marker-alt" style="color:var(--brand-primary, #C8102E);"></i> Location / Facility #<span class="row-num"></span>
+        </span>
+        <button type="button" class="btn btn-sm" onclick="removeFactoryRow(this)" style="background:#FEE2E2; color:#DC2626; border:1px solid #FECACA; padding:4px 10px; border-radius:6px; font-size:12px; cursor:pointer; font-weight:600; display:inline-flex; align-items:center; gap:4px; transition:0.2s;">
+          <i class="fas fa-trash-alt"></i> Remove
+        </button>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:10px;">
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Location / Plant Name</label>
+          <input type="text" class="form-control factory-name" placeholder="e.g. Howrah Plant, Pune Regional Hub" value="${name.replace(/"/g, '&quot;')}" style="font-size:13px;">
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">State / Territory / Badge</label>
+          <input type="text" class="form-control factory-subtitle" placeholder="e.g. West Bengal, Maharashtra, Hub 2" value="${subtitle.replace(/"/g, '&quot;')}" style="font-size:13px;">
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block; color:#0F172A;">
+            <i class="fas fa-layer-group" style="color:#2563EB;"></i> Frontend Placement
+          </label>
+          <select class="form-control factory-placement" style="font-size:13px; font-weight:600; background:#FFFFFF; border-color:#93C5FD;">
+            <option value="both"${placement === 'both' ? ' selected' : ''}>Both (Map Tabs &amp; Regional Hub Card)</option>
+            <option value="factory"${placement === 'factory' || placement === 'map' ? ' selected' : ''}>Map Tabs (Interactive Map Section)</option>
+            <option value="depot"${placement === 'depot' ? ' selected' : ''}>Regional Hub Card (Logistics Footprint)</option>
+            <option value="office"${placement === 'office' ? ' selected' : ''}>Corporate / Branch Office Listing</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Full Physical Address</label>
+        <textarea class="form-control factory-address" rows="2" placeholder="Full postal address with district, state, and PIN code" style="font-size:13px; line-height:1.4;">${address}</textarea>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:0;">
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Contact Helpline / Phone (Optional)</label>
+          <input type="text" class="form-control factory-phone" placeholder="e.g. +91 33 2669 0001" value="${phone.replace(/"/g, '&quot;')}" style="font-size:13px;">
+        </div>
+        <div class="form-group" style="margin:0;">
+          <label class="form-label" style="font-size:12px; font-weight:600; margin-bottom:4px; display:block;">Email Address (Optional)</label>
+          <input type="text" class="form-control factory-email" placeholder="e.g. howrah@nationalplasto.com" value="${email.replace(/"/g, '&quot;')}" style="font-size:13px;">
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+    updateFactoryRowIndices();
+
+    if (autoScroll) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const firstInput = card.querySelector('.factory-name');
+      if (firstInput) firstInput.focus();
+    }
+  };
+
+  window.removeFactoryRow = function (btn) {
+    const card = btn.closest('.factory-row-card');
+    if (!card) return;
+    const container = document.getElementById('cms_factories_container');
+    if (container.querySelectorAll('.factory-row-card').length <= 1) {
+      alert('At least one location / factory row must be kept.');
+      return;
+    }
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.95)';
+    card.style.transition = 'all 0.2s';
+    setTimeout(() => {
+      card.remove();
+      updateFactoryRowIndices();
+    }, 200);
+  };
+
+  function updateFactoryRowIndices() {
+    const cards = document.querySelectorAll('#cms_factories_container .factory-row-card');
+    cards.forEach((c, idx) => {
+      const numSpan = c.querySelector('.row-num');
+      if (numSpan) numSpan.textContent = idx + 1;
+    });
+  }
+
   checkAuth();
 })();

@@ -1085,16 +1085,24 @@
         (function () {
             var frame = document.getElementById('np_findus_frame');
             if (!frame) return;
-            var tabs = document.querySelectorAll('.np-findus-tab');
-            [].forEach.call(tabs, function (tab) {
-                tab.addEventListener('click', function () {
-                    [].forEach.call(tabs, function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
-                    tab.classList.add('is-active');
-                    tab.setAttribute('aria-selected', 'true');
+            document.addEventListener('click', function (e) {
+                var tab = e.target.closest('.np-findus-tab');
+                if (!tab) return;
+                var allTabs = document.querySelectorAll('.np-findus-tab');
+                allTabs.forEach(function (t) { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+                tab.classList.add('is-active');
+                tab.setAttribute('aria-selected', 'true');
+                if (tab.dataset.q) {
                     frame.src = 'https://maps.google.com/maps?q=' + tab.dataset.q + '&z=15&output=embed';
-                    document.getElementById('np_findus_addr').textContent = tab.dataset.addr;
-                    document.getElementById('np_findus_dir').href = 'https://www.google.com/maps/search/?api=1&query=' + tab.dataset.q;
-                });
+                }
+                var addrEl = document.getElementById('np_findus_addr');
+                if (addrEl && tab.dataset.addr) {
+                    addrEl.innerHTML = tab.dataset.addr;
+                }
+                var dirEl = document.getElementById('np_findus_dir');
+                if (dirEl && tab.dataset.q) {
+                    dirEl.href = 'https://www.google.com/maps/search/?api=1&query=' + tab.dataset.q;
+                }
             });
         })();
     </script>

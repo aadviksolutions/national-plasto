@@ -608,6 +608,65 @@
     if (address) {
       document.querySelectorAll('.contact-address-val').forEach(function (el) { el.textContent = address; });
     }
+
+    // Dynamic Factory Units, Regional Depots & Offices Hydration
+    if (contact && Array.isArray(contact.factories) && contact.factories.length > 0) {
+      // 1. Interactive Map Tabs on contact.html (#map .np-findus-tabs)
+      var tabsContainer = document.querySelector('.np-findus-tabs');
+      var mapFrame = document.getElementById('np_findus_frame');
+      var mapAddr = document.getElementById('np_findus_addr');
+      var mapDir = document.getElementById('np_findus_dir');
+
+      if (tabsContainer) {
+        var corpAddress = (contact.corporateOffice && contact.corporateOffice.address) || address || '135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata 700026';
+        var corpQ = encodeURIComponent(corpAddress);
+
+        var mapItems = contact.factories.filter(function (f) {
+          return !f.placement || f.placement === 'factory' || f.placement === 'map' || f.placement === 'both' || f.placement === 'office';
+        });
+
+        var html = '<button type="button" class="np-findus-tab is-active" data-q="' + corpQ + '" data-addr="NATIONAL PLASTO MOULDING &bull; ' + corpAddress.replace(/"/g, '&quot;') + '" role="tab" aria-selected="true"><strong>Corporate Office</strong><span>Kolkata</span></button>';
+
+        mapItems.forEach(function (item) {
+          var itemAddr = item.address || '';
+          var itemQ = encodeURIComponent(itemAddr);
+          var fullAddr = item.name + ' &bull; ' + itemAddr;
+          var sub = item.subtitle || (item.name.indexOf('(') !== -1 ? item.name.substring(item.name.indexOf('(') + 1).replace(')', '') : '');
+          html += '<button type="button" class="np-findus-tab" data-q="' + itemQ + '" data-addr="' + fullAddr.replace(/"/g, '&quot;') + '" role="tab" aria-selected="false"><strong>' + item.name + '</strong>' + (sub ? '<span>' + sub + '</span>' : '') + '</button>';
+        });
+
+        tabsContainer.innerHTML = html;
+
+        // Update intro text if present
+        var findusHead = document.querySelector('.np-findus-head p');
+        if (findusHead) {
+          findusHead.textContent = 'Visit our corporate office in Kolkata or any of our ' + (mapItems.length) + ' manufacturing plants and regional facilities.';
+        }
+      }
+
+      // 2. Regional Manufacturing & Trade Depots grid on contact.html (.regional_hubs_section .hubs_grid)
+      var hubsGrid = document.querySelector('.regional_hubs_section .hubs_grid');
+      if (hubsGrid) {
+        var depotItems = contact.factories.filter(function (f) {
+          return f.placement === 'depot' || f.placement === 'both' || f.placement === 'office';
+        });
+
+        if (depotItems.length > 0) {
+          var cardsHtml = '';
+          depotItems.forEach(function (item, idx) {
+            var role = item.subtitle || (item.placement === 'office' ? 'Corporate Liaison' : ('Regional Plant & Hub ' + (idx + 1)));
+            var contactInfo = item.phone || item.email || (general && general.contactPhone) || '+91 98300 12345';
+            cardsHtml += '<div class="hub_card toTop" data-scroll style="opacity:1;">' +
+              '<span class="hub_role">' + role + '</span>' +
+              '<h4>' + item.name + '</h4>' +
+              '<p>' + (item.address || '') + '</p>' +
+              '<div class="hub_contact">' + contactInfo + '</div>' +
+            '</div>';
+          });
+          hubsGrid.innerHTML = cardsHtml;
+        }
+      }
+    }
   }
 
   // --- G. Policies Hydration ---
