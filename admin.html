@@ -797,9 +797,16 @@
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image URL</label>
-                  <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_about_hero_image" class="form-control">
+                  <div style="display:flex; gap:8px; margin-bottom:8px;">
+                    <input type="text" id="cms_about_hero_image" class="form-control" value="images/brand/aboutus.png" oninput="updateImagePreview(this, 'cms_about_hero_image_preview')">
                     <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_hero_image')"><i class="fas fa-images"></i> Pick</button>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                    <img id="cms_about_hero_image_preview" src="images/brand/aboutus.png" alt="About Hero Banner" style="width:120px; height:50px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+                    <div>
+                      <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Banner</span>
+                      <div style="font-size:12px; color:#0F172A; font-weight:600;">images/brand/aboutus.png</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -811,15 +818,15 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Section Title</label>
-                  <input type="text" id="cms_about_overview_title" class="form-control">
+                  <input type="text" id="cms_about_overview_title" class="form-control" value="Rooted in 1981, Incorporated in 1997">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Lead Subtitle Text</label>
-                  <input type="text" id="cms_about_overview_lead" class="form-control">
+                  <input type="text" id="cms_about_overview_lead" class="form-control" value="Over four decades of industrial heritage and nearly three decades of pioneering plastic injection moulding excellence.">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Detailed Narrative</label>
-                  <textarea id="cms_about_overview_desc" class="form-control" rows="5"></textarea>
+                  <textarea id="cms_about_overview_desc" class="form-control" rows="5">Tracing foundational commercial roots back to 1981, National Plasto Products Pvt. Ltd. (NPPL) was incorporated on 29 October 1997 under the visionary leadership of Mr. Ratan Kumar Sharma. From an initial manufacturing plant in Kolkata, West Bengal, NPPL has expanded into a nationwide plastic furniture manufacturing leader with 4 advanced manufacturing hubs across India. Operating high-tonnage microprocessor injection moulding machinery from 80T up to 1,200T across over 2,00,000 sq. ft. of production floor space, we design and produce over 1,000 active moulds and products. Our 4-tier brand architecture—NEXT, NATIONAL, SAPPHIRE, and CAPTAIN—delivers ergonomic, durable, and aesthetically superior moulded furniture to millions of Indian homes, institutions, and businesses.</textarea>
                 </div>
               </div>
             </div>
@@ -830,11 +837,11 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Vision Statement</label>
-                  <textarea id="cms_about_vision" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_about_vision" class="form-control" rows="2">To be India's most trusted plastic-moulded furniture brand, setting the benchmark for ergonomic comfort, structural durability, and sustainable plastic manufacturing accessible to every home and enterprise.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Mission Statement</label>
-                  <textarea id="cms_about_mission" class="form-control" rows="2"></textarea>
+                  <textarea id="cms_about_mission" class="form-control" rows="2">Delivering high-value, long-lasting plastic-moulded furniture solutions through continuous technological innovation, rigorous 200kg load testing, and an empowered pan-India network of over 500 distribution partners.</textarea>
                 </div>
               </div>
             </div>
@@ -844,25 +851,25 @@
               <div class="card-header"><h3><i class="fas fa-chart-line"></i> Section 4: What makes us National Plasto? (4 Stats)</h3></div>
               <div class="card-body">
                 <div class="form-row">
-                  <div class="form-group">
+                  <div class="cms-item-box">
                     <label class="form-label">Stat 1</label>
-                    <input type="text" id="cms_about_stat_0_label" class="form-control" style="margin-bottom:6px;">
-                    <input type="text" id="cms_about_stat_0_value" class="form-control">
+                    <input type="text" id="cms_about_stat_0_label" class="form-control" value="Foundational Heritage" style="margin-bottom:6px;">
+                    <input type="text" id="cms_about_stat_0_value" class="form-control" value="45+ Years (Since 1981)">
                   </div>
-                  <div class="form-group">
+                  <div class="cms-item-box">
                     <label class="form-label">Stat 2</label>
-                    <input type="text" id="cms_about_stat_1_label" class="form-control" style="margin-bottom:6px;">
-                    <input type="text" id="cms_about_stat_1_value" class="form-control">
+                    <input type="text" id="cms_about_stat_1_label" class="form-control" value="Plastic-Moulded Furniture Excellence" style="margin-bottom:6px;">
+                    <input type="text" id="cms_about_stat_1_value" class="form-control" value="29+ Years (Est. 1997)">
                   </div>
-                  <div class="form-group">
+                  <div class="cms-item-box">
                     <label class="form-label">Stat 3</label>
-                    <input type="text" id="cms_about_stat_2_label" class="form-control" style="margin-bottom:6px;">
-                    <input type="text" id="cms_about_stat_2_value" class="form-control">
+                    <input type="text" id="cms_about_stat_2_label" class="form-control" value="Modern Plants" style="margin-bottom:6px;">
+                    <input type="text" id="cms_about_stat_2_value" class="form-control" value="4 (Howrah, Guwahati, Roorkee, Hajipur)">
                   </div>
-                  <div class="form-group">
+                  <div class="cms-item-box">
                     <label class="form-label">Stat 4</label>
-                    <input type="text" id="cms_about_stat_3_label" class="form-control" style="margin-bottom:6px;">
-                    <input type="text" id="cms_about_stat_3_value" class="form-control">
+                    <input type="text" id="cms_about_stat_3_label" class="form-control" value="Active SKUs & Moulds" style="margin-bottom:6px;">
+                    <input type="text" id="cms_about_stat_3_value" class="form-control" value="1,000+">
                   </div>
                 </div>
               </div>
@@ -875,27 +882,67 @@
                 <div class="form-row">
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 01: Precision in Every Product</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_0_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_0_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_about_pillar_0_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_0_title" class="form-control" value="Precision in Every Product"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_0_desc" class="form-control" rows="3">Our advanced manufacturing capabilities combine modern technology and precision engineering to deliver consistent quality, superior finishes and dependable performance.</textarea></div>
+                    <div class="form-group">
+                      <label class="form-label">Image URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_pillar_0_img" class="form-control" value="images/about/01-advanced-manufacturing.png" oninput="updateImagePreview(this, 'cms_about_pillar_0_img_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_0_img')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                        <img id="cms_about_pillar_0_img_preview" src="images/about/01-advanced-manufacturing.png" alt="Layer 01" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 01 Image</span>
+                      </div>
+                    </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 02: Built for Efficiency</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_1_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_1_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_about_pillar_1_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_1_title" class="form-control" value="Built for Efficiency. Ready for Growth."></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_1_desc" class="form-control" rows="3">Our integrated manufacturing operations are designed for efficiency, consistency and reliable supply, helping us meet diverse customer requirements with confidence.</textarea></div>
+                    <div class="form-group">
+                      <label class="form-label">Image URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_pillar_1_img" class="form-control" value="images/about/02-manufacturing-at-scale.jpg" oninput="updateImagePreview(this, 'cms_about_pillar_1_img_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_1_img')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                        <img id="cms_about_pillar_1_img_preview" src="images/about/02-manufacturing-at-scale.jpg" alt="Layer 02" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 02 Image</span>
+                      </div>
+                    </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 03: Quality You Can Trust</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_2_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_2_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_about_pillar_2_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_2_title" class="form-control" value="Quality You Can Trust"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_2_desc" class="form-control" rows="3">Every product reflects our commitment to quality, strength and durability. Careful inspection and consistent manufacturing standards help ensure reliable performance in everyday use.</textarea></div>
+                    <div class="form-group">
+                      <label class="form-label">Image URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_pillar_2_img" class="form-control" value="images/about/03-quality-reliability-lab.jpg" oninput="updateImagePreview(this, 'cms_about_pillar_2_img_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_2_img')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                        <img id="cms_about_pillar_2_img_preview" src="images/about/03-quality-reliability-lab.jpg" alt="Layer 03" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 03 Image</span>
+                      </div>
+                    </div>
                   </div>
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">Layer 04: Efficiency in Every Process</div>
-                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_3_title" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_3_desc" class="form-control" rows="3"></textarea></div>
-                    <div class="form-group"><label class="form-label">Image URL</label><input type="text" id="cms_about_pillar_3_img" class="form-control"></div>
+                    <div class="form-group"><label class="form-label">Title</label><input type="text" id="cms_about_pillar_3_title" class="form-control" value="Efficiency in Every Process"></div>
+                    <div class="form-group"><label class="form-label">Description</label><textarea id="cms_about_pillar_3_desc" class="form-control" rows="3">Our streamlined manufacturing processes focus on precision, productivity and consistency. By optimizing workflows and maintaining high operational standards, we deliver dependable quality.</textarea></div>
+                    <div class="form-group">
+                      <label class="form-label">Image URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_pillar_3_img" class="form-control" value="images/about/04-operational-excellence-facility.png" oninput="updateImagePreview(this, 'cms_about_pillar_3_img_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_pillar_3_img')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:10px; padding:6px 10px; background:#fff; border:1px solid #E2E8F0; border-radius:6px;">
+                        <img id="cms_about_pillar_3_img_preview" src="images/about/04-operational-excellence-facility.png" alt="Layer 04" style="width:60px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+                        <span style="font-size:11px; color:#64748B; font-weight:500;">Applied Pillar 04 Image</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -907,19 +954,19 @@
               <div class="card-body">
                 <div class="form-group">
                   <label class="form-label">Section Title</label>
-                  <input type="text" id="cms_about_mgmt_title" class="form-control" placeholder="Our Management">
+                  <input type="text" id="cms_about_mgmt_title" class="form-control" value="Our Management" placeholder="Our Management">
                 </div>
                 <div class="form-group">
                   <label class="form-label">Intro Paragraph 1 (Since 1997 Heritage)</label>
-                  <textarea id="cms_about_mgmt_p1" class="form-control" rows="3" placeholder="Since 1997, National Plasto Products Pvt. Ltd. (NPPL)..."></textarea>
+                  <textarea id="cms_about_mgmt_p1" class="form-control" rows="3" placeholder="Since 1997, National Plasto Products Pvt. Ltd. (NPPL)...">Since 1997, National Plasto Products Pvt. Ltd. (NPPL) has been manufacturing plastic moulded furniture designed for every space and every need. From homes and educational institutions to healthcare facilities, government establishments and businesses across the country, our products have become part of everyday environments across India.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Intro Paragraph 2 (Manufacturing Plants & ISO Certification)</label>
-                  <textarea id="cms_about_mgmt_p2" class="form-control" rows="3" placeholder="What began as a single manufacturing unit has grown into four manufacturing plants..."></textarea>
+                  <textarea id="cms_about_mgmt_p2" class="form-control" rows="3" placeholder="What began as a single manufacturing unit has grown into four manufacturing plants...">What began as a single manufacturing unit has grown into four manufacturing plants located in Howrah (West Bengal), Guwahati (Assam), Roorkee (Uttarakhand) and Hajipur (Bihar). All NPPL manufacturing units are ISO certified across various levels, reflecting our commitment to consistent processes and quality standards.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Intro Paragraph 3 (Family-Led Management Team)</label>
-                  <textarea id="cms_about_mgmt_p3" class="form-control" rows="3" placeholder="Behind this growth is a family-led management team..."></textarea>
+                  <textarea id="cms_about_mgmt_p3" class="form-control" rows="3" placeholder="Behind this growth is a family-led management team...">Behind this growth is a family-led management team that brings together decades of hands-on experience, strong operational knowledge and clear defined responsibilities across finance, production, sales and marketing.</textarea>
                 </div>
               </div>
             </div>
@@ -932,47 +979,132 @@
                   <!-- 1. CMD -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">1. Chairman & Managing Director</div>
-                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_0_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_0_role" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_0_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative (Multiple paragraphs supported)</label><textarea id="cms_about_lead_0_bio" class="form-control" rows="6"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote / Leadership Message</label><textarea id="cms_about_lead_0_quote" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_0_name" class="form-control" value="Mr. Ratan Kumar Sharma"></div>
+                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_0_role" class="form-control" value="Chairman & Managing Director"></div>
+                    <div class="form-group">
+                      <label class="form-label">Photo URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_lead_0_photo" class="form-control" value="images/team/ratan-kumar-sharma-cmd.jpg" oninput="updateImagePreview(this, 'cms_about_lead_0_photo_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_0_photo')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                        <img id="cms_about_lead_0_photo_preview" src="images/team/ratan-kumar-sharma-cmd.jpg" alt="Mr. Ratan Kumar Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
+                        <div>
+                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
+                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Ratan Kumar Sharma</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Bio Narrative (Multiple paragraphs supported)</label><textarea id="cms_about_lead_0_bio" class="form-control" rows="7">With 18 years of experience in the plastic furniture industry prior to establishing National Plasto Products Pvt. Ltd., Mr. Ratan Kumar Sharma brought extensive industry knowledge and practical experience to the foundation of the company in 1997.
+
+He founded National Plasto Products Pvt. Ltd. in 1997 and has led its journey from a single manufacturing unit to four plants across Howrah, Hajipur, Guwahati and Roorkee.
+
+Over nearly three decades, he has built the company on a foundation of perseverance, relationships and the values passed down by his father, whose guidance continues to influence his approach to business and leadership.
+
+Under his leadership, NPPL has grown not only in scale and turnover, but also in the trust and respect it has built among its employees, partners and associates. He believes that every challenge presents an opportunity to learn, adapt and return stronger.</textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote / Leadership Message</label><textarea id="cms_about_lead_0_quote" class="form-control" rows="4">“Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business — that belief has shaped this company since 1997, and it continues to guide how we build for the future.” — Mr. Ratan Kumar Sharma, Chairman & Managing Director</textarea></div>
                   </div>
                   <!-- 2. Finance -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">2. Director – Finance</div>
-                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_1_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_1_role" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_1_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_1_bio" class="form-control" rows="6"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_1_quote" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_1_name" class="form-control" value="Mr. Rajkumar Sharma"></div>
+                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_1_role" class="form-control" value="Director – Finance"></div>
+                    <div class="form-group">
+                      <label class="form-label">Photo URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_lead_1_photo" class="form-control" value="images/team/rajkumar-sharma-director-finance.jpg" oninput="updateImagePreview(this, 'cms_about_lead_1_photo_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_1_photo')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                        <img id="cms_about_lead_1_photo_preview" src="images/team/rajkumar-sharma-director-finance.jpg" alt="Mr. Rajkumar Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
+                        <div>
+                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
+                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Rajkumar Sharma</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_1_bio" class="form-control" rows="7">Mr. Rajkumar Sharma, the eldest of the family and elder brother of Mr. Ratan Kumar Sharma, has overseen the company's financial operations since its inception in 1997.
+
+As the senior-most member of the management team, his steady and disciplined approach to financial management and accounts has been a constant strength behind the company's growth. His experience and practical understanding continue to play an important role in shaping key financial decisions across the organisation and its four manufacturing units.</textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_1_quote" class="form-control" rows="3">Strong financial management and transparent operations are the foundation of our long-term success.</textarea></div>
                   </div>
                   <!-- 3. Production Memoriam -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">3. Director – Production (In Memoriam)</div>
-                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_2_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_2_role" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_2_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_2_bio" class="form-control" rows="6"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_2_quote" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_2_name" class="form-control" value="Late Mr. Sukhram Sharma"></div>
+                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_2_role" class="form-control" value="Director – Production"></div>
+                    <div class="form-group">
+                      <label class="form-label">Photo URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_lead_2_photo" class="form-control" value="images/team/sukhram-sharma-director-production.jpg" oninput="updateImagePreview(this, 'cms_about_lead_2_photo_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_2_photo')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                        <img id="cms_about_lead_2_photo_preview" src="images/team/sukhram-sharma-director-production.jpg" alt="Late Mr. Sukhram Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
+                        <div>
+                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
+                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Late Mr. Sukhram Sharma</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_2_bio" class="form-control" rows="7">Mr. Sukhram Sharma, the youngest brother of Mr. Raj Kumar Sharma and Mr. Ratan Kumar Sharma, was an integral part of National Plasto Products Pvt. Ltd. and made significant contribution to the Company's growth and establishment.
+
+He was closely involved with the factory and production operations, where his hands-on approach and dedication earned him the trust and respect of the entire factory team. He shared a strong bond with the employees and treated them like family.
+
+Mr. Sukhram Sharma passed away three years ago, leaving behind a legacy of dedication, relationships and contribution to the Company's growth. He will always be remembered as a valued member of the NPPL family.</textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_2_quote" class="form-control" rows="3">Our machines shape the furniture, but it is our people who shape the quality, consistency, and trust behind every National Plasto product.</textarea></div>
                   </div>
                   <!-- 4. Executive Director 1 -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">4. Executive Director (Operations / Sales & Marketing)</div>
-                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_3_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_3_role" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_3_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_3_bio" class="form-control" rows="6"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_3_quote" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_3_name" class="form-control" value="Mr. Bhavesh Sharma"></div>
+                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_3_role" class="form-control" value="Executive Director"></div>
+                    <div class="form-group">
+                      <label class="form-label">Photo URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_lead_3_photo" class="form-control" value="images/team/bhavesh-sharma-executive-director.jpg" oninput="updateImagePreview(this, 'cms_about_lead_3_photo_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_3_photo')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                        <img id="cms_about_lead_3_photo_preview" src="images/team/bhavesh-sharma-executive-director.jpg" alt="Mr. Bhavesh Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
+                        <div>
+                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
+                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Bhavesh Sharma</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_3_bio" class="form-control" rows="7">Mr. Bhavesh Sharma, son of Mr. Ratan Kumar Sharma, oversees production, sales and marketing across all four manufacturing units, working closely with teams to maintain consistency in quality, output and operations.
+
+A key part of the company's next phase of growth has been its expansion into E-Commerce. Under his leadership, NPPL has strengthened its presence on platforms such as Amazon and Flipkart, extending the company's reach beyond traditional dealer networks.
+
+With a hands-on approach and focus on exploring new markets, he continues to drive the company's growth while remaining firmly connected to the values on which NPPL was built.</textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_3_quote" class="form-control" rows="3">With decades of dealer trust and an expanding presence across digital marketplaces, we are taking National Plasto products to more homes and businesses across the country.</textarea></div>
                   </div>
                   <!-- 5. Executive Director 2 -->
                   <div class="cms-item-box">
                     <div class="cms-item-box-title">5. Executive Director (Plant Efficiency / Operations)</div>
-                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_4_name" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_4_role" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Photo URL</label><input type="text" id="cms_about_lead_4_photo" class="form-control"></div>
-                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_4_bio" class="form-control" rows="6"></textarea></div>
-                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_4_quote" class="form-control" rows="3"></textarea></div>
+                    <div class="form-group"><label class="form-label">Name</label><input type="text" id="cms_about_lead_4_name" class="form-control" value="Mr. Devesh Sharma"></div>
+                    <div class="form-group"><label class="form-label">Role</label><input type="text" id="cms_about_lead_4_role" class="form-control" value="Executive Director"></div>
+                    <div class="form-group">
+                      <label class="form-label">Photo URL</label>
+                      <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <input type="text" id="cms_about_lead_4_photo" class="form-control" value="images/team/devesh-sharma-executive-director.jpg" oninput="updateImagePreview(this, 'cms_about_lead_4_photo_preview')">
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_about_lead_4_photo')"><i class="fas fa-images"></i> Pick</button>
+                      </div>
+                      <div style="display:flex; align-items:center; gap:12px; padding:8px 12px; background:#fff; border:1px solid #E2E8F0; border-radius:8px;">
+                        <img id="cms_about_lead_4_photo_preview" src="images/team/devesh-sharma-executive-director.jpg" alt="Mr. Devesh Sharma" style="width:56px; height:68px; object-fit:cover; border-radius:6px; border:1px solid #CBD5E1; box-shadow:0 1px 3px rgba(0,0,0,0.08);" onerror="this.src='images/brand/company-national-logo.png'">
+                        <div>
+                          <span style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:#0284C7;">Applied Active Photo</span>
+                          <div style="font-size:12px; color:#0F172A; font-weight:600;">Mr. Devesh Sharma</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group"><label class="form-label">Bio Narrative</label><textarea id="cms_about_lead_4_bio" class="form-control" rows="7">Mr. Devesh Sharma, the youngest member of the family and son of Late Mr. Sukhram Sharma, oversees production and sales operations across the company's manufacturing units.
+
+Working closely with the teams on a day-to-day basis, he contributes to operational efficiency and the company's continued expansion. His attention to detail, willingness to embrace new challenges and commitment to the business reflect the evolving role of the next generation in taking NPPL forward.
+
+As part of the next generation of leadership, he continues to carry forward the company's values while contributing to its future growth and ambitions.</textarea></div>
+                    <div class="form-group"><label class="form-label">Personal Quote</label><textarea id="cms_about_lead_4_quote" class="form-control" rows="3">“Operational excellence is achieved every day through precision engineering, team empowerment, and an unwavering commitment to quality standards.”</textarea></div>
                   </div>
                 </div>
               </div>

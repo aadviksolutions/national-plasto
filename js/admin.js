@@ -716,8 +716,65 @@
   });
 
   // ================= 5. PAGE CONTENT CMS =================
+  function setVal(id, val) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.value = (val !== undefined && val !== null) ? val : '';
+    // Automatically synchronize any matching image preview
+    const preview = document.getElementById(id + '_preview') ||
+                    document.getElementById(id.replace('_photo', '_photo_preview')) ||
+                    document.getElementById(id.replace('_img', '_img_preview')) ||
+                    document.getElementById(id.replace('_image', '_image_preview'));
+    if (preview && el.value) {
+      preview.src = el.value;
+      preview.style.display = 'block';
+    }
+  }
+
+  function getVal(id) {
+    const el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  window.updateImagePreview = function (inputEl, previewId) {
+    const preview = document.getElementById(previewId);
+    if (!preview) return;
+    const url = inputEl.value ? inputEl.value.trim() : '';
+    if (url) {
+      preview.src = url;
+      preview.style.display = 'block';
+    } else {
+      preview.src = 'images/brand/company-national-logo.png';
+    }
+  };
+
+  window.pickMediaFor = function (targetId) {
+    currentTargetFieldForMedia = targetId;
+    navigateTo('media');
+    showToast('Click "Select" on any photo below to apply it to ' + targetId, 'info');
+  };
+
+  window.selectMediaForField = function (url) {
+    if (!currentTargetFieldForMedia) return;
+    const input = document.getElementById(currentTargetFieldForMedia);
+    if (input) {
+      input.value = url;
+      setVal(currentTargetFieldForMedia, url);
+      showToast('Image applied to ' + currentTargetFieldForMedia + '!');
+    }
+    currentTargetFieldForMedia = null;
+    navigateTo('cms');
+  };
+
   async function loadCMS() {
     try {
+      // Invalidate stale client caches from earlier sessions so fresh applied content is shown
+      const CMS_SYNC_VERSION = 'v20261027_management_sync';
+      if (localStorage.getItem('np_cms_sync_ver') !== CMS_SYNC_VERSION) {
+        localStorage.removeItem('np_custom_cms');
+        localStorage.setItem('np_cms_sync_ver', CMS_SYNC_VERSION);
+      }
+
       const cached = localStorage.getItem('np_custom_cms');
       if (cached) {
         try {
@@ -1404,9 +1461,15 @@
           <div class="media-info">
             <div class="media-name" title="${escapeHtml(m.name)}">${escapeHtml(m.name)}</div>
             <div class="media-actions">
-              <button type="button" class="btn btn-secondary btn-sm" onclick="copyMediaUrl('${escapeHtml(cleanUrl)}')">
-                <i class="fas fa-copy"></i> Copy
-              </button>
+              ${currentTargetFieldForMedia ? `
+                <button type="button" class="btn btn-primary btn-sm" onclick="selectMediaForField('${escapeHtml(cleanUrl)}')">
+                  <i class="fas fa-check"></i> Select
+                </button>
+              ` : `
+                <button type="button" class="btn btn-secondary btn-sm" onclick="copyMediaUrl('${escapeHtml(cleanUrl)}')">
+                  <i class="fas fa-copy"></i> Copy
+                </button>
+              `}
               ${isUpload ? `
                 <button type="button" class="btn btn-outline-danger btn-sm" onclick="deleteUploadFile('${escapeHtml(m.name)}')">
                   <i class="fas fa-trash"></i>
