@@ -796,3 +796,58 @@ input, select, textarea {
     display: block;
   }
 }
+
+/* ===== LANDSCAPE CMS SECTIONS GRID ===== */
+.cms-page-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* Full-width sections that need their own row */
+.cms-section-card.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Milestone container — horizontal scroll-friendly card grid */
+#cms_home_milestones_container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 16px !important;
+}
+
+/* CMS Tabs — allow wrapping on small screens */
+.cms-tabs {
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Save bar always full width */
+.save-bar {
+  grid-column: 1 / -1;
+}
+
+/* Milestone row card — clean card styling */
+.milestone-row-card {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 16px;
+  position: relative;
+  transition: box-shadow 0.2s ease;
+}
+.milestone-row-card:hover {
+  box-shadow: 0 4px 16px rgba(15,23,42,0.10);
+}
+
+@media screen and (max-width: 1200px) {
+  .cms-page-form {
+    grid-template-columns: 1fr;
+  }
+  .cms-section-card.full-width {
+    grid-column: 1;
+  }
+}
+
