@@ -374,7 +374,9 @@ Object.entries(pageMap).forEach(([urlPath, filePath]) => {
 app.use(express.static(__dirname, {
   maxAge: '1d',
   setHeaders: (res, filePath) => {
-    if (filePath.match(/\.(jpg|jpeg|png|webp|svg|gif|mp4|webm|woff2|woff|ttf|pdf)$/i)) {
+    if (filePath.match(/\.svg$/i)) {
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    } else if (filePath.match(/\.(jpg|jpeg|png|webp|gif|mp4|webm|woff2|woff|ttf|pdf)$/i)) {
       res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
     } else if (filePath.match(/\.(css|js)$/i)) {
       res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');

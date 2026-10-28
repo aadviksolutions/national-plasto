@@ -17,6 +17,11 @@
       .np-state-highlight {
         fill: #007BB8 !important;
       }
+      .np-state-labels text {
+        text-anchor: middle !important;
+        dominant-baseline: central !important;
+        pointer-events: none;
+      }
     </style>
   </defs>
   <g id="india-states-layer" class="np-india-states">
