@@ -363,13 +363,8 @@
 
         function formatMilestoneHeading(yearStr) {
           if (!yearStr) return '';
-          if (yearStr.indexOf(':') !== -1) {
-            var parts = yearStr.split(':');
-            var yr = parts[0].trim();
-            var title = parts.slice(1).join(':').trim();
-            return '<span class="color_red_home fonthigh">' + yr + '</span><span class="color_red_home np-ms-title-inline">: ' + title + '</span>';
-          }
-          return '<span class="color_red_home fonthigh">' + yearStr + '</span>';
+          var yr = (yearStr.indexOf(':') !== -1 ? yearStr.split(':')[0] : yearStr).trim();
+          return '<span class="color_red_home fonthigh">' + escapeHtml(yr) + '</span>';
         }
 
         function createMilestoneSlideHtml(ms, idx) {
