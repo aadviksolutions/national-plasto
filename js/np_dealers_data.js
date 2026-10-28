@@ -1,12 +1,12 @@
 window.npDealerNetwork = [
   {
-    "name": "A.C.SARKAR TRADING (BL)",
+    "name": "A.C.SARKAR TRADING",
     "city": "Hooghly",
     "pin": "712248",
     "state": "West Bengal"
   },
   {
-    "name": "A.H.K.STEEL FURNITURE(HAROA)",
+    "name": "A.H.K.STEEL FURNITURE",
     "city": "North 24 Parganas",
     "pin": "743425",
     "state": "West Bengal"
@@ -24,31 +24,31 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "ALAPON(GHATAKPUKUR-RAJU)",
+    "name": "ALAPON",
     "city": "South 24 Parganas",
     "pin": "743502",
     "state": "West Bengal"
   },
   {
-    "name": "AMAN ENTERPRISE(JHALDA)",
+    "name": "AMAN ENTERPRISE",
     "city": "Purulia",
     "pin": "723202",
     "state": "West Bengal"
   },
   {
-    "name": "ANJALI TELECOM(DEOGHAR)",
+    "name": "ANJALI TELECOM",
     "city": "Deoghar",
     "pin": "814157",
     "state": "Jharkhand"
   },
   {
-    "name": "ANKIT TENT AGENCY(KODERMA)",
+    "name": "ANKIT TENT AGENCY",
     "city": "Koderma",
     "pin": "825409",
     "state": "Jharkhand"
   },
   {
-    "name": "ASTHA ENTERPRISE(KIA)",
+    "name": "ASTHA ENTERPRISE",
     "city": "Contai",
     "pin": "721401",
     "state": "West Bengal"
@@ -60,25 +60,25 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "B.K.ENTERPRISES(DUMKA)",
+    "name": "B.K.ENTERPRISES",
     "city": "Dumka",
     "pin": "814101",
     "state": "Jharkhand"
   },
   {
-    "name": "BAG TRADERS(BANGAON)",
+    "name": "BAG TRADERS",
     "city": "North 24 Parganas",
     "pin": "743235",
     "state": "West Bengal"
   },
   {
-    "name": "BALAJI FURNITURE(JHARIA)",
+    "name": "BALAJI FURNITURE",
     "city": "Dhanbad",
     "pin": "828111",
     "state": "Jharkhand"
   },
   {
-    "name": "BALAJI FURNITURE(KIA)",
+    "name": "BALAJI FURNITURE",
     "city": "Neamatpur",
     "pin": "713359",
     "state": "West Bengal"
@@ -90,19 +90,19 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "BAPI BEDDING STORES(RANIHATI)",
+    "name": "BAPI BEDDING STORES",
     "city": "Howrah",
     "pin": "711302",
     "state": "West Bengal"
   },
   {
-    "name": "BARSA BEDDING STORE(UTTAM DATAN)",
+    "name": "BARSA BEDDING STORE",
     "city": "Medinipur",
     "pin": "721426",
     "state": "West Bengal"
   },
   {
-    "name": "BASONA FURNITURE(HATIKANDA)",
+    "name": "BASONA FURNITURE",
     "city": "Nadia",
     "pin": "741221",
     "state": "West Bengal"
@@ -114,13 +114,13 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "BHAGWATI TRADERS(ASANSOL)",
+    "name": "BHAGWATI TRADERS",
     "city": "Asansol",
     "pin": "713302",
     "state": "West Bengal"
   },
   {
-    "name": "BHARAT TRIPOL CENTER(RAGHUNATHGNJ)",
+    "name": "BHARAT TRIPOL CENTER",
     "city": "Murshidabad",
     "pin": "742225",
     "state": "West Bengal"
@@ -132,7 +132,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "BISHNU FURNITURE(JMSHDPUR)",
+    "name": "BISHNU FURNITURE",
     "city": "Jamshedpur",
     "pin": "831006",
     "state": "Jharkhand"
@@ -144,31 +144,31 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "DECORATOR'S CLOTHS(MURSHIDABAD)",
+    "name": "DECORATOR'S CLOTHS",
     "city": "Murshidabad",
     "pin": "742308",
     "state": "West Bengal"
   },
   {
-    "name": "DEEPAK FURNITURE(SAHIBGANJ)",
+    "name": "DEEPAK FURNITURE",
     "city": "Sahibganj",
     "pin": "816109",
     "state": "Jharkhand"
   },
   {
-    "name": "DELUX FURNITURE(KHARAGPUR)",
+    "name": "DELUX FURNITURE",
     "city": "Medinipur",
     "pin": "721301",
     "state": "West Bengal"
   },
   {
-    "name": "DIPA RAY BHOUMIK(MATIGARA)",
+    "name": "DIPA RAY BHOUMIK",
     "city": "Siliguri",
     "pin": "734003",
     "state": "West Bengal"
   },
   {
-    "name": "DISHITA TRADING(GIRIDIH)",
+    "name": "DISHITA TRADING",
     "city": "Giridih",
     "pin": "815301",
     "state": "Jharkhand"
@@ -180,13 +180,13 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "EUREKA WOODEN FURNITURE(BHASTARA)",
+    "name": "EUREKA WOODEN FURNITURE",
     "city": "Hooghly",
     "pin": "712303",
     "state": "West Bengal"
   },
   {
-    "name": "FARHAN ENTERPRISE(SAKIM)",
+    "name": "FARHAN ENTERPRISE",
     "city": "Malda",
     "pin": "732206",
     "state": "West Bengal"
@@ -198,19 +198,19 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "FURNITURE POINT(KHARDAH)",
+    "name": "FURNITURE POINT",
     "city": "North 24 Parganas",
     "pin": "700118",
     "state": "West Bengal"
   },
   {
-    "name": "GAGAN STORE(ASSANSOL)",
+    "name": "GAGAN STORE",
     "city": "Bardhaman",
     "pin": "713301",
     "state": "West Bengal"
   },
   {
-    "name": "GAJI PLASTIC(KASHINAGAR)",
+    "name": "GAJI PLASTIC",
     "city": "South 24 Parganas",
     "pin": "743349",
     "state": "West Bengal"
@@ -222,31 +222,31 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "GOPAL ENTERPRISE(NARAYANGARH)",
+    "name": "GOPAL ENTERPRISE",
     "city": "West Midnapur",
     "pin": "721437",
     "state": "West Bengal"
   },
   {
-    "name": "GUPTA ENTERPRISES(RANCHI NEW)",
+    "name": "GUPTA ENTERPRISES",
     "city": "Ranchi",
     "pin": "834001",
     "state": "Jharkhand"
   },
   {
-    "name": "GUPTA FURNITURE(MALDA)",
+    "name": "GUPTA FURNITURE",
     "city": "Malda",
     "pin": "732103",
     "state": "West Bengal"
   },
   {
-    "name": "HARIHAR MARKETING(DHANBAD)",
+    "name": "HARIHAR MARKETING",
     "city": "Dhanbad",
     "pin": "826004",
     "state": "Jharkhand"
   },
   {
-    "name": "HARISH TENT AGENCY(KODERMA)",
+    "name": "HARISH TENT AGENCY",
     "city": "Koderma",
     "pin": "825409",
     "state": "Jharkhand"
@@ -258,7 +258,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "IKBAL TRADERS(DHULIAN)",
+    "name": "IKBAL TRADERS",
     "city": "Murshidabad",
     "pin": "742202",
     "state": "West Bengal"
@@ -282,31 +282,31 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "JOY MAA KALI STEEL FURNITURE(NARAN)",
+    "name": "JOY MAA KALI STEEL FURNITURE",
     "city": "Narayangarh",
     "pin": "721437",
     "state": "West Bengal"
   },
   {
-    "name": "JOYGURU FURNITURE(SARISHA)",
+    "name": "JOYGURU FURNITURE",
     "city": "South 24 Parganas",
     "pin": "743368",
     "state": "West Bengal"
   },
   {
-    "name": "KALIMATA ENTERPRISE(TEMATHANI)",
+    "name": "KALIMATA ENTERPRISE",
     "city": "Medinipur",
     "pin": "721166",
     "state": "West Bengal"
   },
   {
-    "name": "KAMAKHYA ENTERPRISES(SILIGURI)",
+    "name": "KAMAKHYA ENTERPRISES",
     "city": "Siliguri",
     "pin": "734001",
     "state": "West Bengal"
   },
   {
-    "name": "KAMAL ENTERPRISE(MECHOGRAM)",
+    "name": "KAMAL ENTERPRISE",
     "city": "Medinipur",
     "pin": "721139",
     "state": "West Bengal"
@@ -318,7 +318,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "KESHRI FURNITURE&GENERAL ST.(BARHI)",
+    "name": "KESHRI FURNITURE&GENERAL ST.",
     "city": "Barhi",
     "pin": "825405",
     "state": "Jharkhand"
@@ -330,19 +330,19 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "KIRAN FURNITURE(BISHNUPUR)",
+    "name": "KIRAN FURNITURE",
     "city": "Bankura",
     "pin": "722122",
     "state": "West Bengal"
   },
   {
-    "name": "KIRANMOYEE FURNITURE CONCERN(KAKDP)",
+    "name": "KIRANMOYEE FURNITURE CONCERN",
     "city": "South 24 Parganas",
     "pin": "743347",
     "state": "West Bengal"
   },
   {
-    "name": "LOKENATH BASANALAYA(DURGANAGAR)",
+    "name": "LOKENATH BASANALAYA",
     "city": "North 24 Parganas",
     "pin": "700065",
     "state": "West Bengal"
@@ -360,19 +360,19 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "M/S ABHISHEK ENTERPRISES(RANCHI)",
+    "name": "M/S ABHISHEK ENTERPRISES",
     "city": "Ranchi",
     "pin": "834006",
     "state": "Jharkhand"
   },
   {
-    "name": "M/S AGARWAL TENT HOUSE(DHANBAD)",
+    "name": "M/S AGARWAL TENT HOUSE",
     "city": "Dhanbad",
     "pin": "828113",
     "state": "Jharkhand"
   },
   {
-    "name": "M/S AGARWAL TENT HOUSE(SHASTRI NGR)",
+    "name": "M/S AGARWAL TENT HOUSE",
     "city": "Dhanbad",
     "pin": "828113",
     "state": "Jharkhand"
@@ -390,25 +390,25 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "M/S FURNITURE WORLD(GHOSHPUR)",
+    "name": "M/S FURNITURE WORLD",
     "city": "Hooghly",
     "pin": "712613",
     "state": "West Bengal"
   },
   {
-    "name": "M/S JAYDEEP ENTERPRISES(CHAS)",
+    "name": "M/S JAYDEEP ENTERPRISES",
     "city": "Chas, Bokaro",
     "pin": "827013",
     "state": "Jharkhand"
   },
   {
-    "name": "M/S JOY BABA STORES(TIRUPATI)",
+    "name": "M/S JOY BABA STORES",
     "city": "Kolkata",
     "pin": "700001",
     "state": "West Bengal"
   },
   {
-    "name": "M/S MAKHAN LAL & SON'S(GIRIDHI)",
+    "name": "M/S MAKHAN LAL & SON'S",
     "city": "Giridih",
     "pin": "815301",
     "state": "Jharkhand"
@@ -420,7 +420,7 @@ window.npDealerNetwork = [
     "state": "Jharkhand"
   },
   {
-    "name": "M/S RAM DAS ENGERING WORK(GODDA)",
+    "name": "M/S RAM DAS ENGERING WORK",
     "city": "Godda",
     "pin": "814133",
     "state": "Jharkhand"
@@ -432,19 +432,19 @@ window.npDealerNetwork = [
     "state": "Jharkhand"
   },
   {
-    "name": "M/S SATGURU ENTERPRISE(KIA)",
+    "name": "M/S SATGURU ENTERPRISE",
     "city": "Malda",
     "pin": "732101",
     "state": "West Bengal"
   },
   {
-    "name": "M/S SKY TOUCH(BASIRHAT)",
+    "name": "M/S SKY TOUCH",
     "city": "Basirhat",
     "pin": "743422",
     "state": "West Bengal"
   },
   {
-    "name": "M/S STEEL HOUSE(DALTONGANJ)",
+    "name": "M/S STEEL HOUSE",
     "city": "Daltonganj",
     "pin": "822101",
     "state": "Jharkhand"
@@ -468,7 +468,7 @@ window.npDealerNetwork = [
     "state": "Jharkhand"
   },
   {
-    "name": "M/S. WOOD ZONE(MAHAGAMA)",
+    "name": "M/S. WOOD ZONE",
     "city": "Godda",
     "pin": "814154",
     "state": "Jharkhand"
@@ -510,7 +510,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "MA TARA STEEL FURNITURE(GAYESPUR)",
+    "name": "MA TARA STEEL FURNITURE",
     "city": "Nadia",
     "pin": "741234",
     "state": "West Bengal"
@@ -528,7 +528,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "MAA KALI STEEL FURNITURE(ICHPR-NEW)",
+    "name": "MAA KALI STEEL FURNITURE",
     "city": "North 24 Parganas",
     "pin": "743144",
     "state": "West Bengal"
@@ -558,25 +558,25 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "MAMAR BARI(GP-HASNABAD)",
+    "name": "MAMAR BARI",
     "city": "North 24 Parganas",
     "pin": "743426",
     "state": "West Bengal"
   },
   {
-    "name": "MANGLICK MANGALAM FURNITURE(RAIGNJ)",
+    "name": "MANGLICK MANGALAM FURNITURE",
     "city": "Raiganj",
     "pin": "733134",
     "state": "West Bengal"
   },
   {
-    "name": "MANISH ENTERPRISE(ASSANSOL)",
+    "name": "MANISH ENTERPRISE",
     "city": "Asansol",
     "pin": "713301",
     "state": "West Bengal"
   },
   {
-    "name": "MD ANSARUL ISLAM(LALGOLA)",
+    "name": "MD ANSARUL ISLAM",
     "city": "Murshidabad",
     "pin": "742151",
     "state": "West Bengal"
@@ -588,7 +588,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "MODERN DESIGNER FURNITURE(HALISAHR)",
+    "name": "MODERN DESIGNER FURNITURE",
     "city": "North 24 Parganas",
     "pin": "743135",
     "state": "West Bengal"
@@ -600,7 +600,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "MONDAL ENTERPRISE(NEW GARIA)",
+    "name": "MONDAL ENTERPRISE",
     "city": "Kolkata",
     "pin": "700096",
     "state": "West Bengal"
@@ -624,7 +624,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "NATARAJ ENTERPRISE(RAMNAGAR)",
+    "name": "NATARAJ ENTERPRISE",
     "city": "Medinipur",
     "pin": "721441",
     "state": "West Bengal"
@@ -654,7 +654,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "NEW MALLIK FURNITURE(CHAITANYAPUR)",
+    "name": "NEW MALLIK FURNITURE",
     "city": "Medinipur",
     "pin": "721635",
     "state": "West Bengal"
@@ -672,7 +672,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "NORTH BENGAL FURNITURE(SILIGURI)",
+    "name": "NORTH BENGAL FURNITURE",
     "city": "Siliguri",
     "pin": "734001",
     "state": "West Bengal"
@@ -690,7 +690,7 @@ window.npDealerNetwork = [
     "state": "Jharkhand"
   },
   {
-    "name": "PRIYANKA ENTERPRISES(BELDA)",
+    "name": "PRIYANKA ENTERPRISES",
     "city": "Medinipur",
     "pin": "721424",
     "state": "West Bengal"
@@ -702,55 +702,55 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "R.B. AGENCIES(DEOGHAR)",
+    "name": "R.B. AGENCIES",
     "city": "Deoghar",
     "pin": "814112",
     "state": "Jharkhand"
   },
   {
-    "name": "R.I.ENTERPRISE(KADAMBAGACHI)",
+    "name": "R.I.ENTERPRISE",
     "city": "North 24 Parganas",
     "pin": "700125",
     "state": "West Bengal"
   },
   {
-    "name": "R.N.ENTERPRISE(BARASAT)",
+    "name": "R.N.ENTERPRISE",
     "city": "North 24 Parganas",
     "pin": "700127",
     "state": "West Bengal"
   },
   {
-    "name": "R.N.FURNITURE(DURGAPUR)",
+    "name": "R.N.FURNITURE",
     "city": "Durgapur",
     "pin": "713203",
     "state": "West Bengal"
   },
   {
-    "name": "RADHAKRISHNA ENTERPRISE(PANTIHAL)",
+    "name": "RADHAKRISHNA ENTERPRISE",
     "city": "Howrah",
     "pin": "711415",
     "state": "West Bengal"
   },
   {
-    "name": "RAJASHI ENTERPRISE(BANDEL)",
+    "name": "RAJASHI ENTERPRISE",
     "city": "Hooghly",
     "pin": "712104",
     "state": "West Bengal"
   },
   {
-    "name": "RAJLAXMI BASTRALAYA(PATHARP)",
+    "name": "RAJLAXMI BASTRALAYA",
     "city": "South 24 Parganas",
     "pin": "743371",
     "state": "West Bengal"
   },
   {
-    "name": "RAJLAXMI ENTERPRISE(KIA)",
+    "name": "RAJLAXMI ENTERPRISE",
     "city": "Hooghly",
     "pin": "712413",
     "state": "West Bengal"
   },
   {
-    "name": "RANA PLASTIC INDUSTRY(DHULIAN)",
+    "name": "RANA PLASTIC INDUSTRY",
     "city": "Murshidabad",
     "pin": "742202",
     "state": "West Bengal"
@@ -762,7 +762,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "RUNA TRADERS(ARCHAK SADHU)",
+    "name": "RUNA TRADERS",
     "city": "North 24 Parganas",
     "pin": "700156",
     "state": "West Bengal"
@@ -774,7 +774,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "S.G.ENTERPRISES(SONARPUR)",
+    "name": "S.G.ENTERPRISES",
     "city": "Kolkata",
     "pin": "700032",
     "state": "West Bengal"
@@ -786,7 +786,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "SAHA ENTERPRISE(KIA)",
+    "name": "SAHA ENTERPRISE",
     "city": "North 24 Parganas",
     "pin": "743411",
     "state": "West Bengal"
@@ -798,13 +798,13 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "SAJANO SANSAR(GP-HASNABAD)",
+    "name": "SAJANO SANSAR",
     "city": "North 24 Parganas",
     "pin": "743426",
     "state": "West Bengal"
   },
   {
-    "name": "SANDEEP ENTERPRISE(MADHUPUR)",
+    "name": "SANDEEP ENTERPRISE",
     "city": "Deoghar",
     "pin": "815353",
     "state": "Jharkhand"
@@ -828,7 +828,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "SATPATI FURNITURE(SIMLAPAL)",
+    "name": "SATPATI FURNITURE",
     "city": "Bankura",
     "pin": "722151",
     "state": "West Bengal"
@@ -840,31 +840,31 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "SHIVAM IRON & STEEL CO. LTD.(GIRID)",
+    "name": "SHIVAM IRON & STEEL CO. LTD.",
     "city": "Giridih",
     "pin": "815301",
     "state": "Jharkhand"
   },
   {
-    "name": "SHREE BAALAJI FURNITURE(KIA)",
+    "name": "SHREE BAALAJI FURNITURE",
     "city": "Purulia",
     "pin": "723101",
     "state": "West Bengal"
   },
   {
-    "name": "SHRI SHYAM TENT AGENCY(AGARWAL )",
+    "name": "SHRI SHYAM TENT AGENCY",
     "city": "Barhi",
     "pin": "825405",
     "state": "Jharkhand"
   },
   {
-    "name": "SHYAMAA FURNITURE(KATWA)",
+    "name": "SHYAMAA FURNITURE",
     "city": "Katwa",
     "pin": "713130",
     "state": "West Bengal"
   },
   {
-    "name": "SIBENDU DEY(KIA)",
+    "name": "SIBENDU DEY",
     "city": "North 24 Parganas",
     "pin": "743165",
     "state": "West Bengal"
@@ -882,13 +882,13 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "SRI GANAPATI UDYOG(MALDA)",
+    "name": "SRI GANAPATI UDYOG",
     "city": "Malda",
     "pin": "732101",
     "state": "West Bengal"
   },
   {
-    "name": "SRI GOPAL FURNITURE(KIA)",
+    "name": "SRI GOPAL FURNITURE",
     "city": "North 24 Parganas",
     "pin": "700118",
     "state": "West Bengal"
@@ -900,7 +900,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "STEELCO(KODERMA)",
+    "name": "STEELCO",
     "city": "Koderma",
     "pin": "825409",
     "state": "Jharkhand"
@@ -924,7 +924,7 @@ window.npDealerNetwork = [
     "state": "West Bengal"
   },
   {
-    "name": "TARAKNATH ENTERPRISE (KIA)",
+    "name": "TARAKNATH ENTERPRISE",
     "city": "Burdwan",
     "pin": "713146",
     "state": "West Bengal"
@@ -972,7 +972,7 @@ window.npDealerNetwork = [
     "state": "Delhi"
   },
   {
-    "name": "GOYAL ENTERPRISES (PAHAGUNJ) DL",
+    "name": "GOYAL ENTERPRISES DL",
     "city": "Paharganj, Delhi",
     "pin": "",
     "state": "Delhi"
@@ -984,19 +984,19 @@ window.npDealerNetwork = [
     "state": "Delhi"
   },
   {
-    "name": "M S FURNITURE (SAENBAG) DL",
+    "name": "M S FURNITURE DL",
     "city": "Shaheen Bagh, Delhi",
     "pin": "",
     "state": "Delhi"
   },
   {
-    "name": "SHREE PABUJI TRADING (PAHARGANJ) DL",
+    "name": "SHREE PABUJI TRADING DL",
     "city": "Paharganj, Delhi",
     "pin": "",
     "state": "Delhi"
   },
   {
-    "name": "SHRI SHYAM ENTERPRISES (PRAHLADPUR) DL",
+    "name": "SHRI SHYAM ENTERPRISES DL",
     "city": "Prahladpur, Delhi",
     "pin": "",
     "state": "Delhi"
@@ -1008,13 +1008,13 @@ window.npDealerNetwork = [
     "state": "Delhi"
   },
   {
-    "name": "ARJUN FURNITURE (ETAWA) UP",
+    "name": "ARJUN FURNITURE UP",
     "city": "Etawah",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "AZAD STEEL WORKS (BANGERMAU) UP",
+    "name": "AZAD STEEL WORKS UP",
     "city": "Bangarmau",
     "pin": "",
     "state": "Uttar Pradesh"
@@ -1026,445 +1026,445 @@ window.npDealerNetwork = [
     "state": "Uttar Pradesh"
   },
   {
-    "name": "DIVY TRADING CO (SARATHU) UP",
+    "name": "DIVY TRADING CO UP",
     "city": "Sirathu",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "NEW KALA FURNITURE (RAI BAREILLY) UP",
+    "name": "NEW KALA FURNITURE UP",
     "city": "Rae Bareli",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "OFFICE FURNITURE (KANPUR) UP",
+    "name": "OFFICE FURNITURE UP",
     "city": "Kanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SHIV ENTERPRISES (BINDKI) (AKHIL) UP",
+    "name": "SHIV ENTERPRISES UP",
     "city": "Bindki",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SHRI GIRRAJ INTERIOR & FURNITURE (AGRA) UP",
+    "name": "SHRI GIRRAJ INTERIOR & FURNITURE UP",
     "city": "Agra",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SHYAM FURNITURE (JHANSI) UP",
+    "name": "SHYAM FURNITURE UP",
     "city": "Jhansi",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "DURGA FURNITURE (FAIZABAD) UP",
+    "name": "DURGA FURNITURE UP",
     "city": "Faizabad",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "GOPAL TRADING COMPANY (SIDHARTHNAGAR) UP",
+    "name": "GOPAL TRADING COMPANY UP",
     "city": "Siddharthnagar",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "GUPTA FURNITURE (SAHJAHANPUR) UP",
+    "name": "GUPTA FURNITURE UP",
     "city": "Shahjahanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "INDIAN STEEL FURNITURE (BAHRAICH) UP",
+    "name": "INDIAN STEEL FURNITURE UP",
     "city": "Bahraich",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAISAWAL IMPORIUM (TANDA) UP",
+    "name": "JAISAWAL IMPORIUM UP",
     "city": "Tanda",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SUPER TRADERS (SULTANPUR) UP",
+    "name": "SUPER TRADERS UP",
     "city": "Sultanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "TRILOKI ENTERPRISES (GONDA) UP",
+    "name": "TRILOKI ENTERPRISES UP",
     "city": "Gonda",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "BABA SEMRADHNATH ENTERPRISES (JANGIGANJ) UP",
+    "name": "BABA SEMRADHNATH ENTERPRISES UP",
     "city": "Jangiganj",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "CHAMAN ENTERPRISES (PRATAPGARH) UP",
+    "name": "CHAMAN ENTERPRISES UP",
     "city": "Pratapgarh",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAISWAL AGENCIES (BALIA) UP",
+    "name": "JAISWAL AGENCIES UP",
     "city": "Ballia",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAY TRADERS (RASRA) UP",
+    "name": "JAY TRADERS UP",
     "city": "Rasra",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "MANOHAR LAL SHYAM BIHARI (JAUNPUR) UP",
+    "name": "MANOHAR LAL SHYAM BIHARI UP",
     "city": "Jaunpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "RAJA ELECTRONICS (PRAYAGRAJ) UP",
+    "name": "RAJA ELECTRONICS UP",
     "city": "Prayagraj",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SANKAT MOCHAN TRADERS (MIRZAPUR) UP",
+    "name": "SANKAT MOCHAN TRADERS UP",
     "city": "Mirzapur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SWASTIKA ENGENERING CO (ALAHABAD) UP",
+    "name": "SWASTIKA ENGENERING CO UP",
     "city": "Prayagraj (Allahabad)",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "VINAY TRADERS (VARANSI) UP",
+    "name": "VINAY TRADERS UP",
     "city": "Varanasi",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "AGRAWAL TRADERS (BANDA) UP",
+    "name": "AGRAWAL TRADERS UP",
     "city": "Banda",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "ASIF ELECTRONICS (HARDOI) UP",
+    "name": "ASIF ELECTRONICS UP",
     "city": "Hardoi",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "CHAWLA TRADING CO (KANPUR) UP",
+    "name": "CHAWLA TRADING CO UP",
     "city": "Kanpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "DEEPAK TRADERS (MUKHALISPUR) UP",
+    "name": "DEEPAK TRADERS UP",
     "city": "Mukhlispur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "HARI TRADING CO (SITAPUR) UP",
+    "name": "HARI TRADING CO UP",
     "city": "Sitapur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "JAIN FURNITURE (LKO) UP",
+    "name": "JAIN FURNITURE UP",
     "city": "Lucknow",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "KANPUR ELECTRONIC (LEHARPUR) UP",
+    "name": "KANPUR ELECTRONIC UP",
     "city": "Laharpur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SINGH FURNITURE & REPAIRS (LAKHIMPUR) UP",
+    "name": "SINGH FURNITURE & REPAIRS UP",
     "city": "Lakhimpur Kheri",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "S K PLASTIC (MAHARAJGANJ) UP",
+    "name": "S K PLASTIC UP",
     "city": "Maharajganj",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "MOONSTAR FURNITURES (SURAT) GUJ",
+    "name": "MOONSTAR FURNITURES GUJ",
     "city": "Surat",
     "pin": "",
     "state": "Gujarat"
   },
   {
-    "name": "A G COMPANY (HISAR) HR",
+    "name": "A G COMPANY HR",
     "city": "Hisar",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "BADHWANIA TRADING CO (CHARKHI DADRI) SAKSHAM HR",
+    "name": "BADHWANIA TRADING CO SAKSHAM HR",
     "city": "Charkhi Dadri",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "BINDAL FURNITURE & DECORATOR (NARAYANGARH) HR",
+    "name": "BINDAL FURNITURE & DECORATOR HR",
     "city": "Naraingarh",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "CHACHA TRADING CO (REWARI) HR",
+    "name": "CHACHA TRADING CO HR",
     "city": "Rewari",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "GARG TRADING (HODEL) HR",
+    "name": "GARG TRADING HR",
     "city": "Hodal",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "GOYAL FURNITURE HOUSE (DHAKOLI) HR",
+    "name": "GOYAL FURNITURE HOUSE HR",
     "city": "Dhakoli",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "GULANI FURNITURE (AMBALA) HR",
+    "name": "GULANI FURNITURE HR",
     "city": "Ambala",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "GUPTA STEEL FURNITURE (PEHWA) HR",
+    "name": "GUPTA STEEL FURNITURE HR",
     "city": "Pehowa",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "JAIN FURNITURE HOUSE (NARNAUL) HR",
+    "name": "JAIN FURNITURE HOUSE HR",
     "city": "Narnaul",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "KAMBOJ CHAIRS (JAGADHRI) HR",
+    "name": "KAMBOJ CHAIRS HR",
     "city": "Jagadhri",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "KANSAL FURNITURE MALL (PINJORE) HR",
+    "name": "KANSAL FURNITURE MALL HR",
     "city": "Pinjore",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "KAPOOR ENTERPRISES (ASSANDH) HR",
+    "name": "KAPOOR ENTERPRISES HR",
     "city": "Assandh",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "KAPOOR FURNITURE (AMBALA CANT) HR",
+    "name": "KAPOOR FURNITURE HR",
     "city": "Ambala Cantt",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "KRISHNA FURNITURE ELECTRONICS (GOHANA) HR",
+    "name": "KRISHNA FURNITURE ELECTRONICS HR",
     "city": "Gohana",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "LOYAL ENTERPRISES (KARNAL) HR",
+    "name": "LOYAL ENTERPRISES HR",
     "city": "Karnal",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "MAHALAXMI STEEL AND CROCKERY (SIRSA) HR",
+    "name": "MAHALAXMI STEEL AND CROCKERY HR",
     "city": "Sirsa",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "MODERN FURNITURE PALACE (SIRSA) HR",
+    "name": "MODERN FURNITURE PALACE HR",
     "city": "Sirsa",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "OJASVI INTERNATIONAL (BAWANA) HR",
+    "name": "OJASVI INTERNATIONAL HR",
     "city": "Bawana",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "RAJA FURNITURE (JULANA) HR",
+    "name": "RAJA FURNITURE HR",
     "city": "Julana",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "RAJESH TRADERS (JIND) HR",
+    "name": "RAJESH TRADERS HR",
     "city": "Jind",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "RAKESH ELECTRONICS (NANGAL CHAUDHARY) HR",
+    "name": "RAKESH ELECTRONICS HR",
     "city": "Nangal Chaudhary",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "RAO FURNITURE (DHARUHERA) HR",
+    "name": "RAO FURNITURE HR",
     "city": "Dharuhera",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "ROYAL MARKETTING (GURGAON) HR",
+    "name": "ROYAL MARKETTING HR",
     "city": "Gurgaon",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "SHIV FURNITURE HOUSE (PANIPAT) HR",
+    "name": "SHIV FURNITURE HOUSE HR",
     "city": "Panipat",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "SHIV KANSAL MULTI STORE (RADAUR) HR",
+    "name": "SHIV KANSAL MULTI STORE HR",
     "city": "Radaur",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "SHRI GANESH ENTERPRISES (NISSING) HR",
+    "name": "SHRI GANESH ENTERPRISES HR",
     "city": "Nissing",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "SHRI KANHAIYA TENT (NARNAUL) HR",
+    "name": "SHRI KANHAIYA TENT HR",
     "city": "Narnaul",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "SINGLA FURNITURE (NARWANA) HR",
+    "name": "SINGLA FURNITURE HR",
     "city": "Narwana",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "SS STEEL & WOODEN FURNITURE (ROHTAK) HR",
+    "name": "SS STEEL & WOODEN FURNITURE HR",
     "city": "Rohtak",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "VASHU STEEL (SHAHABAD MARKANDA) HR",
+    "name": "VASHU STEEL HR",
     "city": "Shahabad Markanda",
     "pin": "",
     "state": "Haryana"
   },
   {
-    "name": "DEEPAK STEEL FURNITURE (UNA) HP",
+    "name": "DEEPAK STEEL FURNITURE HP",
     "city": "Una",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "DHIMAN FURNITURE (NAHAN) HP",
+    "name": "DHIMAN FURNITURE HP",
     "city": "Nahan",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "GURBOX LAL (CHAMBA) HP",
+    "name": "GURBOX LAL HP",
     "city": "Chamba",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "KHATAR SINGH (SHILLAI) HP",
+    "name": "KHATAR SINGH HP",
     "city": "Shillai",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "PAWAN BISTAR BHANDAR (JASURE) HP",
+    "name": "PAWAN BISTAR BHANDAR HP",
     "city": "Jasur",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "POTAHAR GLASS (PONTA SAHIB) HP",
+    "name": "POTAHAR GLASS HP",
     "city": "Paonta Sahib",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "SAGAR FURNITURE (SUNDAR NAGAR) HP",
+    "name": "SAGAR FURNITURE HP",
     "city": "Sundar Nagar",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "SANTOSH STEEL FURNITURE (HAMIRPUR) HP",
+    "name": "SANTOSH STEEL FURNITURE HP",
     "city": "Hamirpur",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "SEHGAL TRADERS (JAHU) HP",
+    "name": "SEHGAL TRADERS HP",
     "city": "Jahu",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "SHIVA COMPLEX (SOLAN) HP",
+    "name": "SHIVA COMPLEX HP",
     "city": "Solan",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "SHREE SAI TRADERS (NER CHOWK) HP",
+    "name": "SHREE SAI TRADERS HP",
     "city": "Ner Chowk",
     "pin": "",
     "state": "Himachal Pradesh"
   },
   {
-    "name": "S K TEXTILE ENTERPRISES (AMBOTA) UNA HP",
+    "name": "S K TEXTILE ENTERPRISES UNA HP",
     "city": "Ambota, Una",
     "pin": "",
     "state": "Himachal Pradesh"
@@ -1476,37 +1476,37 @@ window.npDealerNetwork = [
     "state": "Jammu & Kashmir"
   },
   {
-    "name": "DAR ASSOCIEATES (SOPRE) JK",
+    "name": "DAR ASSOCIEATES JK",
     "city": "Sopore",
     "pin": "",
     "state": "Jammu & Kashmir"
   },
   {
-    "name": "GUPTA ATTACHI HOUSE (UDHAMPUR) JK",
+    "name": "GUPTA ATTACHI HOUSE JK",
     "city": "Udhampur",
     "pin": "",
     "state": "Jammu & Kashmir"
   },
   {
-    "name": "JSR TRADERS (AKHNOOR) JK",
+    "name": "JSR TRADERS JK",
     "city": "Akhnoor",
     "pin": "",
     "state": "Jammu & Kashmir"
   },
   {
-    "name": "NEW GHAR SAJAWAT (AWANIPORA) JK",
+    "name": "NEW GHAR SAJAWAT JK",
     "city": "Awantipora",
     "pin": "",
     "state": "Jammu & Kashmir"
   },
   {
-    "name": "RAMA TRADERS (UDHAMPUR) JK",
+    "name": "RAMA TRADERS JK",
     "city": "Udhampur",
     "pin": "",
     "state": "Jammu & Kashmir"
   },
   {
-    "name": "SHRI RAM TRADERS (R S PURA) JK",
+    "name": "SHRI RAM TRADERS JK",
     "city": "R.S. Pura",
     "pin": "",
     "state": "Jammu & Kashmir"
@@ -1518,13 +1518,13 @@ window.npDealerNetwork = [
     "state": "Jammu & Kashmir"
   },
   {
-    "name": "ADITYA INDUSTRIES (GWALIAR) MP",
+    "name": "ADITYA INDUSTRIES MP",
     "city": "Gwalior",
     "pin": "",
     "state": "Madhya Pradesh"
   },
   {
-    "name": "BAJAJ FURNITURE EMPORIUM (JABALPUR) MP",
+    "name": "BAJAJ FURNITURE EMPORIUM MP",
     "city": "Jabalpur",
     "pin": "",
     "state": "Madhya Pradesh"
@@ -1536,145 +1536,145 @@ window.npDealerNetwork = [
     "state": "Madhya Pradesh"
   },
   {
-    "name": "JEETU BHAI FURNITURE (NIMACH) MP",
+    "name": "JEETU BHAI FURNITURE MP",
     "city": "Neemuch",
     "pin": "",
     "state": "Madhya Pradesh"
   },
   {
-    "name": "NEW FANCY HANDLOOM (TIKAMGARH) MP",
+    "name": "NEW FANCY HANDLOOM MP",
     "city": "Tikamgarh",
     "pin": "",
     "state": "Madhya Pradesh"
   },
   {
-    "name": "P S ASSOCIATES (INDORE) MP",
+    "name": "P S ASSOCIATES MP",
     "city": "Indore",
     "pin": "",
     "state": "Madhya Pradesh"
   },
   {
-    "name": "SHANTI SALES (BHOPAL) MP",
+    "name": "SHANTI SALES MP",
     "city": "Bhopal",
     "pin": "",
     "state": "Madhya Pradesh"
   },
   {
-    "name": "ABHISHEK STEEL FURNITURE (AMRITSAR) PB",
+    "name": "ABHISHEK STEEL FURNITURE PB",
     "city": "Amritsar",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "A K INDUSTRIES (LUDHIANA) PB",
+    "name": "A K INDUSTRIES PB",
     "city": "Ludhiana",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "AMAR NATH OM PRAKASH (LUDHIANA) PB",
+    "name": "AMAR NATH OM PRAKASH PB",
     "city": "Ludhiana",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "A P TRADERS (AMBALA) PB",
+    "name": "A P TRADERS PB",
     "city": "Ambala",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "ASHOKA GIFT HOUSE (BATALA) PB",
+    "name": "ASHOKA GIFT HOUSE PB",
     "city": "Batala",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "FAQIR FURNITURE (ABHOR) PB",
+    "name": "FAQIR FURNITURE PB",
     "city": "Abohar",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "GOYAL STEEL FURNITURE (CHANDIGARH) PB",
+    "name": "GOYAL STEEL FURNITURE PB",
     "city": "Chandigarh",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "GOYAL TRADERS (MANIMAZRA) PB",
+    "name": "GOYAL TRADERS PB",
     "city": "Manimajra",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "GUPTA TRADERS (LUDHIANA) PB",
+    "name": "GUPTA TRADERS PB",
     "city": "Ludhiana",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "GURU NANAK FURNITURE HOUSE (KAHNUWAN) PB",
+    "name": "GURU NANAK FURNITURE HOUSE PB",
     "city": "Kahnuwan",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "JAGDAMBA STEEL FURNITURE (CHANDIGARH) PB",
+    "name": "JAGDAMBA STEEL FURNITURE PB",
     "city": "Chandigarh",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "JAI DURGA FURNITURE (BHATINDA) PB",
+    "name": "JAI DURGA FURNITURE PB",
     "city": "Bathinda",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "KATARIA INDUSTRIES (FARIDKOT) PB",
+    "name": "KATARIA INDUSTRIES PB",
     "city": "Faridkot",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "K.P. TRADERS (ROPOR) PB",
+    "name": "K.P. TRADERS PB",
     "city": "Rupnagar (Ropar)",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "MANNAT TRADERS (BATALA) PB",
+    "name": "MANNAT TRADERS PB",
     "city": "Batala",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "PARBHAT ENTERPRISE (AMRITSAR) PB",
+    "name": "PARBHAT ENTERPRISE PB",
     "city": "Amritsar",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "PREM TENT (MOGA) PB",
+    "name": "PREM TENT PB",
     "city": "Moga",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "RAMA TEXTILE (HOSHIARPUR) PB",
+    "name": "RAMA TEXTILE PB",
     "city": "Hoshiarpur",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "RAM PRATAP OM PRAKASH (SIRSA) PB",
+    "name": "RAM PRATAP OM PRAKASH PB",
     "city": "Sirsa",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "RAVI STEEL FURNITURE (PATHANKOT) PB",
+    "name": "RAVI STEEL FURNITURE PB",
     "city": "Pathankot",
     "pin": "",
     "state": "Punjab"
@@ -1686,7 +1686,7 @@ window.npDealerNetwork = [
     "state": "Punjab"
   },
   {
-    "name": "R K INDUSTRY (DABWALI) PB",
+    "name": "R K INDUSTRY PB",
     "city": "Mandi Dabwali",
     "pin": "",
     "state": "Punjab"
@@ -1698,253 +1698,253 @@ window.npDealerNetwork = [
     "state": "Punjab"
   },
   {
-    "name": "S G TRADERS (JAITON) PB",
+    "name": "S G TRADERS PB",
     "city": "Jaitu",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "SHIVAM FURNITURE HOUSE (GURDASPUR) PB",
+    "name": "SHIVAM FURNITURE HOUSE PB",
     "city": "Gurdaspur",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "SHRI BHAGWATI TRADERS (LUDHIANA) PB",
+    "name": "SHRI BHAGWATI TRADERS PB",
     "city": "Ludhiana",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "SHRI GANESH FURNITURE (NABHA) PB",
+    "name": "SHRI GANESH FURNITURE PB",
     "city": "Nabha",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "VAIBHAV LAXMI INDUSTRIES (PATHANKOT) PB",
+    "name": "VAIBHAV LAXMI INDUSTRIES PB",
     "city": "Pathankot",
     "pin": "",
     "state": "Punjab"
   },
   {
-    "name": "ANIL FURNITURE (HANUMANGARH) RJ",
+    "name": "ANIL FURNITURE RJ",
     "city": "Hanumangarh",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "ANUPAM FURNITURE HOUSE (SIKAR) RJ",
+    "name": "ANUPAM FURNITURE HOUSE RJ",
     "city": "Sikar",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "ASIAN STEEL (BIKANER) RJ",
+    "name": "ASIAN STEEL RJ",
     "city": "Bikaner",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "GANAPATI PLASTIC (JAIPUR) RJ",
+    "name": "GANAPATI PLASTIC RJ",
     "city": "Jaipur",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "G SHAAN (ALWAR) RJ (JHALATALA FURNISHING)",
+    "name": "G SHAAN RJ",
     "city": "Alwar",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "KABIR GIFT HOUSE (BEWAR) RJ",
+    "name": "KABIR GIFT HOUSE RJ",
     "city": "Beawar",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "K. C. AGENCY (AJMER) RJ",
+    "name": "K. C. AGENCY RJ",
     "city": "Ajmer",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "MAHALAXMI ELECTRONICS & FURNITURE (MERTACITY) RJ",
+    "name": "MAHALAXMI ELECTRONICS & FURNITURE RJ",
     "city": "Merta City",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "PARAS FURNITURE (CHITTORGARH) RJ",
+    "name": "PARAS FURNITURE RJ",
     "city": "Chittorgarh",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "RAJDHANI ENTERPRISES (JODHPUR) RJ",
+    "name": "RAJDHANI ENTERPRISES RJ",
     "city": "Jodhpur",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "RAJ GHARANA FURNITURE (FATEHPUR) RJ",
+    "name": "RAJ GHARANA FURNITURE RJ",
     "city": "Fatehpur Shekhawati",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "R D FURNITURE (GANGAPURCITY) RJ",
+    "name": "R D FURNITURE RJ",
     "city": "Gangapur City",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "SHANTI INDUSTRIES (JHUNJHUNU) RJ",
+    "name": "SHANTI INDUSTRIES RJ",
     "city": "Jhunjhunu",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "SHRI ARJUN FURNITURE (PAOTA) RJ",
+    "name": "SHRI ARJUN FURNITURE RJ",
     "city": "Paota",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "SINDH FURNITURE (NTC JAIPUR) RJ",
+    "name": "SINDH FURNITURE RJ",
     "city": "Jaipur",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "SURENDRA KUMAR RAVINDRA KUMAR (BANDIKUI DAUSA) RJ",
+    "name": "SURENDRA KUMAR RAVINDRA KUMAR RJ",
     "city": "Bandikui, Dausa",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "SWASTIK ENTERPRISES (SUMERPUR) RJ",
+    "name": "SWASTIK ENTERPRISES RJ",
     "city": "Sumerpur",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "SWASTIK STEEL (HINDOCITY) RJ",
+    "name": "SWASTIK STEEL RJ",
     "city": "Hindaun City",
     "pin": "",
     "state": "Rajasthan"
   },
   {
-    "name": "ADARSH ENTERPRISES (KASHIPUR) UK",
+    "name": "ADARSH ENTERPRISES UK",
     "city": "Kashipur",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "ADITYA PLASTIC (TANAKPUR) UK",
+    "name": "ADITYA PLASTIC UK",
     "city": "Tanakpur",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "AMIT JUTE HOUSE (JWALAPUR) UK",
+    "name": "AMIT JUTE HOUSE UK",
     "city": "Jwalapur, Haridwar",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "ARORA TRADERS (RUDRAPUR) UK",
+    "name": "ARORA TRADERS UK",
     "city": "Rudrapur",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "BANSAL STEEL TRADERS (JASPUR) UK",
+    "name": "BANSAL STEEL TRADERS UK",
     "city": "Jaspur",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "JAI SINGH REXINE STORE (JWALAPUR) UK",
+    "name": "JAI SINGH REXINE STORE UK",
     "city": "Jwalapur, Haridwar",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "KANTI PRASAD DEVESH KUMAR (RAMNAGAR) UK",
+    "name": "KANTI PRASAD DEVESH KUMAR UK",
     "city": "Ramnagar",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "KAPOOR FURNITURE (KHATIMA) UK",
+    "name": "KAPOOR FURNITURE UK",
     "city": "Khatima",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "R S ENTERPRISES (HALDWANI) UK",
+    "name": "R S ENTERPRISES UK",
     "city": "Haldwani",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "SHANKAR STEEL FURNITURE WORKS (VIKAS NAGAR) UK",
+    "name": "SHANKAR STEEL FURNITURE WORKS UK",
     "city": "Vikas Nagar, Dehradun",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "SHREE SIDHBALI SALES (KOTDWAR) UK",
+    "name": "SHREE SIDHBALI SALES UK",
     "city": "Kotdwar",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "VISHNU PRASAD SUDESH KUMAR (RISHIKESH) UK",
+    "name": "VISHNU PRASAD SUDESH KUMAR UK",
     "city": "Rishikesh",
     "pin": "",
     "state": "Uttarakhand"
   },
   {
-    "name": "AVON TRADERS (THAKURDWARA) WUP",
+    "name": "AVON TRADERS WUP",
     "city": "Thakurdwara",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "BHARDWAZ FURNITURE HOUSE (BADAUN) WUP",
+    "name": "BHARDWAZ FURNITURE HOUSE WUP",
     "city": "Budaun",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "BHARTI FURNITURE HOUSE (BULANDSHAHAR) WUP",
+    "name": "BHARTI FURNITURE HOUSE WUP",
     "city": "Bulandshahr",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "B S TENT UDHYOG (ALIGARH) WUP",
+    "name": "B S TENT UDHYOG WUP",
     "city": "Aligarh",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "DEV INDUSTRIES (MURADNAGAR) WUP",
+    "name": "DEV INDUSTRIES WUP",
     "city": "Muradnagar",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "GOEL SALES (MEERUT) WUP",
+    "name": "GOEL SALES WUP",
     "city": "Meerut",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "HARI OM STEEL FURNITURE (ETAH) WUP",
+    "name": "HARI OM STEEL FURNITURE WUP",
     "city": "Etah",
     "pin": "",
     "state": "Uttar Pradesh"
@@ -1956,67 +1956,67 @@ window.npDealerNetwork = [
     "state": "Uttar Pradesh"
   },
   {
-    "name": "KALRA ENTERPRISES (BAHERI) WUP",
+    "name": "KALRA ENTERPRISES WUP",
     "city": "Baheri",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "KRISHNA FURNITURE HOUSE (SEKHAOBAD) WUP",
+    "name": "KRISHNA FURNITURE HOUSE WUP",
     "city": "Shikohabad",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "MAA BHAGWATI FURNITURE (MATHURA) WUP",
+    "name": "MAA BHAGWATI FURNITURE WUP",
     "city": "Mathura",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "MAINPURI INDUSTRIAL GASES (MAINPURI) WUP",
+    "name": "MAINPURI INDUSTRIAL GASES WUP",
     "city": "Mainpuri",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "MANZOOR ELECTRICALS (DALPATPUR) MURADABAD WUP",
+    "name": "MANZOOR ELECTRICALS MURADABAD WUP",
     "city": "Dalpatpur, Moradabad",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "PANKAJ FOAM HOUSE (NEHTOR) WUP",
+    "name": "PANKAJ FOAM HOUSE WUP",
     "city": "Nehtaur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "RAJ FURNISHING (ALIGARH) WUP",
+    "name": "RAJ FURNISHING WUP",
     "city": "Aligarh",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SANJAY GUPTA FURNITURE (M NAGAR) WUP",
+    "name": "SANJAY GUPTA FURNITURE WUP",
     "city": "Muzaffarnagar",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "SONA ENTERPRISES (AMROHA) WUP",
+    "name": "SONA ENTERPRISES WUP",
     "city": "Amroha",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "URBAN CARFT (RAMPUR) WUP",
+    "name": "URBAN CARFT WUP",
     "city": "Rampur",
     "pin": "",
     "state": "Uttar Pradesh"
   },
   {
-    "name": "VEE KEY ENTERPRISES (GAZIABAD) WUP",
+    "name": "VEE KEY ENTERPRISES WUP",
     "city": "Ghaziabad",
     "pin": "",
     "state": "Uttar Pradesh"
@@ -2166,7 +2166,7 @@ window.npDealerNetwork = [
     "state": "Bihar"
   },
   {
-    "name": "RAVI BARTAN BHANDAR(KHESAR)",
+    "name": "RAVI BARTAN BHANDAR",
     "city": "Khesar",
     "pin": "",
     "state": "Bihar"
@@ -2286,7 +2286,7 @@ window.npDealerNetwork = [
     "state": "Bihar"
   },
   {
-    "name": "HARSH BHARDWAJ(GOPAL TRADERS)",
+    "name": "HARSH BHARDWAJ",
     "city": "Gopalganj",
     "pin": "",
     "state": "Bihar"
@@ -2634,7 +2634,7 @@ window.npDealerNetwork = [
     "state": "Chhattisgarh"
   },
   {
-    "name": "Anushka House (Enterprises)",
+    "name": "Anushka House",
     "city": "Nashik",
     "pin": "",
     "state": "Maharashtra"
