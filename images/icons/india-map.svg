@@ -59,35 +59,35 @@
   </g>
   <!-- State Full Names in Crisp Small Typography -->
   <g id="state-text-labels" class="np-state-labels" font-family="'Poppins', 'Inter', -apple-system, sans-serif" font-weight="500" fill="#3B4E63" text-anchor="middle" dominant-baseline="central" pointer-events="none" opacity="0.6">
-    <text x="173" y="52" font-size="6.5" letter-spacing="0.2">Jammu Kashmir</text>
-    <text x="193" y="136" font-size="5.8" letter-spacing="0.1">Himachal Pradesh</text>
-    <text x="149" y="152" font-size="6.2" letter-spacing="0.2">Punjab</text>
-    <text x="233" y="175" font-size="5.8" letter-spacing="0.1">Uttarakhand</text>
-    <text x="162" y="196" font-size="6" letter-spacing="0.2">Haryana</text>
+    <text x="172" y="58" font-size="6.5" letter-spacing="0.2">Jammu Kashmir</text>
+    <text x="191" y="133" font-size="5.8" letter-spacing="0.1">Himachal Pradesh</text>
+    <text x="150" y="153" font-size="6.2" letter-spacing="0.2">Punjab</text>
+    <text x="232" y="175" font-size="5.8" letter-spacing="0.1">Uttarakhand</text>
+    <text x="166" y="196" font-size="6" letter-spacing="0.2">Haryana</text>
     <text x="186" y="210" font-size="5.2" letter-spacing="0.2">Delhi</text>
-    <text x="115" y="260" font-size="7" letter-spacing="0.3">Rajasthan</text>
-    <text x="265" y="238" font-size="6.8" letter-spacing="0.2">Uttar Pradesh</text>
-    <text x="376" y="266" font-size="6.2" letter-spacing="0.2">Bihar</text>
+    <text x="122" y="260" font-size="7" letter-spacing="0.3">Rajasthan</text>
+    <text x="262" y="238" font-size="6.8" letter-spacing="0.2">Uttar Pradesh</text>
+    <text x="372" y="268" font-size="6.2" letter-spacing="0.2">Bihar</text>
     <text x="425" y="235" font-size="5.2" letter-spacing="0.2">Sikkim</text>
-    <text x="550" y="222" font-size="5.8" letter-spacing="0.2">Arunachal</text>
+    <text x="552" y="223" font-size="5.8" letter-spacing="0.2">Arunachal</text>
     <text x="516" y="266" font-size="6.2" letter-spacing="0.2">Assam</text>
     <text x="550" y="268" font-size="5.2" letter-spacing="0.1">Nagaland</text>
     <text x="538" y="299" font-size="5.2" letter-spacing="0.1">Manipur</text>
     <text x="516" y="337" font-size="5.2" letter-spacing="0.1">Mizoram</text>
     <text x="493" y="325" font-size="5.2" letter-spacing="0.1">Tripura</text>
     <text x="484" y="283" font-size="5.2" letter-spacing="0.1">Meghalaya</text>
-    <text x="412" y="312" font-size="6.2" letter-spacing="0.2">West Bengal</text>
-    <text x="366" y="327" font-size="6.2" letter-spacing="0.2">Jharkhand</text>
-    <text x="340" y="405" font-size="6.5" letter-spacing="0.2">Odisha</text>
-    <text x="296" y="388" font-size="5.8" letter-spacing="0.1">Chhattisgarh</text>
-    <text x="214" y="319" font-size="7" letter-spacing="0.3">Madhya Pradesh</text>
+    <text x="412" y="315" font-size="6.2" letter-spacing="0.2">West Bengal</text>
+    <text x="365" y="327" font-size="6.2" letter-spacing="0.2">Jharkhand</text>
+    <text x="338" y="405" font-size="6.5" letter-spacing="0.2">Odisha</text>
+    <text x="292" y="386" font-size="5.8" letter-spacing="0.1">Chhattisgarh</text>
+    <text x="235" y="332" font-size="7" letter-spacing="0.3">Madhya Pradesh</text>
     <text x="66" y="355" font-size="6.5" letter-spacing="0.2">Gujarat</text>
-    <text x="180" y="435" font-size="7" letter-spacing="0.3">Maharashtra</text>
-    <text x="237" y="457" font-size="6.5" letter-spacing="0.2">Telangana</text>
-    <text x="263" y="500" font-size="6.5" letter-spacing="0.2">Andhra Pradesh</text>
-    <text x="171" y="519" font-size="6.5" letter-spacing="0.2">Karnataka</text>
+    <text x="184" y="438" font-size="7" letter-spacing="0.3">Maharashtra</text>
+    <text x="234" y="457" font-size="6.5" letter-spacing="0.2">Telangana</text>
+    <text x="260" y="502" font-size="6.5" letter-spacing="0.2">Andhra Pradesh</text>
+    <text x="170" y="522" font-size="6.5" letter-spacing="0.2">Karnataka</text>
     <text x="122" y="512" font-size="5" letter-spacing="0.2">Goa</text>
-    <text x="211" y="609" font-size="6.5" letter-spacing="0.2">Tamil Nadu</text>
-    <text x="166" y="615" font-size="6" letter-spacing="0.2">Kerala</text>
+    <text x="212" y="608" font-size="6.5" letter-spacing="0.2">Tamil Nadu</text>
+    <text x="168" y="615" font-size="6" letter-spacing="0.2">Kerala</text>
   </g>
 </svg>
