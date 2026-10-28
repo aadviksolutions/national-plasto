@@ -13,6 +13,11 @@
     var currentPage = 1;
     var filteredList = [];
 
+    function sanitizeName(name) {
+        if (!name) return '';
+        return String(name).replace(/\s*\([^)]*\)/g, '').replace(/\s{2,}/g, ' ').trim();
+    }
+
     // Map location keys to State names for synchronization with map pins
     var locKeyToState = {
         'wb': 'West Bengal',
@@ -114,7 +119,7 @@
                     '<span class="np-dealer-num">#' + numStr + '</span>' +
                     '<span class="np-dealer-state-badge">' + escapeHtml(stateLabel) + '</span>' +
                 '</div>' +
-                '<h4 class="np-dealer-name">' + escapeHtml(d.name) + '</h4>' +
+                '<h4 class="np-dealer-name">' + escapeHtml(sanitizeName(d.name)) + '</h4>' +
                 '<div class="np-dealer-loc">' +
                     '<i class="fas fa-map-marker-alt"></i> ' +
                     '<span>' + escapeHtml(d.city) + (d.state ? ', ' + escapeHtml(stateLabel) : '') + '</span>' +
@@ -250,12 +255,12 @@
         // Ensure state select dropdown is also alphabetically populated
         populateStateSelect(counts, sortedStates);
 
-        var html = '<button type="button" class="np-state-pill-btn is-active" data-state="ALL" onclick="window.onDealerStateChange(\'ALL\')">All (' + dealers.length + ')</button>';
+        var html = '<button type="button" class="np-state-pill-btn is-active" data-state="ALL" onclick="window.onDealerStateChange(\'ALL\')">All</button>';
 
         sortedStates.forEach(function (st) {
             var displayLabel = st === 'Delhi' ? 'Delhi NCR' : st;
             html += '<button type="button" class="np-state-pill-btn" data-state="' + escapeHtml(st) + '" onclick="window.onDealerStateChange(\'' + escapeHtml(st) + '\')">' +
-                escapeHtml(displayLabel) + ' (' + counts[st] + ')' +
+                escapeHtml(displayLabel) +
             '</button>';
         });
 
@@ -307,7 +312,14 @@
     }
 
     function init() {
-        dealers = window.npDealerNetwork || [];
+        dealers = (window.npDealerNetwork || []).map(function (d) {
+            return {
+                name: sanitizeName(d.name),
+                city: d.city,
+                pin: d.pin,
+                state: d.state
+            };
+        });
         filteredList = dealers.slice();
         initStatePills();
         renderDirectory();
