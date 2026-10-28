@@ -355,20 +355,8 @@
       });
     }
 
-    // 7. Milestones
-    if (home.milestones && home.milestones.length) {
-      var msBoxes = document.querySelectorAll('.milestones_slider .milestones_flex');
-      msBoxes.forEach(function (box, idx) {
-        if (home.milestones[idx]) {
-          var dateEl = box.querySelector('.np-ms-date');
-          var descEl = box.querySelector('.milestones_content .para-text');
-          var imgEl = box.querySelector('.milestones_img img');
-          if (dateEl && home.milestones[idx].date) dateEl.textContent = home.milestones[idx].date;
-          if (descEl && home.milestones[idx].desc) descEl.textContent = home.milestones[idx].desc;
-          if (imgEl && home.milestones[idx].image) setSafeImage(imgEl, home.milestones[idx].image);
-        }
-      });
-    }
+    // 7. Milestones (Defined statically in index.html to preserve slick slide DOM and badge structure)
+    // Managed directly in index.html and data/cms-content.json
 
     // 8. Sustainability
     if (home.sustainability) {
