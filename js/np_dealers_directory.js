@@ -223,9 +223,9 @@
         var select = document.getElementById('dealerStateFilter');
         if (!select) return;
         var currentVal = select.value || 'ALL';
-        var optsHtml = '<option value="ALL">All States (' + dealers.length + '+ Dealers)</option>';
+        var optsHtml = '<option value="ALL">All States</option>';
         sortedStates.forEach(function (st) {
-            var label = (st === 'Delhi' ? 'Delhi NCR' : st) + ' (' + counts[st] + ')';
+            var label = (st === 'Delhi' ? 'Delhi NCR' : st);
             optsHtml += '<option value="' + escapeHtml(st) + '">' + escapeHtml(label) + '</option>';
         });
         select.innerHTML = optsHtml;
