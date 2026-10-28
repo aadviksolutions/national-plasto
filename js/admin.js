@@ -1375,7 +1375,7 @@
         }));
 
         // Milestones (5)
-        const milestoneYears = ['1981', '1997', '2007', '2010', '2026'];
+        const milestoneYears = ['1981', '1997', '2007', '2010', '2012'];
         cmsData.home.milestones = [0, 1, 2, 3, 4].map((i) => ({
           year: milestoneYears[i],
           date: getVal('cms_home_ms_' + i + '_date'),

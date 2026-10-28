@@ -355,8 +355,25 @@
       });
     }
 
-    // 7. Milestones (Defined statically in index.html to preserve slick slide DOM and badge structure)
-    // Managed directly in index.html and data/cms-content.json
+    // 7. Milestones
+    if (home.milestones && Array.isArray(home.milestones)) {
+      var msSlides = document.querySelectorAll('#milestones_slider .milestones_flex');
+      home.milestones.forEach(function (ms, idx) {
+        if (msSlides[idx]) {
+          var img = msSlides[idx].querySelector('.milestones_img img');
+          if (img && ms.image) img.src = ms.image;
+          var desc = msSlides[idx].querySelector('.milestones_content .para-text');
+          if (desc && ms.desc) desc.textContent = ms.desc;
+          var badge = msSlides[idx].querySelector('.milestones_content .np-ms-badge');
+          if (badge && ms.date) {
+            var parts = ms.date.split('·');
+            if (parts.length >= 2) {
+              badge.innerHTML = '<span class="np-ms-pin"><i class="fas fa-' + (idx === 0 ? 'landmark' : 'map-marker-alt') + '"></i> ' + parts[0].trim() + '</span> &bull; <strong>' + parts.slice(1).join('·').trim() + '</strong>';
+            }
+          }
+        }
+      });
+    }
 
     // 8. Sustainability
     if (home.sustainability) {
