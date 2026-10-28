@@ -1114,12 +1114,10 @@
         setVal('cms_home_brand_' + idx + '_image', b.image);
       });
 
-      // Milestones (5)
-      (cmsData.home.milestones || []).forEach((ms, idx) => {
-        setVal('cms_home_ms_' + idx + '_date', ms.date);
-        setVal('cms_home_ms_' + idx + '_desc', ms.desc);
-        setVal('cms_home_ms_' + idx + '_img', ms.image);
-      });
+      // Milestones (Dynamic)
+      if (typeof window.renderMilestoneRows === 'function') {
+        window.renderMilestoneRows(cmsData.home.milestones);
+      }
 
       // Sustainability
       if (cmsData.home.sustainability) {
@@ -1374,14 +1372,8 @@
           link: 'products.html?brand=' + brandNames[i].split(' ')[0].toLowerCase()
         }));
 
-        // Milestones (5)
-        const milestoneYears = ['1981', '1997', '2007', '2010', '2012'];
-        cmsData.home.milestones = [0, 1, 2, 3, 4].map((i) => ({
-          year: milestoneYears[i],
-          date: getVal('cms_home_ms_' + i + '_date'),
-          desc: getVal('cms_home_ms_' + i + '_desc'),
-          image: getVal('cms_home_ms_' + i + '_img')
-        }));
+        // Milestones (Dynamic)
+        cmsData.home.milestones = harvestMilestonesFromDOM();
 
         // Sustainability
         cmsData.home.sustainability = {
@@ -2265,6 +2257,139 @@
       const numSpan = c.querySelector('.row-num');
       if (numSpan) numSpan.textContent = idx + 1;
     });
+  }
+
+  // --- Dynamic Milestone Timeline Management ---
+  let milestoneCounter = 100;
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  window.renderMilestoneRows = function (list) {
+    const container = document.getElementById('cms_home_milestones_container');
+    if (!container) return;
+    container.innerHTML = '';
+    const items = (Array.isArray(list) && list.length > 0) ? list : [
+      { year: '1981: Foundation', date: '1981 · Foundation · Heritage & Industrial Roots', desc: 'The foundational business legacy of the Sharma family was established in 1981, laying over four decades of industrial enterprise, customer trust, and ethical trade that paved the way for modern plastic moulded furniture manufacturing.', image: 'images/home/milestone-1981.jpg' },
+      { year: '1997: Howrah Plant', date: 'Howrah, West Bengal · The Beginning', desc: 'National Plasto began its journey in Howrah, West Bengal, establishing the foundation for a manufacturing business built on quality, reliability, and customer trust.', image: 'images/home/milestone-1997.jpg' },
+      { year: '2007: Guwahati Plant', date: 'Guwahati, Assam · Expanding to the Northeast', desc: 'The expansion into Guwahati strengthened National Plasto’s presence in Northeast India, bringing manufacturing closer to regional markets and supporting a wider distribution network.', image: 'images/home/milestone-2007.jpg' },
+      { year: '2010: Roorkee Plant', date: 'Roorkee, Uttarakhand · Strengthening Northern Operations', desc: 'The establishment of the Roorkee facility marked another important step in the company’s growth, strengthening manufacturing capabilities and improving its reach across northern India.', image: 'images/home/milestone-2010.jpg' },
+      { year: '2012: Hajipur Plant', date: 'Hajipur, Bihar · Building a Stronger Manufacturing Network', desc: 'The Hajipur expansion further strengthened National Plasto’s manufacturing footprint, supporting broader market coverage and the company’s continued commitment to serving customers across India.', image: 'images/home/milestone-2012.jpg' }
+    ];
+    items.forEach((item) => {
+      window.addMilestoneRow(item, false);
+    });
+  };
+
+  window.addMilestoneRow = function (data = {}, autoScroll = true) {
+    const container = document.getElementById('cms_home_milestones_container');
+    if (!container) return;
+    const card = document.createElement('div');
+    card.className = 'cms-item-box milestone-row-card';
+    card.style.cssText = 'position:relative; background:#FFFFFF; border:1px solid #E2E8F0; border-radius:10px; padding:16px;';
+
+    const idx = ++milestoneCounter;
+    const year = data.year || '';
+    const date = data.date || '';
+    const desc = data.desc || '';
+    const image = data.image || 'images/home/milestone-1981.jpg';
+    const displayTitle = year || `Milestone ${container.querySelectorAll('.milestone-row-card').length + 1}`;
+
+    card.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; border-bottom:1px solid #F1F5F9; padding-bottom:8px;">
+        <div class="cms-item-box-title" id="cms_ms_box_title_${idx}" style="font-weight:700; color:#0284C7; font-size:14.5px; margin:0;">
+          ${escapeHtml(displayTitle)}
+        </div>
+        <button type="button" class="btn btn-sm" onclick="removeMilestoneRow(this)" style="background:#FEE2E2; color:#DC2626; border:1px solid #FECACA; padding:3px 9px; border-radius:6px; font-size:11.5px; cursor:pointer; font-weight:600; display:inline-flex; align-items:center; gap:4px; transition:0.2s;">
+          <i class="fas fa-trash-alt"></i> Delete
+        </button>
+      </div>
+
+      <div class="form-group" style="margin-bottom:12px;">
+        <label class="form-label" style="font-weight:700; color:#0F172A; font-size:12.5px;">Milestone Title / Year <span style="color:#DC2626;">*</span></label>
+        <input type="text" id="cms_home_ms_${idx}_year" class="form-control milestone-year" value="${escapeHtml(year)}" placeholder="e.g. 1981: Foundation or 2012: Hajipur Plant" oninput="updateMilestoneCardTitle(this, ${idx})" style="font-weight:600; font-size:13.5px;">
+      </div>
+
+      <div class="form-group" style="margin-bottom:12px;">
+        <label class="form-label" style="font-weight:600; color:#334155; font-size:12px;">Subtitle (e.g. Location · Tagline)</label>
+        <input type="text" id="cms_home_ms_${idx}_date" class="form-control milestone-date" value="${escapeHtml(date)}" placeholder="e.g. Hajipur, Bihar · Building a Stronger Manufacturing Network" style="font-size:13px;">
+      </div>
+
+      <div class="form-group" style="margin-bottom:12px;">
+        <label class="form-label" style="font-weight:600; color:#334155; font-size:12px;">Description</label>
+        <textarea id="cms_home_ms_${idx}_desc" class="form-control milestone-desc" rows="3" placeholder="Milestone description..." style="font-size:13px; line-height:1.5;">${escapeHtml(desc)}</textarea>
+      </div>
+
+      <div class="form-group" style="margin-bottom:0;">
+        <label class="form-label" style="font-weight:600; color:#334155; font-size:12px;">Image URL</label>
+        <div style="display:flex; gap:6px; margin-top:4px; margin-bottom:6px;">
+          <input type="text" id="cms_home_ms_${idx}_img" class="form-control milestone-img" value="${escapeHtml(image)}" oninput="updateImagePreview(this, 'cms_home_ms_${idx}_img_preview')" style="font-size:13px;">
+          <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_home_ms_${idx}_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_home_ms_${idx}_img')"><i class="fas fa-images"></i> Pick</button>
+        </div>
+        <div onclick="uploadImageForField('cms_home_ms_${idx}_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; flex-wrap:wrap;" title="Click to upload and change photo">
+          <img id="cms_home_ms_${idx}_img_preview" src="${escapeHtml(image || 'images/brand/company-national-logo.png')}" alt="Milestone Photo" style="width:50px; height:40px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+          <div>
+            <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
+            <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+            <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 800 × 600 px (4:3 Landscape) • Format: JPG / PNG</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+    if (autoScroll) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      const firstInput = card.querySelector('.milestone-year');
+      if (firstInput) firstInput.focus();
+    }
+  };
+
+  window.removeMilestoneRow = function (btn) {
+    const card = btn.closest('.milestone-row-card');
+    if (!card) return;
+    const container = document.getElementById('cms_home_milestones_container');
+    if (container.querySelectorAll('.milestone-row-card').length <= 1) {
+      alert('At least one milestone must be kept in the timeline.');
+      return;
+    }
+    if (!confirm('Are you sure you want to delete this milestone?')) return;
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.95)';
+    card.style.transition = 'all 0.2s';
+    setTimeout(() => {
+      card.remove();
+    }, 200);
+  };
+
+  window.updateMilestoneCardTitle = function (input, idx) {
+    const titleEl = document.getElementById('cms_ms_box_title_' + idx);
+    if (titleEl) {
+      titleEl.textContent = input.value.trim() || 'Milestone';
+    }
+  };
+
+  function harvestMilestonesFromDOM() {
+    const cards = document.querySelectorAll('#cms_home_milestones_container .milestone-row-card');
+    const result = [];
+    cards.forEach((card) => {
+      const year = card.querySelector('.milestone-year')?.value?.trim() || '';
+      const date = card.querySelector('.milestone-date')?.value?.trim() || '';
+      const desc = card.querySelector('.milestone-desc')?.value?.trim() || '';
+      const image = card.querySelector('.milestone-img')?.value?.trim() || '';
+      if (year || date || desc) {
+        result.push({ year, date, desc, image });
+      }
+    });
+    return result;
   }
 
   checkAuth();

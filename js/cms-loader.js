@@ -355,24 +355,88 @@
       });
     }
 
-    // 7. Milestones
+    // 7. Milestones (Dynamic Timeline with Editable Headings)
     if (home.milestones && Array.isArray(home.milestones)) {
-      var msSlides = document.querySelectorAll('#milestones_slider .milestones_flex');
-      home.milestones.forEach(function (ms, idx) {
-        if (msSlides[idx]) {
-          var img = msSlides[idx].querySelector('.milestones_img img');
-          if (img && ms.image) img.src = ms.image;
-          var desc = msSlides[idx].querySelector('.milestones_content .para-text');
-          if (desc && ms.desc) desc.textContent = ms.desc;
-          var badge = msSlides[idx].querySelector('.milestones_content .np-ms-badge');
-          if (badge && ms.date) {
-            var parts = ms.date.split('·');
-            if (parts.length >= 2) {
-              badge.innerHTML = '<span class="np-ms-pin"><i class="fas fa-' + (idx === 0 ? 'landmark' : 'map-marker-alt') + '"></i> ' + parts[0].trim() + '</span> &bull; <strong>' + parts.slice(1).join('·').trim() + '</strong>';
+      var msSlider = document.getElementById('milestones_slider');
+      if (msSlider) {
+        var msSlides = msSlider.querySelectorAll('.milestones_flex:not(.slick-cloned)');
+
+        function formatMilestoneHeading(yearStr) {
+          if (!yearStr) return '';
+          if (yearStr.indexOf(':') !== -1) {
+            var parts = yearStr.split(':');
+            var yr = parts[0].trim();
+            var title = parts.slice(1).join(':').trim();
+            return '<span class="color_red_home fonthigh">' + yr + '</span><span class="color_red_home np-ms-title-inline">: ' + title + '</span>';
+          }
+          return '<span class="color_red_home fonthigh">' + yearStr + '</span>';
+        }
+
+        function createMilestoneSlideHtml(ms, idx) {
+          var yearHtml = formatMilestoneHeading(ms.year || ('Milestone ' + (idx + 1)));
+          var parts = (ms.date || '').split('·');
+          var badgeHtml = '';
+          if (parts.length >= 2) {
+            badgeHtml = '<span class="np-ms-pin"><i class="fas fa-' + (idx === 0 ? 'landmark' : 'map-marker-alt') + '"></i> ' + parts[0].trim() + '</span> &bull; <strong>' + parts.slice(1).join('·').trim() + '</strong>';
+          } else {
+            badgeHtml = '<strong>' + (ms.date || '') + '</strong>';
+          }
+          var imgUrl = ms.image || 'images/brand/company-photo.jpg';
+          var descText = ms.desc || '';
+          return '<div class="milestones_flex">' +
+            '<div class="dassed_border"></div>' +
+            '<div class="milestones_img">' +
+              '<img src="' + imgUrl + '" loading="lazy" class="img-responsive np-ms-img-vibrant" alt="' + (ms.year || '') + '" decoding="async">' +
+            '</div>' +
+            '<div class="milestones_content">' +
+              '<h2 class="heading-text">' + yearHtml + '</h2>' +
+              '<p class="np-ms-badge">' + badgeHtml + '</p>' +
+              '<p class="para-text color_para">' + descText + '</p>' +
+            '</div>' +
+          '</div>';
+        }
+
+        home.milestones.forEach(function (ms, idx) {
+          if (msSlides[idx]) {
+            var img = msSlides[idx].querySelector('.milestones_img img');
+            if (img && ms.image) setSafeImage(img, ms.image);
+            var desc = msSlides[idx].querySelector('.milestones_content .para-text');
+            if (desc && ms.desc) desc.textContent = ms.desc;
+            var heading = msSlides[idx].querySelector('.milestones_content h2');
+            if (heading && ms.year) {
+              heading.innerHTML = formatMilestoneHeading(ms.year);
+            }
+            var badge = msSlides[idx].querySelector('.milestones_content .np-ms-badge');
+            if (badge && ms.date) {
+              var parts = ms.date.split('·');
+              if (parts.length >= 2) {
+                badge.innerHTML = '<span class="np-ms-pin"><i class="fas fa-' + (idx === 0 ? 'landmark' : 'map-marker-alt') + '"></i> ' + parts[0].trim() + '</span> &bull; <strong>' + parts.slice(1).join('·').trim() + '</strong>';
+              } else {
+                badge.innerHTML = '<strong>' + ms.date + '</strong>';
+              }
+            }
+          } else {
+            // New slide added via CMS!
+            var slideHtml = createMilestoneSlideHtml(ms, idx);
+            if (window.jQuery && window.jQuery(msSlider).hasClass('slick-initialized')) {
+              window.jQuery(msSlider).slick('slickAdd', slideHtml);
+            } else {
+              msSlider.insertAdjacentHTML('beforeend', slideHtml);
+            }
+          }
+        });
+
+        // If slides were removed in CMS:
+        if (msSlides.length > home.milestones.length) {
+          for (var r = msSlides.length - 1; r >= home.milestones.length; r--) {
+            if (window.jQuery && window.jQuery(msSlider).hasClass('slick-initialized')) {
+              window.jQuery(msSlider).slick('slickRemove', r);
+            } else if (msSlides[r]) {
+              msSlides[r].remove();
             }
           }
         }
-      });
+      }
     }
 
     // 8. Sustainability

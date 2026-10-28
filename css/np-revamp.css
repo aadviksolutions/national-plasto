@@ -3037,11 +3037,29 @@ body {
     padding-left: 6%;
 }
 
+#index_page .milestones_main .milestones_content .heading-text {
+    display: flex !important;
+    align-items: baseline !important;
+    flex-wrap: wrap !important;
+    gap: 8px 16px !important;
+    margin-bottom: 8px !important;
+}
+
 #index_page .milestones_main .milestones_content .heading-text .fonthigh {
     font-size: 250px !important;
     line-height: 1 !important;
     color: #DC2626 !important;
     font-weight: 500 !important;
+    display: inline-block !important;
+}
+
+#index_page .milestones_main .milestones_content .heading-text .np-ms-title-inline {
+    font-size: 34px !important;
+    line-height: 1.25 !important;
+    color: #1E293B !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px !important;
+    display: inline-block !important;
 }
 
 #index_page .milestones_main .milestones_content .np-ms-date {
@@ -3052,11 +3070,17 @@ body {
     #index_page .milestones_main .milestones_content .heading-text .fonthigh {
         font-size: 160px !important;
     }
+    #index_page .milestones_main .milestones_content .heading-text .np-ms-title-inline {
+        font-size: 26px !important;
+    }
 }
 
 @media (max-width: 767px) {
     #index_page .milestones_main .milestones_content .heading-text .fonthigh {
-        font-size: 100px !important;
+        font-size: 85px !important;
+    }
+    #index_page .milestones_main .milestones_content .heading-text .np-ms-title-inline {
+        font-size: 20px !important;
     }
 }
 
