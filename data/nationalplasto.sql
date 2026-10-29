@@ -91,7 +91,7 @@ CREATE TABLE `inquiries` (
 -- 3. DATA INSERTIONS: admin_users
 -- -----------------------------------------------------------------------------
 INSERT INTO `admin_users` (`id`, `username`, `password`, `last_login`) VALUES
-(1, 'admin', 'nationalplasto2026', '2026-10-29T08:24:17.969Z');
+(1, 'admin', 'nationalplasto2026', NOW());
 
 -- -----------------------------------------------------------------------------
 -- 4. DATA INSERTIONS: cms_content (All 8 Site Sections)
