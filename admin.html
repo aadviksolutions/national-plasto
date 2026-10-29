@@ -1666,41 +1666,156 @@ As part of the next generation of leadership, he continues to carry forward the 
                   <input type="text" id="cms_dist_hero_breadcrumb" class="form-control" value="Dealer Desk" placeholder="e.g. Dealer Desk">
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Hero Title</label>
+                  <label class="form-label">Hero Title (Internal Reference)</label>
                   <input type="text" id="cms_dist_hero_title" class="form-control" value="Partner With India's Fastest Growing Furniture Network">
-                </div>
-                <div class="form-group">
-                  <label class="form-label">Hero Subtitle</label>
-                  <textarea id="cms_dist_hero_subtitle" class="form-control" rows="2">Join over 500+ successful distributors and dealers across 15+ states with assured margins and prompt factory dispatch.</textarea>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Banner Image</label>
                   <div style="display:flex; gap:8px;">
-                    <input type="text" id="cms_dist_hero_image" class="form-control" value="images/hero/image2.png" oninput="updateImagePreview(this, 'cms_dist_hero_image_preview')">
+                    <input type="text" id="cms_dist_hero_image" class="form-control" value="images/brand/dealer.jpg" oninput="updateImagePreview(this, 'cms_dist_hero_image_preview')">
                     <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_dist_hero_image')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_hero_image')"><i class="fas fa-image"></i> Pick</button>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_hero_image')"><i class="fas fa-image"></i> Pick</button>
                   </div>
-                      <div onclick="uploadImageForField('cms_dist_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px;; flex-wrap:wrap;" title="Click to upload and change photo">
-                        <img id="cms_dist_hero_image_preview" src="images/hero/image2.png" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
-                        <div>
-                          <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
-                          <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
-                        <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 800 px (Wide Banner) • Format: JPG / WebP</div>
-                      </div>
-                      </div>
+                  <div onclick="uploadImageForField('cms_dist_hero_image')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px; flex-wrap:wrap;" title="Click to upload and change photo">
+                    <img id="cms_dist_hero_image_preview" src="images/brand/dealer.jpg" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+                    <div>
+                      <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
+                      <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      <div class="cms-size-hint" style="width:100%; display:flex; align-items:center; gap:6px; margin-top:6px; font-size:11px; font-weight:600; color:#047857; background:#ECFDF5; border:1px solid #A7F3D0; padding:4px 8px; border-radius:4px;"><i class="fas fa-ruler-combined" style="color:#059669;"></i> Recommended size: 1920 × 800 px (Wide Banner) • Format: JPG / WebP</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Partnership Perks & Support -->
+            <!-- Section 2: Dealer Desk Benefits Header & Verified Badge -->
             <div class="cms-section-card">
-              <div class="card-header"><h3><i class="fas fa-hand-holding-usd"></i> Section 2: Dealer Perks & Hotline</h3></div>
+              <div class="card-header"><h3><i class="fas fa-hand-holding-usd"></i> Section 2: Dealer Desk Benefits Header &amp; Verified Badge</h3></div>
               <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Main Heading</label>
+                  <input type="text" id="cms_dist_benefits_title" class="form-control" value="Dealer Desk Benefits">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Intro Subtitle</label>
+                  <textarea id="cms_dist_benefits_subtitle" class="form-control" rows="2">With its expanding manufacturing and distribution network across the nation, National Plasto offers lucrative margins, territorial protection, and direct factory supply.</textarea>
+                </div>
                 <div class="form-row">
                   <div class="form-group">
-                    <label class="form-label">Perks Section Title</label>
-                    <input type="text" id="cms_dist_perks_title" class="form-control" value="Why Become a National Plasto Partner?">
+                    <label class="form-label">Center Cutout Badge Title</label>
+                    <input type="text" id="cms_dist_badge_title" class="form-control" value="Authorised Dealer Desk">
                   </div>
+                  <div class="form-group">
+                    <label class="form-label">Center Cutout Badge Subtitle</label>
+                    <input type="text" id="cms_dist_badge_sub" class="form-control" value="Verified Partnership">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3: 4 Interactive Sliding Benefit Bars -->
+            <div class="cms-section-card">
+              <div class="card-header"><h3><i class="fas fa-sliders-h"></i> Section 3: 4 Interactive Sliding Benefit Bars</h3></div>
+              <div class="card-body">
+                <div class="form-row">
+                  <div class="cms-item-box">
+                    <div class="cms-item-box-title"><i class="fas fa-chart-line" style="color:#DC2626;"></i> Bar 1 (Upper Left)</div>
+                    <label class="form-label">Punchline Title</label>
+                    <input type="text" id="cms_dist_bar_0_punchline" class="form-control" style="margin-bottom:6px;" value="Earn Maximum Profit on Every Sale">
+                    <label class="form-label">Subtext / Details</label>
+                    <textarea id="cms_dist_bar_0_subtext" class="form-control" rows="2">Lucrative distributor price margins with high-turnover annual volume rebates.</textarea>
+                  </div>
+                  <div class="cms-item-box">
+                    <div class="cms-item-box-title"><i class="fas fa-shield-alt" style="color:#DC2626;"></i> Bar 2 (Lower Left)</div>
+                    <label class="form-label">Punchline Title</label>
+                    <input type="text" id="cms_dist_bar_1_punchline" class="form-control" style="margin-bottom:6px;" value="Zero Competition in Your Territory">
+                    <label class="form-label">Subtext / Details</label>
+                    <textarea id="cms_dist_bar_1_subtext" class="form-control" rows="2">Demarcated sales zones guaranteeing exclusive regional distribution rights.</textarea>
+                  </div>
+                  <div class="cms-item-box">
+                    <div class="cms-item-box-title"><i class="fas fa-couch" style="color:#DC2626;"></i> Bar 3 (Upper Right)</div>
+                    <label class="form-label">Punchline Title</label>
+                    <input type="text" id="cms_dist_bar_2_punchline" class="form-control" style="margin-bottom:6px;" value="Fast-Moving Models Across 4 Brands">
+                    <label class="form-label">Subtext / Details</label>
+                    <textarea id="cms_dist_bar_2_subtext" class="form-control" rows="2">Complete portfolio covering Next, National, Captain &amp; Sapphire furniture.</textarea>
+                  </div>
+                  <div class="cms-item-box">
+                    <div class="cms-item-box-title"><i class="fas fa-truck-moving" style="color:#DC2626;"></i> Bar 4 (Lower Right)</div>
+                    <label class="form-label">Punchline Title</label>
+                    <input type="text" id="cms_dist_bar_3_punchline" class="form-control" style="margin-bottom:6px;" value="Direct Supply from 4 Mega Plants">
+                    <label class="form-label">Subtext / Details</label>
+                    <textarea id="cms_dist_bar_3_subtext" class="form-control" rows="2">Uninterrupted factory shipments backed by high-tonnage injection machines.</textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: What Makes Us Unique Facility Card -->
+            <div class="cms-section-card">
+              <div class="card-header"><h3><i class="fas fa-industry"></i> Section 4: "What Makes Us Unique?" Facility Showcase</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">Heading</label>
+                  <input type="text" id="cms_dist_unique_heading" class="form-control" value="What makes us unique?">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Description</label>
+                  <textarea id="cms_dist_unique_desc" class="form-control" rows="3">National Plasto is an approved partner and trusted manufacturer to major commercial enterprises and over 2,500+ authorized dealers across India. With over 29 years of furniture excellence, our high-precision plastic moulded furniture and material handling solutions are manufactured at 4 high-tech, ISO 9001, 14001, 45001, 50001, CE, and BIFMA-certified plants.</textarea>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Button Text</label>
+                    <input type="text" id="cms_dist_unique_btn" class="form-control" value="KNOW OUR STORY">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Facility Banner Image</label>
+                    <div style="display:flex; gap:8px;">
+                      <input type="text" id="cms_dist_unique_img" class="form-control" value="images/ghj.png" oninput="updateImagePreview(this, 'cms_dist_unique_img_preview')">
+                      <button type="button" class="btn btn-primary btn-sm" onclick="uploadImageForField('cms_dist_unique_img')" style="white-space:nowrap;"><i class="fas fa-cloud-upload-alt"></i> Upload New</button>
+                      <button type="button" class="btn btn-secondary btn-sm" onclick="pickMediaFor('cms_dist_unique_img')"><i class="fas fa-image"></i> Pick</button>
+                    </div>
+                    <div onclick="uploadImageForField('cms_dist_unique_img')" style="display:flex; align-items:center; gap:10px; padding:6px 12px; background:#fff; border:1px dashed #CBD5E1; border-radius:6px; cursor:pointer; margin-top:6px; flex-wrap:wrap;">
+                      <img id="cms_dist_unique_img_preview" src="images/ghj.png" alt="Preview" style="width:48px; height:36px; object-fit:cover; border-radius:4px; border:1px solid #CBD5E1;" onerror="this.src='images/brand/company-national-logo.png'">
+                      <div>
+                        <div style="font-size:11px; font-weight:700; color:#0284C7; text-transform:uppercase;"><i class="fas fa-camera"></i> Applied Active Photo</div>
+                        <div style="font-size:11px; color:#64748B;">Click here or click "Upload New" to replace with a file from device</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 5: Dealership Conversion CTA Box -->
+            <div class="cms-section-card">
+              <div class="card-header"><h3><i class="fas fa-bullhorn"></i> Section 5: Dealership Conversion CTA Box</h3></div>
+              <div class="card-body">
+                <div class="form-group">
+                  <label class="form-label">CTA Heading</label>
+                  <input type="text" id="cms_dist_cta_heading" class="form-control" value="Ready to Grow With National Plasto?">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">CTA Description</label>
+                  <textarea id="cms_dist_cta_desc" class="form-control" rows="2">Bring a trusted product portfolio to your market and build a stronger business with us.</textarea>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label">Primary Button Text</label>
+                    <input type="text" id="cms_dist_cta_btn" class="form-control" value="BECOME A DEALER">
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">Secondary Catalogue Link Text</label>
+                    <input type="text" id="cms_dist_cta_cat_btn" class="form-control" value="DOWNLOAD CATALOGUE">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 6: Direct Trade Desk Helpline & Support -->
+            <div class="cms-section-card">
+              <div class="card-header"><h3><i class="fas fa-headset"></i> Section 6: Direct Trade Desk Helpline &amp; Email</h3></div>
+              <div class="card-body">
+                <div class="form-row">
                   <div class="form-group">
                     <label class="form-label">Dealer Desk Direct Phone</label>
                     <input type="text" id="cms_dist_contact_phone" class="form-control" value="+91 98300 12345">
@@ -1713,19 +1828,6 @@ As part of the next generation of leadership, he continues to carry forward the 
                     <label class="form-label">Desk Working Hours</label>
                     <input type="text" id="cms_dist_contact_hours" class="form-control" value="Monday – Saturday: 9:30 AM to 6:30 PM">
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4 Simple Steps to Dealership -->
-            <div class="cms-section-card">
-              <div class="card-header"><h3><i class="fas fa-step-forward"></i> Section 3: 4-Step Partnership Onboarding</h3></div>
-              <div class="card-body">
-                <div class="form-row">
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 1: Apply Online</div><input type="text" id="cms_dist_step_0_title" class="form-control" style="margin-bottom:6px;" value="Apply Online"><textarea id="cms_dist_step_0_desc" class="form-control" rows="2">Submit your dealership interest form with firm details and GST number.</textarea></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 2: Verification</div><input type="text" id="cms_dist_step_1_title" class="form-control" style="margin-bottom:6px;" value="Regional Verification"><textarea id="cms_dist_step_1_desc" class="form-control" rows="2">Our regional sales manager connects with you to discuss territory and demand.</textarea></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 3: Agreement</div><input type="text" id="cms_dist_step_2_title" class="form-control" style="margin-bottom:6px;" value="Dealership Agreement"><textarea id="cms_dist_step_2_desc" class="form-control" rows="2">Finalize credit terms, catalog selection, and onboarding documentation.</textarea></div>
-                  <div class="cms-item-box"><div class="cms-item-box-title">Step 4: Dispatch</div><input type="text" id="cms_dist_step_3_title" class="form-control" style="margin-bottom:6px;" value="First Dispatch"><textarea id="cms_dist_step_3_desc" class="form-control" rows="2">Receive your initial curated stock with complimentary marketing kits.</textarea></div>
                 </div>
               </div>
             </div>

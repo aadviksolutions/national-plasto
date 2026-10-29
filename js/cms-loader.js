@@ -145,7 +145,7 @@
     var isAbout = path.includes('about') || document.body.id === 'about_us_overview';
     var isProducts = path.includes('products');
     var isMfg = path.includes('manufacturing');
-    var isDist = path.includes('distributor');
+    var isDist = path.includes('distributor') || document.querySelector('.np-dealer-benefits-hero, #dealer-benefits, .np-dist-scope') !== null;
     var isContact = path.includes('contact');
     var isPolicies = path.includes('policies');
 
@@ -752,39 +752,133 @@
 
   // --- E. Dealer Desk Hydration ---
   function hydrateDistributor(dist) {
-    // 1. Hero & Breadcrumbs
+    if (!dist) return;
+
+    // 1. Hero Banner & Breadcrumbs
     hydrateHeroAndBreadcrumb(dist.hero, 'Dealer Desk');
 
-    // 2. Dealer Desk Benefits / Why Partner
-    if (dist.whyPartner && dist.whyPartner.title) {
+    // 2. Dealer Desk Benefits Header
+    var bTitle = (dist.benefits && dist.benefits.title) || (dist.whyPartner && dist.whyPartner.title);
+    if (bTitle) {
       var bMainTitle = document.querySelector('.np-benefits-main-title');
       if (bMainTitle) {
-        var wParts = dist.whyPartner.title.split(' ');
-        bMainTitle.innerHTML = '<span class="color_red_home">' + wParts[0] + ' </span>' + wParts.slice(1).join(' ');
+        var wParts = bTitle.trim().split(/\s+/);
+        if (wParts.length > 1) {
+          bMainTitle.innerHTML = '<span class="color_red_home">' + escapeHtml(wParts[0]) + ' </span>' + escapeHtml(wParts.slice(1).join(' '));
+        } else {
+          bMainTitle.innerHTML = '<span class="color_red_home">' + escapeHtml(bTitle) + '</span>';
+        }
       }
     }
-    if (dist.hero && dist.hero.subtitle) {
+
+    var bSub = (dist.benefits && dist.benefits.subtitle) || (dist.hero && dist.hero.subtitle);
+    if (bSub) {
       var bSubtitle = document.querySelector('.np-benefits-subtitle');
-      if (bSubtitle) bSubtitle.textContent = dist.hero.subtitle;
+      if (bSubtitle) bSubtitle.textContent = bSub;
     }
 
-    // 3. Dealer Hotline & Direct Desk Contact
+    // 3. Center Cutout Verified Badge
+    if (dist.benefits) {
+      if (dist.benefits.badgeTitle) {
+        var badgeStrong = document.querySelector('.np-floating-badge-text strong');
+        if (badgeStrong) badgeStrong.textContent = dist.benefits.badgeTitle;
+      }
+      if (dist.benefits.badgeSubtitle) {
+        var badgeSpan = document.querySelector('.np-floating-badge-text span');
+        if (badgeSpan) badgeSpan.textContent = dist.benefits.badgeSubtitle;
+      }
+    }
+
+    // 4. 4 Interactive Sliding Benefit Bars
+    if (dist.benefits && Array.isArray(dist.benefits.bars)) {
+      dist.benefits.bars.forEach(function (bar, idx) {
+        var barEl = document.querySelector('.np-slide-bar--' + (idx + 1));
+        if (barEl && bar) {
+          var punchlineEl = barEl.querySelector('.np-slide-punchline');
+          var subtextEl = barEl.querySelector('.np-slide-subtext');
+          if (punchlineEl && bar.punchline) {
+            // Support highlighting last words or preserve markup
+            if (bar.punchline.includes('<')) {
+              punchlineEl.innerHTML = bar.punchline;
+            } else {
+              punchlineEl.textContent = bar.punchline;
+            }
+          }
+          if (subtextEl && bar.subtext) {
+            subtextEl.textContent = bar.subtext;
+          }
+        }
+      });
+    }
+
+    // 5. "What Makes Us Unique?" Manufacturing Showcase Card
+    if (dist.unique) {
+      if (dist.unique.heading) {
+        var uHeading = document.querySelector('.np-unique-heading');
+        if (uHeading) {
+          uHeading.innerHTML = escapeHtml(dist.unique.heading).replace(/\n/g, '<br>');
+        }
+      }
+      if (dist.unique.desc) {
+        var uDesc = document.querySelector('.np-unique-desc');
+        if (uDesc) uDesc.textContent = dist.unique.desc;
+      }
+      if (dist.unique.bannerImage) {
+        var uImg = document.querySelector('.np-unique-banner-img');
+        if (uImg) setSafeImage(uImg, dist.unique.bannerImage);
+      }
+      if (dist.unique.btnText) {
+        var uBtn = document.querySelector('.np-unique-btn');
+        if (uBtn) uBtn.textContent = dist.unique.btnText;
+      }
+    }
+
+    // 6. Dealership Conversion CTA Box
+    if (dist.cta) {
+      if (dist.cta.heading) {
+        var ctaHeading = document.querySelector('.np-cta-heading');
+        if (ctaHeading) ctaHeading.textContent = dist.cta.heading;
+      }
+      if (dist.cta.desc) {
+        var ctaDesc = document.querySelector('.np-cta-desc');
+        if (ctaDesc) ctaDesc.textContent = dist.cta.desc;
+      }
+      if (dist.cta.primaryBtnText) {
+        var ctaPrimaryBtn = document.querySelector('.np-btn-cta-primary');
+        if (ctaPrimaryBtn) {
+          ctaPrimaryBtn.innerHTML = escapeHtml(dist.cta.primaryBtnText) + ' <i class="fas fa-arrow-right"></i>';
+        }
+      }
+      if (dist.cta.catalogueBtnText) {
+        var ctaSecLink = document.querySelector('.np-cta-secondary-link');
+        if (ctaSecLink) {
+          ctaSecLink.innerHTML = '<i class="fas fa-file-pdf"></i> ' + escapeHtml(dist.cta.catalogueBtnText) + ' &rarr;';
+        }
+      }
+    }
+
+    // 7. Dealer Hotline & Direct Desk Contact
     if (dist.contactInfo) {
       if (dist.contactInfo.hotline) {
-        document.querySelectorAll('.dist-phone-val, .dealer-hotline-val').forEach(function (el) {
+        document.querySelectorAll('.dist-phone-val, .dealer-hotline-val, [data-cms="dist-hotline"]').forEach(function (el) {
           el.textContent = dist.contactInfo.hotline;
           if (el.tagName === 'A') el.href = 'tel:' + dist.contactInfo.hotline.replace(/\s+/g, '');
         });
       }
       if (dist.contactInfo.email) {
-        document.querySelectorAll('.dist-email-val, .dealer-email-val').forEach(function (el) {
+        document.querySelectorAll('.dist-email-val, .dealer-email-val, [data-cms="dist-email"]').forEach(function (el) {
           el.textContent = dist.contactInfo.email;
           if (el.tagName === 'A') el.href = 'mailto:' + dist.contactInfo.email;
         });
       }
+      if (dist.contactInfo.hours) {
+        document.querySelectorAll('.dist-hours-val, [data-cms="dist-hours"]').forEach(function (el) {
+          el.textContent = dist.contactInfo.hours;
+        });
+      }
     }
 
-    // 4. 4-Step Partnership Onboarding Steps
+    // 8. 4-Step Partnership Onboarding Steps (Legacy & Fallback)
     if (dist.process && Array.isArray(dist.process.steps)) {
       var stepCards = document.querySelectorAll('.np-step-card, .partnership-step-item');
       dist.process.steps.forEach(function (st, idx) {

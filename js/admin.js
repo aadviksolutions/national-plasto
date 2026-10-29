@@ -1267,18 +1267,38 @@
     if (cmsData.distributor) {
       setVal('cms_dist_hero_breadcrumb', cmsData.distributor.hero?.breadcrumb || 'Dealer Desk');
       setVal('cms_dist_hero_title', cmsData.distributor.hero?.title);
-      setVal('cms_dist_hero_subtitle', cmsData.distributor.hero?.subtitle);
-      setVal('cms_dist_hero_image', cmsData.distributor.hero?.bannerImage);
+      setVal('cms_dist_hero_image', cmsData.distributor.hero?.bannerImage || 'images/brand/dealer.jpg');
 
-      setVal('cms_dist_perks_title', cmsData.distributor.whyPartner?.title);
-      setVal('cms_dist_contact_phone', cmsData.distributor.contactInfo?.hotline);
-      setVal('cms_dist_contact_email', cmsData.distributor.contactInfo?.email);
-      setVal('cms_dist_contact_hours', cmsData.distributor.contactInfo?.hours);
+      setVal('cms_dist_benefits_title', cmsData.distributor.benefits?.title || cmsData.distributor.whyPartner?.title || 'Dealer Desk Benefits');
+      setVal('cms_dist_benefits_subtitle', cmsData.distributor.benefits?.subtitle || cmsData.distributor.hero?.subtitle || 'With its expanding manufacturing and distribution network across the nation, National Plasto offers lucrative margins, territorial protection, and direct factory supply.');
+      setVal('cms_dist_badge_title', cmsData.distributor.benefits?.badgeTitle || 'Authorised Dealer Desk');
+      setVal('cms_dist_badge_sub', cmsData.distributor.benefits?.badgeSubtitle || 'Verified Partnership');
 
-      (cmsData.distributor.process?.steps || []).forEach((st, idx) => {
-        setVal('cms_dist_step_' + idx + '_title', st.title);
-        setVal('cms_dist_step_' + idx + '_desc', st.desc);
+      const defaultBars = [
+        { punchline: 'Earn Maximum Profit on Every Sale', subtext: 'Lucrative distributor price margins with high-turnover annual volume rebates.' },
+        { punchline: 'Zero Competition in Your Territory', subtext: 'Demarcated sales zones guaranteeing exclusive regional distribution rights.' },
+        { punchline: 'Fast-Moving Models Across 4 Brands', subtext: 'Complete portfolio covering Next, National, Captain & Sapphire furniture.' },
+        { punchline: 'Direct Supply from 4 Mega Plants', subtext: 'Uninterrupted factory shipments backed by high-tonnage injection machines.' }
+      ];
+      const bars = (cmsData.distributor.benefits?.bars && cmsData.distributor.benefits.bars.length) ? cmsData.distributor.benefits.bars : defaultBars;
+      bars.forEach((bar, idx) => {
+        setVal('cms_dist_bar_' + idx + '_punchline', bar.punchline);
+        setVal('cms_dist_bar_' + idx + '_subtext', bar.subtext);
       });
+
+      setVal('cms_dist_unique_heading', cmsData.distributor.unique?.heading || 'What makes us unique?');
+      setVal('cms_dist_unique_desc', cmsData.distributor.unique?.desc || 'National Plasto is an approved partner and trusted manufacturer to major commercial enterprises and over 2,500+ authorized dealers across India. With over 29 years of furniture excellence, our high-precision plastic moulded furniture and material handling solutions are manufactured at 4 high-tech, ISO 9001, 14001, 45001, 50001, CE, and BIFMA-certified plants.');
+      setVal('cms_dist_unique_btn', cmsData.distributor.unique?.btnText || 'KNOW OUR STORY');
+      setVal('cms_dist_unique_img', cmsData.distributor.unique?.bannerImage || 'images/ghj.png');
+
+      setVal('cms_dist_cta_heading', cmsData.distributor.cta?.heading || 'Ready to Grow With National Plasto?');
+      setVal('cms_dist_cta_desc', cmsData.distributor.cta?.desc || 'Bring a trusted product portfolio to your market and build a stronger business with us.');
+      setVal('cms_dist_cta_btn', cmsData.distributor.cta?.primaryBtnText || 'BECOME A DEALER');
+      setVal('cms_dist_cta_cat_btn', cmsData.distributor.cta?.catalogueBtnText || 'DOWNLOAD CATALOGUE');
+
+      setVal('cms_dist_contact_phone', cmsData.distributor.contactInfo?.hotline || '+91 98300 12345');
+      setVal('cms_dist_contact_email', cmsData.distributor.contactInfo?.email || 'dealer@nationalplasto.com');
+      setVal('cms_dist_contact_hours', cmsData.distributor.contactInfo?.hours || 'Monday – Saturday: 9:30 AM to 6:30 PM');
     }
 
     // F. Contact Us
@@ -1547,22 +1567,39 @@
         cmsData.distributor.hero = {
           breadcrumb: getVal('cms_dist_hero_breadcrumb') || 'Dealer Desk',
           title: getVal('cms_dist_hero_title'),
-          subtitle: getVal('cms_dist_hero_subtitle'),
+          subtitle: getVal('cms_dist_benefits_subtitle'),
           bannerImage: getVal('cms_dist_hero_image')
         };
-        cmsData.distributor.whyPartner = cmsData.distributor.whyPartner || {};
-        cmsData.distributor.whyPartner.title = getVal('cms_dist_perks_title');
+        cmsData.distributor.benefits = {
+          title: getVal('cms_dist_benefits_title'),
+          subtitle: getVal('cms_dist_benefits_subtitle'),
+          badgeTitle: getVal('cms_dist_badge_title'),
+          badgeSubtitle: getVal('cms_dist_badge_sub'),
+          bars: [0, 1, 2, 3].map((i) => ({
+            punchline: getVal('cms_dist_bar_' + i + '_punchline'),
+            subtext: getVal('cms_dist_bar_' + i + '_subtext')
+          }))
+        };
+        cmsData.distributor.unique = {
+          heading: getVal('cms_dist_unique_heading'),
+          desc: getVal('cms_dist_unique_desc'),
+          btnText: getVal('cms_dist_unique_btn'),
+          bannerImage: getVal('cms_dist_unique_img')
+        };
+        cmsData.distributor.cta = {
+          heading: getVal('cms_dist_cta_heading'),
+          desc: getVal('cms_dist_cta_desc'),
+          primaryBtnText: getVal('cms_dist_cta_btn'),
+          catalogueBtnText: getVal('cms_dist_cta_cat_btn')
+        };
         cmsData.distributor.contactInfo = {
           hotline: getVal('cms_dist_contact_phone'),
           email: getVal('cms_dist_contact_email'),
           hours: getVal('cms_dist_contact_hours')
         };
-        cmsData.distributor.process = cmsData.distributor.process || { steps: [] };
-        cmsData.distributor.process.steps = [0, 1, 2, 3].map((i) => ({
-          step: '0' + (i + 1),
-          title: getVal('cms_dist_step_' + i + '_title'),
-          desc: getVal('cms_dist_step_' + i + '_desc')
-        }));
+        cmsData.distributor.whyPartner = cmsData.distributor.whyPartner || {};
+        cmsData.distributor.whyPartner.title = getVal('cms_dist_benefits_title');
+        cmsData.distributor.whyPartner.subtitle = getVal('cms_dist_benefits_subtitle');
       } else if (page === 'contact') {
         cmsData.contact = cmsData.contact || {};
         cmsData.general = cmsData.general || {};
