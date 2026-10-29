@@ -365,22 +365,22 @@ app.post('/api/sync/catalogue', requireAuth, (req, res) => {
   res.json({ success: true, message: 'Catalogue synced to js/catalogue-2026.js', total: products.length });
 });
 
-// --- Clean URLs and Page Routes ---
-const pageMap = {
-  '/admin': 'admin.html',
-  '/products': 'products.html',
-  '/about': 'about.html',
-  '/contact': 'contact.html',
-  '/distributor': 'distributor.html',
-  '/manufacturing': 'manufacturing.html',
-  '/policies': 'policies.html'
-};
+// --- Clean URLs and Page Routes (Explicit literal paths for NFT bundler) ---
+function sendPage(res, filename) {
+  const localPath = path.join(__dirname, filename);
+  if (fs.existsSync(localPath)) return res.sendFile(localPath);
+  const cwdPath = path.join(process.cwd(), filename);
+  if (fs.existsSync(cwdPath)) return res.sendFile(cwdPath);
+  res.status(404).send('Page not found');
+}
 
-Object.entries(pageMap).forEach(([urlPath, filePath]) => {
-  app.get(urlPath, (req, res) => {
-    res.sendFile(path.join(__dirname, filePath));
-  });
-});
+app.get('/about', (req, res) => sendPage(res, 'about.html'));
+app.get('/products', (req, res) => sendPage(res, 'products.html'));
+app.get('/contact', (req, res) => sendPage(res, 'contact.html'));
+app.get('/distributor', (req, res) => sendPage(res, 'distributor.html'));
+app.get('/manufacturing', (req, res) => sendPage(res, 'manufacturing.html'));
+app.get('/policies', (req, res) => sendPage(res, 'policies.html'));
+app.get('/admin', (req, res) => sendPage(res, 'admin.html'));
 
 // Static files with high-performance caching headers
 app.use(express.static(__dirname, {
