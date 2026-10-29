@@ -5,6 +5,12 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const compression = require('compression');
+const db = require('./db');
+
+// Eagerly initialize MySQL database connection and seed data
+db.initDatabase().catch(err => {
+  console.warn('DB initialization notice:', err.message);
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -59,41 +65,14 @@ const upload = multer({
   }
 });
 
-// Helper functions
-function getAdminConfig() {
-  if (fs.existsSync(ADMIN_FILE)) {
-    return JSON.parse(fs.readFileSync(ADMIN_FILE, 'utf8'));
-  }
-  return { username: 'admin', password: 'nationalplasto2026' };
-}
-
-function getProducts() {
-  if (fs.existsSync(PRODUCTS_FILE)) {
-    return JSON.parse(fs.readFileSync(PRODUCTS_FILE, 'utf8'));
-  }
-  return [];
-}
-
-function saveProducts(products) {
-  fs.writeFileSync(PRODUCTS_FILE, JSON.stringify(products, null, 2), 'utf8');
-  syncCatalogueJs(products);
-}
-
 function syncCatalogueJs(products) {
   // Sync back to js/catalogue-2026.js for static / offline usage
-  const header = `/* National Plasto product catalogue - Generated from Admin CMS */\nwindow.NP_CATALOGUE = `;
-  fs.writeFileSync(CATALOGUE_JS_FILE, header + JSON.stringify(products) + ';\n', 'utf8');
-}
-
-function getCMSContent() {
-  if (fs.existsSync(CMS_FILE)) {
-    return JSON.parse(fs.readFileSync(CMS_FILE, 'utf8'));
+  try {
+    const header = `/* National Plasto product catalogue - Generated from Admin CMS */\nwindow.NP_CATALOGUE = `;
+    fs.writeFileSync(CATALOGUE_JS_FILE, header + JSON.stringify(products) + ';\n', 'utf8');
+  } catch (err) {
+    console.warn('Catalogue.js sync skipped:', err.message);
   }
-  return {};
-}
-
-function saveCMSContent(content) {
-  fs.writeFileSync(CMS_FILE, JSON.stringify(content, null, 2), 'utf8');
 }
 
 // Simple in-memory session tokens with restart resilience
@@ -112,28 +91,49 @@ function requireAuth(req, res, next) {
 
 // ================= API ROUTES =================
 
-// --- Auth Routes ---
-app.post('/api/auth/login', (req, res) => {
-  const { username, password } = req.body;
-  const config = getAdminConfig();
-  if (username === config.username && password === config.password) {
-    const token = 'np_' + Math.random().toString(36).substring(2) + Date.now().toString(36);
-    activeSessions.add(token);
-    res.cookie('np_admin_token', token, { maxAge: 24 * 60 * 60 * 1000, httpOnly: false, sameSite: 'lax' });
-    config.lastLogin = new Date().toISOString();
-    fs.writeFileSync(ADMIN_FILE, JSON.stringify(config, null, 2), 'utf8');
-    return res.json({ success: true, token, user: { username: config.username, lastLogin: config.lastLogin } });
-  }
-  return res.status(401).json({ success: false, error: 'Invalid username or password' });
+// --- Database Status Route ---
+app.get('/api/db/status', (req, res) => {
+  res.json({
+    success: true,
+    database: 'nationalplasto',
+    username: 'nationalplasto',
+    isConnected: db.isDbConnected(),
+    type: 'MySQL (MariaDB)',
+    message: db.isDbConnected()
+      ? 'Connected to MySQL database "nationalplasto"'
+      : 'Operating in resilient JSON file fallback mode'
+  });
 });
 
-app.get('/api/auth/me', (req, res) => {
-  const token = req.headers['authorization']?.replace('Bearer ', '') || req.cookies?.np_admin_token;
-  if (token && activeSessions.has(token)) {
-    const config = getAdminConfig();
-    return res.json({ success: true, user: { username: config.username, lastLogin: config.lastLogin } });
+// --- Auth Routes ---
+app.post('/api/auth/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const config = await db.getAdminConfig();
+    if (username === config.username && password === config.password) {
+      const token = 'np_' + Math.random().toString(36).substring(2) + Date.now().toString(36);
+      activeSessions.add(token);
+      res.cookie('np_admin_token', token, { maxAge: 24 * 60 * 60 * 1000, httpOnly: false, sameSite: 'lax' });
+      await db.recordAdminLogin(config.username);
+      return res.json({ success: true, token, user: { username: config.username, lastLogin: new Date().toISOString() } });
+    }
+    return res.status(401).json({ success: false, error: 'Invalid username or password' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-  return res.status(401).json({ success: false });
+});
+
+app.get('/api/auth/me', async (req, res) => {
+  try {
+    const token = req.headers['authorization']?.replace('Bearer ', '') || req.cookies?.np_admin_token;
+    if (token && activeSessions.has(token)) {
+      const config = await db.getAdminConfig();
+      return res.json({ success: true, user: { username: config.username, lastLogin: config.lastLogin } });
+    }
+    return res.status(401).json({ success: false });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 app.post('/api/auth/logout', (req, res) => {
@@ -143,162 +143,221 @@ app.post('/api/auth/logout', (req, res) => {
   res.json({ success: true });
 });
 
-app.post('/api/auth/change-password', requireAuth, (req, res) => {
-  const { currentPassword, newPassword } = req.body;
-  const config = getAdminConfig();
-  if (currentPassword !== config.password) {
-    return res.status(400).json({ success: false, error: 'Current password is incorrect' });
+app.post('/api/auth/change-password', requireAuth, async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    const config = await db.getAdminConfig();
+    if (currentPassword !== config.password) {
+      return res.status(400).json({ success: false, error: 'Current password is incorrect' });
+    }
+    if (!newPassword || newPassword.length < 6) {
+      return res.status(400).json({ success: false, error: 'New password must be at least 6 characters' });
+    }
+    await db.updateAdminPassword(config.username, newPassword);
+    res.json({ success: true, message: 'Password updated successfully' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-  if (!newPassword || newPassword.length < 6) {
-    return res.status(400).json({ success: false, error: 'New password must be at least 6 characters' });
-  }
-  config.password = newPassword;
-  fs.writeFileSync(ADMIN_FILE, JSON.stringify(config, null, 2), 'utf8');
-  res.json({ success: true, message: 'Password updated successfully' });
 });
 
 // --- Stats Route ---
-app.get('/api/stats', (req, res) => {
-  const products = getProducts();
-  const brands = {};
-  const categories = {};
-  products.forEach(p => {
-    brands[p.b] = (brands[p.b] || 0) + 1;
-    categories[p.c] = (categories[p.c] || 0) + 1;
-  });
+app.get('/api/stats', async (req, res) => {
+  try {
+    const products = await db.getProducts();
+    const brands = {};
+    const categories = {};
+    products.forEach(p => {
+      if (p.b) brands[p.b] = (brands[p.b] || 0) + 1;
+      if (p.c) categories[p.c] = (categories[p.c] || 0) + 1;
+    });
 
-  let uploadedImagesCount = 0;
-  if (fs.existsSync(UPLOADS_DIR)) {
-    uploadedImagesCount = fs.readdirSync(UPLOADS_DIR).length;
+    let uploadedImagesCount = 0;
+    if (fs.existsSync(UPLOADS_DIR)) {
+      uploadedImagesCount = fs.readdirSync(UPLOADS_DIR).length;
+    }
+
+    res.json({
+      success: true,
+      totalProducts: products.length,
+      brands,
+      categories,
+      uploadedImagesCount,
+      database: {
+        name: 'nationalplasto',
+        username: 'nationalplasto',
+        connected: db.isDbConnected()
+      },
+      lastUpdated: new Date().toISOString()
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-
-  res.json({
-    success: true,
-    totalProducts: products.length,
-    brands,
-    categories,
-    uploadedImagesCount,
-    lastUpdated: new Date().toISOString()
-  });
 });
 
 // --- Products CRUD ---
-app.get('/api/products', (req, res) => {
-  let products = getProducts();
-  const { search, brand, category, limit, page } = req.query;
+app.get('/api/products', async (req, res) => {
+  try {
+    let products = await db.getProducts();
+    const { search, brand, category, limit, page } = req.query;
 
-  if (brand && brand !== 'all') {
-    products = products.filter(p => p.b.toLowerCase() === brand.toLowerCase());
-  }
-  if (category && category !== 'all') {
-    products = products.filter(p => p.c.toLowerCase() === category.toLowerCase());
-  }
-  if (search) {
-    const q = search.toLowerCase();
-    products = products.filter(p =>
-      (p.n && p.n.toLowerCase().includes(q)) ||
-      (p.sku && p.sku.toLowerCase().includes(q)) ||
-      (p.b && p.b.toLowerCase().includes(q)) ||
-      (p.c && p.c.toLowerCase().includes(q))
-    );
-  }
+    if (brand && brand !== 'all') {
+      products = products.filter(p => p.b && p.b.toLowerCase() === brand.toLowerCase());
+    }
+    if (category && category !== 'all') {
+      products = products.filter(p => p.c && p.c.toLowerCase() === category.toLowerCase());
+    }
+    if (search) {
+      const q = search.toLowerCase();
+      products = products.filter(p =>
+        (p.n && p.n.toLowerCase().includes(q)) ||
+        (p.sku && p.sku.toLowerCase().includes(q)) ||
+        (p.b && p.b.toLowerCase().includes(q)) ||
+        (p.c && p.c.toLowerCase().includes(q))
+      );
+    }
 
-  const total = products.length;
-  if (page && limit) {
-    const p = parseInt(page) || 1;
-    const l = parseInt(limit) || 20;
-    const start = (p - 1) * l;
-    products = products.slice(start, start + l);
-  }
+    const total = products.length;
+    if (page && limit) {
+      const p = parseInt(page, 10) || 1;
+      const l = parseInt(limit, 10) || 20;
+      const start = (p - 1) * l;
+      products = products.slice(start, start + l);
+    }
 
-  res.json({ success: true, total, products });
+    res.json({ success: true, total, products });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
-app.get('/api/products/:id', (req, res) => {
-  const products = getProducts();
-  const found = products.find(p => p.id === req.params.id || p.sku === req.params.id);
-  if (!found) return res.status(404).json({ success: false, error: 'Product not found' });
-  res.json({ success: true, product: found });
-});
-
-app.post('/api/products', requireAuth, (req, res) => {
-  const products = getProducts();
-  const newProduct = req.body;
-
-  if (!newProduct.n || !newProduct.b || !newProduct.c) {
-    return res.status(400).json({ success: false, error: 'Model Name, Brand, and Category are required' });
+app.get('/api/products/:id', async (req, res) => {
+  try {
+    const found = await db.getProductById(req.params.id);
+    if (!found) return res.status(404).json({ success: false, error: 'Product not found' });
+    res.json({ success: true, product: found });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
+});
 
-  // Generate unique ID and SKU if missing
-  const nextNum = products.length + 1;
-  newProduct.id = newProduct.id || `PROD-${Date.now().toString(36)}-${nextNum}`;
-  if (!newProduct.sku) {
-    const brandPrefix = newProduct.b.substring(0, 3).toUpperCase();
-    newProduct.sku = `NP-${brandPrefix}-${String(nextNum).padStart(3, '0')}`;
+app.post('/api/products', requireAuth, async (req, res) => {
+  try {
+    const newProduct = req.body;
+    if (!newProduct.n || !newProduct.b || !newProduct.c) {
+      return res.status(400).json({ success: false, error: 'Model Name, Brand, and Category are required' });
+    }
+
+    const allProds = await db.getProducts();
+    const nextNum = allProds.length + 1;
+    newProduct.id = newProduct.id || `PROD-${Date.now().toString(36)}-${nextNum}`;
+    if (!newProduct.sku) {
+      const brandPrefix = newProduct.b.substring(0, 3).toUpperCase();
+      newProduct.sku = `NP-${brandPrefix}-${String(nextNum).padStart(3, '0')}`;
+    }
+    newProduct.img = Array.isArray(newProduct.img) ? newProduct.img : [];
+
+    const saved = await db.saveProduct(newProduct);
+    const updatedList = await db.getProducts();
+    syncCatalogueJs(updatedList);
+
+    res.status(201).json({ success: true, product: saved, message: 'Product added successfully to MySQL database' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-
-  // Ensure images array exists
-  newProduct.img = Array.isArray(newProduct.img) ? newProduct.img : [];
-
-  products.unshift(newProduct);
-  saveProducts(products);
-
-  res.status(201).json({ success: true, product: newProduct, message: 'Product added successfully' });
 });
 
-app.put('/api/products/:id', requireAuth, (req, res) => {
-  const products = getProducts();
-  const index = products.findIndex(p => p.id === req.params.id || p.sku === req.params.id);
-  if (index === -1) {
-    return res.status(404).json({ success: false, error: 'Product not found' });
+app.put('/api/products/:id', requireAuth, async (req, res) => {
+  try {
+    const existing = await db.getProductById(req.params.id);
+    if (!existing) {
+      return res.status(404).json({ success: false, error: 'Product not found' });
+    }
+
+    const updated = { ...existing, ...req.body, id: existing.id };
+    const saved = await db.saveProduct(updated);
+    const updatedList = await db.getProducts();
+    syncCatalogueJs(updatedList);
+
+    res.json({ success: true, product: saved, message: 'Product updated successfully in MySQL database' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-
-  const updated = { ...products[index], ...req.body, id: products[index].id };
-  products[index] = updated;
-  saveProducts(products);
-
-  res.json({ success: true, product: updated, message: 'Product updated successfully' });
 });
 
-app.delete('/api/products/:id', requireAuth, (req, res) => {
-  let products = getProducts();
-  const index = products.findIndex(p => p.id === req.params.id || p.sku === req.params.id);
-  if (index === -1) {
-    return res.status(404).json({ success: false, error: 'Product not found' });
+app.delete('/api/products/:id', requireAuth, async (req, res) => {
+  try {
+    const deleted = await db.deleteProduct(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({ success: false, error: 'Product not found' });
+    }
+    const updatedList = await db.getProducts();
+    syncCatalogueJs(updatedList);
+    res.json({ success: true, message: `Product "${deleted.n}" deleted successfully from MySQL database` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-
-  const removed = products.splice(index, 1)[0];
-  saveProducts(products);
-
-  res.json({ success: true, message: `Product "${removed.n}" deleted successfully` });
 });
 
-// --- CMS Content Routes ---
-app.get('/api/cms', (req, res) => {
-  res.json({ success: true, data: getCMSContent() });
-});
-
-app.get('/api/cms/:page', (req, res) => {
-  const content = getCMSContent();
-  const page = req.params.page;
-  if (!content[page]) {
-    return res.status(404).json({ success: false, error: 'Page content not found' });
+// --- CMS Content Routes (MySQL backed) ---
+app.get('/api/cms', async (req, res) => {
+  try {
+    const content = await db.getCMSContent();
+    res.json({ success: true, data: content });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-  res.json({ success: true, page: content[page] });
 });
 
-app.put('/api/cms/:page', requireAuth, (req, res) => {
-  const content = getCMSContent();
-  const page = req.params.page;
-  content[page] = req.body;
-  saveCMSContent(content);
-  res.json({ success: true, message: `Content for ${page} updated successfully`, page: content[page] });
+app.get('/api/cms/:page', async (req, res) => {
+  try {
+    const page = req.params.page;
+    const pageData = await db.getCMSPage(page);
+    if (!pageData) {
+      return res.status(404).json({ success: false, error: 'Page content not found' });
+    }
+    res.json({ success: true, page: pageData });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
-app.put('/api/cms', requireAuth, (req, res) => {
-  const content = req.body;
-  saveCMSContent(content);
-  res.json({ success: true, message: 'All CMS content updated successfully', data: content });
+app.put('/api/cms/:page', requireAuth, async (req, res) => {
+  try {
+    const page = req.params.page;
+    const updated = await db.saveCMSPage(page, req.body);
+    res.json({ success: true, message: `Content for ${page} updated successfully in MySQL database`, page: updated });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.put('/api/cms', requireAuth, async (req, res) => {
+  try {
+    const content = req.body;
+    const updated = await db.saveAllCMS(content);
+    res.json({ success: true, message: 'All CMS content updated successfully in MySQL database', data: updated });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// --- Inquiries Routes ---
+app.post('/api/inquiries', async (req, res) => {
+  try {
+    const saved = await db.saveInquiry(req.body);
+    res.status(201).json({ success: true, inquiry: saved, message: 'Inquiry saved successfully to database' });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.get('/api/inquiries', requireAuth, async (req, res) => {
+  try {
+    const list = await db.getInquiries(parseInt(req.query.limit || '100', 10));
+    res.json({ success: true, inquiries: list });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 // --- Media & Uploads Routes ---
