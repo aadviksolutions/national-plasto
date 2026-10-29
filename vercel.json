@@ -41,7 +41,7 @@
   ],
   "functions": {
     "server.js": {
-      "includeFiles": "*.html"
+      "includeFiles": "{*.html,data/**}"
     }
   },
   "headers": [
