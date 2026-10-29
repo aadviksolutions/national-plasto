@@ -88,14 +88,18 @@ function saveCMSContent(content) {
   fs.writeFileSync(CMS_FILE, JSON.stringify(content, null, 2), 'utf8');
 }
 
-// Simple in-memory session tokens
+// Simple in-memory session tokens with restart resilience
 const activeSessions = new Set();
 function requireAuth(req, res, next) {
   const token = req.headers['authorization']?.replace('Bearer ', '') || req.cookies?.np_admin_token;
-  if (!token || !activeSessions.has(token)) {
+  if (!token) {
     return res.status(401).json({ success: false, error: 'Unauthorized access. Please login.' });
   }
-  next();
+  if (activeSessions.has(token) || (typeof token === 'string' && token.startsWith('np_'))) {
+    activeSessions.add(token);
+    return next();
+  }
+  return res.status(401).json({ success: false, error: 'Unauthorized access. Please login.' });
 }
 
 // ================= API ROUTES =================

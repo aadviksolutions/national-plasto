@@ -94,6 +94,13 @@
     }, obj);
   }
 
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/[&<>"']/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+    });
+  }
+
   /**
    * Safe image setter: updates src and synchronizes data-lazy-src & data-src
    * so supreme_app.min.js lazy-loader never overwrites new CMS images on scroll/load.
@@ -487,26 +494,62 @@
     }
   }
 
-  // --- B. About Us Hydration ---
-  function hydrateAbout(about) {
-    // 1. Hero
-    if (about.hero && about.hero.bannerImage) {
-      var bannerDiv = document.querySelector('.banner-slider-img1');
-      if (bannerDiv) bannerDiv.style.backgroundImage = 'url("' + about.hero.bannerImage + '")';
-      var mobImg = document.querySelector('.mob-banner-img');
-      if (mobImg) setSafeImage(mobImg, about.hero.bannerImage);
+  // --- Breadcrumb & Hero Banner Universal Hydrator ---
+  function hydrateHeroAndBreadcrumb(heroData, defaultBc) {
+    if (!heroData && !defaultBc) return;
+    var bcText = (heroData && heroData.breadcrumb) || defaultBc;
+
+    // 1. Breadcrumb current page text
+    if (bcText) {
+      document.querySelectorAll('.np-breadcrumb-pill .np-bc-current, .breadcrums .np-bc-current').forEach(function (el) {
+        el.textContent = bcText;
+      });
+      document.querySelectorAll('.np-breadcrumbs span[aria-current="page"], .np-breadcrumbs [aria-current="page"]').forEach(function (el) {
+        el.textContent = bcText;
+      });
+      document.querySelectorAll('[data-cms-breadcrumb]').forEach(function (el) {
+        el.textContent = bcText;
+      });
     }
 
-    // 2. Overview / Heritage
-    if (about.overview) {
-      var titleH2 = document.querySelector('.foundation_title h2');
-      if (titleH2 && about.overview.title) titleH2.innerHTML = '<span class="color_red_home">' + about.overview.title + '</span>';
+    // 2. Banner Images across all responsive variations
+    if (heroData && heroData.bannerImage) {
+      var bannerDivs = document.querySelectorAll('.banner-slider-img, .banner-slider-img1');
+      bannerDivs.forEach(function (div) {
+        div.style.backgroundImage = 'url("' + heroData.bannerImage + '")';
+      });
+      var mobImgs = document.querySelectorAll('.mob-banner-img, .np-inner-hero-img');
+      mobImgs.forEach(function (img) {
+        setSafeImage(img, heroData.bannerImage);
+      });
+      var pageBanners = document.querySelectorAll('.inner_banner, .np-page-banner');
+      pageBanners.forEach(function (pb) {
+        pb.style.backgroundImage = 'url("' + heroData.bannerImage + '")';
+      });
+    }
+  }
 
-      var titleH3 = document.querySelector('.foundation_title h3');
-      if (titleH3 && about.overview.leadText) titleH3.textContent = about.overview.leadText;
+  // --- B. About Us Hydration ---
+  function hydrateAbout(about) {
+    // 1. Hero & Breadcrumbs
+    hydrateHeroAndBreadcrumb(about.hero, 'About Us');
 
-      var descP = document.querySelector('.foundation_title .para_new_font');
-      if (descP && about.overview.desc) descP.textContent = about.overview.desc;
+    // 2. Overview / Heritage / Foundation
+    var titleH2 = document.querySelector('.foundation_title h2');
+    var hTitle = (about.hero && about.hero.title) || (about.overview && about.overview.title);
+    if (titleH2 && hTitle) {
+      titleH2.innerHTML = '<span class="color_red_home">' + hTitle + '</span>';
+    }
+
+    var titleH3 = document.querySelector('.foundation_title h3');
+    var hSub = (about.hero && about.hero.subtitle) || (about.overview && about.overview.leadText);
+    if (titleH3 && hSub) {
+      titleH3.textContent = hSub;
+    }
+
+    var descP = document.querySelector('.foundation_title .para_new_font');
+    if (descP && about.overview && about.overview.desc) {
+      descP.textContent = about.overview.desc;
     }
 
     // 3. Vision & Mission
@@ -522,7 +565,20 @@
       }
     }
 
-    // 4. Pillars of Growth
+    // 4. What makes us National Plasto? (4 Key Stats)
+    if (about.stats && about.stats.length) {
+      var statCards = document.querySelectorAll('.we_village_flex .value_content');
+      about.stats.forEach(function (st, idx) {
+        if (statCards[idx]) {
+          var h5 = statCards[idx].querySelector('h5');
+          var p = statCards[idx].querySelector('.para-text');
+          if (h5 && st.value) h5.textContent = st.value;
+          if (p && st.label) p.textContent = st.label;
+        }
+      });
+    }
+
+    // 5. Pillars of Growth (4 Operational Layers)
     if (about.pillars && about.pillars.length) {
       var layers = document.querySelectorAll('.care_for_main .care_for_flex');
       about.pillars.forEach(function (pil, idx) {
@@ -537,7 +593,7 @@
       });
     }
 
-    // 5. Our Management Intro
+    // 6. Our Management Intro
     if (about.managementIntro) {
       var mgmtHeading = document.querySelector('#leadership .supreme_board_heading');
       if (mgmtHeading && about.managementIntro.title) {
@@ -558,7 +614,7 @@
       }
     }
 
-    // 6. Board of Directors (Card & Modal Hydration)
+    // 7. Board of Directors (Card & Modal Hydration)
     if (about.leadership && about.leadership.length) {
       var cards = document.querySelectorAll('.supreme_director_card');
       about.leadership.forEach(function (leader, idx) {
@@ -592,73 +648,148 @@
 
   // --- C. Products Page Hydration ---
   function hydrateProducts(prod) {
-    if (prod.hero && prod.hero.bannerImage) {
-      var bannerDiv = document.querySelector('.banner-slider-img1');
-      if (bannerDiv) bannerDiv.style.backgroundImage = 'url("' + prod.hero.bannerImage + '")';
-    }
+    // 1. Hero & Breadcrumbs
+    hydrateHeroAndBreadcrumb(prod.hero, 'Products');
 
+    // 2. Shop by Brand Header
     if (prod.shopByBrandHeader) {
-      var sb = document.querySelector('.np-brand-header h2');
+      var sb = document.querySelector('.np-brand-header h2, .shop-by-brand-title');
       if (sb && prod.shopByBrandHeader.title) sb.textContent = prod.shopByBrandHeader.title;
     }
 
+    // 3. Explore Collections Header
     if (prod.exploreCollectionsHeader) {
-      var ec = document.querySelector('.np-coll-header h2');
+      var ec = document.querySelector('.np-coll-header h2, .explore-coll-title');
       if (ec && prod.exploreCollectionsHeader.title) ec.textContent = prod.exploreCollectionsHeader.title;
     }
 
-    // 12 collections cards
+    // 4. 12 Collections Cards
     if (prod.collections && prod.collections.length) {
-      var collCards = document.querySelectorAll('.collection-card, .np-collection-item');
+      var collCards = document.querySelectorAll('.collections-inside, .collection-card, .np-collection-item');
       prod.collections.forEach(function (c, idx) {
         if (collCards[idx]) {
-          var titleEl = collCards[idx].querySelector('.collection-title, h4');
-          var countEl = collCards[idx].querySelector('.collection-count, span');
-          var imgEl = collCards[idx].querySelector('img');
+          var titleEl = collCards[idx].querySelector('.heading-arrow-sec h3, .collection-title, h4');
+          var countEl = collCards[idx].querySelector('h6 span, .collection-count, span');
+          var imgEl = collCards[idx].querySelector('.collection-img img, img');
           if (titleEl && c.name) titleEl.textContent = c.name;
           if (countEl && c.count) countEl.textContent = c.count;
           if (imgEl && c.image) setSafeImage(imgEl, c.image);
         }
       });
     }
+
+    // 5. Product Brochure / Catalogue Section
+    if (prod.brochure) {
+      var bTitle = document.querySelector('.catalogue-info .catalogue-inside h2');
+      if (bTitle && prod.brochure.title) bTitle.textContent = prod.brochure.title;
+
+      var bBtns = document.querySelectorAll('.np-cat-btns a');
+      if (prod.brochure.pdfUrl) {
+        bBtns.forEach(function (btn) { btn.href = prod.brochure.pdfUrl; });
+      }
+      if (bBtns[0] && prod.brochure.btnText) {
+        bBtns[0].innerHTML = '<i class="fas fa-eye" aria-hidden="true"></i> ' + prod.brochure.btnText;
+      }
+    }
   }
 
   // --- D. Manufacturing Hydration ---
   function hydrateManufacturing(mfg) {
-    if (mfg.hero && mfg.hero.bannerImage) {
-      var bannerDiv = document.querySelector('.banner-slider-img1');
-      if (bannerDiv) bannerDiv.style.backgroundImage = 'url("' + mfg.hero.bannerImage + '")';
+    // 1. Hero & Breadcrumbs
+    hydrateHeroAndBreadcrumb(mfg.hero, 'Manufacturing');
+
+    // 2. Manufacturing Story & Overview
+    var storyH2 = document.querySelector('.story-inside h2');
+    if (storyH2 && mfg.hero && mfg.hero.title) {
+      var mTitle = mfg.hero.title;
+      storyH2.innerHTML = mTitle.indexOf(' - ') !== -1 ? mTitle.replace(' - ', '<br><span>') + '</span>' : mTitle;
+    }
+    var storyP = document.querySelector('.story-inside p.para-text');
+    if (storyP && mfg.hero && mfg.hero.subtitle) {
+      storyP.textContent = mfg.hero.subtitle;
     }
 
+    // 3. 4 Strategic Manufacturing Hubs
     if (mfg.plants && mfg.plants.length) {
-      var plantCards = document.querySelectorAll('.np-hub-item, .np-cap-card');
+      var plantCards = document.querySelectorAll('.np-cap-card, .np-hub-item');
       mfg.plants.forEach(function (p, idx) {
         if (plantCards[idx]) {
           var titleEl = plantCards[idx].querySelector('h3, .np-hub-title');
           var locEl = plantCards[idx].querySelector('.np-hub-loc');
-          var imgEl = plantCards[idx].querySelector('img');
+          var imgEl = plantCards[idx].querySelector('.np-cap-thumb img, img');
           if (titleEl && p.name) titleEl.textContent = p.name;
-          if (locEl && p.location) locEl.textContent = p.location;
+          if (locEl && p.location) locEl.innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + p.location;
           if (imgEl && p.image) setSafeImage(imgEl, p.image);
+
+          var specItems = plantCards[idx].querySelectorAll('.np-hub-specs .np-hub-spec-item strong');
+          if (specItems[0] && p.machines) specItems[0].textContent = p.machines;
+          if (specItems[1] && p.capacity) specItems[1].textContent = p.capacity;
         }
       });
+    }
+
+    // 4. Quality Testing & Certifications
+    if (mfg.qualityTesting) {
+      var qaTitle = document.querySelector('#certifications h2, .np-qa-title');
+      if (qaTitle && mfg.qualityTesting.title) qaTitle.textContent = mfg.qualityTesting.title;
+      var qaDesc = document.querySelector('#certifications p, .np-qa-desc');
+      if (qaDesc && mfg.qualityTesting.desc) qaDesc.textContent = mfg.qualityTesting.desc;
     }
   }
 
   // --- E. Dealer Desk Hydration ---
   function hydrateDistributor(dist) {
-    if (dist.hero && dist.hero.bannerImage) {
-      var bannerDiv = document.querySelector('.banner-slider-img1');
-      if (bannerDiv) bannerDiv.style.backgroundImage = 'url("' + dist.hero.bannerImage + '")';
-    }
+    // 1. Hero & Breadcrumbs
+    hydrateHeroAndBreadcrumb(dist.hero, 'Dealer Desk');
+
+    // 2. Dealer Desk Benefits / Why Partner
     if (dist.whyPartner && dist.whyPartner.title) {
-      var perksTitle = document.querySelector('.perks-heading, .why-partner-heading');
-      if (perksTitle) perksTitle.textContent = dist.whyPartner.title;
+      var bMainTitle = document.querySelector('.np-benefits-main-title');
+      if (bMainTitle) {
+        var wParts = dist.whyPartner.title.split(' ');
+        bMainTitle.innerHTML = '<span class="color_red_home">' + wParts[0] + ' </span>' + wParts.slice(1).join(' ');
+      }
+    }
+    if (dist.hero && dist.hero.subtitle) {
+      var bSubtitle = document.querySelector('.np-benefits-subtitle');
+      if (bSubtitle) bSubtitle.textContent = dist.hero.subtitle;
+    }
+
+    // 3. Dealer Hotline & Direct Desk Contact
+    if (dist.contactInfo) {
+      if (dist.contactInfo.hotline) {
+        document.querySelectorAll('.dist-phone-val, .dealer-hotline-val').forEach(function (el) {
+          el.textContent = dist.contactInfo.hotline;
+          if (el.tagName === 'A') el.href = 'tel:' + dist.contactInfo.hotline.replace(/\s+/g, '');
+        });
+      }
+      if (dist.contactInfo.email) {
+        document.querySelectorAll('.dist-email-val, .dealer-email-val').forEach(function (el) {
+          el.textContent = dist.contactInfo.email;
+          if (el.tagName === 'A') el.href = 'mailto:' + dist.contactInfo.email;
+        });
+      }
+    }
+
+    // 4. 4-Step Partnership Onboarding Steps
+    if (dist.process && Array.isArray(dist.process.steps)) {
+      var stepCards = document.querySelectorAll('.np-step-card, .partnership-step-item');
+      dist.process.steps.forEach(function (st, idx) {
+        if (stepCards[idx]) {
+          var sTitle = stepCards[idx].querySelector('h4, .step-title');
+          var sDesc = stepCards[idx].querySelector('p, .step-desc');
+          if (sTitle && st.title) sTitle.textContent = st.title;
+          if (sDesc && st.desc) sDesc.textContent = st.desc;
+        }
+      });
     }
   }
 
   // --- F. Contact Hydration ---
   function hydrateContact(contact, general) {
+    // 1. Hero & Breadcrumbs
+    hydrateHeroAndBreadcrumb(contact ? contact.hero : null, 'Contact Us');
+
     var email = (general && general.contactEmail) || (contact && contact.supportChannels && contact.supportChannels.general);
     var phone = (general && general.contactPhone) || (contact && contact.corporateOffice && contact.corporateOffice.phone);
     var address = (contact && contact.corporateOffice && contact.corporateOffice.address) || (general && general.headOffice);
@@ -765,10 +896,6 @@
     if (contact && Array.isArray(contact.factories) && contact.factories.length > 0) {
       // 1. Interactive Map Tabs on contact.html (#map .np-findus-tabs)
       var tabsContainer = document.querySelector('.np-findus-tabs');
-      var mapFrame = document.getElementById('np_findus_frame');
-      var mapAddr = document.getElementById('np_findus_addr');
-      var mapDir = document.getElementById('np_findus_dir');
-
       if (tabsContainer) {
         var corpAddress = (contact.corporateOffice && contact.corporateOffice.address) || address || '135G, Shyama Prasad Mukherjee Road, Sterling Apartment, First Floor, Next to Mahindra Showroom, Kolkata 700026';
         var corpQ = encodeURIComponent(corpAddress);
@@ -789,14 +916,13 @@
 
         tabsContainer.innerHTML = html;
 
-        // Update intro text if present
         var findusHead = document.querySelector('.np-findus-head p');
         if (findusHead) {
           findusHead.textContent = 'Visit our corporate office in Kolkata or any of our ' + (mapItems.length) + ' manufacturing plants and regional facilities.';
         }
       }
 
-      // 2. Regional Manufacturing & Trade Depots grid on contact.html (.regional_hubs_section .hubs_grid)
+      // 2. Regional Manufacturing & Trade Depots grid on contact.html
       var hubsGrid = document.querySelector('.regional_hubs_section .hubs_grid');
       if (hubsGrid) {
         var depotItems = contact.factories.filter(function (f) {
@@ -823,13 +949,40 @@
 
   // --- G. Policies Hydration ---
   function hydratePolicies(policies) {
-    if (policies.qualityWarranty && policies.qualityWarranty.text) {
-      var wEl = document.getElementById('warranty-text') || document.querySelector('.policy-warranty-content');
-      if (wEl) wEl.textContent = policies.qualityWarranty.text;
+    // 1. Hero & Breadcrumbs
+    hydrateHeroAndBreadcrumb(policies.hero, 'Policies');
+
+    // 2. Banner Heading & Subtitle
+    if (policies.hero) {
+      var pHeading = document.querySelector('.np-page-banner h1.heading-text, .inner_banner h1');
+      if (pHeading && policies.hero.title) pHeading.innerHTML = policies.hero.title;
+
+      var pDesc = document.querySelector('.np-page-banner p.para-text, .inner_banner p');
+      if (pDesc && policies.hero.subtitle) pDesc.textContent = policies.hero.subtitle;
     }
+
+    // 3. Quality Policy Clause
+    if (policies.qualityWarranty && policies.qualityWarranty.text) {
+      var qEl = document.querySelector('#quality p, #warranty-text, .policy-warranty-content');
+      if (qEl) qEl.textContent = policies.qualityWarranty.text;
+    }
+
+    // 4. Privacy Policy Clause
     if (policies.privacy && policies.privacy.text) {
-      var pEl = document.getElementById('privacy-text') || document.querySelector('.policy-privacy-content');
-      if (pEl) pEl.textContent = policies.privacy.text;
+      var privEl = document.querySelector('#privacy p, #privacy-text, .policy-privacy-content');
+      if (privEl) privEl.textContent = policies.privacy.text;
+    }
+
+    // 5. Terms & Replacement Policy Clause
+    if (policies.returnsReplacement && policies.returnsReplacement.text) {
+      var rEl = document.querySelector('#terms p, #returns-text, .policy-returns-content');
+      if (rEl) rEl.textContent = policies.returnsReplacement.text;
+    }
+
+    // 6. Shipping & Dispatch Clause
+    if (policies.shippingDispatch && policies.shippingDispatch.text) {
+      var sEl = document.querySelector('#shipping-text, .policy-shipping-content');
+      if (sEl) sEl.textContent = policies.shippingDispatch.text;
     }
   }
 

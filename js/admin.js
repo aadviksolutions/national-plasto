@@ -30,6 +30,11 @@
   // API Helper
   function apiFetch(url, options = {}) {
     options.headers = options.headers || {};
+    const token = localStorage.getItem('np_admin_token') || sessionStorage.getItem('np_admin_token');
+    if (token && !options.headers['Authorization']) {
+      options.headers['Authorization'] = 'Bearer ' + token;
+    }
+    options.credentials = 'same-origin';
     return fetch(url, options).then(async (res) => {
       const contentType = res.headers.get('content-type') || '';
       if (!contentType.includes('application/json')) {
@@ -1020,17 +1025,35 @@
 
   async function loadCMS() {
     try {
-      // 1. Immediately establish baseline from embedded master data
+      // 1. Immediately establish baseline from embedded master data so UI responds instantly
       const masterCMS = getDefaultCMS();
       if (masterCMS) {
-        cmsData = masterCMS;
+        cmsData = Object.assign({}, masterCMS);
         populateCMSForms();
       }
 
-      // 2. Check IndexedDB first (holds richest customizations without quota limits)
+      // 2. Fetch fresh live data from server API first if running locally
+      let serverData = null;
+      try {
+        const sRes = await fetch('/api/cms?t=' + Date.now());
+        if (sRes.ok) {
+          const sJson = await sRes.json();
+          if (sJson && (sJson.data || sJson.home)) serverData = sJson.data || sJson;
+        }
+      } catch (_) {}
+
+      // Fallback to static cms-content.json if API failed
+      if (!serverData) {
+        try {
+          const staticRes = await fetch('data/cms-content.json?t=' + Date.now());
+          if (staticRes.ok) serverData = await staticRes.json();
+        } catch (_) {}
+      }
+
+      // 3. Check IndexedDB first for rich customizations without quota limits
       let customData = await idbStorage.get('np_custom_cms');
 
-      // 3. Fallback to localStorage
+      // 4. Fallback to localStorage
       if (!customData) {
         const cached = localStorage.getItem('np_custom_cms');
         if (cached) {
@@ -1041,20 +1064,9 @@
         }
       }
 
-      if (customData && typeof customData === 'object' && Object.keys(customData).length > 0) {
-        cmsData = Object.assign({}, masterCMS || {}, customData);
-        populateCMSForms();
-        return;
-      }
-
-      // 3. Fallback to static fetch if master data wasn't in DOM
-      if (!masterCMS) {
-        const staticRes = await fetch('data/cms-content.json?t=' + Date.now());
-        if (staticRes.ok) {
-          cmsData = await staticRes.json();
-          populateCMSForms();
-        }
-      }
+      // Merge order: master baseline -> server live updates -> local rich customizations
+      cmsData = Object.assign({}, masterCMS || {}, serverData || {}, customData || {});
+      populateCMSForms();
     } catch (err) {
       console.warn('Error loading CMS data:', err);
     }
@@ -1166,6 +1178,7 @@
 
     // B. About Us
     if (cmsData.about) {
+      setVal('cms_about_hero_breadcrumb', cmsData.about.hero?.breadcrumb || 'About Us');
       setVal('cms_about_hero_title', cmsData.about.hero?.title);
       setVal('cms_about_hero_subtitle', cmsData.about.hero?.subtitle);
       setVal('cms_about_hero_image', cmsData.about.hero?.bannerImage);
@@ -1209,6 +1222,7 @@
 
     // C. Products Page
     if (cmsData.products) {
+      setVal('cms_products_hero_breadcrumb', cmsData.products.hero?.breadcrumb || 'Products');
       setVal('cms_products_hero_title', cmsData.products.hero?.title);
       setVal('cms_products_hero_subtitle', cmsData.products.hero?.subtitle);
       setVal('cms_products_hero_image', cmsData.products.hero?.bannerImage);
@@ -1232,6 +1246,7 @@
 
     // D. Manufacturing
     if (cmsData.manufacturing) {
+      setVal('cms_mfg_hero_breadcrumb', cmsData.manufacturing.hero?.breadcrumb || 'Manufacturing');
       setVal('cms_mfg_hero_title', cmsData.manufacturing.hero?.title);
       setVal('cms_mfg_hero_subtitle', cmsData.manufacturing.hero?.subtitle);
       setVal('cms_mfg_hero_image', cmsData.manufacturing.hero?.bannerImage);
@@ -1250,6 +1265,7 @@
 
     // E. Dealer Desk (Distributor)
     if (cmsData.distributor) {
+      setVal('cms_dist_hero_breadcrumb', cmsData.distributor.hero?.breadcrumb || 'Dealer Desk');
       setVal('cms_dist_hero_title', cmsData.distributor.hero?.title);
       setVal('cms_dist_hero_subtitle', cmsData.distributor.hero?.subtitle);
       setVal('cms_dist_hero_image', cmsData.distributor.hero?.bannerImage);
@@ -1267,6 +1283,7 @@
 
     // F. Contact Us
     if (cmsData.contact || cmsData.general) {
+      setVal('cms_contact_hero_breadcrumb', cmsData.contact?.hero?.breadcrumb || 'Contact Us');
       setVal('cms_contact_hero_title', cmsData.contact?.hero?.title);
       setVal('cms_contact_hero_subtitle', cmsData.contact?.hero?.subtitle);
       setVal('cms_contact_hero_image', cmsData.contact?.hero?.bannerImage);
@@ -1308,8 +1325,10 @@
 
     // G. Policies
     if (cmsData.policies) {
+      setVal('cms_policy_hero_breadcrumb', cmsData.policies.hero?.breadcrumb || 'Policies');
       setVal('cms_policy_hero_title', cmsData.policies.hero?.title);
       setVal('cms_policy_hero_subtitle', cmsData.policies.hero?.subtitle);
+      setVal('cms_policy_hero_image', cmsData.policies.hero?.bannerImage);
       setVal('cms_policy_warranty', cmsData.policies.qualityWarranty?.text);
       setVal('cms_policy_privacy', cmsData.policies.privacy?.text);
       setVal('cms_policy_returns', cmsData.policies.returnsReplacement?.text);
@@ -1421,6 +1440,7 @@
       } else if (page === 'about') {
         cmsData.about = cmsData.about || {};
         cmsData.about.hero = {
+          breadcrumb: getVal('cms_about_hero_breadcrumb') || 'About Us',
           title: getVal('cms_about_hero_title'),
           subtitle: getVal('cms_about_hero_subtitle'),
           bannerImage: getVal('cms_about_hero_image')
@@ -1464,6 +1484,7 @@
       } else if (page === 'products') {
         cmsData.products = cmsData.products || {};
         cmsData.products.hero = {
+          breadcrumb: getVal('cms_products_hero_breadcrumb') || 'Products',
           title: getVal('cms_products_hero_title'),
           subtitle: getVal('cms_products_hero_subtitle'),
           bannerImage: getVal('cms_products_hero_image')
@@ -1497,6 +1518,7 @@
       } else if (page === 'manufacturing') {
         cmsData.manufacturing = cmsData.manufacturing || {};
         cmsData.manufacturing.hero = {
+          breadcrumb: getVal('cms_mfg_hero_breadcrumb') || 'Manufacturing',
           title: getVal('cms_mfg_hero_title'),
           subtitle: getVal('cms_mfg_hero_subtitle'),
           bannerImage: getVal('cms_mfg_hero_image')
@@ -1523,6 +1545,7 @@
       } else if (page === 'distributor') {
         cmsData.distributor = cmsData.distributor || {};
         cmsData.distributor.hero = {
+          breadcrumb: getVal('cms_dist_hero_breadcrumb') || 'Dealer Desk',
           title: getVal('cms_dist_hero_title'),
           subtitle: getVal('cms_dist_hero_subtitle'),
           bannerImage: getVal('cms_dist_hero_image')
@@ -1544,6 +1567,7 @@
         cmsData.contact = cmsData.contact || {};
         cmsData.general = cmsData.general || {};
         cmsData.contact.hero = {
+          breadcrumb: getVal('cms_contact_hero_breadcrumb') || 'Contact Us',
           title: getVal('cms_contact_hero_title'),
           subtitle: getVal('cms_contact_hero_subtitle'),
           bannerImage: getVal('cms_contact_hero_image')
@@ -1594,8 +1618,10 @@
       } else if (page === 'policies') {
         cmsData.policies = cmsData.policies || {};
         cmsData.policies.hero = {
+          breadcrumb: getVal('cms_policy_hero_breadcrumb') || 'Policies',
           title: getVal('cms_policy_hero_title'),
-          subtitle: getVal('cms_policy_hero_subtitle')
+          subtitle: getVal('cms_policy_hero_subtitle'),
+          bannerImage: getVal('cms_policy_hero_image')
         };
         cmsData.policies.qualityWarranty = {
           title: 'Quality Standards & 1-Year Structural Warranty',
@@ -1631,13 +1657,18 @@
         }
       }
 
+      try {
+        localStorage.setItem('np_custom_cms_timestamp', Date.now().toString());
+      } catch (_) {}
+
       // Attempt server sync if available
       try {
-        await apiFetch('/api/cms/' + page, {
+        const syncRes = await apiFetch('/api/cms/' + page, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(cmsData[page])
         });
+        console.log('[CMS Sync] Server updated successfully for page:', page, syncRes);
 
         // Also persist general if updated
         if (page === 'contact' && cmsData.general) {
@@ -1648,21 +1679,17 @@
           });
         }
       } catch (e) {
-        console.warn('Server sync skipped in Cloud Mode');
+        console.warn('Server sync skipped or error:', e);
       }
 
-      // 3. Notify all other open browser tabs (e.g. index.html) to instantly reload content
+      // 3. Notify all other open browser tabs to instantly reload content
       if (typeof BroadcastChannel !== 'undefined') {
         try {
           const bc = new BroadcastChannel('np_cms_channel');
           bc.postMessage({ type: 'cms_updated', page: page });
         } catch (_) {}
       }
-      try {
-        localStorage.setItem('np_custom_cms_timestamp', Date.now().toString());
-      } catch (_) {}
-
-      showToast('All ' + page.toUpperCase() + ' sections saved successfully!');
+      showToast('All ' + page.toUpperCase() + ' sections saved and live on site!', 'success');
     } catch (err) {
       showToast(err.message || 'Save failed: ' + err, 'error');
     }

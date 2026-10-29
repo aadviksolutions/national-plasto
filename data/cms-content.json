@@ -268,6 +268,7 @@
   },
   "about": {
     "hero": {
+      "breadcrumb": "About Us",
       "title": "Rooted in 1981, Incorporated in 1997",
       "subtitle": "Over four decades of industrial heritage and nearly three decades of pioneering plastic injection moulding excellence.",
       "bannerImage": "images/brand/aboutus.png"
@@ -372,6 +373,7 @@
   },
   "products": {
     "hero": {
+      "breadcrumb": "Products",
       "title": "Products & Complete Catalogue",
       "subtitle": "Browse 360+ models of moulded chairs, dining sets, tables, stools and storage.",
       "bannerImage": "images/brand/products.png"
@@ -484,6 +486,7 @@
   },
   "manufacturing": {
     "hero": {
+      "breadcrumb": "Manufacturing",
       "title": "World-Class Plastic Furniture Manufacturing Facilities",
       "subtitle": "Robotic injection moulding, high-tonnage precision machinery & ISO 9001:2015 accredited plants.",
       "bannerImage": "images/brand/company-photo.jpg"
@@ -574,6 +577,7 @@
   },
   "distributor": {
     "hero": {
+      "breadcrumb": "Dealer Desk",
       "title": "Partner With India's Fastest Growing Furniture Network",
       "subtitle": "Join over 500+ successful distributors and dealers across 15+ states with assured margins and prompt factory dispatch.",
       "bannerImage": "images/hero/image2.png"
@@ -642,6 +646,7 @@
   },
   "contact": {
     "hero": {
+      "breadcrumb": "Contact Us",
       "title": "Contact National Plasto",
       "subtitle": "Reach out to our corporate headquarters, manufacturing plants, or dealership helpdesk.",
       "bannerImage": "images/brand/company-photo.jpg"
@@ -690,8 +695,10 @@
   },
   "policies": {
     "hero": {
+      "breadcrumb": "Policies",
       "title": "Policies, Warranty & Consumer Care",
-      "subtitle": "Our commitment to quality, consumer trust, data privacy, and ethical manufacturing practices."
+      "subtitle": "Our commitment to quality, consumer trust, data privacy, and ethical manufacturing practices.",
+      "bannerImage": "images/brand/company-photo.jpg"
     },
     "qualityWarranty": {
       "title": "Quality Standards & 1-Year Structural Warranty",
