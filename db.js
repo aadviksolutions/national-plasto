@@ -65,6 +65,8 @@ async function initDatabase() {
       const conn = await pool.getConnection();
       isConnected = true;
       console.log('✅ [MySQL] Successfully connected to database: ' + DB_CONFIG.database + ' on ' + DB_CONFIG.host);
+      try { await conn.query("SET GLOBAL max_allowed_packet = 67108864;"); } catch (_) {}
+      try { await conn.query("SET SESSION max_allowed_packet = 67108864;"); } catch (_) {}
       conn.release();
 
       // 1. Create tables if not exist

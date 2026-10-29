@@ -4,6 +4,7 @@ const fs = require('fs');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const multer = require('multer');
 const db = require('../db');
 
 // Eagerly attempt database initialization if credentials exist
@@ -12,6 +13,7 @@ db.initDatabase().catch(err => {
 });
 
 const app = express();
+const upload = multer({ limits: { fileSize: 25 * 1024 * 1024 } });
 
 app.use(compression());
 app.use(cors());
@@ -341,9 +343,41 @@ app.delete('/api/media/:filename', (req, res) => {
   res.json({ success: true, message: 'File deleted from uploads' });
 });
 
-app.post('/api/upload', (req, res) => {
-  broadcastRealtimeUpdate('media_updated', { files: req.body });
-  res.json({ success: true, message: 'File uploaded successfully' });
+app.post('/api/upload', upload.any(), (req, res) => {
+  try {
+    const uploadedFiles = [];
+    if (req.files && req.files.length > 0) {
+      req.files.forEach(f => {
+        const ext = path.extname(f.originalname || '').toLowerCase() || '.jpg';
+        const mime = f.mimetype || 'image/jpeg';
+        const b64 = `data:${mime};base64,${f.buffer.toString('base64')}`;
+        uploadedFiles.push({
+          originalName: f.originalname,
+          filename: f.originalname,
+          url: b64,
+          cleanUrl: b64,
+          size: f.size
+        });
+      });
+    } else if (req.body && req.body.image) {
+      uploadedFiles.push({
+        originalName: req.body.name || 'upload.jpg',
+        filename: req.body.name || 'upload.jpg',
+        url: req.body.image,
+        cleanUrl: req.body.image,
+        size: req.body.image.length
+      });
+    }
+
+    if (uploadedFiles.length === 0) {
+      return res.status(400).json({ success: false, error: 'No files uploaded' });
+    }
+
+    broadcastRealtimeUpdate('media_updated', { files: uploadedFiles });
+    res.json({ success: true, files: uploadedFiles, message: `${uploadedFiles.length} file(s) processed successfully` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
 });
 
 app.post('/api/sync/catalogue', (req, res) => {

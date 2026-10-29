@@ -454,18 +454,54 @@ app.get('/api/inquiries', requireAuth, async (req, res) => {
 });
 
 // --- Media & Uploads Routes ---
-app.post('/api/upload', requireAuth, upload.array('files', 10), (req, res) => {
-  if (!req.files || req.files.length === 0) {
-    return res.status(400).json({ success: false, error: 'No files uploaded' });
+app.post('/api/upload', requireAuth, upload.any(), (req, res) => {
+  try {
+    const uploadedFiles = [];
+    if (req.files && req.files.length > 0) {
+      req.files.forEach(f => {
+        uploadedFiles.push({
+          originalName: f.originalname,
+          filename: f.filename,
+          url: `/images/uploads/${f.filename}`,
+          cleanUrl: `images/uploads/${f.filename}`,
+          size: f.size
+        });
+      });
+    } else if (req.body && req.body.image) {
+      // Decode Base64 data URL
+      const b64 = req.body.image;
+      const matches = b64.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+      if (matches && matches.length === 3) {
+        const mime = matches[1];
+        const data = Buffer.from(matches[2], 'base64');
+        const ext = mime.includes('png') ? '.png' : mime.includes('webp') ? '.webp' : mime.includes('svg') ? '.svg' : '.jpg';
+        const rawName = (req.body.name || 'upload').replace(/\.[^/.]+$/, '');
+        const cleanBase = rawName.replace(/[^a-zA-Z0-9_-]/g, '-').toLowerCase();
+        const filename = `${cleanBase}-${Date.now()}${ext}`;
+        if (!fs.existsSync(UPLOADS_DIR)) {
+          fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+        }
+        const filePath = path.join(UPLOADS_DIR, filename);
+        fs.writeFileSync(filePath, data);
+        uploadedFiles.push({
+          originalName: req.body.name || filename,
+          filename,
+          url: `/images/uploads/${filename}`,
+          cleanUrl: `images/uploads/${filename}`,
+          size: data.length
+        });
+      }
+    }
+
+    if (uploadedFiles.length === 0) {
+      return res.status(400).json({ success: false, error: 'No valid files or base64 images uploaded' });
+    }
+
+    broadcastRealtimeUpdate('media_updated', { files: uploadedFiles });
+    res.json({ success: true, files: uploadedFiles, message: `${uploadedFiles.length} file(s) uploaded successfully` });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
   }
-  const uploadedFiles = req.files.map(f => ({
-    originalName: f.originalname,
-    filename: f.filename,
-    url: `/images/uploads/${f.filename}`,
-    size: f.size
-  }));
-  broadcastRealtimeUpdate('media_updated', { files: uploadedFiles });
-  res.json({ success: true, files: uploadedFiles, message: `${uploadedFiles.length} file(s) uploaded successfully` });
 });
 
 app.get('/api/media', (req, res) => {

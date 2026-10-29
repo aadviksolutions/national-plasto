@@ -284,6 +284,16 @@
       }
       var heroPosterImg = document.querySelector('.np-hero-poster-img');
       if (heroPosterImg && home.hero.videoPoster) setSafeImage(heroPosterImg, home.hero.videoPoster);
+
+      // Hero Fallback Banner Image / Background
+      if (home.hero.bannerImage) {
+        var heroWrap = document.querySelector('.np-hero-bg-video-wrap, .banner-section');
+        if (heroWrap) {
+          heroWrap.style.backgroundImage = 'url("' + home.hero.bannerImage + '")';
+          heroWrap.style.backgroundSize = 'cover';
+          heroWrap.style.backgroundPosition = 'center';
+        }
+      }
     }
 
     // 2. Virtues (6 items)
@@ -324,9 +334,35 @@
     // 4. Metrics / Largest Plastic
     if (home.metricsSection) {
       var mHeading = document.querySelector('.largest_plastic_content h2');
-      if (mHeading && home.metricsSection.heading) mHeading.innerHTML = '<span class="color_red_home">' + home.metricsSection.heading + '</span>';
+      if (mHeading && home.metricsSection.heading) {
+        var hText = home.metricsSection.heading;
+        var hWords = hText.split(' ');
+        if (hWords.length > 2) {
+          mHeading.innerHTML = '<span class="color_red_home">' + escapeHtml(hWords.slice(0, 2).join(' ')) + '</span> ' + escapeHtml(hWords.slice(2).join(' '));
+        } else {
+          mHeading.innerHTML = '<span class="color_red_home">' + escapeHtml(hText) + '</span>';
+        }
+      }
       var mDesc = document.querySelector('.largest_plastic_content .para-text');
       if (mDesc && home.metricsSection.desc) mDesc.textContent = home.metricsSection.desc;
+
+      if (Array.isArray(home.metricsSection.stats)) {
+        var statNodes = document.querySelectorAll('.largest_plastic_white_box .np-stat');
+        home.metricsSection.stats.forEach(function (statObj, idx) {
+          if (statNodes[idx] && statObj) {
+            var val = typeof statObj === 'string' ? statObj.split(' - ')[0] : statObj.value;
+            var lbl = typeof statObj === 'string' ? (statObj.split(' - ')[1] || '') : statObj.label;
+            if (val) {
+              var h5 = statNodes[idx].querySelector('h5');
+              if (h5) h5.innerHTML = escapeHtml(val);
+            }
+            if (lbl) {
+              var p = statNodes[idx].querySelector('.para-text');
+              if (p) p.textContent = lbl;
+            }
+          }
+        });
+      }
     }
 
     // 5. Plant Highlights Slider (With Slick Clone & Lazy-Load Synchronization)
@@ -383,15 +419,16 @@
 
     // 6. Our Brands
     if (home.brandsSection && home.brandsSection.brands) {
-      var brandTitles = document.querySelectorAll('.our_business_title_slider .slider_title_item h4.subheading-text');
-      var brandImgs = document.querySelectorAll('.our_business_img_slider .our_business_img_item img');
       home.brandsSection.brands.forEach(function (b, idx) {
-        if (brandTitles[idx] && b.name) {
-          brandTitles[idx].innerHTML = b.name + ' <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon">';
-        }
-        if (brandImgs[idx] && b.image) {
-          setSafeImage(brandImgs[idx], b.image);
-        }
+        var brandTitles = document.querySelectorAll('.slider_title_item[data-slide="' + idx + '"] h4, .our_business_title_slider .slider_title_item:nth-child(' + (idx + 1) + ') h4');
+        brandTitles.forEach(function (t) {
+          if (b.name) t.innerHTML = escapeHtml(b.name) + ' <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon">';
+        });
+
+        var brandImgs = document.querySelectorAll('.our_business_img_slider [data-slide="' + idx + '"] img, .our_business_img_slider .our_business_img_item:nth-child(' + (idx + 1) + ') img, .our_business_img_slider .slick-cloned[data-slide="' + idx + '"] img');
+        brandImgs.forEach(function (img) {
+          if (b.image) setSafeImage(img, b.image);
+        });
       });
     }
 

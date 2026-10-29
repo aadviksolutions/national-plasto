@@ -577,26 +577,13 @@
   prodImageUploadInput.addEventListener('change', async function () {
     if (this.files && this.files[0]) {
       const file = this.files[0];
-      showToast(`Optimizing "${file.name}"...`, 'info');
+      showToast(`Uploading and optimizing "${file.name}"...`, 'info');
       try {
-        const compressed = await compressImageFile(file, 900, 900, 0.82);
-        prodPrimaryImage.value = compressed;
-        prodImagePreview.src = compressed;
+        const finalUrl = await uploadFileToServer(file);
+        prodPrimaryImage.value = finalUrl;
+        prodImagePreview.src = finalUrl;
         prodImagePreviewWrap.style.display = 'block';
-        showToast('Photo selected and preview ready!');
-
-        // Try server upload if available
-        try {
-          const formData = new FormData();
-          formData.append('files', file);
-          const res = await fetch('/api/upload', { method: 'POST', body: formData }).then((r) => r.json());
-          if (res && res.success && res.files && res.files[0]) {
-            prodPrimaryImage.value = res.files[0].url.replace(/^\//, ''); // Clean leading slash
-            prodImagePreview.src = prodPrimaryImage.value;
-          }
-        } catch (err) {
-          console.warn('Server upload skipped in Cloud Mode, using Data URL');
-        }
+        showToast('Photo uploaded and ready to save!', 'success');
       } catch (e) {
         showToast('Error processing product photo: ' + e.message, 'danger');
       }
@@ -927,6 +914,66 @@
     });
   }
 
+  // Universal Upload Helper: Sends file with Auth token, returns clean server URL or optimized fallback
+  async function uploadFileToServer(file) {
+    const token = localStorage.getItem('np_admin_token') || sessionStorage.getItem('np_admin_token') || 'np_admin_session';
+
+    // 1. Try Multipart FormData Upload to /api/upload
+    try {
+      const formData = new FormData();
+      formData.append('files', file);
+
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + token
+        },
+        credentials: 'same-origin',
+        body: formData
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.success && json.files && json.files[0]) {
+          const rawUrl = json.files[0].cleanUrl || json.files[0].url || '';
+          return rawUrl.replace(/^\//, ''); // Clean leading slash for uniform relative path
+        }
+      }
+    } catch (err) {
+      console.warn('[Upload] Multipart upload network notice:', err.message);
+    }
+
+    // 2. Fallback to base64 JSON upload to /api/upload
+    try {
+      const isBanner = file.name && (file.name.includes('banner') || file.name.includes('hero'));
+      const maxW = isBanner ? 1600 : 1000;
+      const maxH = isBanner ? 900 : 900;
+      const compressed = await compressImageFile(file, maxW, maxH, 0.85);
+
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify({ image: compressed, name: file.name })
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        if (json && json.success && json.files && json.files[0]) {
+          const rawUrl = json.files[0].cleanUrl || json.files[0].url || '';
+          return rawUrl.replace(/^\//, '');
+        }
+      }
+      return compressed; // Return compressed base64 if server upload endpoint unavailable
+    } catch (err2) {
+      console.warn('[Upload] Base64 fallback notice:', err2.message);
+      return await compressImageFile(file, 900, 800, 0.82);
+    }
+  }
+
   window.uploadImageForField = function (targetId) {
     let fileInput = document.getElementById('cmsGlobalImagePicker');
     if (!fileInput) {
@@ -942,18 +989,15 @@
       if (!fileInput.files || !fileInput.files[0]) return;
       const file = fileInput.files[0];
 
-      showToast(`Optimizing "${file.name}"...`, 'info');
+      showToast(`Uploading and optimizing "${file.name}"...`, 'info');
 
       try {
-        const isBanner = targetId.includes('hero') || targetId.includes('banner');
-        const maxW = isBanner ? 1400 : 900;
-        const maxH = isBanner ? 900 : 800;
-        const dataUrl = await compressImageFile(file, maxW, maxH, 0.82);
+        const finalUrl = await uploadFileToServer(file);
 
         // 1. Update the target input field value and fire events
         const inputEl = document.getElementById(targetId);
         if (inputEl) {
-          inputEl.value = dataUrl;
+          inputEl.value = finalUrl;
           try {
             inputEl.dispatchEvent(new Event('input', { bubbles: true }));
             inputEl.dispatchEvent(new Event('change', { bubbles: true }));
@@ -961,44 +1005,29 @@
         }
 
         // 2. Synchronize preview thumbnail directly
-        setVal(targetId, dataUrl);
+        setVal(targetId, finalUrl);
 
         const preview = document.getElementById(targetId + '_preview') ||
                         document.getElementById(targetId.replace('_photo', '_photo_preview')) ||
                         document.getElementById(targetId.replace('_img', '_img_preview')) ||
                         document.getElementById(targetId.replace('_image', '_image_preview'));
         if (preview) {
-          preview.src = dataUrl;
+          preview.src = finalUrl;
           preview.style.display = 'block';
         }
 
         // 3. Save to Custom Media Library in IndexedDB and lean localStorage
         const mediaItem = {
           name: file.name,
-          url: dataUrl,
+          url: finalUrl,
           tag: 'Uploads',
-          size: Math.round(dataUrl.length * 0.75),
+          size: file.size || Math.round(finalUrl.length * 0.75),
           mtime: Date.now()
         };
         allMedia = [mediaItem, ...(allMedia || [])];
         await idbStorage.set('np_custom_media', allMedia);
 
-        // Keep localStorage lean (only 3 items max) so it never causes quota failure
-        try {
-          const leanMedia = (allMedia || []).slice(0, 3);
-          localStorage.setItem('np_custom_media', JSON.stringify(leanMedia));
-        } catch (_) {
-          try { localStorage.removeItem('np_custom_media'); } catch (_) {}
-        }
-
-        // 4. If server backend is reachable, upload in parallel
-        try {
-          const fd = new FormData();
-          fd.append('files', file);
-          fetch('/api/upload', { method: 'POST', body: fd }).catch(() => {});
-        } catch (_) {}
-
-        // Auto-save the active page so updates apply to the live site immediately
+        // Auto-save the active page so updates apply to MySQL and live site immediately
         let activePage = 'home';
         if (targetId.includes('about')) activePage = 'about';
         else if (targetId.includes('product') || targetId.includes('coll')) activePage = 'products';
@@ -1008,10 +1037,12 @@
         else if (targetId.includes('policy')) activePage = 'policies';
 
         if (typeof window.saveCurrentCMS === 'function') {
-          try { await window.saveCurrentCMS(activePage); } catch (_) {}
+          try { await window.saveCurrentCMS(activePage); } catch (e) {
+            console.warn('[CMS Save] Auto-save notice:', e);
+          }
         }
 
-        showToast(`"${file.name}" uploaded, optimized, and saved live!`, 'success');
+        showToast(`"${file.name}" uploaded, saved to database, and live!`, 'success');
       } catch (err) {
         console.error('Upload processing error:', err);
         showToast('Failed to process image: ' + err.message, 'danger');
@@ -1406,6 +1437,19 @@
           photo: getVal('cms_home_cmd_photo'),
           btnText: getVal('cms_home_cmd_btnText'),
           btnLink: getVal('cms_home_cmd_btnLink')
+        };
+
+        // Section 4: Key Metrics & Industrial Scale
+        cmsData.home.metricsSection = {
+          heading: getVal('cms_home_metrics_heading') || "India's Leading Precision Plastic Processor",
+          desc: getVal('cms_home_metrics_desc') || "Powered by four ISO-certified manufacturing plants and a family-led management team, National Plasto has been making plastic moulded furniture for every space and every need since 1997.",
+          stats: [0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
+            const raw = getVal('cms_home_stat_' + i);
+            const parts = raw.split(' - ');
+            const valUnit = (parts[0] || '').trim();
+            const label = (parts[1] || '').trim();
+            return { value: valUnit, label: label };
+          })
         };
 
         // Plant Highlights (2)
