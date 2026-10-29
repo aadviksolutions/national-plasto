@@ -4,9 +4,13 @@ const fs = require('fs');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
+const compression = require('compression');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Enable gzip/deflate compression for all text/html/json/js/css responses
+app.use(compression());
 
 // Directories
 const DATA_DIR = path.join(__dirname, 'data');
