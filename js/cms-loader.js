@@ -362,33 +362,58 @@
       });
     }
 
-    // 7. Milestones (Dynamic Timeline with Editable Headings)
-    if (home.milestones && Array.isArray(home.milestones)) {
+    // 7. Milestones — Full Slick Rebuild from CMS Data
+    if (home.milestones && Array.isArray(home.milestones) && home.milestones.length > 0) {
       var msSlider = document.getElementById('milestones_slider');
       if (msSlider) {
-        var msSlides = msSlider.querySelectorAll('.milestones_flex:not(.slick-cloned)');
+        var SLICK_CONFIG = {
+          dots: false,
+          arrows: true,
+          infinite: true,
+          speed: 1000,
+          autoplay: true,
+          pauseOnHover: true,
+          pauseOnFocus: true,
+          pauseOnDotsHover: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplaySpeed: 4000,
+          responsive: [
+            { breakpoint: 1200, settings: { adaptiveHeight: true, pauseOnHover: true } },
+            { breakpoint: 991, settings: { arrows: false, dots: true, adaptiveHeight: true, pauseOnHover: true } }
+          ]
+        };
 
-        function formatMilestoneHeading(yearStr) {
-          if (!yearStr) return '';
-          var yr = (yearStr.indexOf(':') !== -1 ? yearStr.split(':')[0] : yearStr).trim();
-          return '<span class="color_red_home fonthigh">' + escapeHtml(yr) + '</span>';
+        // 1. Destroy existing Slick instance if initialized
+        if (window.jQuery && window.jQuery(msSlider).hasClass('slick-initialized')) {
+          try { window.jQuery(msSlider).slick('unslick'); } catch (_) {}
         }
 
-        function createMilestoneSlideHtml(ms, idx) {
-          var yearHtml = formatMilestoneHeading(ms.year || ('Milestone ' + (idx + 1)));
-          var parts = (ms.date || '').split('·');
+        // 2. Build all slide HTML fresh from CMS data
+        function buildMsSlideHtml(ms, idx) {
+          var yr = ms.year ? (ms.year.indexOf(':') !== -1 ? ms.year.split(':')[0] : ms.year).trim() : ('Milestone ' + (idx + 1));
+          var yearHtml = '<span class="color_red_home fonthigh">' + escapeHtml(yr) + '</span>';
+
           var badgeHtml = '';
-          if (parts.length >= 2) {
-            badgeHtml = '<span class="np-ms-pin"><i class="fas fa-' + (idx === 0 ? 'landmark' : 'map-marker-alt') + '"></i> ' + parts[0].trim() + '</span> &bull; <strong>' + parts.slice(1).join('·').trim() + '</strong>';
-          } else {
-            badgeHtml = '<strong>' + (ms.date || '') + '</strong>';
+          var dateParts = (ms.date || '').split('·');
+          if (dateParts.length >= 2) {
+            var icon = idx === 0 ? 'landmark' : 'map-marker-alt';
+            badgeHtml = '<span class="np-ms-pin"><i class="fas fa-' + icon + '"></i> ' +
+              escapeHtml(dateParts[0].trim()) + '</span> &bull; <strong>' +
+              escapeHtml(dateParts.slice(1).join('·').trim()) + '</strong>';
+          } else if (ms.date) {
+            badgeHtml = '<strong>' + escapeHtml(ms.date) + '</strong>';
           }
+
           var imgUrl = ms.image || 'images/brand/company-photo.jpg';
-          var descText = ms.desc || '';
+          var descText = ms.desc ? escapeHtml(ms.desc) : '';
+
           return '<div class="milestones_flex">' +
             '<div class="dassed_border"></div>' +
             '<div class="milestones_img">' +
-              '<img src="' + imgUrl + '" loading="lazy" class="img-responsive np-ms-img-vibrant" alt="' + (ms.year || '') + '" decoding="async">' +
+              '<img src="' + imgUrl + '" loading="lazy" class="img-responsive np-ms-img-vibrant" ' +
+              'alt="' + escapeHtml(yr) + '" decoding="async" ' +
+              'onerror="this.src=\'images/brand/company-photo.jpg\'">' +
             '</div>' +
             '<div class="milestones_content">' +
               '<h2 class="heading-text">' + yearHtml + '</h2>' +
@@ -398,44 +423,32 @@
           '</div>';
         }
 
-        home.milestones.forEach(function (ms, idx) {
-          if (msSlides[idx]) {
-            var img = msSlides[idx].querySelector('.milestones_img img');
-            if (img && ms.image) setSafeImage(img, ms.image);
-            var desc = msSlides[idx].querySelector('.milestones_content .para-text');
-            if (desc && ms.desc) desc.textContent = ms.desc;
-            var heading = msSlides[idx].querySelector('.milestones_content h2');
-            if (heading && ms.year) {
-              heading.innerHTML = formatMilestoneHeading(ms.year);
-            }
-            var badge = msSlides[idx].querySelector('.milestones_content .np-ms-badge');
-            if (badge && ms.date) {
-              var parts = ms.date.split('·');
-              if (parts.length >= 2) {
-                badge.innerHTML = '<span class="np-ms-pin"><i class="fas fa-' + (idx === 0 ? 'landmark' : 'map-marker-alt') + '"></i> ' + parts[0].trim() + '</span> &bull; <strong>' + parts.slice(1).join('·').trim() + '</strong>';
-              } else {
-                badge.innerHTML = '<strong>' + ms.date + '</strong>';
-              }
-            }
-          } else {
-            // New slide added via CMS!
-            var slideHtml = createMilestoneSlideHtml(ms, idx);
-            if (window.jQuery && window.jQuery(msSlider).hasClass('slick-initialized')) {
-              window.jQuery(msSlider).slick('slickAdd', slideHtml);
-            } else {
-              msSlider.insertAdjacentHTML('beforeend', slideHtml);
-            }
-          }
-        });
+        // Replace inner HTML with rebuilt slides
+        var slidesHtml = home.milestones.map(function(ms, idx) {
+          return buildMsSlideHtml(ms, idx);
+        }).join('');
+        msSlider.innerHTML = slidesHtml;
 
-        // If slides were removed in CMS:
-        if (msSlides.length > home.milestones.length) {
-          for (var r = msSlides.length - 1; r >= home.milestones.length; r--) {
-            if (window.jQuery && window.jQuery(msSlider).hasClass('slick-initialized')) {
-              window.jQuery(msSlider).slick('slickRemove', r);
-            } else if (msSlides[r]) {
-              msSlides[r].remove();
-            }
+        // 3. Reinitialise Slick with the same config
+        if (window.jQuery) {
+          try {
+            window.jQuery(msSlider).slick(SLICK_CONFIG);
+
+            // Rebind pause-on-hover from index.html's inline script
+            window.jQuery(msSlider)
+              .off('mouseenter.npcms mouseleave.npcms')
+              .on('mouseenter.npcms', function() {
+                if (window.jQuery(this).hasClass('slick-initialized')) {
+                  window.jQuery(this).slick('slickPause');
+                }
+              })
+              .on('mouseleave.npcms', function() {
+                if (window.jQuery(this).hasClass('slick-initialized')) {
+                  window.jQuery(this).slick('slickPlay');
+                }
+              });
+          } catch (e) {
+            console.warn('[CMS] Slick reinit failed:', e);
           }
         }
       }
