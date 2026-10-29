@@ -626,6 +626,39 @@
 
     renderAll();
 
+    function reloadProductsFromAPI() {
+      fetch('/api/products?t=' + Date.now())
+        .then(function (res) {
+          if (!res.ok) throw new Error('API failed');
+          return res.json();
+        })
+        .then(function (res) {
+          if (res && res.success && Array.isArray(res.products) && res.products.length > 0) {
+            DATA = res.products;
+            try {
+              localStorage.setItem('np_custom_products', JSON.stringify(DATA));
+            } catch (_) {}
+            renderAll();
+          }
+        })
+        .catch(function () {});
+    }
+
+    // Always fetch latest products from MySQL on startup
+    reloadProductsFromAPI();
+
+    // Connect to Real-Time Sync Engine for live cross-user updates
+    function attachRealtime() {
+      if (typeof window !== 'undefined' && window.NP_REALTIME) {
+        window.NP_REALTIME.on('products_updated', function (payload) {
+          reloadProductsFromAPI();
+        });
+      } else {
+        setTimeout(attachRealtime, 250);
+      }
+    }
+    attachRealtime();
+
     if (params.get('brand') || cat || q) {
       var list = document.getElementById('all-products');
       if (list) setTimeout(function () { list.scrollIntoView(); }, 60);

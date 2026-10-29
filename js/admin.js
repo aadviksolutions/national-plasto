@@ -376,34 +376,36 @@
   if (btnSettingsSync) btnSettingsSync.addEventListener('click', triggerSync);
 
   // ================= 4. PRODUCTS MANAGEMENT =================
-  async function loadProducts() {
+  async function loadProducts(silent = false) {
     try {
-      // 1. Check custom products in localStorage first
+      // 1. Establish immediate baseline from cache if allProducts is empty
       const cached = localStorage.getItem('np_custom_products');
-      if (cached) {
+      if (cached && !allProducts.length) {
         try {
           const parsed = JSON.parse(cached);
           if (Array.isArray(parsed) && parsed.length > 0) {
             allProducts = parsed;
             populateCategoryFilter();
             applyProductFilters();
-            return;
           }
         } catch (e) {}
       }
 
-      // 2. Try API
+      // 2. Fetch fresh live data from MySQL server API
       let loaded = false;
       try {
-        const res = await apiFetch('/api/products');
+        const res = await apiFetch('/api/products?t=' + Date.now());
         if (res && res.success && Array.isArray(res.products)) {
           allProducts = res.products;
+          try {
+            localStorage.setItem('np_custom_products', JSON.stringify(allProducts));
+          } catch (_) {}
           loaded = true;
         }
       } catch (e) {}
 
-      // 3. Fallback to static data/products.json
-      if (!loaded) {
+      // 3. Fallback to static data/products.json if server unreachable
+      if (!loaded && !allProducts.length) {
         const staticRes = await fetch('data/products.json?t=' + Date.now());
         if (staticRes.ok) {
           allProducts = await staticRes.json();
@@ -419,7 +421,7 @@
         applyProductFilters();
       }
     } catch (err) {
-      showToast('Error loading products: ' + err.message, 'error');
+      if (!silent) showToast('Error loading products: ' + err.message, 'error');
     }
   }
 
@@ -666,6 +668,11 @@
         console.warn('Server sync skipped, stored in Cloud storage');
       }
 
+      // Broadcast real-time update across all systems and open browser windows
+      if (window.NP_REALTIME) {
+        window.NP_REALTIME.broadcast('products_updated', { action: id ? 'update' : 'create', id });
+      }
+
       showToast('Product saved successfully!');
       closeProductModal();
       populateCategoryFilter();
@@ -708,6 +715,11 @@
         await apiFetch(`/api/products/${encodeURIComponent(deletingProductId)}`, { method: 'DELETE' });
       } catch (e) {
         console.warn('Server delete skipped, updated in Cloud storage');
+      }
+
+      // Broadcast real-time deletion
+      if (window.NP_REALTIME) {
+        window.NP_REALTIME.broadcast('products_updated', { action: 'delete', id: deletingProductId });
       }
 
       showToast('Product deleted successfully');
@@ -1023,16 +1035,16 @@
     return null;
   }
 
-  async function loadCMS() {
+  async function loadCMS(silent = false) {
     try {
       // 1. Immediately establish baseline from embedded master data so UI responds instantly
       const masterCMS = getDefaultCMS();
-      if (masterCMS) {
+      if (masterCMS && (!cmsData || !Object.keys(cmsData).length)) {
         cmsData = Object.assign({}, masterCMS);
         populateCMSForms();
       }
 
-      // 2. Fetch fresh live data from server API first if running locally
+      // 2. Fetch authoritative live data from MySQL server API
       let serverData = null;
       try {
         const sRes = await fetch('/api/cms?t=' + Date.now());
@@ -1043,32 +1055,36 @@
       } catch (_) {}
 
       // Fallback to static cms-content.json if API failed
-      if (!serverData) {
+      if (!serverData && (!cmsData || !Object.keys(cmsData).length)) {
         try {
           const staticRes = await fetch('data/cms-content.json?t=' + Date.now());
           if (staticRes.ok) serverData = await staticRes.json();
         } catch (_) {}
       }
 
-      // 3. Check IndexedDB first for rich customizations without quota limits
-      let customData = await idbStorage.get('np_custom_cms');
-
-      // 4. Fallback to localStorage
-      if (!customData) {
-        const cached = localStorage.getItem('np_custom_cms');
-        if (cached) {
-          try {
-            const parsed = JSON.parse(cached);
-            if (parsed && typeof parsed === 'object') customData = parsed;
-          } catch (e) {}
+      // Authoritative MySQL server data takes top priority
+      if (serverData && Object.keys(serverData).length > 0) {
+        cmsData = Object.assign({}, masterCMS || {}, serverData);
+        await idbStorage.set('np_custom_cms', cmsData).catch(() => {});
+        try { localStorage.setItem('np_custom_cms', JSON.stringify(cmsData)); } catch (_) {}
+      } else {
+        // Fallback to local storage if offline
+        let customData = await idbStorage.get('np_custom_cms');
+        if (!customData) {
+          const cached = localStorage.getItem('np_custom_cms');
+          if (cached) {
+            try {
+              const parsed = JSON.parse(cached);
+              if (parsed && typeof parsed === 'object') customData = parsed;
+            } catch (e) {}
+          }
         }
+        cmsData = Object.assign({}, masterCMS || {}, customData || {});
       }
 
-      // Merge order: master baseline -> server live updates -> local rich customizations
-      cmsData = Object.assign({}, masterCMS || {}, serverData || {}, customData || {});
       populateCMSForms();
     } catch (err) {
-      console.warn('Error loading CMS data:', err);
+      if (!silent) console.warn('Error loading CMS data:', err);
     }
   }
 
@@ -1719,7 +1735,12 @@
         console.warn('Server sync skipped or error:', e);
       }
 
-      // 3. Notify all other open browser tabs to instantly reload content
+      // 3. Broadcast real-time update across all systems and open browser windows
+      if (window.NP_REALTIME) {
+        window.NP_REALTIME.broadcast('cms_updated', { page: page });
+      }
+
+      // 4. Notify all other open browser tabs to instantly reload content
       if (typeof BroadcastChannel !== 'undefined') {
         try {
           const bc = new BroadcastChannel('np_cms_channel');
@@ -2456,5 +2477,73 @@
     return result;
   }
 
+  // ================= 10. REAL-TIME MULTI-USER SYNCHRONIZATION =================
+  function updateRealtimeBadge(status, mode) {
+    const badge = document.getElementById('realtimeSyncBadge');
+    const text = document.getElementById('realtimeSyncText');
+    const dot = document.querySelector('.realtime-dot');
+    if (!badge || !text) return;
+
+    if (status === 'connected') {
+      badge.style.background = '#DCFCE7';
+      badge.style.color = '#15803D';
+      text.textContent = mode === 'sse' ? 'Real-Time Live (SSE)' : 'Real-Time Sync Active';
+      if (dot) dot.style.background = '#22C55E';
+    } else {
+      badge.style.background = '#FEF3C7';
+      badge.style.color = '#B45309';
+      text.textContent = 'Real-Time Connecting...';
+      if (dot) dot.style.background = '#F59E0B';
+    }
+  }
+
+  function attachAdminRealtime() {
+    if (!window.NP_REALTIME) {
+      setTimeout(attachAdminRealtime, 200);
+      return;
+    }
+
+    // 1. Live product updates from another administrator
+    window.NP_REALTIME.on('products_updated', async (payload, meta) => {
+      if (meta && meta.source === 'local') return;
+      await loadProducts(true);
+      await loadStats();
+      showToast('Products updated in real-time by another administrator', 'info');
+    });
+
+    // 2. Live CMS updates from another administrator
+    window.NP_REALTIME.on('cms_updated', async (payload, meta) => {
+      if (meta && meta.source === 'local') return;
+      const isTyping = document.activeElement && 
+        (document.activeElement.tagName === 'INPUT' || document.activeElement.tagName === 'TEXTAREA');
+
+      if (!isTyping) {
+        await loadCMS(true);
+        const pageName = (payload && payload.page && payload.page !== 'all') ? payload.page.toUpperCase() : 'Site';
+        showToast(`${pageName} updated in real-time by another administrator`, 'info');
+      } else {
+        showToast('New content published by another administrator', 'info');
+      }
+    });
+
+    // 3. Live customer inquiry notifications
+    window.NP_REALTIME.on('inquiry_received', (payload) => {
+      showToast(`New inquiry received from ${payload.inquiry?.name || 'customer'}!`, 'success');
+      loadInquiries().catch(() => {});
+    });
+
+    // 4. Connection state updates
+    window.NP_REALTIME.on('connection_state', (payload) => {
+      updateRealtimeBadge(payload.status, payload.mode);
+    });
+
+    // Initial badge update
+    const curStatus = window.NP_REALTIME.getStatus();
+    if (curStatus && curStatus.connected) {
+      updateRealtimeBadge('connected', curStatus.mode);
+    }
+  }
+
+  attachAdminRealtime();
   checkAuth();
 })();

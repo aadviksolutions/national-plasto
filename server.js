@@ -89,7 +89,89 @@ function requireAuth(req, res, next) {
   return res.status(401).json({ success: false, error: 'Unauthorized access. Please login.' });
 }
 
+// ================= REAL-TIME MULTI-USER UPDATE HUB =================
+let serverVersion = Date.now();
+let cmsTimestamp = Date.now();
+let productsTimestamp = Date.now();
+let mediaTimestamp = Date.now();
+const sseClients = new Set();
+
+function broadcastRealtimeUpdate(type, payload = {}) {
+  serverVersion = Date.now();
+  if (type.startsWith('cms')) cmsTimestamp = Date.now();
+  if (type.startsWith('product')) productsTimestamp = Date.now();
+  if (type.startsWith('media')) mediaTimestamp = Date.now();
+
+  const dataPayload = JSON.stringify({
+    type,
+    payload,
+    version: serverVersion,
+    cmsTimestamp,
+    productsTimestamp,
+    mediaTimestamp,
+    timestamp: Date.now()
+  });
+
+  const message = `data: ${dataPayload}\n\n`;
+  for (const client of sseClients) {
+    try {
+      client.write(message);
+    } catch (_) {
+      sseClients.delete(client);
+    }
+  }
+}
+
+// Keep-alive heartbeat every 20 seconds to prevent proxy / browser timeout
+setInterval(() => {
+  for (const client of sseClients) {
+    try {
+      client.write(': keepalive\n\n');
+    } catch (_) {
+      sseClients.delete(client);
+    }
+  }
+}, 20000);
+
 // ================= API ROUTES =================
+
+// --- Real-time Updates SSE Stream ---
+app.get('/api/updates/stream', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache, no-transform');
+  res.setHeader('Connection', 'keep-alive');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  if (res.flushHeaders) res.flushHeaders();
+
+  const initData = JSON.stringify({
+    type: 'connected',
+    version: serverVersion,
+    cmsTimestamp,
+    productsTimestamp,
+    mediaTimestamp,
+    timestamp: Date.now()
+  });
+  res.write(`data: ${initData}\n\n`);
+  sseClients.add(res);
+
+  req.on('close', () => {
+    sseClients.delete(res);
+  });
+});
+
+// --- Real-time Updates Version Check (Fast Polling & Reconnect Hook) ---
+app.get('/api/updates/version', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.json({
+    success: true,
+    version: serverVersion,
+    cmsTimestamp,
+    productsTimestamp,
+    mediaTimestamp,
+    activeConnections: sseClients.size,
+    timestamp: Date.now()
+  });
+});
 
 // --- Database Status Route ---
 app.get('/api/db/status', (req, res) => {
@@ -101,7 +183,11 @@ app.get('/api/db/status', (req, res) => {
     type: 'MySQL (MariaDB)',
     message: db.isDbConnected()
       ? 'Connected to MySQL database "nationalplasto"'
-      : 'Operating in resilient JSON file fallback mode'
+      : 'Operating in resilient JSON file fallback mode',
+    realtime: {
+      activeConnections: sseClients.size,
+      version: serverVersion
+    }
   });
 });
 
@@ -259,6 +345,7 @@ app.post('/api/products', requireAuth, async (req, res) => {
     const saved = await db.saveProduct(newProduct);
     const updatedList = await db.getProducts();
     syncCatalogueJs(updatedList);
+    broadcastRealtimeUpdate('products_updated', { action: 'create', product: saved });
 
     res.status(201).json({ success: true, product: saved, message: 'Product added successfully to MySQL database' });
   } catch (err) {
@@ -277,6 +364,7 @@ app.put('/api/products/:id', requireAuth, async (req, res) => {
     const saved = await db.saveProduct(updated);
     const updatedList = await db.getProducts();
     syncCatalogueJs(updatedList);
+    broadcastRealtimeUpdate('products_updated', { action: 'update', product: saved });
 
     res.json({ success: true, product: saved, message: 'Product updated successfully in MySQL database' });
   } catch (err) {
@@ -292,6 +380,8 @@ app.delete('/api/products/:id', requireAuth, async (req, res) => {
     }
     const updatedList = await db.getProducts();
     syncCatalogueJs(updatedList);
+    broadcastRealtimeUpdate('products_updated', { action: 'delete', id: req.params.id, product: deleted });
+
     res.json({ success: true, message: `Product "${deleted.n}" deleted successfully from MySQL database` });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -325,6 +415,7 @@ app.put('/api/cms/:page', requireAuth, async (req, res) => {
   try {
     const page = req.params.page;
     const updated = await db.saveCMSPage(page, req.body);
+    broadcastRealtimeUpdate('cms_updated', { page, content: updated });
     res.json({ success: true, message: `Content for ${page} updated successfully in MySQL database`, page: updated });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -335,6 +426,7 @@ app.put('/api/cms', requireAuth, async (req, res) => {
   try {
     const content = req.body;
     const updated = await db.saveAllCMS(content);
+    broadcastRealtimeUpdate('cms_updated', { page: 'all', data: updated });
     res.json({ success: true, message: 'All CMS content updated successfully in MySQL database', data: updated });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -345,6 +437,7 @@ app.put('/api/cms', requireAuth, async (req, res) => {
 app.post('/api/inquiries', async (req, res) => {
   try {
     const saved = await db.saveInquiry(req.body);
+    broadcastRealtimeUpdate('inquiry_received', { inquiry: saved });
     res.status(201).json({ success: true, inquiry: saved, message: 'Inquiry saved successfully to database' });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
@@ -371,6 +464,7 @@ app.post('/api/upload', requireAuth, upload.array('files', 10), (req, res) => {
     url: `/images/uploads/${f.filename}`,
     size: f.size
   }));
+  broadcastRealtimeUpdate('media_updated', { files: uploadedFiles });
   res.json({ success: true, files: uploadedFiles, message: `${uploadedFiles.length} file(s) uploaded successfully` });
 });
 

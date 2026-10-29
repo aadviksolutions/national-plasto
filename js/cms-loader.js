@@ -49,42 +49,75 @@
     return target;
   }
 
-  function fetchCMSData() {
-    return getIdbData('np_custom_cms').then(function (idbCMS) {
-      var customCMS = (idbCMS && typeof idbCMS === 'object' && Object.keys(idbCMS).length > 0) ? idbCMS : null;
-      if (!customCMS) {
-        try {
-          var local = localStorage.getItem('np_custom_cms');
-          if (local) {
-            var parsed = JSON.parse(local);
-            if (parsed && typeof parsed === 'object') customCMS = parsed;
+  function setIdbData(key, val) {
+    if (typeof window === 'undefined' || !window.indexedDB) return Promise.resolve(false);
+    return new Promise(function (resolve) {
+      try {
+        var req = window.indexedDB.open(DB_NAME, DB_VERSION);
+        req.onupgradeneeded = function (e) {
+          var db = e.target.result;
+          if (!db.objectStoreNames.contains(STORE_NAME)) {
+            db.createObjectStore(STORE_NAME);
           }
-        } catch (_) {}
-      }
+        };
+        req.onsuccess = function (e) {
+          var db = e.target.result;
+          try {
+            var tx = db.transaction(STORE_NAME, 'readwrite');
+            var store = tx.objectStore(STORE_NAME);
+            var putReq = store.put(val, key);
+            putReq.onsuccess = function () { resolve(true); };
+            putReq.onerror = function () { resolve(false); };
+          } catch (_) { resolve(false); }
+        };
+        req.onerror = function () { resolve(false); };
+      } catch (_) { resolve(false); }
+    });
+  }
 
-      // Fetch base content to merge custom overrides on top
-      return fetch('/api/cms?t=' + Date.now())
-        .then(function (res) {
-          var ct = res.headers.get('content-type') || '';
-          if (!res.ok || !ct.includes('application/json')) throw new Error('API not available');
-          return res.json();
-        })
-        .then(function (res) {
-          var base = res.data || res;
-          return customCMS ? deepMerge(base, customCMS) : base;
-        })
-        .catch(function () {
+  function fetchCMSData() {
+    // 1. Fetch live content from server API first (authoritative MySQL database)
+    return fetch('/api/cms?t=' + Date.now())
+      .then(function (res) {
+        var ct = res.headers.get('content-type') || '';
+        if (!res.ok || !ct.includes('application/json')) throw new Error('API not available');
+        return res.json();
+      })
+      .then(function (res) {
+        var freshData = res.data || res;
+        if (freshData && typeof freshData === 'object' && Object.keys(freshData).length > 0) {
+          // Sync fresh server truth into local storage and IndexedDB
+          try {
+            setIdbData('np_custom_cms', freshData);
+            localStorage.setItem('np_custom_cms', JSON.stringify(freshData));
+            localStorage.setItem('np_custom_cms_timestamp', Date.now().toString());
+          } catch (_) {}
+          return freshData;
+        }
+        throw new Error('Empty server data');
+      })
+      .catch(function () {
+        // 2. Fallback to IndexedDB / localStorage / static JSON if offline
+        return getIdbData('np_custom_cms').then(function (idbCMS) {
+          if (idbCMS && typeof idbCMS === 'object' && Object.keys(idbCMS).length > 0) {
+            return idbCMS;
+          }
+          try {
+            var local = localStorage.getItem('np_custom_cms');
+            if (local) {
+              var parsed = JSON.parse(local);
+              if (parsed && typeof parsed === 'object') return parsed;
+            }
+          } catch (_) {}
+
           return fetch('data/cms-content.json?t=' + Date.now())
             .then(function (res) { return res.json(); })
-            .then(function (base) {
-              return customCMS ? deepMerge(base, customCMS) : base;
-            })
             .catch(function (err) {
-              console.warn('[CMS Loader] Base JSON fetch failed, using customCMS directly:', err);
-              return customCMS;
+              console.warn('[CMS Loader] Static fallback failed:', err);
+              return null;
             });
         });
-    });
+      });
   }
 
   function getNested(obj, path) {
@@ -1109,14 +1142,26 @@
     setTimeout(initLoader, 80);
   });
 
-  // 3. Listen for cross-tab storage updates
+  // 3. Connect to unified Real-Time Sync Engine (Multi-user & Cross-system)
+  function attachRealtime() {
+    if (typeof window !== 'undefined' && window.NP_REALTIME) {
+      window.NP_REALTIME.on('cms_updated', function (payload) {
+        initLoader();
+      });
+    } else {
+      setTimeout(attachRealtime, 250);
+    }
+  }
+  attachRealtime();
+
+  // 4. Listen for cross-tab storage updates
   window.addEventListener('storage', function (e) {
     if (e.key === 'np_custom_cms' || e.key === 'np_custom_cms_timestamp') {
       initLoader();
     }
   });
 
-  // 4. Listen for BroadcastChannel updates
+  // 5. Listen for BroadcastChannel updates
   if (typeof BroadcastChannel !== 'undefined') {
     try {
       var bc = new BroadcastChannel('np_cms_channel');

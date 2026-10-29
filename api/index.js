@@ -4,13 +4,19 @@ const fs = require('fs');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const db = require('../db');
+
+// Eagerly attempt database initialization if credentials exist
+db.initDatabase().catch(err => {
+  console.warn('[Vercel API] DB init note:', err.message);
+});
 
 const app = express();
 
 app.use(compression());
 app.use(cors());
-app.use(express.json({ limit: '25mb' }));
-app.use(express.urlencoded({ extended: true, limit: '25mb' }));
+app.use(express.json({ limit: '30mb' }));
+app.use(express.urlencoded({ extended: true, limit: '30mb' }));
 app.use(cookieParser());
 
 // Helper to safely load JSON data from data/ directory
@@ -29,34 +35,126 @@ function loadJson(filename, fallback = {}) {
 // In-memory active tokens for serverless function lifetime
 const activeTokens = new Set(['np_vercel_token']);
 
+// ================= REAL-TIME MULTI-USER UPDATE HUB =================
+let serverVersion = Date.now();
+let cmsTimestamp = Date.now();
+let productsTimestamp = Date.now();
+let mediaTimestamp = Date.now();
+const sseClients = new Set();
+
+function broadcastRealtimeUpdate(type, payload = {}) {
+  serverVersion = Date.now();
+  if (type.startsWith('cms')) cmsTimestamp = Date.now();
+  if (type.startsWith('product')) productsTimestamp = Date.now();
+  if (type.startsWith('media')) mediaTimestamp = Date.now();
+
+  const dataPayload = JSON.stringify({
+    type,
+    payload,
+    version: serverVersion,
+    cmsTimestamp,
+    productsTimestamp,
+    mediaTimestamp,
+    timestamp: Date.now()
+  });
+
+  const message = `data: ${dataPayload}\n\n`;
+  for (const client of sseClients) {
+    try {
+      client.write(message);
+    } catch (_) {
+      sseClients.delete(client);
+    }
+  }
+}
+
+// --- Real-time Updates SSE Stream ---
+app.get('/api/updates/stream', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache, no-transform');
+  res.setHeader('Connection', 'keep-alive');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  if (res.flushHeaders) res.flushHeaders();
+
+  const initData = JSON.stringify({
+    type: 'connected',
+    version: serverVersion,
+    cmsTimestamp,
+    productsTimestamp,
+    mediaTimestamp,
+    timestamp: Date.now()
+  });
+  res.write(`data: ${initData}\n\n`);
+  sseClients.add(res);
+
+  req.on('close', () => {
+    sseClients.delete(res);
+  });
+});
+
+// --- Real-time Updates Version Check (Fast Polling & Reconnect Hook) ---
+app.get('/api/updates/version', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.json({
+    success: true,
+    version: serverVersion,
+    cmsTimestamp,
+    productsTimestamp,
+    mediaTimestamp,
+    activeConnections: sseClients.size,
+    timestamp: Date.now()
+  });
+});
+
+// --- Database Status Route ---
+app.get('/api/db/status', (req, res) => {
+  res.json({
+    success: true,
+    database: 'nationalplasto',
+    username: 'nationalplasto',
+    isConnected: db.isDbConnected(),
+    type: db.isDbConnected() ? 'MySQL (Remote)' : 'Resilient JSON Fallback',
+    message: db.isDbConnected()
+      ? 'Connected to MySQL database "nationalplasto"'
+      : 'Operating in resilient JSON file fallback mode',
+    realtime: {
+      activeConnections: sseClients.size,
+      version: serverVersion
+    }
+  });
+});
+
 // --- Auth Routes ---
-app.post('/api/auth/login', (req, res) => {
+app.post('/api/auth/login', async (req, res) => {
   const { username, password } = req.body || {};
-  const config = loadJson('admin-config.json', { username: 'admin', password: 'nationalplasto2026' });
+  let config = await db.getAdminConfig().catch(() => null);
+  if (!config) config = loadJson('admin-config.json', { username: 'admin', password: 'nationalplasto2026' });
 
   if (username === config.username && password === config.password) {
     const token = 'np_' + Math.random().toString(36).substring(2) + Date.now().toString(36);
     activeTokens.add(token);
     res.cookie('np_admin_token', token, { maxAge: 24 * 60 * 60 * 1000, httpOnly: false, sameSite: 'lax' });
+    try { await db.recordAdminLogin(username); } catch (_) {}
     return res.json({
       success: true,
       token,
       user: { username: config.username, lastLogin: new Date().toISOString() },
-      mode: 'vercel_serverless'
+      mode: db.isDbConnected() ? 'mysql_cloud' : 'vercel_serverless'
     });
   }
 
   return res.status(401).json({ success: false, error: 'Invalid username or password' });
 });
 
-app.get('/api/auth/me', (req, res) => {
+app.get('/api/auth/me', async (req, res) => {
   const token = req.headers['authorization']?.replace('Bearer ', '') || req.cookies?.np_admin_token;
-  const config = loadJson('admin-config.json', { username: 'admin' });
+  let config = await db.getAdminConfig().catch(() => null);
+  if (!config) config = loadJson('admin-config.json', { username: 'admin' });
   if (token) {
     return res.json({
       success: true,
-      user: { username: config.username || 'admin', lastLogin: new Date().toISOString() },
-      mode: 'vercel_serverless'
+      user: { username: config.username || 'admin', lastLogin: config.lastLogin || new Date().toISOString() },
+      mode: db.isDbConnected() ? 'mysql_cloud' : 'vercel_serverless'
     });
   }
   return res.status(401).json({ success: false, error: 'Unauthorized' });
@@ -67,21 +165,26 @@ app.post('/api/auth/logout', (req, res) => {
   res.json({ success: true, message: 'Logged out successfully' });
 });
 
-app.post('/api/auth/change-password', (req, res) => {
+app.post('/api/auth/change-password', async (req, res) => {
   const { currentPassword, newPassword } = req.body || {};
-  const config = loadJson('admin-config.json', { password: 'nationalplasto2026' });
+  let config = await db.getAdminConfig().catch(() => null);
+  if (!config) config = loadJson('admin-config.json', { password: 'nationalplasto2026' });
   if (currentPassword !== config.password) {
     return res.status(400).json({ success: false, error: 'Current password is incorrect' });
   }
   if (!newPassword || newPassword.length < 6) {
     return res.status(400).json({ success: false, error: 'New password must be at least 6 characters' });
   }
+  try {
+    await db.updateAdminPassword(config.username || 'admin', newPassword);
+  } catch (_) {}
   return res.json({ success: true, message: 'Password updated successfully' });
 });
 
 // --- Stats Route ---
-app.get('/api/stats', (req, res) => {
-  const products = loadJson('products.json', []);
+app.get('/api/stats', async (req, res) => {
+  let products = await db.getProducts().catch(() => []);
+  if (!products || products.length === 0) products = loadJson('products.json', []);
   const media = loadJson('media.json', []);
   const brands = {};
   const categories = {};
@@ -97,13 +200,19 @@ app.get('/api/stats', (req, res) => {
     brands,
     categories,
     uploadedImagesCount: media.length,
+    database: {
+      name: 'nationalplasto',
+      username: 'nationalplasto',
+      connected: db.isDbConnected()
+    },
     lastUpdated: new Date().toISOString()
   });
 });
 
 // --- Products CRUD ---
-app.get('/api/products', (req, res) => {
-  let products = loadJson('products.json', []);
+app.get('/api/products', async (req, res) => {
+  let products = await db.getProducts().catch(() => []);
+  if (!products || products.length === 0) products = loadJson('products.json', []);
   const { search, brand, category, limit, page } = req.query || {};
 
   if (brand && brand !== 'all') {
@@ -134,45 +243,92 @@ app.get('/api/products', (req, res) => {
   res.json({ success: true, total, products });
 });
 
-app.get('/api/products/:id', (req, res) => {
-  const products = loadJson('products.json', []);
-  const found = products.find((p) => p.id === req.params.id || p.sku === req.params.id);
+app.get('/api/products/:id', async (req, res) => {
+  let found = await db.getProductById(req.params.id).catch(() => null);
+  if (!found) {
+    const products = loadJson('products.json', []);
+    found = products.find((p) => p.id === req.params.id || p.sku === req.params.id);
+  }
   if (!found) return res.status(404).json({ success: false, error: 'Product not found' });
   res.json({ success: true, product: found });
 });
 
-app.post('/api/products', (req, res) => {
-  res.status(201).json({ success: true, product: req.body, message: 'Product added successfully' });
+app.post('/api/products', async (req, res) => {
+  let saved = req.body;
+  try {
+    saved = await db.saveProduct(req.body);
+  } catch (_) {}
+  broadcastRealtimeUpdate('products_updated', { action: 'create', product: saved });
+  res.status(201).json({ success: true, product: saved, message: 'Product added successfully' });
 });
 
-app.put('/api/products/:id', (req, res) => {
-  res.json({ success: true, product: req.body, message: 'Product updated successfully' });
+app.put('/api/products/:id', async (req, res) => {
+  let saved = req.body;
+  try {
+    saved = await db.saveProduct({ ...req.body, id: req.params.id });
+  } catch (_) {}
+  broadcastRealtimeUpdate('products_updated', { action: 'update', product: saved });
+  res.json({ success: true, product: saved, message: 'Product updated successfully' });
 });
 
-app.delete('/api/products/:id', (req, res) => {
+app.delete('/api/products/:id', async (req, res) => {
+  try {
+    await db.deleteProduct(req.params.id);
+  } catch (_) {}
+  broadcastRealtimeUpdate('products_updated', { action: 'delete', id: req.params.id });
   res.json({ success: true, message: 'Product deleted successfully' });
 });
 
 // --- CMS Content Routes ---
-app.get('/api/cms', (req, res) => {
-  res.json({ success: true, data: loadJson('cms-content.json', {}) });
+app.get('/api/cms', async (req, res) => {
+  let data = await db.getCMSContent().catch(() => null);
+  if (!data || Object.keys(data).length === 0) data = loadJson('cms-content.json', {});
+  res.json({ success: true, data });
 });
 
-app.get('/api/cms/:page', (req, res) => {
-  const content = loadJson('cms-content.json', {});
-  const page = req.params.page;
-  if (!content[page]) {
+app.get('/api/cms/:page', async (req, res) => {
+  let pageData = await db.getCMSPage(req.params.page).catch(() => null);
+  if (!pageData) {
+    const content = loadJson('cms-content.json', {});
+    pageData = content[req.params.page];
+  }
+  if (!pageData) {
     return res.status(404).json({ success: false, error: 'Page content not found' });
   }
-  res.json({ success: true, page: content[page] });
+  res.json({ success: true, page: pageData });
 });
 
-app.put('/api/cms/:page', (req, res) => {
-  res.json({ success: true, message: `Content for ${req.params.page} updated successfully` });
+app.put('/api/cms/:page', async (req, res) => {
+  let saved = req.body;
+  try {
+    saved = await db.saveCMSPage(req.params.page, req.body);
+  } catch (_) {}
+  broadcastRealtimeUpdate('cms_updated', { page: req.params.page, content: saved });
+  res.json({ success: true, message: `Content for ${req.params.page} updated successfully`, page: saved });
 });
 
-app.put('/api/cms', (req, res) => {
-  res.json({ success: true, message: 'All CMS content updated successfully' });
+app.put('/api/cms', async (req, res) => {
+  let saved = req.body;
+  try {
+    saved = await db.saveAllCMS(req.body);
+  } catch (_) {}
+  broadcastRealtimeUpdate('cms_updated', { page: 'all', data: saved });
+  res.json({ success: true, message: 'All CMS content updated successfully', data: saved });
+});
+
+// --- Inquiries Routes ---
+app.post('/api/inquiries', async (req, res) => {
+  let saved = req.body;
+  try {
+    saved = await db.saveInquiry(req.body);
+  } catch (_) {}
+  broadcastRealtimeUpdate('inquiry_received', { inquiry: saved });
+  res.status(201).json({ success: true, inquiry: saved, message: 'Inquiry received successfully' });
+});
+
+app.get('/api/inquiries', async (req, res) => {
+  let list = await db.getInquiries(parseInt(req.query.limit || '100', 10)).catch(() => []);
+  res.json({ success: true, inquiries: list });
 });
 
 // --- Media Routes ---
@@ -186,6 +342,7 @@ app.delete('/api/media/:filename', (req, res) => {
 });
 
 app.post('/api/upload', (req, res) => {
+  broadcastRealtimeUpdate('media_updated', { files: req.body });
   res.json({ success: true, message: 'File uploaded successfully' });
 });
 
