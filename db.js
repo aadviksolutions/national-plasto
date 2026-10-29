@@ -78,7 +78,8 @@ async function initDatabase() {
 
       await pool.query(`
         CREATE TABLE IF NOT EXISTS products (
-          id VARCHAR(100) PRIMARY KEY,
+          row_id INT AUTO_INCREMENT PRIMARY KEY,
+          id VARCHAR(100),
           sku VARCHAR(100),
           name VARCHAR(255),
           brand VARCHAR(100),
@@ -94,7 +95,11 @@ async function initDatabase() {
           specs LONGTEXT,
           raw_data LONGTEXT,
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+          INDEX idx_id (id),
+          INDEX idx_sku (sku),
+          INDEX idx_brand (brand),
+          INDEX idx_category (category)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
       `);
 
