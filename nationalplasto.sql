@@ -11,23 +11,16 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- -----------------------------------------------------------------------------
--- 1. DATABASE & USER CREATION
+-- 1. DATABASE SELECTION
+-- (Note: In phpMyAdmin, click your database in the left menu before importing)
 -- -----------------------------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS `nationalplasto` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `nationalplasto`;
+-- CREATE DATABASE IF NOT EXISTS `nationalplasto` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- USE `nationalplasto`;
 
-CREATE USER IF NOT EXISTS 'nationalplasto'@'localhost' IDENTIFIED BY 'nationalp1997';
-CREATE USER IF NOT EXISTS 'nationalplasto'@'127.0.0.1' IDENTIFIED BY 'nationalp1997';
-CREATE USER IF NOT EXISTS 'nationalplasto'@'%' IDENTIFIED BY 'nationalp1997';
-
-ALTER USER 'nationalplasto'@'localhost' IDENTIFIED BY 'nationalp1997';
-ALTER USER 'nationalplasto'@'127.0.0.1' IDENTIFIED BY 'nationalp1997';
-ALTER USER 'nationalplasto'@'%' IDENTIFIED BY 'nationalp1997';
-
-GRANT ALL PRIVILEGES ON `nationalplasto`.* TO 'nationalplasto'@'localhost';
-GRANT ALL PRIVILEGES ON `nationalplasto`.* TO 'nationalplasto'@'127.0.0.1';
-GRANT ALL PRIVILEGES ON `nationalplasto`.* TO 'nationalplasto'@'%';
-FLUSH PRIVILEGES;
+-- (Optional: Run only if you are logged in as root MySQL admin on a dedicated server)
+-- CREATE USER IF NOT EXISTS 'nationalplasto'@'localhost' IDENTIFIED BY 'nationalp1997';
+-- GRANT ALL PRIVILEGES ON `nationalplasto`.* TO 'nationalplasto'@'localhost';
+-- FLUSH PRIVILEGES;
 
 -- -----------------------------------------------------------------------------
 -- 2. TABLE STRUCTURES
